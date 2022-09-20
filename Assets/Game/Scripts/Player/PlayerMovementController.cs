@@ -110,7 +110,6 @@ public class PlayerMovementController : MonoBehaviour
 
 	private void Awake()
 	{
-		Application.targetFrameRate = 20;
 		// get a reference to our main camera
 		if (mainCamera == null)
 		{
@@ -215,9 +214,9 @@ public class PlayerMovementController : MonoBehaviour
 			speed = targetSpeed;
 		}
 
-		animationBlendForward = Mathf.Lerp(animationBlendForward, targetSpeed * inputDirection.z, Time.deltaTime * SpeedChangeRate);
-		animationBlendRight = Mathf.Lerp(animationBlendRight, targetSpeed * inputDirection.x, Time.deltaTime * SpeedChangeRate);
-		animationBlend = Mathf.Lerp(animationBlend, targetSpeed, Time.deltaTime * SpeedChangeRate);
+		animationBlendForward = Mathf.Lerp(animationBlendForward, targetSpeed / MoveSpeed * inputDirection.z, Time.deltaTime * SpeedChangeRate);
+		animationBlendRight = Mathf.Lerp(animationBlendRight, targetSpeed / MoveSpeed * inputDirection.x, Time.deltaTime * SpeedChangeRate);
+		animationBlend = Mathf.Lerp(animationBlend, targetSpeed / MoveSpeed, Time.deltaTime * SpeedChangeRate);
 
 		inputDirection = new Vector3(input.Move.x, 0.0f, input.Move.y).normalized;
 
@@ -225,8 +224,10 @@ public class PlayerMovementController : MonoBehaviour
 		float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref rotationVelocity, RotationSmoothTime);
 		transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
 
-		animator.SetFloat(animIDSpeed, animationBlend);
-		
+		//animator.SetFloat(animIDSpeed, animationBlend);
+		animator.SetFloat(animIDSpeedForward, animationBlendForward);
+		animator.SetFloat(animIDSpeedRight, animationBlendRight);
+
 		movement = inputDirection.z * mainCamera.transform.forward + inputDirection.x * mainCamera.transform.right;
 		movement.Normalize();
 		movement *= speed * Time.deltaTime;
