@@ -1,0 +1,10 @@
+using System;
+
+namespace CosmosDefender
+{
+	[Serializable]
+	public class #SCRIPTNAME#
+	{
+	    #NOTRIM#
+	}
+}
