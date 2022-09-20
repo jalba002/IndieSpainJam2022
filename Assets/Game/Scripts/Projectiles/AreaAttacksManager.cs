@@ -21,11 +21,12 @@ public static class AreaAttacksManager
         return a;
     }
     
-    public static Collider[] SphereOverlap(Vector3 spawnPos, float radius)
+    public static Collider[] SphereOverlap(Vector3 spawnPos, float radius, bool debugMode = true)
     {
         var a = Physics.OverlapSphere(spawnPos, radius);
         
-        ExtDebug.DrawSphere(spawnPos, radius, Color.red);
+        if(debugMode)
+            ExtDebug.DrawSphere(spawnPos, radius, Color.red);
         
         return a;
     }

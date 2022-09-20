@@ -8,6 +8,7 @@ namespace Bullets
         {
             var proj = Instantiate(projectilePrefab, position, identity);
             proj.name = "Projectile";
+            proj.GetComponent<Bullet>().InstantiateBullet();
         }
     }
 }

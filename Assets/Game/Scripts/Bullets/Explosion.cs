@@ -8,9 +8,9 @@ using UnityEngine.VFX;
 public class Explosion : Bullet
 {
     public float bulletDuration = 5f;
-    public override void InstantiateBullet(Vector3 center)
+    public override void InstantiateBullet()
     {
-        base.InstantiateBullet(center);
+        base.InstantiateBullet();
         // Setup and coroutine.
         // Get VFX duration.
         // Get component damage.
@@ -30,7 +30,7 @@ public class Explosion : Bullet
 
     IEnumerator InstantExplosion()
     {
-        AreaAttacksManager.SphereAttack();
+        AreaAttacksManager.SphereOverlap(transform.position, 5f);
         yield return new WaitForSeconds(bulletDuration);
         this.gameObject.SetActive(false);
     }

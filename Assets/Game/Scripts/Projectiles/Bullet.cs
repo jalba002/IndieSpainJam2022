@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour
 
     //private PlayerHealthManager playerHealth;
 
-    public virtual void InstantiateBullet(Vector3 center)
+    public virtual void InstantiateBullet()
     {
         // Nah.
     }

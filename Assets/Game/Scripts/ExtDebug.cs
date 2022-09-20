@@ -50,6 +50,13 @@ using UnityEngine;
          Debug.DrawLine(box.frontBottomRight, box.backBottomRight, color, duration);
          Debug.DrawLine(box.frontBottomLeft,     box.backBottomLeft, color, duration);
      }
+
+     public static void DrawSphere(Vector3 origin, float radius, Color color, float duration = 1f)
+     {
+         Debug.DrawLine(new Vector3(origin.x + radius, origin.y, origin.z), new Vector3(origin.x - radius, origin.y, origin.z), color, duration);
+         Debug.DrawLine(new Vector3(origin.x, origin.y + radius, origin.z), new Vector3(origin.x, origin.y - radius, origin.z), color, duration);
+         Debug.DrawLine(new Vector3(origin.x, origin.y, origin.z + radius), new Vector3(origin.x, origin.y, origin.z - radius), color, duration);
+     }
      
      public struct Box
      {
