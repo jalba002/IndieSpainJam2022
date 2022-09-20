@@ -14,7 +14,5 @@ namespace CosmosDefender
         protected GameObject VFXPrefab;
 
         public abstract void Cast(Transform spawnPoint, IReadOnlyCombatData combatData);
-
-        public MissileData CreateMissileData(ICombatData data) => null;
     }
 }
