@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace CosmosDefender
 {
-	[CreateAssetMenu(fileName = nameof(#SCRIPTNAME#), menuName = "MemeIt/"+nameof(#SCRIPTNAME#))]
+	[CreateAssetMenu(fileName = nameof(#SCRIPTNAME#), menuName = "CosmosDefender/"+nameof(#SCRIPTNAME#))]
 	public class #SCRIPTNAME# : ScriptableObject
 	{
 	    #NOTRIM#
