@@ -25,10 +25,7 @@ public class PlayerInputs : MonoBehaviour
 
 	public void OnLook(InputValue value)
 	{
-		if (cursorInputForLook)
-		{
-			LookInput(value.Get<Vector2>());
-		}
+		LookInput(value.Get<Vector2>());
 	}
 
 	public void OnDodge(InputValue value)

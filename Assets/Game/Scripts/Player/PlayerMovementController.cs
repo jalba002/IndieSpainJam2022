@@ -214,9 +214,9 @@ public class PlayerMovementController : MonoBehaviour
 			speed = targetSpeed;
 		}
 
-		animationBlendForward = Mathf.Lerp(animationBlendForward, targetSpeed / MoveSpeed * inputDirection.z, Time.deltaTime * SpeedChangeRate);
-		animationBlendRight = Mathf.Lerp(animationBlendRight, targetSpeed / MoveSpeed * inputDirection.x, Time.deltaTime * SpeedChangeRate);
-		animationBlend = Mathf.Lerp(animationBlend, targetSpeed / MoveSpeed, Time.deltaTime * SpeedChangeRate);
+		animationBlendForward = Mathf.Lerp(animationBlendForward, targetSpeed / MoveSpeed * inputDirection.z * inputMagnitude, Time.deltaTime * SpeedChangeRate);
+		animationBlendRight = Mathf.Lerp(animationBlendRight, targetSpeed / MoveSpeed * inputDirection.x * inputMagnitude, Time.deltaTime * SpeedChangeRate);
+		animationBlend = Mathf.Lerp(animationBlend, targetSpeed / MoveSpeed * inputMagnitude, Time.deltaTime * SpeedChangeRate);
 
 		inputDirection = new Vector3(input.Move.x, 0.0f, input.Move.y).normalized;
 
@@ -228,7 +228,16 @@ public class PlayerMovementController : MonoBehaviour
 		animator.SetFloat(animIDSpeedForward, animationBlendForward);
 		animator.SetFloat(animIDSpeedRight, animationBlendRight);
 
-		movement = inputDirection.z * mainCamera.transform.forward + inputDirection.x * mainCamera.transform.right;
+		var cameraFoward = mainCamera.transform.forward;
+		var cameraRight = mainCamera.transform.right;
+
+		cameraFoward.y = 0;
+		cameraRight.y = 0;
+
+		cameraFoward.Normalize();
+		cameraRight.Normalize();
+
+		movement = inputDirection.z * cameraFoward + inputDirection.x * cameraRight;
 		movement.Normalize();
 		movement *= speed * Time.deltaTime;
 		movement.y = verticalVelocity * Time.deltaTime;
