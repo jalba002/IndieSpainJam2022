@@ -43,7 +43,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _FresnelNoisePower: 1
-    - _FresnelPower: 0.89
+    - _FresnelPower: 1.37
     - _FresnelScale: 50
     - _FresnelSpeed: 0.1
     - _QueueControl: 0
@@ -51,9 +51,9 @@ Material:
     m_Colors:
     - _BackgroundScale: {r: 0, g: 0, b: 0, a: 0}
     - _CubemapScale: {r: 1, g: 1, b: 1, a: 0}
-    - _FresnelColor: {r: 0, g: 3.9058824, b: 4, a: 1}
+    - _FresnelColor: {r: 5.3403134, g: 5.3403134, b: 5.3403134, a: 1}
     - _FresnelSpeed: {r: 0.05, g: 0.05, b: 0, a: 0}
-    - _GalaxyColor: {r: 0, g: 1.4980392, b: 1.4980392, a: 1}
+    - _GalaxyColor: {r: 0, g: 1.0690879, b: 1.4980392, a: 1}
     - _StarsColor: {r: 0, g: 0, b: 0, a: 1}
     - _StarsOffset: {r: 0.1, g: 0, b: 0, a: 0}
     - _StarsScale: {r: 1, g: 1, b: 1, a: 0}
