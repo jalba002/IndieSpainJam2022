@@ -27,6 +27,9 @@ namespace CosmosDefender
         {
             attributeModifiers = new ObservableModifierList<BaseModifier<AttributesData>, AttributesData>(UpdateAttributes);
             spellModifiers = new ObservableModifierList<BaseModifier<SpellData>, SpellData>(UpdateSpells);
+
+            RemoveAllAttributeModifiers();
+            RemoveAllSpellModifiers();
         }
 
         private void UpdateAttributes(IReadOnlyList<BaseModifier<AttributesData>> attributeModifiers)
@@ -42,14 +45,22 @@ namespace CosmosDefender
                 spell.ApplyModifiers(spellModifiers);
         }
 
-        public void AddAttributeModifier(BaseModifier<AttributesData> modifier) => attributeModifiers.AddModifier(modifier);
-        public void AddAttributeModifiers(List<BaseModifier<AttributesData>> modifiers) => attributeModifiers.AddModifiers(modifiers);
-        public void RemoveAttributeModifier(BaseModifier<AttributesData> modifier) => attributeModifiers.RemoveModifier(modifier);
+        [Button]
+        public void AddAttributeModifier(BaseAttributeModifier modifier) => attributeModifiers.AddModifier(modifier);
+        [Button]
+        public void AddAttributeModifiers(List<BaseAttributeModifier> modifiers) => attributeModifiers.AddModifiers(modifiers);
+        [Button]
+        public void RemoveAttributeModifier(BaseAttributeModifier modifier) => attributeModifiers.RemoveModifier(modifier);
+        [Button]
         public void RemoveAllAttributeModifiers() => attributeModifiers.RemoveAllModifiers();
 
-        public void AddSpellModifier(BaseModifier<SpellData> modifier) => spellModifiers.AddModifier(modifier);
-        public void AddSpellModifiers(List<BaseModifier<SpellData>> modifier) => spellModifiers.AddModifiers(modifier);
-        public void RemoveSpellModifier(BaseModifier<SpellData> modifier) => spellModifiers.RemoveModifier(modifier);
+        [Button]
+        public void AddSpellModifier(BaseSpellModifier modifier) => spellModifiers.AddModifier(modifier);
+        [Button]
+        public void AddSpellModifiers(List<BaseSpellModifier> modifier) => spellModifiers.AddModifiers(modifier);
+        [Button]
+        public void RemoveSpellModifier(BaseSpellModifier modifier) => spellModifiers.RemoveModifier(modifier);
+        [Button]
         public void RemoveAllSpellModifiers() => spellModifiers.RemoveAllModifiers();
     }
 }
