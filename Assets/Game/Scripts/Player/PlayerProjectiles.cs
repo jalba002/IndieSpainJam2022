@@ -1,6 +1,5 @@
-using UnityEngine;
-using Bullets;
 using CosmosDefender;
+using UnityEngine;
 
 namespace Player
 {
@@ -20,7 +19,7 @@ namespace Player
         {
             Shoot();
         }
-        
+
         void Shoot()
         {
             spellTest.Cast(spawnPoint, transform.forward, transform.rotation, playerAttributes.CombatData);

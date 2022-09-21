@@ -3,7 +3,7 @@ using UnityEngine;
 namespace CosmosDefender
 {
     [CreateAssetMenu(fileName = nameof(ThunderSpell), menuName = "CosmosDefender/" + nameof(ThunderSpell))]
-    public class ThunderSpell : BaseSpell<Bullet>
+    public class ThunderSpell : BaseSpell
     {
         [SerializeField]
         private int amountOfMissiles;

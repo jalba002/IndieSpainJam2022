@@ -3,7 +3,7 @@ using UnityEngine;
 namespace CosmosDefender
 {
     [CreateAssetMenu(fileName = nameof(LaserSpellWeak), menuName = "CosmosDefender/" + nameof(LaserSpellWeak))]
-    public class LaserSpellWeak : BaseSpell<Bullet>
+    public class LaserSpellWeak : BaseSpell
     {
         public override void Cast(Transform spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData)
         {
