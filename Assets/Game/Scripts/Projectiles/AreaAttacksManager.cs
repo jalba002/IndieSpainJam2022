@@ -14,9 +14,10 @@ public static class AreaAttacksManager
     
     public static Collider[] BoxAttack(Vector3 spawnPos, Vector3 forward, Vector3 halfSize, Quaternion spawnRot)
     {
-        var a = Physics.OverlapBox(spawnPos + forward * halfSize.z, halfSize, spawnRot);
+        Vector3 l_SpawnPos = spawnPos + (forward * halfSize.z);
+        var a = Physics.OverlapBox(l_SpawnPos, halfSize, spawnRot);
         
-        ExtDebug.DrawBox(spawnPos, halfSize, spawnRot, Color.red);
+        ExtDebug.DrawBox(l_SpawnPos, halfSize, spawnRot, Color.red);
         
         return a;
     }

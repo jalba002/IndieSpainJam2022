@@ -17,6 +17,12 @@ namespace CosmosDefender
         {
             StartCoroutine(CoroutineForTime(maxTime, elapsedTime, callback));
         }
+        
+        public void ScheduleForRepetitions(int repetitions, float delay, Action callback)
+        {
+            StartCoroutine(CoroutineForAmount(repetitions, delay, callback));
+        }
+
 
         private IEnumerator CoroutineForTime(float time, Action callback)
         {
@@ -31,6 +37,17 @@ namespace CosmosDefender
             {
                 yield return new WaitForSeconds(elapsedTime);
                 callback.Invoke();
+            }
+        }
+        
+        private IEnumerator CoroutineForAmount(int repetitions, float delayBetweenActions, Action callback)
+        {
+            int counter = repetitions;
+            while (counter > 0)
+            {
+                callback.Invoke();
+                counter--;
+                yield return new WaitForSeconds(delayBetweenActions);
             }
         }
     }

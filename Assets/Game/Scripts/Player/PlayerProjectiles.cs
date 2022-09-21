@@ -12,15 +12,17 @@ namespace Player
 
         void OnAltFire()
         {
-            BulletSpawnManager.Spawn(testPrefab, spawnPoint.position, transform.rotation);
+            //BulletSpawnManager.Spawn(testPrefab, spawnPoint.position, transform.rotation);
             
             // This should be on the bullet itself.
-            //var colls = AreaAttacksManager.BoxAttack(spawnPoint.position, transform.forward, size * 0.5f, transform.rotation);
+            // var colls = AreaAttacksManager.BoxAttack(spawnPoint.position, transform.forward, size * 0.5f, transform.rotation);
             
             // foreach (var VARIABLE in colls)
             // {
             //     Debug.Log(VARIABLE.name);
             // }
+            
+            
         }
     }
 }
