@@ -10,12 +10,14 @@ namespace CosmosDefender
     {
         [SerializeField]
         private AttributesData baseAttributes;
-
         [SerializeField]
-        private List<BaseAttributeModifier> attributeModifiers;
+        private BaseSpell[] spells;
 
-        [ShowInInspector]
+        [ShowInInspector, ReadOnly]
         private AttributesData currentAttributes;
+
+        private ObservableModifierList<BaseModifier<AttributesData>, AttributesData> attributeModifiers;
+        private ObservableModifierList<BaseModifier<SpellData>, SpellData> spellModifiers;
 
         public IReadOnlyOffensiveData CombatData => currentAttributes;
         public IReadOnlyDefensiveData DefensiveData => currentAttributes;
@@ -23,45 +25,31 @@ namespace CosmosDefender
 
         public void Initialize()
         {
-            UpdateAttributes();
+            attributeModifiers = new ObservableModifierList<BaseModifier<AttributesData>, AttributesData>(UpdateAttributes);
+            spellModifiers = new ObservableModifierList<BaseModifier<SpellData>, SpellData>(UpdateSpells);
         }
 
-        private void UpdateAttributes()
+        private void UpdateAttributes(IReadOnlyList<BaseModifier<AttributesData>> attributeModifiers)
         {
             currentAttributes = baseAttributes;
             foreach (var modifier in attributeModifiers.OrderBy(x => x.Priority))
                 modifier.Modify(ref currentAttributes);
         }
 
-        public void AddAttribute(BaseAttributeModifier attribute)
+        private void UpdateSpells(IReadOnlyList<BaseModifier<SpellData>> spellModifiers)
         {
-            attributeModifiers.Add(attribute);
-            UpdateAttributes();
+            foreach (var spell in spells)
+                spell.ApplyModifiers(spellModifiers);
         }
 
-        public void AddAttributes(List<BaseAttributeModifier> attributes)
-        {
-            attributeModifiers.AddRange(attributes);
-            UpdateAttributes();
-        }
+        public void AddAttributeModifier(BaseModifier<AttributesData> modifier) => attributeModifiers.AddModifier(modifier);
+        public void AddAttributeModifiers(List<BaseModifier<AttributesData>> modifiers) => attributeModifiers.AddModifiers(modifiers);
+        public void RemoveAttributeModifier(BaseModifier<AttributesData> modifier) => attributeModifiers.RemoveModifier(modifier);
+        public void RemoveAllAttributeModifiers() => attributeModifiers.RemoveAllModifiers();
 
-        [Button]
-        public void AddTemporalAttribute(BaseTemporalAttributeModifier attribute)
-        {
-            AddAttribute(attribute);
-            CronoScheduler.Instance.ScheduleForTime(attribute.Time, () => RemoveAttribute(attribute));
-        }
-
-        public void RemoveAttribute(BaseAttributeModifier attribute)
-        {
-            attributeModifiers.Remove(attribute);
-            UpdateAttributes();
-        }
-
-        public void RemoveAllModifiers()
-        {
-            attributeModifiers.Clear();
-            UpdateAttributes();
-        }
+        public void AddSpellModifier(BaseModifier<SpellData> modifier) => spellModifiers.AddModifier(modifier);
+        public void AddSpellModifiers(List<BaseModifier<SpellData>> modifier) => spellModifiers.AddModifiers(modifier);
+        public void RemoveSpellModifier(BaseModifier<SpellData> modifier) => spellModifiers.RemoveModifier(modifier);
+        public void RemoveAllSpellModifiers() => spellModifiers.RemoveAllModifiers();
     }
 }

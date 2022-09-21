@@ -7,10 +7,10 @@ namespace CosmosDefender
         PostModify = 2
     }
 
-    public interface IAttributeModifier
+    public interface IModifier<T>
     {
         ModifierPriority Priority { get; }
 
-        void Modify(ref AttributesData data);
+        void Modify(ref T data);
     }
 }

@@ -1,14 +1,6 @@
-using UnityEngine;
-
 namespace CosmosDefender
 {
-    public abstract class BaseAttributeModifier : ScriptableObject, IAttributeModifier
+    public abstract class BaseAttributeModifier : BaseModifier<AttributesData>
     {
-        [SerializeField]
-        private ModifierPriority priority;
-
-        public ModifierPriority Priority => priority;
-
-        public abstract void Modify(ref AttributesData data);
     }
 }
