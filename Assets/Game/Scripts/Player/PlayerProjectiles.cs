@@ -1,5 +1,6 @@
 using UnityEngine;
 using Bullets;
+using CosmosDefender;
 
 namespace Player
 {
@@ -10,19 +11,16 @@ namespace Player
 
         public GameObject testPrefab;
 
+        public BaseSpell spellTest;
+
         void OnAltFire()
         {
-            //BulletSpawnManager.Spawn(testPrefab, spawnPoint.position, transform.rotation);
-            
-            // This should be on the bullet itself.
-            // var colls = AreaAttacksManager.BoxAttack(spawnPoint.position, transform.forward, size * 0.5f, transform.rotation);
-            
-            // foreach (var VARIABLE in colls)
-            // {
-            //     Debug.Log(VARIABLE.name);
-            // }
-            
-            
+            Shoot();
+        }
+        
+        void Shoot()
+        {
+            spellTest.Cast(spawnPoint.position, transform.forward, transform.rotation, new AttributesData(10f, 5f));   
         }
     }
 }

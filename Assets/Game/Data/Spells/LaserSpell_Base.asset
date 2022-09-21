@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageMultiplier: 1
   projectileSpeed: 0
-  prefab: {fileID: 0}
+  prefab: {fileID: 8022966244273749138, guid: 9d26c3e6f3068b6428d390d8b5da9e1b, type: 3}
   VFXPrefab: {fileID: 0}

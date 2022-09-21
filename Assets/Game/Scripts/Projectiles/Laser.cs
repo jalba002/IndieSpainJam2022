@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using CosmosDefender;
-using Sirenix.OdinInspector.Editor.Drawers;
-using Unity.Burst.Intrinsics;
 using UnityEngine;
 
 public class Laser : Bullet
@@ -15,6 +11,7 @@ public class Laser : Bullet
     public override void InstantiateBullet(Vector3 origin, Vector3 forward, Quaternion rotation)
     {
         this.transform.forward = forward;
+        this.transform.rotation = rotation;
         // TODO Gather length size and send here.
         CronoScheduler.Instance.ScheduleForTimeAndExecuteElapsed(3f, 
             0.25f, 

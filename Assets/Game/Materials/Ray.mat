@@ -80,6 +80,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: dffef66376be4fa480fb02b19edbe903, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_de157f72dde84f69815fe23cbbb86b50_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 1d93b693d900ce6489effa22f3fd8d03, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -107,7 +111,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
-    - _AlphaClipAmount: 0.47
+    - _AlphaClipAmount: 0
     - _Blend: 0
     - _BumpScale: 1
     - _ClearCoatMask: 0
@@ -116,8 +120,8 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DistortionAmount: 10.2
-    - _DistortionScale: 54.95
+    - _DistortionAmount: 10
+    - _DistortionScale: 55
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _FresnelPower: 16
