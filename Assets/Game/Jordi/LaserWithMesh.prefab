@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3379808033264604598}
-  - component: {fileID: 1821889575533976083}
-  - component: {fileID: 4516074288538742489}
+  - component: {fileID: 3106991549192487157}
+  - component: {fileID: 610321901993687850}
   m_Layer: 0
   m_Name: Rayo
   m_TagString: Untagged
@@ -25,24 +25,57 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2714735798574370572}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8022966244273749141}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!33 &1821889575533976083
-MeshFilter:
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!2083052967 &3106991549192487157
+VisualEffect:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2714735798574370572}
-  m_Mesh: {fileID: 2470260292293859954, guid: e4cc7f959de32ec43917bbf6073e138b, type: 3}
---- !u!23 &4516074288538742489
-MeshRenderer:
+  m_Enabled: 1
+  m_Asset: {fileID: 8926484042661614526, guid: 693557a91c07f5645b4a2b5bf164b61f, type: 3}
+  m_InitialEventName: OnPlay
+  m_InitialEventNameOverriden: 0
+  m_StartSeed: 0
+  m_ResetSeedOnPlay: 1
+  m_ResourceVersion: 1
+  m_PropertySheet:
+    m_Float:
+      m_Array:
+      - m_Value: 30
+        m_Name: Duration
+        m_Overridden: 1
+    m_Vector2f:
+      m_Array: []
+    m_Vector3f:
+      m_Array: []
+    m_Vector4f:
+      m_Array: []
+    m_Uint:
+      m_Array: []
+    m_Int:
+      m_Array: []
+    m_Matrix4x4f:
+      m_Array: []
+    m_AnimationCurve:
+      m_Array: []
+    m_Gradient:
+      m_Array: []
+    m_NamedObject:
+      m_Array: []
+    m_Bool:
+      m_Array: []
+--- !u!73398921 &610321901993687850
+VFXRenderer:
+  serializedVersion: 1
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -50,18 +83,16 @@ MeshRenderer:
   m_GameObject: {fileID: 2714735798574370572}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 87fce901ee0303f4887ab02b66596d0e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -82,7 +113,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &8022966244273749138
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +124,7 @@ GameObject:
   - component: {fileID: 8022966244273749141}
   - component: {fileID: 8022966244273749140}
   m_Layer: 0
-  m_Name: Laser_Mesh
+  m_Name: LaserWithMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,12 +158,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f42ae5bd28bfff4787f61b9a09ca50c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SnapToGround: 0
+  m_CheckOutOfBounds: 0
   raycastHitLayers:
     serializedVersion: 2
     m_Bits: 0
-  raycastDistance: 10
-  damage: 10
-  spawnPrefab: 0
-  projectilePrefab: {fileID: 0}
-  drawSphere: 0
-  IsStopped: 0
+  rayToGroundDistance: 10
+  vfx: {fileID: 3106991549192487157}

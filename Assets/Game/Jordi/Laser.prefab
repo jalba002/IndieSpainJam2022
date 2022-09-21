@@ -41,7 +41,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8022966244239508525}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: 693557a91c07f5645b4a2b5bf164b61f, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: 060eb83aca0259249bd149617f3d9437, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
@@ -158,12 +158,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f42ae5bd28bfff4787f61b9a09ca50c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SnapToGround: 0
+  m_CheckOutOfBounds: 0
   raycastHitLayers:
     serializedVersion: 2
     m_Bits: 0
-  raycastDistance: 10
-  damage: 10
-  spawnPrefab: 0
-  projectilePrefab: {fileID: 0}
-  drawSphere: 0
-  IsStopped: 0
+  rayToGroundDistance: 10
+  vfx: {fileID: 0}

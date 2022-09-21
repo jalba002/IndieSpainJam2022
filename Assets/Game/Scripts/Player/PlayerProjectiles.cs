@@ -23,7 +23,7 @@ namespace Player
         
         void Shoot()
         {
-            spellTest.Cast(spawnPoint.position, transform.forward, transform.rotation, playerAttributes.CombatData);
+            spellTest.Cast(spawnPoint, transform.forward, transform.rotation, playerAttributes.CombatData);
         }
     }
 }
