@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace CosmosDefender
 {
-    [CreateAssetMenu(fileName = nameof(PurchasedAttributes), menuName = "CosmosDefender/" + nameof(PurchasedAttributes))]
-    public class PurchasedAttributes : ScriptableObject
+    [CreateAssetMenu(fileName = nameof(ShopAttributesModifier), menuName = "CosmosDefender/" + nameof(ShopAttributesModifier))]
+    public class ShopAttributesModifier : ScriptableObject
     {
         [SerializeField]
         private List<PurchaseableAttributeModifier> purchasedAttributes;
