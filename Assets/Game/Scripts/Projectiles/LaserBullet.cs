@@ -18,8 +18,8 @@ public class LaserBullet : Bullet
 
         Vector3 maxLength = new Vector3(1f, 1f, 20f);
         m_BulletInfo = new BulletInfo(transform, maxLength);
-        // INTENTIONAL UNTIL WE HAVE A NEW MESH.
-        vfx.gameObject.transform.localScale = new Vector3(maxLength.x, maxLength.z, maxLength.y);
+        // NO NEED, THIS IS THE HEIGHT.
+        // vfx.gameObject.transform.localScale = new Vector3(maxLength.x, maxLength.z, maxLength.y);
         // IN THE END, MODIFY THE LENGTH Z with RAYCAST. So it collides with pillars.
         
         this.transform.forward = forward;
