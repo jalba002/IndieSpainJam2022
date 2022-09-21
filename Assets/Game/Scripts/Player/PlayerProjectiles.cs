@@ -13,6 +13,9 @@ namespace Player
 
         public BaseSpell spellTest;
 
+        [SerializeField]
+        private PlayerAttributes playerAttributes;
+
         void OnAltFire()
         {
             Shoot();
@@ -20,7 +23,7 @@ namespace Player
         
         void Shoot()
         {
-            spellTest.Cast(spawnPoint.position, transform.forward, transform.rotation, new AttributesData(10f, 5f));   
+            spellTest.Cast(spawnPoint.position, transform.forward, transform.rotation, playerAttributes.CombatData);
         }
     }
 }

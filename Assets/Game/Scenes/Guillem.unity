@@ -15764,16 +15764,11 @@ MonoBehaviour:
   CameraAngleOverride: 0
   LockCameraPosition: 0
   virtualCamera: {fileID: 646468037}
-  isDodging: 0
-  DodgeLaunchSpeed: 8
-  DodgeUnactableTime: 0.5
-  DodgeAnimationSpeed: 1
-  DeadZoneRange: 0.5
-  m_KickHitBox: {fileID: 0}
-  m_PunchComboValidTime: 0.5
-  m_PunchComboTimerDone: 0
-  m_PunchCombo: 0
-  m_IsAttacking: 0
+  isDashing: 0
+  DashLaunchSpeed: 8
+  DashUnactableTime: 0.5
+  DashAnimationSpeed: 1
+  playerAttributes: {fileID: 11400000, guid: fed7debed2a62174487ed40798233d77, type: 2}
 --- !u!4 &8357938773290716297
 Transform:
   m_ObjectHideFlags: 0

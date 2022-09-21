@@ -6,24 +6,23 @@ using UnityEngine;
 namespace CosmosDefender
 {
     [CreateAssetMenu(fileName = nameof(PlayerAttributes), menuName = "CosmosDefender/" + nameof(PlayerAttributes))]
-    public class PlayerAttributes : ScriptableObject, IReadOnlyCombatData, IReadOnlySpeedData
+    public class PlayerAttributes : ScriptableObject
     {
         [SerializeField]
-        private AttributesData attributes;
+        private AttributesData baseAttributes;
 
         [SerializeField]
         private List<BaseAttributeModifier> attributeModifiers;
 
+        [ShowInInspector]
         private AttributesData currentAttributes;
 
-        [ShowInInspector]
-        public float AttackDamage => currentAttributes.AttackDamage;
-        [ShowInInspector]
-        public float Speed => currentAttributes.Speed;
+        public IReadOnlyCombatData CombatData => currentAttributes;
+        public IReadOnlySpeedData SpeedData => currentAttributes;
 
         private void UpdateAttributes()
         {
-            currentAttributes = attributes;
+            currentAttributes = baseAttributes;
             foreach (var modifier in attributeModifiers.OrderBy(x => x.Priority))
                 modifier.Modify(ref currentAttributes);
         }

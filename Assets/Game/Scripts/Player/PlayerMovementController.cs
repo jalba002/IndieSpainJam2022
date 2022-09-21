@@ -1,5 +1,6 @@
 using System.Collections;
 using Cinemachine;
+using CosmosDefender;
 using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviour
@@ -46,8 +47,8 @@ public class PlayerMovementController : MonoBehaviour
 	public bool LockCameraPosition = false;
 
 	// cinemachine
-	private float _cinemachineTargetYaw;
-	private float _cinemachineTargetPitch;
+	private float cinemachineTargetYaw;
+	private float cinemachineTargetPitch;
 
 	// player
 	private float speed;
@@ -85,18 +86,17 @@ public class PlayerMovementController : MonoBehaviour
 
 	[SerializeField] private CinemachineVirtualCamera virtualCamera;
 
-	// dodge
-	[Header("Dodge")]
+	[Header("Dash")]
 	[SerializeField]
-	private bool isDodging = false;
-	public float DodgeLaunchSpeed = 8f;
-	public float DodgeUnactableTime = 0.5f;
-	public float DodgeAnimationSpeed = 1f;
-	private float preDodgeTargetRotation;
+	private bool isDashing = false;
+	public float DashLaunchSpeed = 8f;
+	public float DashUnactableTime = 0.5f;
+	public float DashAnimationSpeed = 1f;
+	private float preDashTargetRotation;
 
-	[Range(0, 1)]
-	public float DeadZoneRange = 0.5f;
-
+	[Space(10)]
+	[Header("Attributes")]
+	[SerializeField] private PlayerAttributes playerAttributes;
 
 	private void OnEnable()
 	{
@@ -132,10 +132,10 @@ public class PlayerMovementController : MonoBehaviour
 	private void Update()
 	{
 		JumpAndGravity();
-		//GroundedCheck();
+		GroundedCheck();
 		Dodge();
 
-		if (isDodging)
+		if (isDashing)
 		{
 			MoveDodge();
 		}
@@ -162,13 +162,6 @@ public class PlayerMovementController : MonoBehaviour
 		animIDDodging = Animator.StringToHash("Dodging");
 	}
 
-	public GameObject m_KickHitBox;
-	public float m_PunchComboValidTime = 0.5f;
-	public bool m_PunchComboTimerDone;
-	Coroutine PunchComboCo;
-	public int m_PunchCombo = 0;
-	public bool m_IsAttacking = false;
-
 	private void GroundedCheck()
 	{
 		Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);
@@ -181,18 +174,20 @@ public class PlayerMovementController : MonoBehaviour
 	{
 		if (input.Look.sqrMagnitude >= threshold && !LockCameraPosition)
 		{
-			_cinemachineTargetYaw += input.Look.x * Time.deltaTime;
-			_cinemachineTargetPitch += input.Look.y * Time.deltaTime;
+			cinemachineTargetYaw += input.Look.x * Time.deltaTime;
+			cinemachineTargetPitch += input.Look.y * Time.deltaTime;
 		}
 
-		_cinemachineTargetYaw = ClampAngle(_cinemachineTargetYaw, float.MinValue, float.MaxValue);
-		_cinemachineTargetPitch = Mathf.Clamp(_cinemachineTargetPitch, BottomClamp, TopClamp);
+		cinemachineTargetYaw = ClampAngle(cinemachineTargetYaw, float.MinValue, float.MaxValue);
+		cinemachineTargetPitch = Mathf.Clamp(cinemachineTargetPitch, BottomClamp, TopClamp);
 
-		CinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride, _cinemachineTargetYaw, 0.0f);
+		CinemachineCameraTarget.transform.rotation = Quaternion.Euler(cinemachineTargetPitch + CameraAngleOverride, cinemachineTargetYaw, 0.0f);
 	}
 
 	private void Move()
 	{
+		MoveSpeed = playerAttributes.SpeedData.Speed;
+
 		float targetSpeed = MoveSpeed;
 
 		if (input.Move == Vector2.zero)
@@ -247,13 +242,13 @@ public class PlayerMovementController : MonoBehaviour
 
 	private void MoveDodge()
 	{
-		float targetSpeed = DodgeLaunchSpeed;
+		float targetSpeed = DashLaunchSpeed;
 		speed = targetSpeed;
 
-		float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, preDodgeTargetRotation, ref rotationVelocity, RotationSmoothTime);
+		float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, preDashTargetRotation, ref rotationVelocity, RotationSmoothTime);
 		transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
 
-		playerTargetRotation = preDodgeTargetRotation;
+		playerTargetRotation = preDashTargetRotation;
 
 		movement = Quaternion.Euler(0.0f, playerTargetRotation, 0.0f) * Vector3.forward;
 		movement.Normalize();
@@ -310,7 +305,7 @@ public class PlayerMovementController : MonoBehaviour
 
 	public void Dodge()
 	{
-		if (input.Dash && input.Move != Vector2.zero && !isDodging)
+		if (input.Dash && input.Move != Vector2.zero && !isDashing)
 		{
 			StartDodge();
 		}
@@ -321,18 +316,18 @@ public class PlayerMovementController : MonoBehaviour
 		animator.SetFloat("DirectionX", 0f);
 		animator.SetFloat("DirectionY", 1f);
 
-		preDodgeTargetRotation = targetRotation;
+		preDashTargetRotation = targetRotation;
 
 		animator.SetTrigger("Dodge");
 		animator.SetBool(animIDDodging, true);
 		input.Dash = false;
-		StartCoroutine(OnDodgeTimeCo(DodgeUnactableTime));
-		isDodging = true;
+		StartCoroutine(OnDodgeTimeCo(DashUnactableTime));
+		isDashing = true;
 	}
 
 	public void StopDodge()
 	{
-		isDodging = false;
+		isDashing = false;
 		animator.SetBool(animIDDodging, false);
 	}
 

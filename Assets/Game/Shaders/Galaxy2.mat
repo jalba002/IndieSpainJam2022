@@ -25,7 +25,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _StarsCubemap:
-        m_Texture: {fileID: 8900000, guid: bfbab4b3a66a21f40a31a057d469b418, type: 3}
+        m_Texture: {fileID: 8900000, guid: dd47ee7617b212a47a4e0afa2c2df6bd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -51,8 +51,8 @@ Material:
     m_Colors:
     - _FresnelColor: {r: 4, g: 4, b: 4, a: 1}
     - _FresnelSpeed: {r: 0.05, g: 0.05, b: 0, a: 0}
-    - _GalaxyColor: {r: 0, g: 2, b: 0.014061928, a: 1}
-    - _StarsColor: {r: 0.05470085, g: 2, b: 0, a: 1}
+    - _GalaxyColor: {r: 0, g: 11.984314, b: 0.1254902, a: 1}
+    - _StarsColor: {r: 2.670157, g: 2.670157, b: 2.670157, a: 1}
     - _StarsOffset: {r: 0.1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6687959262019630159

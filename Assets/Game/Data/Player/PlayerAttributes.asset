@@ -15,6 +15,7 @@ MonoBehaviour:
   attributes:
     attackDamage: 150
     speed: 40
+    maxHealth: 100
   attributeModifiers:
   - {fileID: 11400000, guid: 38d51f4910a6e2d4883050514affb689, type: 2}
   - {fileID: 11400000, guid: 7ad2d575a2332bf48b7df3fcc2e29604, type: 2}
