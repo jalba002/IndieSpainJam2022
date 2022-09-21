@@ -12,6 +12,13 @@ public class PillarController : MonoBehaviour
     [SerializeField]
     private PillarsConfig pillarConfig;
 
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, pillarConfig.Range);
+        Gizmos.color = Color.white;
+    }
+
     private void Update()
     {
         foreach (var observer in pillarConfig.PillarObservers)
