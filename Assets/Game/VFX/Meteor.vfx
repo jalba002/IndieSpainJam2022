@@ -27,9 +27,6 @@ MonoBehaviour:
     - model: {fileID: 8926484042661614555}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661614556}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661614646}
       id: 0
       isStickyNote: 0
@@ -45,25 +42,7 @@ MonoBehaviour:
     - model: {fileID: 8926484042661614558}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661614600}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614670}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614746}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661614583}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614686}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615086}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614699}
       id: 0
       isStickyNote: 0
   - title: Trail Back
@@ -80,28 +59,10 @@ MonoBehaviour:
     - model: {fileID: 8926484042661614983}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661614986}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615098}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615096}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614999}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661615089}
       id: 0
       isStickyNote: 0
     - model: {fileID: 8926484042661614925}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614959}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615095}
       id: 0
       isStickyNote: 0
   - title: Trail Front
@@ -138,40 +99,57 @@ MonoBehaviour:
     - model: {fileID: 8926484042661615202}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661615203}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615214}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615240}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661615232}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615233}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615254}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615241}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615234}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615236}
       id: 0
       isStickyNote: 0
     - model: {fileID: 8926484042661615231}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661615258}
+    - model: {fileID: 8926484042661615264}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661615264}
+  - title: Group Selection
+    position:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 100
+      height: 100
+    contents:
+    - model: {fileID: 8926484042661615273}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661615326}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661615299}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661615321}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661615302}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661615314}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661615317}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661615327}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661615329}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661615335}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661615338}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661615341}
       id: 0
       isStickyNote: 0
   stickyNoteInfos: []
@@ -3364,7 +3342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UIIgnoredErrors: []
-  m_Parent: {fileID: 0}
+  m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
@@ -3961,7 +3939,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.8
+      m_SerializableObject: 1.5
     m_Space: 2147483647
   m_Property:
     name: Lifetime
@@ -4090,7 +4068,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":10300,"guid":"0000000000000000f000000000000000","type":0}}'
+      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"2a49d7cccaf641e45bfff9c8ced46cfc","type":3}}'
     m_Space: 2147483647
   m_Property:
     name: mainTexture
@@ -4387,7 +4365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UIIgnoredErrors: []
-  m_Parent: {fileID: 0}
+  m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
@@ -4666,7 +4644,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":10300,"guid":"0000000000000000f000000000000000","type":0}}'
+      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"2a49d7cccaf641e45bfff9c8ced46cfc","type":3}}'
     m_Space: 2147483647
   m_Property:
     name: mainTexture
@@ -5478,7 +5456,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.8
+      m_SerializableObject: 1.5
     m_Space: 2147483647
   m_Property:
     name: Lifetime
@@ -8967,7 +8945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UIIgnoredErrors: []
-  m_Parent: {fileID: 0}
+  m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
