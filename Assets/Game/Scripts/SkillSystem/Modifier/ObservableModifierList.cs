@@ -6,7 +6,7 @@ namespace CosmosDefender
     [Serializable]
     public class ObservableModifierList<T, T1> where T : IModifier<T1>
     {
-        public List<T> attributeModifiers { get; private set; }
+        public List<T> attributeModifiers { get; private set; } = new List<T>();
         private Action<IReadOnlyList<T>> onListUpdated;
 
         public ObservableModifierList(Action<IReadOnlyList<T>> onListUpdated) => this.onListUpdated = onListUpdated;
