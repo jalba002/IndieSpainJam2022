@@ -32,8 +32,9 @@ namespace CosmosDefender
 
         private IEnumerator CoroutineForTime(float maxTime, float elapsedTime, Action callback)
         {
-            float timer = 0;
-            while (timer < maxTime)
+            // Debug.Log($"Called coroutine with {maxTime} duration with {elapsedTime}s delay.");
+            float timer = Time.timeSinceLevelLoad + maxTime;
+            while (Time.timeSinceLevelLoad < timer)
             {
                 yield return new WaitForSeconds(elapsedTime);
                 callback.Invoke();

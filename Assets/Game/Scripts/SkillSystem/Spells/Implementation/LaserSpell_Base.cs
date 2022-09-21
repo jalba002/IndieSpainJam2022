@@ -11,10 +11,10 @@ namespace CosmosDefender
             
         }
 
-        public override void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyCombatData combatData)
+        public override void Cast(Transform spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyCombatData combatData)
         {
-            var instance = Object.Instantiate(prefab, spawnPoint, rotation);
-            instance.GetComponent<Bullet>().InstantiateBullet();
+            var instance = Object.Instantiate(prefab, spawnPoint.position, rotation);
+            instance.GetComponent<Bullet>().InstantiateBullet(spawnPoint, forward, rotation);
         }
     }
 }

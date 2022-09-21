@@ -1,38 +1,47 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.ReorderableList.Element_Adder_Menu;
 using UnityEngine;
 
 // The bullet work is to instantiate the projectile using a valid position.
 public class Bullet : MonoBehaviour
 {
-    [Header("Raycast Settings")]
+    [Header("Misc")]
+    [SerializeField]
+    protected bool m_SnapToGround = false;
+
+    [SerializeField]
+    protected bool m_CheckOutOfBounds = false;
+    
+    [Header("Snap to ground Raycast settings")]
     [SerializeField] protected LayerMask raycastHitLayers;
 
-    [SerializeField] protected float raycastDistance = 10f;
+    [SerializeField] protected float rayToGroundDistance = 10f;
     
-    [Header("Damage Settings")]
-    [SerializeField] protected int damage = 10;
-    
-    [Header("Prefabs")]
-    [SerializeField] protected bool spawnPrefab = false;
-    [SerializeField] protected GameObject projectilePrefab;
-    
-    [SerializeField]
-    protected bool drawSphere = false;
-
-    [SerializeField]
     protected bool IsStopped = false;
-
-    //private PlayerHealthManager playerHealth;
+    
+    // Components
+    protected Rigidbody _rb;
 
     public virtual void InstantiateBullet() { }
 
-    public virtual void InstantiateBullet(Vector3 origin, Vector3 forward, Quaternion rotation)
+    public virtual void InstantiateBullet(Transform origin, Vector3 forward, Quaternion rotation)
     {
         // Maybe its a good choice to give it some instructions.
+        _rb = GetComponent<Rigidbody>();
+        // no problem if there's none.
     }
-    
+
+    protected virtual void Update()
+    {
+        // Snap to ground and check if its out of ground too.
+        if(m_CheckOutOfBounds)
+            CheckOutOfGround();
+        if(m_SnapToGround)
+            SnapToGround();
+    }
+
     protected virtual void CheckOutOfGround()
     {
         if (IsStopped) return;
@@ -40,7 +49,7 @@ public class Bullet : MonoBehaviour
         RaycastHit hit;
     
         Vector3 distance = new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z);
-        if (Physics.Raycast(distance, transform.TransformDirection(-Vector3.up), out hit, raycastDistance, raycastHitLayers))
+        if (Physics.Raycast(distance, transform.TransformDirection(-Vector3.up), out hit, rayToGroundDistance, raycastHitLayers))
         {
             transform.position = new Vector3(transform.position.x, hit.point.y, transform.position.z);
         }
@@ -48,30 +57,15 @@ public class Bullet : MonoBehaviour
         {
             //transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
             IsStopped = true;
-            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            _rb.velocity = Vector3.zero;
         }
     }
 
     protected virtual void SnapToGround()
     {
-        if(Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.up),  out RaycastHit hit, raycastDistance, raycastHitLayers))
+        if(Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.up),  out RaycastHit hit, rayToGroundDistance, raycastHitLayers))
         {
             transform.position = new Vector3(transform.position.x, hit.point.y, transform.position.z);
         }
     }
-    //
-    // protected virtual void DealDamageArea(Vector3 center, float diameter)
-    // {
-    //     var hitTargets = Physics.OverlapSphere(center, diameter * 0.5f);
-    //
-    //     foreach (var item in hitTargets)
-    //     {
-    //         if (item.tag == "Player")
-    //         {
-    //             //item.GetComponent<PlayerHealthManager>().DecreaseHealth(damage);
-    //             Destroy(this.gameObject);
-    //             break;
-    //         }
-    //     }
-    // }
 }
