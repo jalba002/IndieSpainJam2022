@@ -5,49 +5,35 @@ using UnityEngine;
 public class PillarController : MonoBehaviour
 {
     [SerializeField]
-    private BaseAttributeModifier attributeModifier;
-    [SerializeField]
-    private List<PillarObserver> pillarObservers = new List<PillarObserver>();
+    private List<BaseAttributeModifier> attributeModifier = new List<BaseAttributeModifier>();
+    //[SerializeField]
+    //private BaseSpellModifier[] attributeModifier;
     private List<PillarObserver> observersInRange = new List<PillarObserver>();
     [SerializeField]
-    private float range = 5f;
-
+    private PillarsConfig pillarConfig;
 
     private void Update()
     {
-        foreach (var observer in pillarObservers)
+        foreach (var observer in pillarConfig.PillarObservers)
         {
             var distanceFromObserver = Vector3.Distance(transform.position, observer.transform.position);
 
             if (observersInRange.Contains(observer))
             {
-                if (distanceFromObserver > range)
+                if (distanceFromObserver > pillarConfig.Range)
                 {
-                    observer.RemoveModifier(attributeModifier);
+                    observer.RemoveModifiers(attributeModifier);
                     observersInRange.Remove(observer);
                 }
             }
             else
             {
-                if (distanceFromObserver <= range)
+                if (distanceFromObserver <= pillarConfig.Range)
                 {
-                    observer.AddModifier(attributeModifier);
+                    observer.AddModifiers(attributeModifier);
                     observersInRange.Add(observer);
                 }
             }
-        }
-    }
-
-    public void AddPillarObserver(PillarObserver newPillarObserver)
-    {
-        pillarObservers.Add(newPillarObserver);
-    }
-
-    public void AddPillarObservers(List<PillarObserver> newPillarObservers)
-    {
-        foreach (var observer in newPillarObservers)
-        {
-            pillarObservers.Add(observer);
         }
     }
 }

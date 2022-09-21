@@ -10,6 +10,14 @@ public class PillarObserver : MonoBehaviour
     [SerializeField]
     private PlayerAttributes playerAttributes;
 
+    [SerializeField]
+    private PillarsConfig pillarConfig;
+
+    private void Start()
+    {
+        pillarConfig.AddPillarObserver(this);
+    }
+
     public void AddPillar(PillarController newPillar)
     {
         pillarsInRange.Add(newPillar);
@@ -28,5 +36,21 @@ public class PillarObserver : MonoBehaviour
     public void RemoveModifier(BaseAttributeModifier modifier)
     {
         playerAttributes.RemoveAttribute(modifier);
+    }
+
+    public void AddModifiers(List<BaseAttributeModifier> newModifiers)
+    {
+        foreach (var item in newModifiers)
+        {
+            playerAttributes.AddAttribute(item);
+        }
+    }
+
+    public void RemoveModifiers(List<BaseAttributeModifier> modifiers)
+    {
+        foreach (var item in modifiers)
+        {
+            playerAttributes.RemoveAttribute(item);
+        }
     }
 }
