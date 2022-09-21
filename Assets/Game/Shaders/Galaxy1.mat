@@ -25,7 +25,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _StarsCubemap:
-        m_Texture: {fileID: 8900000, guid: dd47ee7617b212a47a4e0afa2c2df6bd, type: 3}
+        m_Texture: {fileID: 8900000, guid: 605e2c591357f3343baa8c5e7093422b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -42,18 +42,21 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FresnelNoisePower: 2
+    - _FresnelNoisePower: 1
     - _FresnelPower: 0.89
     - _FresnelScale: 50
     - _FresnelSpeed: 0.1
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _FresnelColor: {r: 4, g: 4, b: 4, a: 1}
+    - _BackgroundScale: {r: 0, g: 0, b: 0, a: 0}
+    - _CubemapScale: {r: 1, g: 1, b: 1, a: 0}
+    - _FresnelColor: {r: 0, g: 3.9058824, b: 4, a: 1}
     - _FresnelSpeed: {r: 0.05, g: 0.05, b: 0, a: 0}
     - _GalaxyColor: {r: 0, g: 1.4980392, b: 1.4980392, a: 1}
-    - _StarsColor: {r: 1, g: 1, b: 1, a: 1}
+    - _StarsColor: {r: 0, g: 0, b: 0, a: 1}
     - _StarsOffset: {r: 0.1, g: 0, b: 0, a: 0}
+    - _StarsScale: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6687959262019630159
 MonoBehaviour:

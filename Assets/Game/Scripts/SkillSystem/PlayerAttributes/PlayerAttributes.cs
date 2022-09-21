@@ -17,8 +17,14 @@ namespace CosmosDefender
         [ShowInInspector]
         private AttributesData currentAttributes;
 
-        public IReadOnlyCombatData CombatData => currentAttributes;
-        public IReadOnlySpeedData SpeedData => currentAttributes;
+        public IReadOnlyOffensiveData CombatData => currentAttributes;
+        public IReadOnlyDefensiveData DefensiveData => currentAttributes;
+        public IReadOnlyMovementData SpeedData => currentAttributes;
+
+        public void Initialize()
+        {
+            UpdateAttributes();
+        }
 
         private void UpdateAttributes()
         {

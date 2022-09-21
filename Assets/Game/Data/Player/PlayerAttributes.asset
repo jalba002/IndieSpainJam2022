@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26ec09a305ef58f4bbe4904303c492ac, type: 3}
   m_Name: PlayerAttributes
   m_EditorClassIdentifier: 
-  attributes:
-    attackDamage: 150
-    speed: 40
-    maxHealth: 100
+  baseAttributes:
+    attackDamage: 0
+    speed: 10
+    maxHealth: 0
+    cooldownReduction: 0
   attributeModifiers:
   - {fileID: 11400000, guid: 38d51f4910a6e2d4883050514affb689, type: 2}
   - {fileID: 11400000, guid: 7ad2d575a2332bf48b7df3fcc2e29604, type: 2}
