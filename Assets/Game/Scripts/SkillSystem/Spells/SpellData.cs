@@ -7,6 +7,8 @@ namespace CosmosDefender
     public struct SpellData
     {
         [SerializeField]
+        private SpellType spellType;
+        [SerializeField]
         private float damageMultiplier;
         [SerializeField]
         private float cooldown;
@@ -23,13 +25,14 @@ namespace CosmosDefender
         [SerializeField]
         private float activeDuration;
 
-        public float DamageMultiplier => damageMultiplier;
-        public float Cooldown => cooldown;
-        public float Amount => amount;
-        public float Speed => speed;
-        public float UniformSize => uniformSize;
-        public float MaxAttackDistance => maxAttackDistance;
-        public float Lifetime => lifetime;
-        public float ActiveDuration => activeDuration;
+        public SpellType SpellType => spellType;
+        public float DamageMultiplier { get => damageMultiplier; set => damageMultiplier = value; }
+        public float Cooldown { get => cooldown; set => cooldown = value; }
+        public float Amount { get => amount; set => amount = value; }
+        public float Speed { get => speed; set => speed = value; }
+        public float UniformSize { get => uniformSize; set => uniformSize = value; }
+        public float MaxAttackDistance { get => maxAttackDistance; set => maxAttackDistance = value; }
+        public float Lifetime { get => lifetime; set => lifetime = value; }
+        public float ActiveDuration { get => activeDuration; set => activeDuration = value; }
     }
 }

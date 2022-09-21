@@ -4,26 +4,28 @@ using System.Collections.Generic;
 namespace CosmosDefender
 {
     [Serializable]
-    public class ObservableModifierList<T, T1> where T : IModifier<T1>
+    public class ObservableModifierList<T, T1, T2> where T : BaseModifier<T1, T2> where T1 : ISpellModifier<T2>
     {
         public List<T> attributeModifiers { get; private set; } = new List<T>();
         private Action<IReadOnlyList<T>> onListUpdated;
 
         public ObservableModifierList(Action<IReadOnlyList<T>> onListUpdated) => this.onListUpdated = onListUpdated;
 
-        public void AddModifier(T attribute)
+        public void AddModifier(T attribute, bool updateList = true)
         {
             attributeModifiers.Add(attribute);
             if (attribute is ITemporalModifier temporalModifier)
-            {
                 CronoScheduler.Instance.ScheduleForTime(temporalModifier.Time, () => RemoveModifier(attribute));
-            }
-            onListUpdated(attributeModifiers);
+
+            if (updateList)
+                onListUpdated(attributeModifiers);
         }
 
         public void AddModifiers(IReadOnlyList<T> attributes)
         {
-            attributeModifiers.AddRange(attributes);
+            foreach (var attribute in attributes)
+                AddModifier(attribute, false);
+
             onListUpdated(attributeModifiers);
         }
 

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace CosmosDefender
@@ -9,17 +10,25 @@ namespace CosmosDefender
         [SerializeField]
         private SpellData baseData;
 
+        [ShowInInspector, ReadOnly]
         protected SpellData currentData;
         [SerializeField]
         protected Bullet prefab;
 
+        public SpellType spellType => baseData.SpellType;
+
         public abstract void Cast(Transform spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData);
 
-        public void ApplyModifiers(IReadOnlyList<IModifier<SpellData>> modifiers)
+        public void ApplyModifiers(IReadOnlyList<ISpellModifier> modifiers)
         {
             currentData = baseData;
             foreach (var modifier in modifiers.OrderBy(x => x.Priority))
+            {
+                if ((modifier.SpellType & spellType) == 0)
+                    continue;
+
                 modifier.Modify(ref currentData);
+            }
         }
     }
 }

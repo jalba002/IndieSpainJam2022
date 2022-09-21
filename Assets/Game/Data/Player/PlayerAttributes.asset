@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerAttributes
   m_EditorClassIdentifier: 
   baseAttributes:
-    attackDamage: 0
+    attackDamage: 500
     speed: 10
     cooldownReduction: 0
     maxHealth: 0
