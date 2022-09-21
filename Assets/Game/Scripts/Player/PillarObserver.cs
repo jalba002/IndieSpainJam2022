@@ -1,5 +1,5 @@
-using CosmosDefender;
 using System.Collections.Generic;
+using CosmosDefender;
 using UnityEngine;
 
 public class PillarObserver : MonoBehaviour
@@ -30,19 +30,19 @@ public class PillarObserver : MonoBehaviour
 
     public void AddModifier(BaseAttributeModifier newModifier)
     {
-        playerAttributes.AddAttribute(newModifier);
+        playerAttributes.AddAttributeModifier(newModifier);
     }
 
     public void RemoveModifier(BaseAttributeModifier modifier)
     {
-        playerAttributes.RemoveAttribute(modifier);
+        playerAttributes.RemoveAttributeModifier(modifier);
     }
 
     public void AddModifiers(List<BaseAttributeModifier> newModifiers)
     {
         foreach (var item in newModifiers)
         {
-            playerAttributes.AddAttribute(item);
+            playerAttributes.AddAttributeModifier(item);
         }
     }
 
@@ -50,7 +50,7 @@ public class PillarObserver : MonoBehaviour
     {
         foreach (var item in modifiers)
         {
-            playerAttributes.RemoveAttribute(item);
+            playerAttributes.RemoveAttributeModifier(item);
         }
     }
 }

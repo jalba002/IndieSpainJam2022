@@ -15,8 +15,8 @@ MonoBehaviour:
   baseAttributes:
     attackDamage: 0
     speed: 10
-    maxHealth: 0
     cooldownReduction: 0
-  attributeModifiers:
-  - {fileID: 11400000, guid: 38d51f4910a6e2d4883050514affb689, type: 2}
-  - {fileID: 11400000, guid: 7ad2d575a2332bf48b7df3fcc2e29604, type: 2}
+    maxHealth: 0
+    healthRegeneration: 0
+  spells:
+  - {fileID: 11400000, guid: 9472aafd6c50c61488e6d68b2756f19a, type: 2}
