@@ -26,16 +26,13 @@ public class Bullet : MonoBehaviour
 
     //private PlayerHealthManager playerHealth;
 
-    public virtual void InstantiateBullet()
+    public virtual void InstantiateBullet() { }
+
+    public virtual void InstantiateBullet(Vector3 origin, Vector3 forward, Quaternion rotation)
     {
-        // Nah.
+        // Maybe its a good choice to give it some instructions.
     }
-
-    // void Start()
-    // {
-    //     playerHealth = FindObjectOfType<PlayerHealthManager>();
-    // }
-
+    
     protected virtual void CheckOutOfGround()
     {
         if (IsStopped) return;
@@ -62,19 +59,19 @@ public class Bullet : MonoBehaviour
             transform.position = new Vector3(transform.position.x, hit.point.y, transform.position.z);
         }
     }
-
-    protected virtual void DealDamageArea(Vector3 center, float diameter)
-    {
-        var hitTargets = Physics.OverlapSphere(center, diameter * 0.5f);
-
-        foreach (var item in hitTargets)
-        {
-            if (item.tag == "Player")
-            {
-                //item.GetComponent<PlayerHealthManager>().DecreaseHealth(damage);
-                Destroy(this.gameObject);
-                break;
-            }
-        }
-    }
+    //
+    // protected virtual void DealDamageArea(Vector3 center, float diameter)
+    // {
+    //     var hitTargets = Physics.OverlapSphere(center, diameter * 0.5f);
+    //
+    //     foreach (var item in hitTargets)
+    //     {
+    //         if (item.tag == "Player")
+    //         {
+    //             //item.GetComponent<PlayerHealthManager>().DecreaseHealth(damage);
+    //             Destroy(this.gameObject);
+    //             break;
+    //         }
+    //     }
+    // }
 }

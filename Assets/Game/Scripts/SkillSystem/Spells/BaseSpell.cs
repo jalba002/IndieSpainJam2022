@@ -14,5 +14,9 @@ namespace CosmosDefender
         protected GameObject VFXPrefab;
 
         public abstract void Cast(Transform spawnPoint, IReadOnlyCombatData combatData);
+        
+        public abstract void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyCombatData combatData);
+
+        //public MissileData CreateMissileData(ICombatData data) => null;
     }
 }
