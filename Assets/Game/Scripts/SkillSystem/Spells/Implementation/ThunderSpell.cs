@@ -11,7 +11,7 @@ namespace CosmosDefender
         public override void Cast(Transform spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData)
         {
             var projectile = Instantiate(prefab, spawnPoint.position, rotation);
-            projectile.InstantiateBullet(spawnPoint, forward, rotation);
+            projectile.InstantiateBullet(spawnPoint, forward, rotation, combatData, currentData);
         }
     }
 }
