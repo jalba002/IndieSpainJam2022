@@ -13,7 +13,7 @@ namespace CosmosDefender.Bullets.Implementation
 
         protected BulletInfo m_BulletInfo;
 
-        public override void InstantiateBullet(Transform origin, Vector3 forward, Quaternion rotation,
+        public override void InstantiateBullet(Vector3 origin, Vector3 forward, Quaternion rotation,
             IReadOnlyOffensiveData combatData, SpellData spellData)
         {
             base.InstantiateBullet(origin, forward, rotation, combatData, spellData);
@@ -27,7 +27,7 @@ namespace CosmosDefender.Bullets.Implementation
             this.transform.forward = forward;
             this.transform.rotation = rotation;
             // Need whoever instantiated it.
-            this.transform.parent = origin;
+            //this.transform.parent = origin;
 
             // TODO Gather length size and send here.
             CronoScheduler.Instance.ScheduleForTimeAndExecuteElapsed(3f,

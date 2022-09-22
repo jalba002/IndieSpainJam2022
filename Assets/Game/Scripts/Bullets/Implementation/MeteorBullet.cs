@@ -8,12 +8,13 @@ namespace CosmosDefender.Bullets.Implementation
         [SerializeField] private BaseProjectile prefab;
 
         //[Button("Test Bullet")]
-        public override void InstantiateBullet(Transform origin, Vector3 forward, Quaternion rotation,
+        public override void InstantiateBullet(Vector3 origin, Vector3 forward, Quaternion rotation,
             IReadOnlyOffensiveData combatData, SpellData spellData)
         {
             base.InstantiateBullet(origin, forward, rotation, combatData, spellData);
 
             // This starts a crono that spawns meteorites over time. 
+            Debug.Log(transform.position);
             CronoScheduler.Instance.ScheduleForRepetitions(
                 (int) spellData.Amount,
                 spellData.ProjectileDelay,
@@ -34,10 +35,10 @@ namespace CosmosDefender.Bullets.Implementation
         {
             // Use the area to determine where the new meteorite will fall.
             // 
-            Vector2 modOrigin = origin;
+            Vector2 modOrigin = new Vector2(origin.x, origin.z);
             modOrigin += Random.insideUnitCircle * spellData.UniformSize;
             Vector3 spawnPos = new Vector3(modOrigin.x, origin.y + height, modOrigin.y);
-
+            Debug.Log(spawnPos);
             var instance = Instantiate(prefab, spawnPos, Quaternion.identity);
             instance.InitializeProjectile(spawnPos, combatData, spellData);
         }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7867279661157371017}
   - component: {fileID: 7867279661157371018}
   - component: {fileID: 7867279661157371021}
+  - component: {fileID: 90883210197395625}
   m_Layer: 0
   m_Name: MeleeEnemy
   m_TagString: Untagged
@@ -136,3 +137,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   waypointReachedRadius: 2
+--- !u!114 &90883210197395625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7867279661157371019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f40c564f8f607a46b07f01e9709ea6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 100

@@ -127,8 +127,6 @@ public class PlayerMovementController : MonoBehaviour
 
 		jumpTimeoutDelta = JumpTimeout;
 		fallTimeoutDelta = FallTimeout;
-
-		playerAttributes.Initialize();
 	}
 
 	private void Update()
