@@ -11,7 +11,7 @@ public class SpellTester : MonoBehaviour
 
     void CastSpell(int integer)
     {
-        spellList[integer]?.Cast(this.transform, Vector3.forward, Quaternion.identity, attackData);
+        spellList[integer]?.Cast(this.transform, this.transform.forward, Quaternion.identity, attackData);
     }
 
     void OnSpell1()
