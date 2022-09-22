@@ -43,7 +43,6 @@ namespace CosmosDefender
         {
             foreach (var spell in spells)
             {
-                spell.SetPlayerAttribute(this);
                 spell.ApplyModifiers(spellModifiers);
             }
         }
