@@ -19,6 +19,7 @@ MonoBehaviour:
     amount: 0
     speed: 0
     uniformSize: 0
+    projectileRadius: 0
     projectileDelay: 0
     maxAttackDistance: 0
     lifetime: 0
