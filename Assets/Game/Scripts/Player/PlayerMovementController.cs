@@ -116,7 +116,7 @@ public class PlayerMovementController : MonoBehaviour
 			mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 		}
 
-		animator = GetComponent<Animator>();
+		animator = GetComponentInChildren<Animator>();
 		controller = GetComponent<CharacterController>();
 		input = GetComponent<PlayerInputs>();
 	}

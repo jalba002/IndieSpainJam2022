@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -11,11 +13,28 @@ namespace CosmosDefender.Projectiles
 
         [SerializeField] private MeshRenderer mrend;
 
-        public override void InitializeProjectile(Vector3 spawnPoint, Vector3 velocity)
+        private SpellData m_SpellData;
+        private IReadOnlyOffensiveData m_CombatData;
+
+        public override void InitializeProjectile(Vector3 spawnPoint, IReadOnlyOffensiveData combatData, SpellData spellData)
         {
-            base.InitializeProjectile(spawnPoint, velocity);
+            base.InitializeProjectile(spawnPoint, combatData, spellData);
             // Enable collider?
-            m_Rigidbody.velocity = velocity;
+            m_SpellData = spellData;
+            m_CombatData = combatData;
+            
+            m_Rigidbody.velocity = Vector3.down * spellData.Speed;
+            
+            // Update VFXs
+            // Set radius
+            vfx.SetFloat("ProjectileRadius", m_SpellData.ProjectileRadius);
+            vfx.SetFloat("Lifetime", m_SpellData.Lifetime);
+            
+            // TODO RADIUS BETWEEN VISUALS AND REAL IS 1/5th.
+            float realRadius = m_SpellData.ProjectileRadius * 0.2f;
+            mrend.material.SetFloat("_Scale", realRadius);
+
+            ((SphereCollider) (m_Collider)).radius = realRadius * 0.5f;
         }
 
         protected override void UpdateVFX()
@@ -23,7 +42,7 @@ namespace CosmosDefender.Projectiles
             vfx.SendEvent("Play");
             vfx.transform.parent = null;
             vfx.transform.position = transform.position; //other.ClosestPoint(transform.position);
-            Destroy(vfx.gameObject, 10f);
+            Destroy(vfx.gameObject, m_SpellData.Lifetime * 1.2f);
         }
 
         protected override void UpdateRenderer()
@@ -46,8 +65,8 @@ namespace CosmosDefender.Projectiles
         {
             particles.Stop();
             particles.gameObject.transform.parent = null;
-
-            // TODO set in time.
+            
+            // TODO set particles destroy time.
             CronoScheduler.Instance.ScheduleForTime(3f, () =>
             {
                 //particles.gameObject.SetActive(false);
@@ -59,10 +78,11 @@ namespace CosmosDefender.Projectiles
 
         protected override void CastDamage()
         {
-            var a = AreaAttacksManager.SphereOverlap(this.gameObject.transform.position, 3f, true);
-
-            // TODO get the correct damage from the spells settings.
-            AreaAttacksManager.DealDamageToCollisions<IDamageable>(a, 10f);
+            // TODO Update radius to match stats. THE RADIUS FROM SPELLDATA IS 1/5th (THAT OR MULT FOR 5 IN VFX)
+            
+            var collisions = AreaAttacksManager.SphereOverlap(this.gameObject.transform.position, m_SpellData.ProjectileRadius * 0.2f, true);
+            
+            AreaAttacksManager.DealDamageToCollisions<IDamageable>(collisions, m_CombatData.AttackDamage * m_SpellData.DamageMultiplier);
         }
 
         protected override void FinishObject()
@@ -73,6 +93,9 @@ namespace CosmosDefender.Projectiles
 
         private void OnTriggerEnter(Collider other)
         {
+            // TODO Ignore other projectiles until custom layers are used,
+            if (other.GetComponent<BaseProjectile>() != null) return;
+            
             UpdateVFX();
             UpdateRenderer();
             UpdateRigidbody();

@@ -17,10 +17,11 @@ MonoBehaviour:
     damageMultiplier: 1
     cooldown: 8
     amount: 1
-    speed: 25
+    speed: 30
     uniformSize: 0
-    projectileDelay: 0.1
+    projectileRadius: 5
+    projectileDelay: 0.25
     maxAttackDistance: 35
-    lifetime: 10
+    lifetime: 5
     activeDuration: 0
   prefab: {fileID: 6296985688864843683, guid: 711acb15c5ab04a488a824d6f34aa041, type: 3}
