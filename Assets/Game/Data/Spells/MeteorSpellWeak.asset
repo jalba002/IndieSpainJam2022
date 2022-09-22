@@ -16,10 +16,10 @@ MonoBehaviour:
     spellType: 4
     damageMultiplier: 1
     cooldown: 8
-    amount: 0
-    speed: 20
-    uniformSize: 1
-    projectileDelay: 0.25
+    amount: 100
+    speed: 25
+    uniformSize: 10
+    projectileDelay: 0.1
     maxAttackDistance: 35
     lifetime: 10
     activeDuration: 0

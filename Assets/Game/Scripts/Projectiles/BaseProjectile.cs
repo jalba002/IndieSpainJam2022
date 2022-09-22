@@ -28,6 +28,11 @@ public class BaseProjectile : MonoBehaviour
     protected virtual void UpdateParticles()
     {
     }
+    
+    protected virtual void UpdateCollisions()
+    {
+    }
+
 
     protected virtual void CastDamage()
     {

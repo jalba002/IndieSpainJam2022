@@ -11,7 +11,6 @@ namespace CosmosDefender.Bullets.Implementation
             IReadOnlyOffensiveData combatData, SpellData spellData)
         {
             base.InstantiateBullet(origin, forward, rotation, combatData, spellData);
-
             // This starts a crono that spawns meteorites over time. 
             // TODO get the amount of repetitions and delay from the config.
             CronoScheduler.Instance.ScheduleForRepetitions(

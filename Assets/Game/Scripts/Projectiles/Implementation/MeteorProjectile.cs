@@ -37,6 +37,11 @@ namespace CosmosDefender.Projectiles
             m_Rigidbody.useGravity = false;
         }
 
+        protected override void UpdateCollisions()
+        {
+            m_Collider.enabled = false;
+        }
+
         protected override void UpdateParticles()
         {
             particles.Stop();
@@ -45,7 +50,8 @@ namespace CosmosDefender.Projectiles
             // TODO set in time.
             CronoScheduler.Instance.ScheduleForTime(3f, () =>
             {
-                particles.gameObject.SetActive(false);
+                //particles.gameObject.SetActive(false);
+                Destroy(particles.gameObject);
             });
             //particles.gameObject.SetActive(false);
             // Destroy(particles.gameObject, 3f);
@@ -71,6 +77,7 @@ namespace CosmosDefender.Projectiles
             UpdateRenderer();
             UpdateRigidbody();
             UpdateParticles();
+            UpdateCollisions();
             CastDamage();
             FinishObject();
         }

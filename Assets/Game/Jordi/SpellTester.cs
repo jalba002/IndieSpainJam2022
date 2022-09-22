@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SpellTester : MonoBehaviour
 {
-    [SerializeField] private IReadOnlyOffensiveData attackData;
+    [SerializeField] private AttributesData attackData;
 
     [SerializeField] private List<BaseSpell> spellList = new List<BaseSpell>();
 
