@@ -7,10 +7,15 @@ namespace CosmosDefender
         PostModify = 2
     }
 
-    public interface IModifier<T>
+    public interface ISpellModifier<T>
     {
         ModifierPriority Priority { get; }
 
         void Modify(ref T data);
+    }
+
+    public interface ISpellModifier : ISpellModifier<SpellData>
+    {
+        SpellType SpellType { get; }
     }
 }

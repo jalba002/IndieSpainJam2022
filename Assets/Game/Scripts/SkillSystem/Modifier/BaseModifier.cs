@@ -2,13 +2,13 @@ using UnityEngine;
 
 namespace CosmosDefender
 {
-    public abstract class BaseModifier<T> : ScriptableObject, IModifier<T>
+    public abstract class BaseModifier<T, T1> : ScriptableObject where T : ISpellModifier<T1>
     {
         [SerializeField]
         private ModifierPriority priority;
 
         public ModifierPriority Priority => priority;
 
-        public abstract void Modify(ref T data);
+        public abstract void Modify(ref T1 data);
     }
 }

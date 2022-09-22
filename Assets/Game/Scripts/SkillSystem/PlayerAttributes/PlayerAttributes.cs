@@ -10,14 +10,15 @@ namespace CosmosDefender
     {
         [SerializeField]
         private AttributesData baseAttributes;
-        [SerializeField]
+        [SerializeField, Space]
         private BaseSpell[] spells;
 
-        [ShowInInspector, ReadOnly]
+        //[ShowInInspector, ReadOnly]
         private AttributesData currentAttributes;
 
-        private ObservableModifierList<BaseModifier<AttributesData>, AttributesData> attributeModifiers;
-        private ObservableModifierList<BaseModifier<SpellData>, SpellData> spellModifiers;
+        private Dictionary<SpellType, BaseSpell> indexedSpells;
+        private ObservableModifierList<BaseAttributeModifier, ISpellModifier<AttributesData>, AttributesData> attributeModifiers;
+        private ObservableModifierList<BaseSpellModifier, ISpellModifier, SpellData> spellModifiers;
 
         public IReadOnlyOffensiveData CombatData => currentAttributes;
         public IReadOnlyDefensiveData DefensiveData => currentAttributes;
@@ -25,31 +26,39 @@ namespace CosmosDefender
 
         public void Initialize()
         {
-            attributeModifiers = new ObservableModifierList<BaseModifier<AttributesData>, AttributesData>(UpdateAttributes);
-            spellModifiers = new ObservableModifierList<BaseModifier<SpellData>, SpellData>(UpdateSpells);
+            indexedSpells = spells.ToDictionary(x => x.spellType);
+            attributeModifiers = new ObservableModifierList<BaseAttributeModifier, ISpellModifier<AttributesData>, AttributesData>(UpdateAttributes);
+            spellModifiers = new ObservableModifierList<BaseSpellModifier, ISpellModifier, SpellData>(UpdateSpells);
+
+            RemoveAllAttributeModifiers();
+            RemoveAllSpellModifiers();
         }
 
-        private void UpdateAttributes(IReadOnlyList<BaseModifier<AttributesData>> attributeModifiers)
+        private void UpdateAttributes(IReadOnlyList<BaseAttributeModifier> attributeModifiers)
         {
             currentAttributes = baseAttributes;
             foreach (var modifier in attributeModifiers.OrderBy(x => x.Priority))
                 modifier.Modify(ref currentAttributes);
         }
 
-        private void UpdateSpells(IReadOnlyList<BaseModifier<SpellData>> spellModifiers)
+        private void UpdateSpells(IReadOnlyList<BaseSpellModifier> spellModifiers)
         {
             foreach (var spell in spells)
                 spell.ApplyModifiers(spellModifiers);
         }
 
-        public void AddAttributeModifier(BaseModifier<AttributesData> modifier) => attributeModifiers.AddModifier(modifier);
-        public void AddAttributeModifiers(List<BaseModifier<AttributesData>> modifiers) => attributeModifiers.AddModifiers(modifiers);
-        public void RemoveAttributeModifier(BaseModifier<AttributesData> modifier) => attributeModifiers.RemoveModifier(modifier);
+        [Button]
+        public BaseSpell GetSpell(SpellType type) => indexedSpells[type];
+
+        public void AddAttributeModifier(BaseAttributeModifier modifier) => attributeModifiers.AddModifier(modifier);
+        public void AddAttributeModifiers(List<BaseAttributeModifier> modifiers) => attributeModifiers.AddModifiers(modifiers);
+        public void RemoveAttributeModifier(BaseAttributeModifier modifier) => attributeModifiers.RemoveModifier(modifier);
         public void RemoveAllAttributeModifiers() => attributeModifiers.RemoveAllModifiers();
 
-        public void AddSpellModifier(BaseModifier<SpellData> modifier) => spellModifiers.AddModifier(modifier);
-        public void AddSpellModifiers(List<BaseModifier<SpellData>> modifier) => spellModifiers.AddModifiers(modifier);
-        public void RemoveSpellModifier(BaseModifier<SpellData> modifier) => spellModifiers.RemoveModifier(modifier);
+        [Button]
+        public void AddSpellModifier(BaseSpellModifier modifier) => spellModifiers.AddModifier(modifier);
+        public void AddSpellModifiers(List<BaseSpellModifier> modifier) => spellModifiers.AddModifiers(modifier);
+        public void RemoveSpellModifier(BaseSpellModifier modifier) => spellModifiers.RemoveModifier(modifier);
         public void RemoveAllSpellModifiers() => spellModifiers.RemoveAllModifiers();
     }
 }

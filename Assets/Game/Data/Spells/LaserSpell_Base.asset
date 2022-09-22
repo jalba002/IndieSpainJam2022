@@ -12,7 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 329c3112e0e623b42a33fd0bd4d544b5, type: 3}
   m_Name: LaserSpell_Base
   m_EditorClassIdentifier: 
-  damageMultiplier: 1
-  projectileSpeed: 0
+  baseData:
+    spellType: 0
+    damageMultiplier: 0
+    cooldown: 0
+    amount: 0
+    speed: 0
+    uniformSize: 0
+    maxAttackDistance: 0
+    lifetime: 0
+    activeDuration: 0
   prefab: {fileID: 8022966244273749138, guid: b16f71c6529304a48a5cd7b493a9aea7, type: 3}
-  VFXPrefab: {fileID: 0}

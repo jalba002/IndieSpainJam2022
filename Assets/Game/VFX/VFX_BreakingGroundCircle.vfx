@@ -4505,8 +4505,7 @@ MonoBehaviour:
   castShadows: 0
   useExposureWeight: 0
   flipbookLayout: 0
-  shaderGraph: {fileID: 4333940904281232215, guid: 68c94a8380540b049a27eb9c442b9375,
-    type: 3}
+  shaderGraph: {fileID: 4333940904281232215, guid: 68c94a8380540b049a27eb9c442b9375, type: 3}
   materialSettings:
     m_PropertyNames:
     - _WorkflowMode
