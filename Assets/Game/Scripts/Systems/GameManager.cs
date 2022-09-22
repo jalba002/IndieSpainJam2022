@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
+using CosmosDefender;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoSingleton<GameManager>
 {
     [SerializeField]
     private PillarsConfig pillarsConfig;
@@ -10,6 +11,8 @@ public class GameManager : MonoBehaviour
     public List<Transform> WaypointsPaths3 = new List<Transform>();
 
     public List<Transform> AllWaypoints = new List<Transform>();
+
+    protected override bool dontDestroyOnLoad => false;
 
     void Awake()
     {

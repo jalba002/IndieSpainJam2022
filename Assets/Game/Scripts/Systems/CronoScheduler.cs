@@ -40,6 +40,12 @@ namespace CosmosDefender
             }
         }
 
+        private IEnumerator CoroutineForRealtime(float time, Action callback)
+        {
+            yield return new WaitForSecondsRealtime(time);
+            callback.Invoke();
+        }
+
         private IEnumerator CoroutineForAmount(int repetitions, float delayBetweenActions, Action callback)
         {
             int counter = repetitions;

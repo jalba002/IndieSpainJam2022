@@ -13,8 +13,16 @@ namespace CosmosDefender
             {
                 if (IsInstanceNull())
                 {
-                    var go = new GameObject(nameof(T), typeof(T));
-                    go.GetComponent<T>().Initialize();
+                    var existingInstance = FindObjectOfType<T>();
+                    if (existingInstance != null)
+                    {
+                        existingInstance.Initialize();
+                    }
+                    else
+                    {
+                        var go = new GameObject(nameof(T), typeof(T));
+                        go.GetComponent<T>().Initialize();
+                    }
                 }
                 return instance;
             }

@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class PathFollower : MonoBehaviour
 {
-    private List<Transform> followedPath;
+    private List<Transform> followedPath = new List<Transform>();
 
     [SerializeField]
     private GameManager gameManager;
@@ -21,9 +21,21 @@ public class PathFollower : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
-    void Start()
+    void StartPath(EnemyWaveConfig currentEnemyConfig)
     {
-        followedPath = gameManager.WaypointsPaths1;
+        gameManager = GameManager.Instance;
+        switch (currentEnemyConfig.pathToFollow)
+        {
+            case EnemyWaveConfig.pathsToFollow.Left:
+                followedPath = gameManager.WaypointsPaths1;
+                break;
+            case EnemyWaveConfig.pathsToFollow.Middle:
+                followedPath = gameManager.WaypointsPaths2;
+                break;
+            case EnemyWaveConfig.pathsToFollow.Right:
+                followedPath = gameManager.WaypointsPaths3;
+                break;
+        }
         navMeshAgent.destination = followedPath[currentWaypoint].position;
     }
 
@@ -38,6 +50,8 @@ public class PathFollower : MonoBehaviour
 
     void MoveToNextWaypoint()
     {
+        if (currentWaypoint == followedPath.Count - 1)
+            return;
         currentWaypoint++;
         navMeshAgent.destination = followedPath[currentWaypoint].position;
     }

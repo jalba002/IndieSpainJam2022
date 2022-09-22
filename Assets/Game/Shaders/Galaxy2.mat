@@ -49,11 +49,13 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
+    - _CubemapScale: {r: 1, g: 1, b: 1, a: 0}
     - _FresnelColor: {r: 4, g: 4, b: 4, a: 1}
     - _FresnelSpeed: {r: 0.05, g: 0.05, b: 0, a: 0}
     - _GalaxyColor: {r: 0, g: 11.984314, b: 0.1254902, a: 1}
     - _StarsColor: {r: 2.670157, g: 2.670157, b: 2.670157, a: 1}
     - _StarsOffset: {r: 0.1, g: 0, b: 0, a: 0}
+    - _StarsScale: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6687959262019630159
 MonoBehaviour:

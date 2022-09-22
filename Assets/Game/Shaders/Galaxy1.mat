@@ -20,8 +20,24 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Layer_6C05446:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Layer_6FAC4C4C:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Cubemap:
         m_Texture: {fileID: 8900000, guid: 9c43ca25a3e878f4fb3b96fa5bb8ac2e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_1b03ad6580094bf3960787d15f9bcfdd_Texture_1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SkinTexture:
+        m_Texture: {fileID: 2800000, guid: a76e03d8226b1ef428d4f551c866ee04, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _StarsCubemap:
@@ -53,7 +69,7 @@ Material:
     - _CubemapScale: {r: 1, g: 1, b: 1, a: 0}
     - _FresnelColor: {r: 5.3403134, g: 5.3403134, b: 5.3403134, a: 1}
     - _FresnelSpeed: {r: 0.05, g: 0.05, b: 0, a: 0}
-    - _GalaxyColor: {r: 0, g: 1.0690879, b: 1.4980392, a: 1}
+    - _GalaxyColor: {r: 2, g: 2, b: 2, a: 1}
     - _StarsColor: {r: 0, g: 0, b: 0, a: 1}
     - _StarsOffset: {r: 0.1, g: 0, b: 0, a: 0}
     - _StarsScale: {r: 1, g: 1, b: 1, a: 0}
