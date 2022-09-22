@@ -16,10 +16,18 @@ namespace CosmosDefender
         [SerializeField]
         protected BaseBullet prefab;
 
+        private PlayerAttributes playerAttributes;
+
         public SpellType spellType => baseData.SpellType;
         public SpellData spellData => currentData;
 
-        public abstract void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData);
+        public void SetPlayerAttributes(PlayerAttributes playerAttributes)
+        {
+            this.playerAttributes = playerAttributes;
+        }
+
+        public void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation) => Cast(spawnPoint, forward, rotation, playerAttributes.CombatData);
+        protected abstract void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData);
 
         public void ApplyModifiers(IReadOnlyList<ISpellModifier> modifiers)
         {

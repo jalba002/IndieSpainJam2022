@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using CosmosDefender;
 using UnityEngine;
 
@@ -22,7 +20,7 @@ public class SpellTester : MonoBehaviour
         var ray = Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f));
         if (Physics.Raycast(ray, out RaycastHit raycastHit, selectedSpell.spellData.MaxAttackDistance))
         {
-            selectedSpell.Cast(raycastHit.point, ray.direction, Quaternion.identity, attackData);
+            selectedSpell.Cast(raycastHit.point, ray.direction, Quaternion.identity);
         }
     }
 

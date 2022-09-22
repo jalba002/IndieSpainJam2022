@@ -13,6 +13,12 @@ namespace CosmosDefender
 
         public bool isSpellEmpowered;
 
+        public void SetPlayerAttributes(PlayerAttributes playerAttributes)
+        {
+            baseSpell.SetPlayerAttributes(playerAttributes);
+            empoweredSpell.SetPlayerAttributes(playerAttributes);
+        }
+
         public BaseSpell GetSpell() => isSpellEmpowered ? empoweredSpell : baseSpell;
 
         public void ApplyModifiers(IReadOnlyList<ISpellModifier> modifiers)

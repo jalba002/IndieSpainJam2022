@@ -6,6 +6,6 @@ namespace CosmosDefender
     {
         SpellType spellType { get; }
 
-        void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData);
+        void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation);
     }
 }

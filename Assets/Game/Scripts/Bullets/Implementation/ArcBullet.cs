@@ -1,10 +1,7 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using CosmosDefender.Projectiles;
-using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace CosmosDefender.Bullets.Implementation
 {
@@ -20,12 +17,13 @@ namespace CosmosDefender.Bullets.Implementation
 
         private SpellData m_SpellData;
 
-        [Header("Components")] [SerializeField]
+        [Header("Components")]
+        [SerializeField]
         private Collider m_Collider;
 
         [SerializeField] private Rigidbody _rigidbody;
 
-        public override void InstantiateBullet(Transform origin, Vector3 forward, Quaternion rotation,
+        public override void InstantiateBullet(Vector3 origin, Vector3 forward, Quaternion rotation,
             IReadOnlyOffensiveData combatData, SpellData spellData)
         {
             base.InstantiateBullet(origin, forward, rotation, combatData, spellData);
@@ -79,7 +77,7 @@ namespace CosmosDefender.Bullets.Implementation
 
                         float newDistance = Vector3.Distance(hits[j].transform.position,
                             this.gameObject.transform.position);
-                        
+
                         if (newDistance < closestDistance)
                         {
                             closestDistance = newDistance;
