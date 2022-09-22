@@ -28,6 +28,8 @@ namespace CosmosDefender
         private float lifetime;
         [SerializeField]
         private float activeDuration;
+        [SerializeField]
+        private LayerMask layerMask;
 
         public SpellType SpellType => spellType;
         public float DamageMultiplier { get => damageMultiplier; set => damageMultiplier = value; }
@@ -40,5 +42,6 @@ namespace CosmosDefender
         public float MaxAttackDistance { get => maxAttackDistance; set => maxAttackDistance = value; }
         public float Lifetime { get => lifetime; set => lifetime = value; }
         public float ActiveDuration { get => activeDuration; set => activeDuration = value; }
+        public LayerMask LayerMask { get => layerMask; set => layerMask = value; }
     }
 }

@@ -24,4 +24,7 @@ MonoBehaviour:
     maxAttackDistance: 35
     lifetime: 6
     activeDuration: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 1
   prefab: {fileID: 6296985688864843683, guid: 711acb15c5ab04a488a824d6f34aa041, type: 3}

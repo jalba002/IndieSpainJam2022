@@ -32,7 +32,7 @@ namespace CosmosDefender.Projectiles
         }
 
 
-        protected virtual void CastDamage()
+        protected virtual void CastDamage(Vector3 pos)
         {
         }
 
