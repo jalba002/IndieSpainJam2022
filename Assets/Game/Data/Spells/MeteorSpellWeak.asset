@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: MeteorSpellWeak
   m_EditorClassIdentifier: 
   baseData:
-    spellType: 4
+    spellType: 2
     damageMultiplier: 1
     cooldown: 8
-    amount: 100
+    amount: 1
     speed: 25
-    uniformSize: 10
+    uniformSize: 0
     projectileDelay: 0.1
     maxAttackDistance: 35
     lifetime: 10

@@ -19,6 +19,10 @@ namespace CosmosDefender.Bullets.Implementation
                 () => SpawnMeteorsAroundArea(transform.position, spellData.UniformSize * 0.5f, 20f,
                     Vector3.down * spellData.Speed)
             );
+            CronoScheduler.Instance.ScheduleForTime(spellData.Amount * spellData.ProjectileDelay + 1f, () =>
+            {
+                Destroy(this.gameObject);
+            });
         }
 
         private void SpawnMeteorsAroundArea(Vector3 origin, float radius, float height, Vector3 speed)
