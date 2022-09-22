@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace CosmosDefender
 {
-    public abstract class BaseModifier<T, T1> : ScriptableObject where T : ISpellModifier<T1>
+    public abstract class BaseModifier<T, T1> : ScriptableObject where T : IModifier<T1>
     {
         [SerializeField]
         private ModifierPriority priority;

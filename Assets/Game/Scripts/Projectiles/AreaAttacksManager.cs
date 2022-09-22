@@ -41,7 +41,7 @@ namespace CosmosDefender
         {
             foreach (var item in colliders)
             {
-                item.GetComponent<T>()?.DealDamage(damage);
+                item.GetComponent<T>()?.TakeDamage(damage);
             }
         }
     }

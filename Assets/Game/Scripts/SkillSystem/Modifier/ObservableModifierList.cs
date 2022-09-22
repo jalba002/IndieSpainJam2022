@@ -4,12 +4,14 @@ using System.Collections.Generic;
 namespace CosmosDefender
 {
     [Serializable]
-    public class ObservableModifierList<T, T1, T2> where T : BaseModifier<T1, T2> where T1 : ISpellModifier<T2>
+    public class ObservableModifierList<T, T1, T2> where T : BaseModifier<T1, T2> where T1 : IModifier<T2>
     {
         public List<T> attributeModifiers { get; private set; } = new List<T>();
         private Action<IReadOnlyList<T>> onListUpdated;
 
         public ObservableModifierList(Action<IReadOnlyList<T>> onListUpdated) => this.onListUpdated = onListUpdated;
+
+        public void ForceUpdate() => onListUpdated(attributeModifiers);
 
         public void AddModifier(T attribute, bool updateList = true)
         {

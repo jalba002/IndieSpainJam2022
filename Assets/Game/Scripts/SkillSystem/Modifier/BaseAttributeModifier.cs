@@ -1,6 +1,6 @@
 namespace CosmosDefender
 {
-    public abstract class BaseAttributeModifier : BaseModifier<ISpellModifier<AttributesData>, AttributesData>
+    public abstract class BaseAttributeModifier : BaseModifier<IModifier<AttributesData>, AttributesData>
     {
     }
 }

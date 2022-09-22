@@ -515,7 +515,7 @@ MonoBehaviour:
   useAlphaClipping: 1
   generateMotionVector: 0
   excludeFromTAA: 0
-  sortingPriority: 5
+  sortingPriority: 0
   m_SubOutputs: []
   cullMode: 2
   zWriteMode: 1
@@ -524,7 +524,7 @@ MonoBehaviour:
   uvMode: 0
   useSoftParticle: 0
   vfxSystemSortPriority: 5
-  sort: 2
+  sort: 0
   indirectDraw: 0
   computeCulling: 0
   frustumCulling: 0
@@ -664,7 +664,7 @@ MonoBehaviour:
   useAlphaClipping: 0
   generateMotionVector: 0
   excludeFromTAA: 0
-  sortingPriority: 10
+  sortingPriority: 1
   m_SubOutputs: []
   cullMode: 2
   zWriteMode: 1
@@ -673,7 +673,7 @@ MonoBehaviour:
   uvMode: 0
   useSoftParticle: 1
   vfxSystemSortPriority: 4
-  sort: 2
+  sort: 0
   indirectDraw: 0
   computeCulling: 0
   frustumCulling: 0
@@ -873,7 +873,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.AABox, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"center":{"x":0.0,"y":0.0,"z":0.0},"size":{"x":6.931920051574707,"y":6.931920051574707,"z":6.931920051574707}}'
+      m_SerializableObject: '{"center":{"x":0.0,"y":0.0,"z":0.0},"size":{"x":8.606870651245118,"y":8.606870651245118,"z":8.606870651245118}}'
     m_Space: 0
   m_Property:
     name: bounds
@@ -1550,7 +1550,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.AABox, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"center":{"x":0.0,"y":0.0,"z":0.0},"size":{"x":1.0,"y":1.0,"z":1.0}}'
+      m_SerializableObject: '{"center":{"x":0.0,"y":0.0,"z":0.0},"size":{"x":6.839315891265869,"y":6.839315891265869,"z":6.839315891265869}}'
     m_Space: 0
   m_Property:
     name: bounds
@@ -2431,7 +2431,7 @@ MonoBehaviour:
   m_InputSlots:
   - {fileID: 8926484042661616658}
   m_OutputSlots: []
-  m_Disabled: 0
+  m_Disabled: 1
   attribute: scale
   Composition: 0
   Source: 0
@@ -2458,7 +2458,7 @@ MonoBehaviour:
   m_InputSlots:
   - {fileID: 8926484042661616659}
   m_OutputSlots: []
-  m_Disabled: 0
+  m_Disabled: 1
   attribute: scale
   Composition: 0
   Source: 0
@@ -2777,7 +2777,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.01
+      m_SerializableObject: 1
     m_Space: 2147483647
   m_Property:
     name: Scale
@@ -2891,7 +2891,7 @@ MonoBehaviour:
   useAlphaClipping: 1
   generateMotionVector: 0
   excludeFromTAA: 0
-  sortingPriority: 5
+  sortingPriority: -1
   m_SubOutputs: []
   cullMode: 2
   zWriteMode: 1
@@ -2900,7 +2900,7 @@ MonoBehaviour:
   uvMode: 0
   useSoftParticle: 0
   vfxSystemSortPriority: 6
-  sort: 2
+  sort: 0
   indirectDraw: 0
   computeCulling: 0
   frustumCulling: 0
@@ -4041,7 +4041,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.AABox, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"center":{"x":0.12124109268188477,"y":1.161914587020874,"z":0.6170921325683594},"size":{"x":5.193806171417236,"y":2.6955485343933107,"z":5.335489273071289}}'
+      m_SerializableObject: '{"center":{"x":0.2799496650695801,"y":1.6802666187286378,"z":-0.042975425720214847},"size":{"x":6.193215370178223,"y":4.4521026611328129,"z":6.88298225402832}}'
     m_Space: 0
   m_Property:
     name: bounds
@@ -11365,7 +11365,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1
+      m_SerializableObject: 30
     m_Space: 2147483647
   m_Property:
     name: softParticleFadeDistance

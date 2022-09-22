@@ -1,7 +1,9 @@
+using CosmosDefender;
+using Sirenix.OdinInspector;
 using System.Collections;
 using UnityEngine;
 
-public class HealthManager : MonoBehaviour
+public class HealthManager : MonoBehaviour, IDamageable
 {
     public float MaxHealth = 1000f;
     protected float currentHealth;
@@ -13,14 +15,19 @@ public class HealthManager : MonoBehaviour
     {
         currentHealth = MaxHealth;
     }
-
+    
     public void IncreaseHealth(float value)
     {
         currentHealth += value;
         currentHealth = Mathf.Clamp(currentHealth, 0f, MaxHealth);
     }
+    [Button]
+    public void DecreaseHealth10()
+    {
+        TakeDamage(10f);
+    }
 
-    public void DecreaseHealth(float value)
+    public void TakeDamage(float value)
     {
         if (isInvulnerable)
             return;

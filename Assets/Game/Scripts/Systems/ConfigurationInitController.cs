@@ -8,11 +8,14 @@ namespace CosmosDefender
         [SerializeField]
         private PlayerAttributes playerAttributes;
         [SerializeField]
+        private ShopModifiers shopAttributes;
+        [SerializeField]
         private string menuController;
 
         private void Awake()
         {
             playerAttributes.Initialize();
+            shopAttributes.Initialize();
         }
 
         private void Start()
