@@ -18,6 +18,8 @@ namespace CosmosDefender
         private float speed;
         [SerializeField]
         private float uniformSize;
+        [SerializeField] 
+        private float projectileDelay;
         [SerializeField]
         private float maxAttackDistance;
         [SerializeField]
@@ -31,6 +33,7 @@ namespace CosmosDefender
         public int Amount { get => amount; set => amount = value; }
         public float Speed { get => speed; set => speed = value; }
         public float UniformSize { get => uniformSize; set => uniformSize = value; }
+        public float ProjectileDelay { get => projectileDelay; set => projectileDelay = value; }
         public float MaxAttackDistance { get => maxAttackDistance; set => maxAttackDistance = value; }
         public float Lifetime { get => lifetime; set => lifetime = value; }
         public float ActiveDuration { get => activeDuration; set => activeDuration = value; }
