@@ -9,19 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03b216425fac03c49a7583a81bb28b12, type: 3}
-  m_Name: MeteorSpellWeak
+  m_Script: {fileID: 11500000, guid: c984efcfd70c58541958bc2380c204a7, type: 3}
+  m_Name: MeteorSpellUltraMeme
   m_EditorClassIdentifier: 
   baseData:
-    spellType: 2
-    damageMultiplier: 1
+    spellType: 32
+    damageMultiplier: 2
     cooldown: 8
-    amount: 1
+    amount: 100
     speed: 30
-    uniformSize: 0
-    projectileRadius: 5
-    projectileDelay: 0.25
+    uniformSize: 50
+    projectileRadius: 50
+    projectileDelay: 0.01
     maxAttackDistance: 35
-    lifetime: 5
+    lifetime: 6
     activeDuration: 0
   prefab: {fileID: 6296985688864843683, guid: 711acb15c5ab04a488a824d6f34aa041, type: 3}
