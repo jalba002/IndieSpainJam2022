@@ -1,48 +1,47 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Mono.Cecil.Cil;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider))]
-[RequireComponent(typeof(Rigidbody))]
-public class BaseProjectile : MonoBehaviour
+namespace CosmosDefender.Projectiles
 {
-    [SerializeField] protected Collider m_Collider;
-
-    [SerializeField] protected Rigidbody m_Rigidbody;
-
-    public virtual void InitializeProjectile(Vector3 spawnPoint, Vector3 velocity)
+    [RequireComponent(typeof(Collider))]
+    [RequireComponent(typeof(Rigidbody))]
+    public class BaseProjectile : MonoBehaviour
     {
-        // A.
-    }
+        [SerializeField] protected Collider m_Collider;
 
-    protected virtual void UpdateRenderer()
-    {
-    }
+        [SerializeField] protected Rigidbody m_Rigidbody;
 
-    protected virtual void UpdateRigidbody()
-    {
-    }
+        public virtual void InitializeProjectile(Vector3 spawnPoint, IReadOnlyOffensiveData combatData, SpellData spellData)
+        {
+            // A.
+        }
 
-    protected virtual void UpdateParticles()
-    {
-    }
-    
-    protected virtual void UpdateCollisions()
-    {
-    }
+        protected virtual void UpdateRenderer()
+        {
+        }
+
+        protected virtual void UpdateRigidbody()
+        {
+        }
+
+        protected virtual void UpdateParticles()
+        {
+        }
+
+        protected virtual void UpdateCollisions()
+        {
+        }
 
 
-    protected virtual void CastDamage()
-    {
-    }
+        protected virtual void CastDamage()
+        {
+        }
 
-    protected virtual void FinishObject()
-    {
-    }
+        protected virtual void FinishObject()
+        {
+        }
 
-    protected virtual void UpdateVFX()
-    {
+        protected virtual void UpdateVFX()
+        {
+        }
     }
 }
