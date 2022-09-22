@@ -9,6 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9805f052b58c3a04fad52a3c8287850e, type: 3}
-  m_Name: PurchaseableSpellModifier
+  m_Script: {fileID: 11500000, guid: 9acb173906a6fe046ae659476286bfb2, type: 3}
+  m_Name: WeakDuplicateAttack
   m_EditorClassIdentifier: 
+  priority: 1
+  additivePercentage: 20

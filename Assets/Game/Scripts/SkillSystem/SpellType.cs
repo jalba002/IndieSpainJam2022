@@ -9,10 +9,11 @@ namespace CosmosDefender
         Meteor = 1 << 1,
         Tornado = 1 << 2,
         Dash = 1 << 3,
-        LaserEmpowered = 1 << 4,
-        MeteorEmpowered = 1 << 5,
-        TornadoEmpowered = 1 << 6,
-        DashEmpowered = 1 << 7,
-        All = ~(1 << 8)
+        LaserEmpowered = Laser + Empowered,
+        MeteorEmpowered = Meteor + Empowered,
+        TornadoEmpowered = Tornado + Empowered,
+        DashEmpowered = Dash + Empowered,
+        Empowered = 1 << 4,
+        All = ~(1 << 5)
     }
 }

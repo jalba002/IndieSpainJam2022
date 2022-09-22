@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d176b54a835e0d940b035cf19a0557f2, type: 3}
-  m_Name: SpellSizeIncreaserModifier
+  m_Name: SmallSpellSizeIncreaserModifier
   m_EditorClassIdentifier: 
   priority: 0
-  spellType: 0
-  timesBigger: 2
+  spellType: -33
+  timesBigger: 0.2

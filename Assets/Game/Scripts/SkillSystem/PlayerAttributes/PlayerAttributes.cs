@@ -11,13 +11,12 @@ namespace CosmosDefender
         [SerializeField]
         private AttributesData baseAttributes;
         [SerializeField, Space]
-        private BaseSpell[] spells;
+        private List<CosmosSpell> spells;
 
-        //[ShowInInspector, ReadOnly]
+        [ShowInInspector, ReadOnly]
         private AttributesData currentAttributes;
 
-        private Dictionary<SpellType, BaseSpell> indexedSpells;
-        private ObservableModifierList<BaseAttributeModifier, ISpellModifier<AttributesData>, AttributesData> attributeModifiers;
+        private ObservableModifierList<BaseAttributeModifier, IModifier<AttributesData>, AttributesData> attributeModifiers;
         private ObservableModifierList<BaseSpellModifier, ISpellModifier, SpellData> spellModifiers;
 
         public IReadOnlyOffensiveData CombatData => currentAttributes;
@@ -26,8 +25,7 @@ namespace CosmosDefender
 
         public void Initialize()
         {
-            indexedSpells = spells.ToDictionary(x => x.spellType);
-            attributeModifiers = new ObservableModifierList<BaseAttributeModifier, ISpellModifier<AttributesData>, AttributesData>(UpdateAttributes);
+            attributeModifiers = new ObservableModifierList<BaseAttributeModifier, IModifier<AttributesData>, AttributesData>(UpdateAttributes);
             spellModifiers = new ObservableModifierList<BaseSpellModifier, ISpellModifier, SpellData>(UpdateSpells);
 
             RemoveAllAttributeModifiers();
@@ -47,8 +45,10 @@ namespace CosmosDefender
                 spell.ApplyModifiers(spellModifiers);
         }
 
+        public void AddSpell(CosmosSpell spell) => spells.Add(spell);
+        public bool HasSpellKey(SpellKeyType type) => spells.Count > (int)type;
         [Button]
-        public BaseSpell GetSpell(SpellType type) => indexedSpells[type];
+        public BaseSpell GetSpell(SpellKeyType type) => spells[(int)type].GetSpell();
 
         public void AddAttributeModifier(BaseAttributeModifier modifier) => attributeModifiers.AddModifier(modifier);
         public void AddAttributeModifiers(List<BaseAttributeModifier> modifiers) => attributeModifiers.AddModifiers(modifiers);
