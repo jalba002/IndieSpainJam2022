@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Bullets
+namespace CosmosDefender.Bullets
 {
     public class BulletSpawnManager : MonoBehaviour
     {
@@ -8,7 +8,7 @@ namespace Bullets
         {
             var proj = Instantiate(projectilePrefab, position, identity);
             proj.name = "Projectile";
-            proj.GetComponent<Bullet>().InstantiateBullet();
+            proj.GetComponent<BaseBullet>().InstantiateBullet();
         }
     }
 }
