@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Game/Scripts/SkillSystem/Spells/CosmosSpell.cs.meta
 guid: d7c1de60739499b409656511d758c841
+========
+guid: ec2cd7271ddf5f6409664062ff30226f
+>>>>>>>> Jordi:Assets/Game/Scripts/Bullets/Implementation/ArcBullet.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

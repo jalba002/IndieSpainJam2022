@@ -17,8 +17,9 @@ namespace CosmosDefender
         protected BaseBullet prefab;
 
         public SpellType spellType => baseData.SpellType;
+        public SpellData spellData => currentData;
 
-        public abstract void Cast(Transform spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData);
+        public abstract void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData);
 
         public void ApplyModifiers(IReadOnlyList<ISpellModifier> modifiers)
         {

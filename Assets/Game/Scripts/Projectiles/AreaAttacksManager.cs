@@ -26,9 +26,9 @@ namespace CosmosDefender
             return a;
         }
 
-        public static Collider[] SphereOverlap(Vector3 spawnPos, float radius, bool debugMode = true)
+        public static Collider[] SphereOverlap(Vector3 spawnPos, float radius, LayerMask layerMask, bool debugMode = true)
         {
-            var a = Physics.OverlapSphere(spawnPos, radius);
+            var a = Physics.OverlapSphere(spawnPos, radius, layerMask);
 
             if (debugMode)
                 ExtDebug.DrawSphere(spawnPos, radius, Color.red);

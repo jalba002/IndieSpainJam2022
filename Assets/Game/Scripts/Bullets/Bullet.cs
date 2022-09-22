@@ -24,7 +24,7 @@ namespace CosmosDefender.Bullets
             
         }
 
-        public virtual void InstantiateBullet(Transform origin, Vector3 forward, Quaternion rotation,
+        public virtual void InstantiateBullet(Vector3 origin, Vector3 forward, Quaternion rotation,
             IReadOnlyOffensiveData combatData, SpellData spellData)
         {
             // Maybe its a good choice to give it some instructions.
