@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
+using CosmosDefender.Bullets;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using CosmosDefender.Bullets;
 
 namespace CosmosDefender
 {
@@ -20,7 +20,6 @@ namespace CosmosDefender
 
         public abstract void Cast(Transform spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData);
 
-        [Button("Update Current Data")]
         public void ApplyModifiers(IReadOnlyList<ISpellModifier> modifiers)
         {
             currentData = baseData;

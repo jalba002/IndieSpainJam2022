@@ -45,7 +45,12 @@ namespace CosmosDefender
                 spell.ApplyModifiers(spellModifiers);
         }
 
-        public void AddSpell(CosmosSpell spell) => spells.Add(spell);
+        public void AddSpell(CosmosSpell spell)
+        {
+            spells.Add(spell);
+            spellModifiers.ForceUpdate();
+        }
+
         public bool HasSpellKey(SpellKeyType type) => spells.Count > (int)type;
         [Button]
         public BaseSpell GetSpell(SpellKeyType type) => spells[(int)type].GetSpell();

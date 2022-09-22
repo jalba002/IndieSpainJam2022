@@ -11,6 +11,8 @@ namespace CosmosDefender
 
         public ObservableModifierList(Action<IReadOnlyList<T>> onListUpdated) => this.onListUpdated = onListUpdated;
 
+        public void ForceUpdate() => onListUpdated(attributeModifiers);
+
         public void AddModifier(T attribute, bool updateList = true)
         {
             attributeModifiers.Add(attribute);
