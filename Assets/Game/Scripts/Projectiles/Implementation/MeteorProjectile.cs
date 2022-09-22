@@ -46,7 +46,7 @@ namespace CosmosDefender.Projectiles
         {
             particles.Stop();
             particles.gameObject.transform.parent = null;
-            
+
             // TODO set in time.
             CronoScheduler.Instance.ScheduleForTime(3f, () =>
             {
@@ -60,7 +60,7 @@ namespace CosmosDefender.Projectiles
         protected override void CastDamage()
         {
             var a = AreaAttacksManager.SphereOverlap(this.gameObject.transform.position, 3f, true);
-            
+
             // TODO get the correct damage from the spells settings.
             AreaAttacksManager.DealDamageToCollisions<IDamageable>(a, 10f);
         }

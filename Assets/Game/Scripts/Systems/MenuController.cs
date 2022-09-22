@@ -1,5 +1,6 @@
 using CosmosDefender;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class MenuController : MonoBehaviour
     private ShopModifiers shopModifiers;
     [SerializeField]
     private CanvasMenu[] menus;
+    [SerializeField]
+    private string gameLevel;
 
     private void Start()
     {
@@ -24,5 +27,12 @@ public class MenuController : MonoBehaviour
             else
                 current.Hide();
         }
+    }
+
+    public void LoadGame()
+    {
+        playerAttributes.AddAttributeModifiers(shopModifiers.GetAttributeModifiers());
+        playerAttributes.AddSpellModifiers(shopModifiers.GetSpellModifiers());
+        SceneManager.LoadScene(gameLevel);
     }
 }

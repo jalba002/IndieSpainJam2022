@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace CosmosDefender
@@ -19,6 +20,11 @@ namespace CosmosDefender
         public T GetCurrentPurchaseable() => IsModifierCompletelyPurchased() ? modifers[modifers.Count - 1] : modifers[shopData.purchasedModifiersCount];
 
         public bool IsModifierCompletelyPurchased() => shopData.purchasedModifiersCount == modifers.Count;
+
+        public IEnumerable<T1> GetPurchasedSpells()
+        {
+            return modifers.Where((x, i) => i < shopData.purchasedModifiersCount).Select(x => x.modifier);
+        }
 
         public void Purchase(T modifiedToPurchase)
         {

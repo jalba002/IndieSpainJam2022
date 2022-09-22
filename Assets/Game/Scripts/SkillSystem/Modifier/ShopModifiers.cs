@@ -17,6 +17,9 @@ namespace CosmosDefender
         [SerializeField, InlineEditor]
         private List<PurchaseableSpellModifier> spellModifierShop;
 
+        public IReadOnlyList<PurchaseableAttributeModifier> AttributesModifierShop => attributesModifierShop;
+        public IReadOnlyList<PurchaseableSpellModifier> SpellModifierShop => spellModifierShop;
+
         public void Initialize()
         {
             Load();
@@ -43,6 +46,20 @@ namespace CosmosDefender
             var serializedSpells = JsonUtility.FromJson<SerializedShop>(PlayerPrefs.GetString(SpellKey, "{}"));
             for (int i = 0; i < serializedSpells.modifiersPurchased.Count; i++)
                 spellModifierShop[i].ShopData = serializedSpells.modifiersPurchased[i];
+        }
+
+        public List<BaseAttributeModifier> GetAttributeModifiers()
+        {
+            List<BaseAttributeModifier> attributes = new List<BaseAttributeModifier>();
+            attributesModifierShop.ForEach(x => attributes.AddRange(x.GetPurchasedSpells()));
+            return attributes;
+        }
+
+        public List<BaseSpellModifier> GetSpellModifiers()
+        {
+            List<BaseSpellModifier> attributes = new List<BaseSpellModifier>();
+            spellModifierShop.ForEach(x => attributes.AddRange(x.GetPurchasedSpells()));
+            return attributes;
         }
     }
 
