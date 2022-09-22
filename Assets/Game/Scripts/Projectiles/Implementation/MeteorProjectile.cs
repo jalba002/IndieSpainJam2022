@@ -33,6 +33,7 @@ public class MeteorProjectile : BaseProjectile
         particles.Stop();
         particles.gameObject.transform.parent = null;
         //this.gameObject.SetActive(false);
+        Destroy(vfx.gameObject, 10f);
         Destroy(particles.gameObject, 3f);
         Destroy(this.gameObject);
     }
