@@ -33,15 +33,62 @@ MonoBehaviour:
     - model: {fileID: 8926484042661616760}
       id: 0
       isStickyNote: 0
+  - title: Shockwave
+    position:
+      serializedVersion: 2
+      x: 468
+      y: 94
+      width: 474
+      height: 1978
+    contents:
+    - model: {fileID: 8926484042661617042}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661617044}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661617049}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661617064}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661617070}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661617132}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661617145}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661617170}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661617047}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661617137}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661617149}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661617166}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661617175}
+      id: 0
+      isStickyNote: 0
   stickyNoteInfos: []
   categories:
   - name: Rock Circle
     collapsed: 0
   uiBounds:
     serializedVersion: 2
-    x: 486
+    x: 468
     y: -6
-    width: 5075
+    width: 5093
     height: 2491
 --- !u!114 &114350483966674976
 MonoBehaviour:
@@ -8987,7 +9034,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children:
   - {fileID: 8926484042661617044}
-  m_UIPosition: {x: 491, y: 153}
+  m_UIPosition: {x: 493, y: 153}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
@@ -9116,7 +9163,7 @@ MonoBehaviour:
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: 491, y: 1184}
+  m_UIPosition: {x: 493, y: 1216}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
@@ -9156,7 +9203,7 @@ MonoBehaviour:
   - {fileID: 8926484042661617132}
   - {fileID: 8926484042661617145}
   - {fileID: 8926484042661617170}
-  m_UIPosition: {x: 491, y: 491}
+  m_UIPosition: {x: 493, y: 491}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -9727,7 +9774,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.7
+      m_SerializableObject: 0.2
     m_Space: 2147483647
   m_Property:
     name: Lifetime
@@ -9754,7 +9801,7 @@ MonoBehaviour:
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
   m_UISuperCollapsed: 0
-  title: 
+  title: Shockwave
   m_Owners:
   - {fileID: 8926484042661617049}
   - {fileID: 8926484042661617047}
@@ -9947,7 +9994,7 @@ MonoBehaviour:
   - {fileID: 8926484042661617149}
   - {fileID: 8926484042661617166}
   - {fileID: 8926484042661617175}
-  m_UIPosition: {x: 486, y: 1404}
+  m_UIPosition: {x: 493, y: 1405}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -10007,7 +10054,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"4e548333869298b4295f6ddc41e298ea","type":3}}'
+      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"02f4fed52feb96a40b8886c402bfc2a3","type":3}}'
     m_Space: 2147483647
   m_Property:
     name: mainTexture
@@ -10132,7 +10179,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":0.031139420345425607,"y":0.0,"z":0.501960813999176}'
+      m_SerializableObject: '{"x":0.250980406999588,"y":0.0,"z":4.015686511993408}'
     m_Space: 2147483647
   m_Property:
     name: Color
@@ -10590,7 +10637,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.0,"g":0.0,"b":0.0,"a":1.0},"time":0.0},{"color":{"r":1.0,"g":1.0,"b":1.0,"a":1.0},"time":0.6117647290229797},{"color":{"r":0.0,"g":0.0,"b":0.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.5529412031173706},{"alpha":1.0,"time":0.658823549747467},{"alpha":0.0,"time":1.0}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.0,"g":0.0,"b":0.0,"a":1.0},"time":0.0},{"color":{"r":1.0,"g":1.0,"b":1.0,"a":1.0},"time":0.5970550179481506},{"color":{"r":0.0,"g":0.0,"b":0.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.30882734060287478},{"alpha":1.0,"time":0.8323491215705872},{"alpha":0.0,"time":1.0}],"gradientMode":0}'
     m_Space: 2147483647
   m_Property:
     name: Color
