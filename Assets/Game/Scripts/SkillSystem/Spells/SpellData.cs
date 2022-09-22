@@ -13,7 +13,7 @@ namespace CosmosDefender
         [SerializeField]
         private float cooldown;
         [SerializeField]
-        private float amount;
+        private int amount;
         [SerializeField]
         private float speed;
         [SerializeField]
@@ -28,7 +28,7 @@ namespace CosmosDefender
         public SpellType SpellType => spellType;
         public float DamageMultiplier { get => damageMultiplier; set => damageMultiplier = value; }
         public float Cooldown { get => cooldown; set => cooldown = value; }
-        public float Amount { get => amount; set => amount = value; }
+        public int Amount { get => amount; set => amount = value; }
         public float Speed { get => speed; set => speed = value; }
         public float UniformSize { get => uniformSize; set => uniformSize = value; }
         public float MaxAttackDistance { get => maxAttackDistance; set => maxAttackDistance = value; }
