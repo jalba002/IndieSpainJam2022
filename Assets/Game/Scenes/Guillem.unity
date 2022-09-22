@@ -18250,6 +18250,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7867279661157371017, guid: 0ccb0ea3bad71474fb99ed2200e75285, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7867279661157371019, guid: 0ccb0ea3bad71474fb99ed2200e75285, type: 3}
       propertyPath: m_Name
       value: MeleeEnemy

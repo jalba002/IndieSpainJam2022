@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Scenes/MainMenu.unity
     guid: efed3917ddf33254caee35204600a9f8
+  - enabled: 1
+    path: Assets/Game/Scenes/Guillem.unity
+    guid: cefa9a6993c932e44ac41edb82a372a4
   m_configObjects: {}
