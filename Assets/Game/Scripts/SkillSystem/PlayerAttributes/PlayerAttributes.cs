@@ -28,8 +28,8 @@ namespace CosmosDefender
             attributeModifiers = new ObservableModifierList<BaseAttributeModifier, IModifier<AttributesData>, AttributesData>(UpdateAttributes);
             spellModifiers = new ObservableModifierList<BaseSpellModifier, ISpellModifier, SpellData>(UpdateSpells);
 
-            RemoveAllAttributeModifiers();
-            RemoveAllSpellModifiers();
+            attributeModifiers.ForceUpdate();
+            spellModifiers.ForceUpdate();
         }
 
         private void UpdateAttributes(IReadOnlyList<BaseAttributeModifier> attributeModifiers)
@@ -42,7 +42,10 @@ namespace CosmosDefender
         private void UpdateSpells(IReadOnlyList<BaseSpellModifier> spellModifiers)
         {
             foreach (var spell in spells)
+            {
+                spell.SetPlayerAttribute(this);
                 spell.ApplyModifiers(spellModifiers);
+            }
         }
 
         [Button]
