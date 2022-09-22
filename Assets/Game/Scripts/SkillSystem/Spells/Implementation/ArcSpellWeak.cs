@@ -2,8 +2,8 @@ using UnityEngine;
 
 namespace CosmosDefender
 {
-	[CreateAssetMenu(fileName = nameof(TornadoSpellWeak), menuName = "CosmosDefender/"+nameof(TornadoSpellWeak))]
-	public class TornadoSpellWeak : BaseSpell
+	[CreateAssetMenu(fileName = nameof(ArcSpellWeak), menuName = "CosmosDefender/"+nameof(ArcSpellWeak))]
+	public class ArcSpellWeak : BaseSpell
 	{
 		public override void Cast(Transform spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData)
 		{

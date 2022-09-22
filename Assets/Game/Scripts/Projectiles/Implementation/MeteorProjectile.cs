@@ -12,6 +12,8 @@ namespace CosmosDefender.Projectiles
         [SerializeField] private ParticleSystem particles;
 
         [SerializeField] private MeshRenderer mrend;
+        
+        [SerializeField] private LayerMask layerMask;
 
         private SpellData m_SpellData;
         private IReadOnlyOffensiveData m_CombatData;
@@ -78,9 +80,9 @@ namespace CosmosDefender.Projectiles
 
         protected override void CastDamage()
         {
-            // TODO Update radius to match stats. THE RADIUS FROM SPELLDATA IS 1/5th (THAT OR MULT FOR 5 IN VFX)
+            // TODO. THE RADIUS FROM SPELLDATA IS 1/5th (THAT OR MULT FOR 5 IN VFX)
             
-            var collisions = AreaAttacksManager.SphereOverlap(this.gameObject.transform.position, m_SpellData.ProjectileRadius * 0.2f, true);
+            var collisions = AreaAttacksManager.SphereOverlap(this.gameObject.transform.position, m_SpellData.ProjectileRadius * 0.2f, layerMask);
             
             AreaAttacksManager.DealDamageToCollisions<IDamageable>(collisions, m_CombatData.AttackDamage * m_SpellData.DamageMultiplier);
         }
