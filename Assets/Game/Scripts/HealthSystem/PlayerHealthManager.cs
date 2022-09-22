@@ -38,7 +38,7 @@ public class PlayerHealthManager : HealthManager
 
     public override void Die()
     {
-        mainCameraShake.CameraShake(CameraShakeDuration, CameraShakeIntensity);
+        //mainCameraShake.CameraShake(CameraShakeDuration, CameraShakeIntensity);
         SmoothUpdateUI(currentHealth, -50f);
         //inputs.DisableInputs();
         StartCoroutine(DeathCoroutine());
@@ -49,7 +49,7 @@ public class PlayerHealthManager : HealthManager
     public override void DamageFeedback()
     {
         InvulnerableOverTime(InvulnerableTime);
-        mainCameraShake.CameraShake(CameraShakeDuration, CameraShakeIntensity);
+        //mainCameraShake.CameraShake(CameraShakeDuration, CameraShakeIntensity);
         SmoothUpdateUI(currentHealth, -50f);
     }
 

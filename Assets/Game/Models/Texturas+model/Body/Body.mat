@@ -61,6 +61,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _GalaxyTexture:
+        m_Texture: {fileID: 2800000, guid: 7a5f76b494780f84c8fd863f973cce98, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -141,6 +145,7 @@ Material:
     - _FresnelColor: {r: 4.005017, g: 11.82264, b: 3.2902632, a: 1}
     - _FresnelSpeed: {r: 0, g: -0.1, b: 0, a: 0}
     - _GalaxyColor: {r: 1.6941177, g: 2.9960785, b: 2.8392158, a: 1}
+    - _GalaxyOffsetSpeed: {r: 0.01, g: 0.01, b: 0, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _StarsColor: {r: 1, g: 1, b: 1, a: 1}
     - _StarsOffset: {r: 0, g: 0, b: 0, a: 0}
