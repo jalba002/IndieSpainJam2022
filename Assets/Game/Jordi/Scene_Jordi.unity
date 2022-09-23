@@ -1101,7 +1101,7 @@ GameObject:
   - component: {fileID: 2043184155}
   - component: {fileID: 2043184154}
   - component: {fileID: 2043184153}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4549,6 +4549,7 @@ MonoBehaviour:
   Move: {x: 0, y: 0}
   Look: {x: 0, y: 0}
   Dash: 0
+  InteractButton: 0
   AnalogMovement: 1
   cursorLocked: 1
   cursorInputForLook: 1
@@ -4584,7 +4585,7 @@ MonoBehaviour:
   virtualCamera: {fileID: 646468037}
   isDashing: 0
   DashLaunchSpeed: 8
-  DashUnactableTime: 0.5
+  DashDuration: 0.5
   DashAnimationSpeed: 1
   playerAttributes: {fileID: 11400000, guid: fed7debed2a62174487ed40798233d77, type: 2}
 --- !u!4 &8160155297916938749
