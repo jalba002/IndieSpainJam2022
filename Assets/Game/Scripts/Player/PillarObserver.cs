@@ -53,4 +53,14 @@ public class PillarObserver : MonoBehaviour
             playerAttributes.RemoveAttributeModifier(item);
         }
     }
+
+    public void AddSpell(CosmosSpell newSpell)
+    {
+        playerAttributes.AddSpell(newSpell);
+    }
+
+    public void SetSpellEmpowerState(CosmosSpell newSpell, bool newState)
+    {
+        newSpell.isSpellEmpowered = newState;
+    }
 }

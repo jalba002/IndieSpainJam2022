@@ -6,14 +6,14 @@ using UnityEngine.VFX.Utility;
 
 namespace CosmosDefender
 {
-    [CreateAssetMenu(fileName = nameof(ArcSpellWeak), menuName = "CosmosDefender/" + nameof(ArcSpellWeak))]
-    public class ArcSpellWeak : BaseSpell
+    [CreateAssetMenu(fileName = nameof(ArcSpell), menuName = "CosmosDefender/" + nameof(ArcSpell))]
+    public class ArcSpell : BaseSpell
     {
         public VisualEffect vfxPrefab;
         private Coroutine SpellCoroutine;
 
         protected override void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation,
-            IReadOnlyOffensiveData combatData, SpellTester caster)
+            IReadOnlyOffensiveData combatData, SpellManager caster)
         {
             caster.animator.SetTrigger(spellData.AnimationCode);
             
@@ -25,7 +25,7 @@ namespace CosmosDefender
                 var ray = Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f));
                 bool spawnRay = (Physics.Raycast(ray, out RaycastHit raycastHit, spellData.MaxAttackDistance));
 
-                Transform firePoint = FindObjectOfType<SpellTester>().FirePoint;
+                Transform firePoint = FindObjectOfType<SpellManager>().FirePoint;
                 var spellTesterFirePointPosition = firePoint.position;
                 Vector3 sp = raycastHit.point - (raycastHit.point - spellTesterFirePointPosition) / 2;
                 var vfxItem = Instantiate(vfxPrefab, sp, Quaternion.identity);

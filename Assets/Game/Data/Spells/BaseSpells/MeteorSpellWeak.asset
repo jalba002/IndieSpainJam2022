@@ -16,9 +16,9 @@ MonoBehaviour:
     spellType: 2
     damageMultiplier: 1
     cooldown: 8
-    amount: 1
+    amount: 3
     speed: 30
-    uniformSize: 0
+    uniformSize: 1
     projectileRadius: 5
     projectileDelay: 0.25
     maxAttackDistance: 35

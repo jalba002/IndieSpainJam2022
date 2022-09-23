@@ -1,7 +1,7 @@
 using CosmosDefender;
 using UnityEngine;
 
-public class SpellTester : MonoBehaviour
+public class SpellManager : MonoBehaviour
 {
     [SerializeField] private PlayerAttributes playerAttributes;
     [SerializeField] private AttributesData attackData;
@@ -28,51 +28,24 @@ public class SpellTester : MonoBehaviour
         }
     }
 
+    void OnFire()
+    {
+        CastSpell(SpellKeyType.Spell0);
+    }
+
     void OnSpell1()
     {
         // Maybe a better way?
-        CastSpell(SpellKeyType.Spell0);
-        animator.SetTrigger("CastMeteor");
+        CastSpell(SpellKeyType.Spell1);
     }
 
     void OnSpell2()
     {
-        CastSpell(SpellKeyType.Spell1);
-        animator.SetTrigger("CastLaser");
+        CastSpell(SpellKeyType.Spell2);
     }
 
     void OnSpell3()
     {
-        CastSpell(SpellKeyType.Spell4);
-    }
-
-    void OnSpell4()
-    {
-        //CastSpell(SpellKeyType.Spell4);
-    }
-
-    void OnSpell5()
-    {
-        //CastSpell(4);
-    }
-
-    void OnSpell6()
-    {
-        //CastSpell(5);
-    }
-
-    void OnSpell7()
-    {
-        //CastSpell(6);
-    }
-
-    void OnSpell8()
-    {
-        //CastSpell(7);
-    }
-
-    void OnSpell9()
-    {
-        //CastSpell(8);
+        CastSpell(SpellKeyType.Spell3);
     }
 }

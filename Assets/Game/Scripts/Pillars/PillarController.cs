@@ -1,44 +1,81 @@
-using CosmosDefender;
+using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PillarController : MonoBehaviour
+namespace CosmosDefender
 {
-    [SerializeField]
-    private List<BaseAttributeModifier> attributeModifier = new List<BaseAttributeModifier>();
-    //[SerializeField]
-    //private BaseSpellModifier[] attributeModifier;
-    private List<PillarObserver> observersInRange = new List<PillarObserver>();
-    [SerializeField]
-    private PillarsConfig pillarConfig;
-
-    private void OnDrawGizmosSelected()
+    public class PillarController : MonoBehaviour
     {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, pillarConfig.Range);
-        Gizmos.color = Color.white;
-    }
-
-    private void Update()
-    {
-        foreach (var observer in pillarConfig.PillarObservers)
+        public enum PillarStates
         {
-            var distanceFromObserver = Vector3.Distance(transform.position, observer.transform.position);
+            Inactive,
+            Active,
+            Empowered
+        }
 
-            if (observersInRange.Contains(observer))
+        public PillarStates pillarCurrentState;
+        [SerializeField]
+        List<IPillarObserverModifier> pillarObserverModifiers = new List<IPillarObserverModifier>(); 
+
+        private List<PillarObserver> observersInRange = new List<PillarObserver>();
+        [SerializeField]
+        private PillarsConfig pillarConfig;
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(transform.position, pillarConfig.Range);
+            Gizmos.color = Color.white;
+        }
+
+        private void Awake()
+        {
+            GetComponents(pillarObserverModifiers);
+        }
+
+        private void Update()
+        {
+            if (pillarCurrentState == PillarStates.Inactive)
+                return;
+
+            foreach (var observer in pillarConfig.PillarObservers)
             {
-                if (distanceFromObserver > pillarConfig.Range)
+                var distanceFromObserver = Vector3.Distance(transform.position, observer.transform.position);
+
+                if (observersInRange.Contains(observer))
                 {
-                    observer.RemoveModifiers(attributeModifier);
-                    observersInRange.Remove(observer);
+                    if (distanceFromObserver > pillarConfig.Range)
+                    {
+                        foreach (var pillar in pillarObserverModifiers)
+                        {
+                            pillar.OnObserverOutsideOfRange(observer);
+                        }
+                        observersInRange.Remove(observer);
+                    }
+                }
+                else
+                {
+                    if (distanceFromObserver <= pillarConfig.Range)
+                    {
+                        foreach (var pillar in pillarObserverModifiers)
+                        {
+                            pillar.OnObserverInRange(observer);
+                        }
+                        Debug.Log("Inside range");
+                        observersInRange.Add(observer);
+                    }
                 }
             }
-            else
+        }
+
+        [Button]
+        public void ActivatePillar()
+        {
+            foreach (var pillar in pillarObserverModifiers)
             {
-                if (distanceFromObserver <= pillarConfig.Range)
+                foreach (var observer in observersInRange)
                 {
-                    observer.AddModifiers(attributeModifier);
-                    observersInRange.Add(observer);
+                    pillar.OnPillarActivate(observer);
                 }
             }
         }

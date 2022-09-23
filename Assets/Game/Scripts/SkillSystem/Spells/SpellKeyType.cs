@@ -6,6 +6,5 @@ namespace CosmosDefender
         Spell1,
         Spell2,
         Spell3,
-        Spell4,
     }
 }
