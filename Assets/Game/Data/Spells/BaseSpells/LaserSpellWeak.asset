@@ -19,7 +19,7 @@ MonoBehaviour:
     amount: 1
     speed: 30
     uniformSize: 0
-    projectileRadius: 1
+    projectileRadius: 0.5
     projectileDelay: 0.1
     maxAttackDistance: 10
     lifetime: 0.5

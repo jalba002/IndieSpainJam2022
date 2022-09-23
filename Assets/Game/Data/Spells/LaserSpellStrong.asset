@@ -16,11 +16,11 @@ MonoBehaviour:
     spellType: 17
     damageMultiplier: 1
     cooldown: 8
-    amount: 5
+    amount: 1
     speed: 50
     uniformSize: 0
-    projectileRadius: 5
-    projectileDelay: 0.05
+    projectileRadius: 3
+    projectileDelay: 0.1
     maxAttackDistance: 50
     lifetime: 0.5
     activeDuration: 0.1

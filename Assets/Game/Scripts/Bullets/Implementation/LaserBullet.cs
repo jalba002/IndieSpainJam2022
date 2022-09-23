@@ -23,6 +23,9 @@ namespace CosmosDefender.Bullets.Implementation
 
         private SpellManager caster;
 
+        [Range(0f, 1f)]
+        [SerializeField] private float sizeScaling = 0.17f;
+
         public override void InstantiateBullet(Vector3 origin, Vector3 forward, Quaternion rotation,
             IReadOnlyOffensiveData combatData, SpellData spellData)
         {
@@ -48,8 +51,8 @@ namespace CosmosDefender.Bullets.Implementation
             // vfx.SetVector3("Direction", forward);
 
             // WRONG, USE THE RAYCAST MAX LENGTH
-            //vfx.SetFloat("Length", spellData.MaxAttackDistance * 0.2f);
-            //vfx.SetFloat("Width", spellData.ProjectileRadius);
+            vfx.SetFloat("Length", spellData.MaxAttackDistance * sizeScaling);
+            vfx.SetFloat("Width", spellData.ProjectileRadius);
             //vfx.SetVector3("End", endPoint);
 
             UpdateVFX();
@@ -117,7 +120,8 @@ namespace CosmosDefender.Bullets.Implementation
         private void CastRayDamage(Vector3 origin, Vector3 forward, Vector3 length, Quaternion rotation)
         {
             // TODO Gather information about the ray size here.
-            AreaAttacksManager.BoxAttack(origin, forward, length * 0.5f, rotation, 0.1f);
+            var hits = AreaAttacksManager.BoxAttack(origin, forward, length * 0.5f, rotation, 0.1f);
+            AreaAttacksManager.DealDamageToCollisions<IDamageable>(hits, combatData.AttackDamage * spellData.DamageMultiplier);
         }
     }
 }
