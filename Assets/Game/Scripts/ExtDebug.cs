@@ -58,6 +58,15 @@ using UnityEngine;
          Debug.DrawLine(new Vector3(origin.x, origin.y, origin.z + radius), new Vector3(origin.x, origin.y, origin.z - radius), color, duration);
      }
      
+     public static void DrawCapsule(Vector3 pointOne, Vector3 pointTwo, float radius, Color color, float duration = 1f)
+     {
+         Debug.DrawLine(new Vector3(pointOne.x - radius, pointOne.y, pointOne.z), new Vector3(pointOne.x + radius, pointOne.y, pointOne.z), color, duration);
+         Debug.DrawLine(new Vector3(pointOne.x, pointOne.y, pointOne.z - radius), new Vector3(pointOne.x, pointOne.y, pointOne.z + radius), color, duration);
+         Debug.DrawLine(new Vector3(pointTwo.x - radius, pointTwo.y, pointTwo.z), new Vector3(pointTwo.x + radius, pointTwo.y, pointTwo.z), color, duration);
+         Debug.DrawLine(new Vector3(pointTwo.x, pointTwo.y, pointTwo.z - radius), new Vector3(pointTwo.x, pointTwo.y, pointTwo.z + radius), color, duration);
+         Debug.DrawLine(pointOne, pointTwo, color, duration);
+     }
+     
      public struct Box
      {
          public Vector3 localFrontTopLeft     {get; private set;}

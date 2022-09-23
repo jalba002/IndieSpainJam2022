@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ArcSpellWeak
   m_EditorClassIdentifier: 
   baseData:
-    spellType: 0
+    spellType: 2
     damageMultiplier: 0.85
     cooldown: 6
     amount: 7
@@ -21,7 +21,10 @@ MonoBehaviour:
     uniformSize: 20
     projectileRadius: 20
     projectileDelay: 0
-    maxAttackDistance: 0
+    maxAttackDistance: 30
     lifetime: 1
     activeDuration: 1
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 1
   prefab: {fileID: 7957709564838626636, guid: 9d0fcf9d4ea36d8448ec86727065ac67, type: 3}

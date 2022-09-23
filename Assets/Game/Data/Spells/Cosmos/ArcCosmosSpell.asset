@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7c1de60739499b409656511d758c841, type: 3}
-  m_Name: LaserCosmoSpell
+  m_Name: ArcCosmosSpell
   m_EditorClassIdentifier: 
-  baseSpell: {fileID: 11400000, guid: 9472aafd6c50c61488e6d68b2756f19a, type: 2}
-  empoweredSpell: {fileID: 11400000, guid: 16a6e7eb3a8c2984fbfd47ed00dcdd6e, type: 2}
+  baseSpell: {fileID: 11400000, guid: cc96520d57b88e741b1da3c901a5cef3, type: 2}
+  empoweredSpell: {fileID: 11400000, guid: cc96520d57b88e741b1da3c901a5cef3, type: 2}
   isSpellEmpowered: 0
