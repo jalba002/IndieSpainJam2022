@@ -20,7 +20,16 @@ public class ShopController : MonoBehaviour
     {
         foreach (var item in shopModifiers.AttributesModifierShop)
         {
-            Instantiate(transform);
+            var button = Instantiate(attributePrefab, transform);
+            button.Initialize(item);
+            button.Show();
+        }
+
+        foreach (var item in shopModifiers.SpellModifierShop)
+        {
+            var button = Instantiate(spellPrefab, transform);
+            button.Initialize(item);
+            button.Show();
         }
     }
 }
