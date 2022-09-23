@@ -26,4 +26,4 @@ MonoBehaviour:
     price: 300
     modifier: {fileID: 11400000, guid: 250942cbcdc1bf7488c99a0dc82b71d6, type: 2}
   shopData:
-    purchasedModifiersCount: 0
+    purchasedModifiersCount: 2
