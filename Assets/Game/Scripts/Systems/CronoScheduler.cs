@@ -13,14 +13,14 @@ namespace CosmosDefender
             return StartCoroutine(CoroutineForTime(time, callback));
         }
 
-        public void ScheduleForTimeAndExecuteElapsed(float maxTime, float elapsedTime, Action callback)
+        public Coroutine ScheduleForTimeAndExecuteElapsed(float maxTime, float elapsedTime, Action callback)
         {
-            StartCoroutine(CoroutineForTime(maxTime, elapsedTime, callback));
+            return StartCoroutine(CoroutineForTime(maxTime, elapsedTime, callback));
         }
 
-        public void ScheduleForRepetitions(int repetitions, float delay, Action callback)
+        public Coroutine ScheduleForRepetitions(int repetitions, float delay, Action callback)
         {
-            StartCoroutine(CoroutineForAmount(repetitions, delay, callback));
+            return StartCoroutine(CoroutineForAmount(repetitions, delay, callback));
         }
 
 
