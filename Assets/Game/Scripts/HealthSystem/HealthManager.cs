@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HealthManager : MonoBehaviour, IDamageable
 {
-    public float MaxHealth = 1000f;
+    public float MaxHealth = 100f;
     protected float currentHealth;
 
     protected bool isInvulnerable = false;

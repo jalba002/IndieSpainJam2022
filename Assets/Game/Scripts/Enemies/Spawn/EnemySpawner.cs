@@ -36,8 +36,10 @@ public class EnemySpawner : MonoBehaviour
         foreach (var item in currentWaveConfig.EnemyConfig)
         {
             var enemy = Instantiate(enemyPrefabs[(int)item.enemyType], spawnPoints[(int)item.pathToFollow].position, spawnPoints[(int)item.pathToFollow].rotation);
-            enemy.GetComponent<PathFollower>();
+            enemy.GetComponent<PathFollower>().SetPath(item);
             yield return new WaitForSeconds(currentWaveConfig.timeBetweenEnemySpawn);
         }
+        yield return new WaitForSeconds(currentWaveConfig.timeForNextWave);
+        StartNextWave();
     }
 }

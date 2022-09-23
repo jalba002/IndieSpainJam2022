@@ -4,18 +4,22 @@ using UnityEngine;
 public class SpellTester : MonoBehaviour
 {
     [SerializeField] private PlayerAttributes playerAttributes;
-
     [SerializeField] private AttributesData attackData;
+    private Animator animator;
+    public Transform FirePoint;
 
-    private void Start()
+    private void Awake()
     {
         playerAttributes.Initialize();
+
+        animator = GetComponentInChildren<Animator>();
     }
 
     void CastSpell(SpellKeyType spellKey)
     {
         if (!playerAttributes.HasSpellKey(spellKey))
             return;
+
         var selectedSpell = playerAttributes.GetSpell(spellKey);
         var ray = Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f));
         if (Physics.Raycast(ray, out RaycastHit raycastHit, selectedSpell.spellData.MaxAttackDistance))
@@ -27,12 +31,14 @@ public class SpellTester : MonoBehaviour
     void OnSpell1()
     {
         // Maybe a better way?
-        CastSpell(SpellKeyType.Spell1);
+        CastSpell(SpellKeyType.Spell0);
+        animator.SetTrigger("CastMeteor");
     }
 
     void OnSpell2()
     {
-        CastSpell(SpellKeyType.Spell3);
+        CastSpell(SpellKeyType.Spell1);
+        animator.SetTrigger("CastLaser");
     }
 
     void OnSpell3()

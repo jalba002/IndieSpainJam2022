@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: WaveConfig 2
   m_EditorClassIdentifier: 
   timeBetweenEnemySpawn: 1
+  timeForNextWave: 20
   EnemyConfig:
   - enemyType: 1
     pathToFollow: 2
