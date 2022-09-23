@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ResourceType: 0
   MaxResource: 100
-  StartingResource: 25
+  StartingResource: 100
   ResourceOverTime: 0

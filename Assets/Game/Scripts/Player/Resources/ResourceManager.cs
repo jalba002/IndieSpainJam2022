@@ -1,5 +1,6 @@
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace CosmosDefender
@@ -8,40 +9,45 @@ namespace CosmosDefender
     {
         [SerializeField]
         private List<IResourceModifier> resourceModifiers = new List<IResourceModifier>();
-        
-        [SerializeField]
-        private Dictionary<ResourceType, IResourceModifier> ResourcesDictionary = new Dictionary<ResourceType, IResourceModifier>();
 
         [SerializeField]
-        private StarResourceBehavior starsResourceModifier;
-
-        [SerializeField]
-        private GoddessResourceBehavior goddessResourceModifier;
+        private List<ResourceData> resourceDatas = new List<ResourceData>();
 
         private void Awake()
         {
-            starsResourceModifier = GetComponent<StarResourceBehavior>();
-            goddessResourceModifier = GetComponent<GoddessResourceBehavior>();
+            GetComponents(resourceModifiers);
         }
 
-        private void Start()
+        void Start()
         {
-            //GetComponents(resourceModifiers);
-            //foreach (var item in resourceModifiers)
-            //{
-            //    ResourcesDictionary.Add(item.GetResourceType(), item);
-            //}
-        }
-
-        void Update()
-        {
-
+            foreach (var item in resourceDatas)
+            {
+                item.Initialize();
+            }
         }
 
         [Button("Increase Resource")]
-        public void IncreaseResource(float value)
+        public void IncreaseResource(ResourceData data, float amount)
         {
-            starsResourceModifier.IncreaseResource(value);
+            data.IncreaseResource(amount);
+        }
+
+        public void DecreaseResource(ResourceData data, float amount)
+        {
+            data.DecreaseResource(amount);
+        }
+
+        public bool HasEnoughResource(ResourceData data, float cost)
+        {
+            return data.HasEnoughResource(cost);
+        }
+
+        public void UpdateUI()
+        {
+            foreach (var item in resourceModifiers)
+            {
+                item.UpdateUI();
+            }
         }
     }
 

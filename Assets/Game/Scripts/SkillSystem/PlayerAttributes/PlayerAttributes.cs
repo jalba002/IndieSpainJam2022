@@ -51,7 +51,6 @@ namespace CosmosDefender
         [Button]
         public void AddSpell(CosmosSpell spell)
         {
-            spell.isSpellEmpowered = false; //This an ability to start empowered when playing in editor
             spells.Add(spell);
             spellModifiers.ForceUpdate();
         }
@@ -60,6 +59,7 @@ namespace CosmosDefender
         public bool HasSpellKey(SpellKeyType type) => spells.Count > (int)type;
         [Button]
         public BaseSpell GetSpell(SpellKeyType type) => spells[(int)type].GetSpell();
+        public void RemoveAllSpells() => spells.Clear();
 
         public void AddAttributeModifier(BaseAttributeModifier modifier) => attributeModifiers.AddModifier(modifier);
         public void AddAttributeModifiers(List<BaseAttributeModifier> modifiers) => attributeModifiers.AddModifiers(modifiers);
