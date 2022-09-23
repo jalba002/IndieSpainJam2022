@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseData:
     spellType: 4
+    castType: 1
     damageMultiplier: 1
     cooldown: 6
     speed: 5
@@ -29,5 +30,4 @@ MonoBehaviour:
     activeDuration: 0
     animationCode: 
     animationDelay: 0
-    usesPreview: 1
   prefab: {fileID: 0}

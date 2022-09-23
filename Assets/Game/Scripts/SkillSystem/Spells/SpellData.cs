@@ -10,6 +10,9 @@ namespace CosmosDefender
         [SerializeField]
         private SpellType spellType;
         [SerializeField]
+        private CastType castType;
+        
+        [SerializeField]
         private float damageMultiplier;
         [SerializeField]
         private float cooldown;
@@ -40,11 +43,9 @@ namespace CosmosDefender
         private string animationCode;
         [SerializeField] 
         private float animationDelay;
-        [Header("Preview")]
-        [SerializeField] 
-        private bool usesPreview;
 
         public SpellType SpellType => spellType;
+        public CastType CastType => castType;
         public float DamageMultiplier { get => damageMultiplier; set => damageMultiplier = value; }
         public float Cooldown { get => cooldown; set => cooldown = value; }
         public int Amount { get => amount; set => amount = value; }
@@ -58,6 +59,5 @@ namespace CosmosDefender
         public LayerMask LayerMask { get => layerMask; set => layerMask = value; }
         public string AnimationCode { get => animationCode; set => animationCode = value; }
         public float AnimationDelay { get => animationDelay; set => animationDelay = value; }
-        public bool UsesPreview { get => usesPreview;  set => usesPreview = value; }
     }
 }

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ArcCosmosSpell
   m_EditorClassIdentifier: 
   baseSpell: {fileID: 11400000, guid: cc96520d57b88e741b1da3c901a5cef3, type: 2}
-  empoweredSpell: {fileID: 11400000, guid: cc96520d57b88e741b1da3c901a5cef3, type: 2}
+  empoweredSpell: {fileID: 11400000, guid: 354b02ef1dc25c8439b4ee808b5e85de, type: 2}
   isSpellEmpowered: 0

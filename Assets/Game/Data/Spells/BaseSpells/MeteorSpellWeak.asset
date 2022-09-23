@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseData:
     spellType: 2
-    damageMultiplier: 1
+    castType: 1
+    damageMultiplier: 1.2
     cooldown: 8
     speed: 30
     uniformSize: 1
@@ -29,5 +30,4 @@ MonoBehaviour:
     activeDuration: 1
     animationCode: CastMeteor
     animationDelay: 0.7
-    usesPreview: 1
   prefab: {fileID: 6296985688864843683, guid: 711acb15c5ab04a488a824d6f34aa041, type: 3}

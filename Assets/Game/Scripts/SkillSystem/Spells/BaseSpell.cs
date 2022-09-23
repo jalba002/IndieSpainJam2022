@@ -19,6 +19,8 @@ namespace CosmosDefender
         private PlayerAttributes playerAttributes;
 
         public SpellType spellType => baseData.SpellType;
+        public CastType castType => baseData.CastType;
+        
         public SpellData spellData => currentData;
 
         public void SetPlayerAttributes(PlayerAttributes playerAttributes)

@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseData:
     spellType: 1
-    damageMultiplier: 1
-    cooldown: 6
+    damageMultiplier: 0.35
+    cooldown: 1
     speed: 30
     uniformSize: 0
     amount: 1
     projectileRadius: 0.5
     projectileDelay: 0.1
-    maxAttackDistance: 10
+    maxAttackDistance: 15
     layerMask:
       serializedVersion: 2
       m_Bits: 257
