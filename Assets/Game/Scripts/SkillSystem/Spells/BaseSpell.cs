@@ -27,8 +27,8 @@ namespace CosmosDefender
         }
 
         public void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation) => Cast(spawnPoint, forward, rotation, playerAttributes.CombatData, null);
-        public void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation, SpellTester caster) => Cast(spawnPoint, forward, rotation, playerAttributes.CombatData, caster);
-        protected abstract void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData, SpellTester caster);
+        public void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation, SpellManager caster) => Cast(spawnPoint, forward, rotation, playerAttributes.CombatData, caster);
+        protected abstract void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData, SpellManager caster);
 
         public void ApplyModifiers(IReadOnlyList<ISpellModifier> modifiers)
         {

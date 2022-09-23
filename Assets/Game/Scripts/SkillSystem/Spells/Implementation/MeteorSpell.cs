@@ -2,11 +2,11 @@ using UnityEngine;
 
 namespace CosmosDefender
 {
-    [CreateAssetMenu(fileName = nameof(MeteorSpellWeak), menuName = "CosmosDefender/" + nameof(MeteorSpellWeak))]
-    public class MeteorSpellWeak : BaseSpell
+    [CreateAssetMenu(fileName = nameof(MeteorSpell), menuName = "CosmosDefender/" + nameof(MeteorSpell))]
+    public class MeteorSpell : BaseSpell
     {
         private Coroutine SpellCoroutine;
-        protected override void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData, SpellTester caster)
+        protected override void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData, SpellManager caster)
         {
             caster.animator.SetTrigger(spellData.AnimationCode);
             
