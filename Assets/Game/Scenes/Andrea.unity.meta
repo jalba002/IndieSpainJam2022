@@ -1,7 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Game/Models/Animaciones.meta
+guid: 62e4caccc36fb454687cffb3cf7e3fc3
 folderAsset: yes
 ========
 guid: 163d81527c1b11349bfdb3abf683c377
+>>>>>>>> dbce50a (Otra vez :D):Assets/Game/Scenes/Andrea.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
