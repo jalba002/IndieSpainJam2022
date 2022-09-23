@@ -1212,7 +1212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2037046bab4a63642935a001f4ea081c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAttributes: {fileID: 11400000, guid: fed7debed2a62174487ed40798233d77, type: 2}
+  playerAttributes: {fileID: 11400000, guid: adb5b12b3ffc0a346949c9007a92b910, type: 2}
   animator: {fileID: 1932619353}
   FirePoint: {fileID: 1939473034}
   skillPreviewPrefab: {fileID: 9119353042517627613, guid: e1c3c1bf030c197458606b2fff30e0c3, type: 3}
