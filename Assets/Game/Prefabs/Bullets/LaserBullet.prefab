@@ -53,6 +53,18 @@ VisualEffect:
       - m_Value: 3
         m_Name: Duration
         m_Overridden: 0
+      - m_Value: 0.4
+        m_Name: Width
+        m_Overridden: 0
+      - m_Value: 2
+        m_Name: Length
+        m_Overridden: 0
+      - m_Value: 0.05
+        m_Name: LaserDelay
+        m_Overridden: 0
+      - m_Value: 3
+        m_Name: Laser Size
+        m_Overridden: 0
     m_Vector2f:
       m_Array: []
     m_Vector3f:
@@ -124,7 +136,7 @@ GameObject:
   - component: {fileID: 8022966244273749141}
   - component: {fileID: 8022966244273749140}
   m_Layer: 0
-  m_Name: Laser
+  m_Name: LaserBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,6 +174,6 @@ MonoBehaviour:
   m_CheckOutOfBounds: 0
   raycastHitLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   rayToGroundDistance: 10
   vfx: {fileID: 8022966244239508526}
