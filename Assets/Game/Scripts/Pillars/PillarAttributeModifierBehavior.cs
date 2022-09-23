@@ -20,6 +20,11 @@ namespace CosmosDefender
 
         public void OnPillarActivate(PillarObserver observer)
         {
+            
+        }
+
+        public void SetPillarEmpowerState(PillarObserver observer, bool newState)
+        {
             throw new System.NotImplementedException();
         }
     }

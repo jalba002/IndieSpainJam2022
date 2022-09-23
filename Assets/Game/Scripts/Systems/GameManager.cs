@@ -14,6 +14,9 @@ public class GameManager : MonoSingleton<GameManager>
 
     protected override bool dontDestroyOnLoad => false;
 
+    public StarResourceBehavior StarResourceBehavior;
+    public GoddessResourceBehavior GoddessResourceBehavior;
+
     void Awake()
     {
         pillarsConfig.ClearObserverList();

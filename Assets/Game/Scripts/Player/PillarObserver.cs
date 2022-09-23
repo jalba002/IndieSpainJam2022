@@ -56,6 +56,7 @@ public class PillarObserver : MonoBehaviour
 
     public void AddSpell(CosmosSpell newSpell)
     {
+        Debug.Log("Add new spell");
         playerAttributes.AddSpell(newSpell);
     }
 
