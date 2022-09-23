@@ -1,7 +1,4 @@
-using System;
 using System.Collections;
-using Cinemachine;
-using CosmosDefender.Bullets;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -11,23 +8,21 @@ namespace CosmosDefender.Bullets.Implementation
     public class MovingTrail : BaseBullet
     {
         public float bulletSpeed = 1f;
-        private Rigidbody rb;
 
-        public override void InstantiateBullet()
+        public override void InstantiateBullet(Vector3 origin, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData, SpellData spellData)
         {
-            base.InstantiateBullet();
             // Setup and coroutine.
             // Get VFX duration.
             // Get component damage.
             // Calculate total.
 
             VisualEffect vfx = GetComponentInChildren<VisualEffect>();
-            rb = GetComponent<Rigidbody>();
+            _rb = GetComponent<Rigidbody>();
             // Get from prefab or VFX.
             float trailDuration = vfx.GetFloat("Duration");
             float groundDuration = vfx.GetFloat("MaxDecalDuration");
 
-            rb.velocity = transform.forward * bulletSpeed;
+            _rb.velocity = transform.forward * bulletSpeed;
 
             StartCoroutine(DelayedMovingTrail(trailDuration, groundDuration));
         }
@@ -48,7 +43,7 @@ namespace CosmosDefender.Bullets.Implementation
         {
             //AreaAttacksManager.SphereOverlap(transform.position, 5f);
             yield return new WaitForSeconds(delay);
-            rb.velocity = Vector3.zero;
+            _rb.velocity = Vector3.zero;
             //this.gameObject.SetActive(false);
             yield return new WaitForSeconds(destroyDelay + .5f);
             if (destroy)

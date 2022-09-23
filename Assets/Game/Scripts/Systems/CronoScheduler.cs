@@ -8,9 +8,9 @@ namespace CosmosDefender
     {
         protected override bool dontDestroyOnLoad => true;
 
-        public void ScheduleForTime(float time, Action callback)
+        public Coroutine ScheduleForTime(float time, Action callback)
         {
-            StartCoroutine(CoroutineForTime(time, callback));
+            return StartCoroutine(CoroutineForTime(time, callback));
         }
 
         public void ScheduleForTimeAndExecuteElapsed(float maxTime, float elapsedTime, Action callback)
@@ -35,8 +35,8 @@ namespace CosmosDefender
             float timer = Time.time + maxTime;
             while (Time.time < timer)
             {
-                yield return new WaitForSeconds(elapsedTime);
                 callback.Invoke();
+                yield return new WaitForSeconds(elapsedTime);
             }
         }
 

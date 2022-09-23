@@ -5,7 +5,7 @@ public class SpellTester : MonoBehaviour
 {
     [SerializeField] private PlayerAttributes playerAttributes;
     [SerializeField] private AttributesData attackData;
-    private Animator animator;
+    public Animator animator;
     public Transform FirePoint;
 
     private void Awake()
@@ -24,7 +24,7 @@ public class SpellTester : MonoBehaviour
         var ray = Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f));
         if (Physics.Raycast(ray, out RaycastHit raycastHit, selectedSpell.spellData.MaxAttackDistance))
         {
-            selectedSpell.Cast(raycastHit.point, ray.direction, Quaternion.identity);
+            selectedSpell.Cast(raycastHit.point, ray.direction, Quaternion.identity, this);
         }
     }
 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LaserSpellWeak
   m_EditorClassIdentifier: 
   baseData:
-    spellType: 0
+    spellType: 1
     damageMultiplier: 0
     cooldown: 0
     amount: 0
@@ -27,4 +27,5 @@ MonoBehaviour:
     layerMask:
       serializedVersion: 2
       m_Bits: 1
+    animationCode: 
   prefab: {fileID: 8022966244273749140, guid: b16f71c6529304a48a5cd7b493a9aea7, type: 3}
