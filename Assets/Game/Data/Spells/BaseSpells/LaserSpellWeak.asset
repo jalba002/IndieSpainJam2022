@@ -13,15 +13,23 @@ MonoBehaviour:
   m_Name: LaserSpellWeak
   m_EditorClassIdentifier: 
   baseData:
-    spellType: 0
-    damageMultiplier: 0
-    cooldown: 0
-    amount: 0
-    speed: 0
+    spellType: 1
+    damageMultiplier: 1
+    cooldown: 6
+    amount: 1
+    speed: 30
     uniformSize: 0
-    projectileRadius: 0
-    projectileDelay: 0
-    maxAttackDistance: 0
-    lifetime: 0
-    activeDuration: 0
+    projectileRadius: 1
+    projectileDelay: 0.1
+    maxAttackDistance: 10
+    lifetime: 0.5
+    activeDuration: 1
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 1
+    animationCode: CastLaser
+    animationDelay: 0.72
   prefab: {fileID: 8022966244273749140, guid: b16f71c6529304a48a5cd7b493a9aea7, type: 3}
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 1

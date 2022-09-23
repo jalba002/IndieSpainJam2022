@@ -37,7 +37,6 @@ namespace CosmosDefender.Bullets.Implementation
             Vector2 modOrigin = new Vector2(origin.x, origin.z);
             modOrigin += Random.insideUnitCircle * spellData.UniformSize;
             Vector3 spawnPos = new Vector3(modOrigin.x, origin.y + height, modOrigin.y);
-            Debug.Log(spawnPos);
             var instance = Instantiate(prefab, spawnPos, Quaternion.identity);
             instance.InitializeProjectile(spawnPos, combatData, spellData);
         }

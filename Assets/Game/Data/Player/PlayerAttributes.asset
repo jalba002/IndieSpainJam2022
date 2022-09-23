@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: PlayerAttributes
   m_EditorClassIdentifier: 
   baseAttributes:
-    attackDamage: 500
+    attackDamage: 35
     speed: 10
     cooldownReduction: 0
-    maxHealth: 0
+    maxHealth: 100
     healthRegeneration: 0
-  spells:
-  - {fileID: 11400000, guid: 6fdfc8ec4c6c24f489fae51bf3e66ccd, type: 2}
+  spells: []

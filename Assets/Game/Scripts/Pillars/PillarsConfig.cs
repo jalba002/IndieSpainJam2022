@@ -6,6 +6,9 @@ public class PillarsConfig : ScriptableObject
 {
     public List<PillarObserver> PillarObservers = new List<PillarObserver>();
     public float Range = 5f;
+    public float EmpoweredDuration = 30f;
+    public float ActivateCost = 25f;
+    public float EmpowerCost = 50f;
 
     public void ClearObserverList()
     {

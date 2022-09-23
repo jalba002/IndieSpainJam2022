@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SpeedAdditiveModifier
   m_EditorClassIdentifier: 
   priority: 1
-  additiveSpeed: 3
+  additiveSpeed: 10

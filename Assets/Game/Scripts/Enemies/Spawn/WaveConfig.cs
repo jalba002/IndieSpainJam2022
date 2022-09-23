@@ -5,7 +5,7 @@ using UnityEngine;
 public class WaveConfig : ScriptableObject
 {
     public float timeBetweenEnemySpawn;
-    //public List<EnemyWaveConfig> EnemyConfig = new List<EnemyWaveConfig>();
+    public float timeForNextWave;
     public EnemyWaveConfig[] EnemyConfig;
 }
 

@@ -21,7 +21,7 @@ public class PathFollower : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
-    void StartPath(EnemyWaveConfig currentEnemyConfig)
+    public void SetPath(EnemyWaveConfig currentEnemyConfig)
     {
         gameManager = GameManager.Instance;
         switch (currentEnemyConfig.pathToFollow)

@@ -14,7 +14,7 @@ namespace CosmosDefender
 
         private void Awake()
         {
-            playerAttributes.Initialize();
+            playerAttributes.Initialize(true);
             shopAttributes.Initialize();
         }
 

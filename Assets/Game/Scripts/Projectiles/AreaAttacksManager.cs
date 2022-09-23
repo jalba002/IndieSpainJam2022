@@ -35,6 +35,16 @@ namespace CosmosDefender
 
             return a;
         }
+        
+        public static Collider[] CapsuleOverlap(Vector3 pointOne, Vector3 normal, float radius, LayerMask layerMask, bool debugMode = true)
+        {
+            var a = Physics.OverlapCapsule(pointOne, pointOne + normal * radius, radius, layerMask);
+
+            if (debugMode)
+                ExtDebug.DrawCapsule(pointOne, pointOne + normal * radius, radius, Color.red);
+
+            return a;
+        }
 
         // Manage all hits here.
         public static void DealDamageToCollisions<T>(Collider[] colliders, float damage) where T : IDamageable

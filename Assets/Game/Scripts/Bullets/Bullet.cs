@@ -19,11 +19,6 @@ namespace CosmosDefender.Bullets
         // Components
         protected Rigidbody _rb;
 
-        public virtual void InstantiateBullet()
-        {
-            
-        }
-
         public virtual void InstantiateBullet(Vector3 origin, Vector3 forward, Quaternion rotation,
             IReadOnlyOffensiveData combatData, SpellData spellData)
         {

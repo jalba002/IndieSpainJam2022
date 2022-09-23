@@ -78,11 +78,11 @@ namespace CosmosDefender.Projectiles
             // Destroy(particles.gameObject, 3f);
         }
 
-        protected override void CastDamage()
+        protected override void CastDamage(Vector3 hitPoint)
         {
             // TODO. THE RADIUS FROM SPELLDATA IS 1/5th (THAT OR MULT FOR 5 IN VFX)
             
-            var collisions = AreaAttacksManager.SphereOverlap(this.gameObject.transform.position, m_SpellData.ProjectileRadius * 0.2f, layerMask);
+            var collisions = AreaAttacksManager.SphereOverlap(hitPoint, m_SpellData.ProjectileRadius * 0.3f, layerMask);
             
             AreaAttacksManager.DealDamageToCollisions<IDamageable>(collisions, m_CombatData.AttackDamage * m_SpellData.DamageMultiplier);
         }
@@ -97,13 +97,15 @@ namespace CosmosDefender.Projectiles
         {
             // TODO Ignore other projectiles until custom layers are used,
             if (other.GetComponent<BaseProjectile>() != null) return;
+
+            var hitPoint = other.ClosestPointOnBounds(transform.position);
             
             UpdateVFX();
             UpdateRenderer();
             UpdateRigidbody();
             UpdateParticles();
             UpdateCollisions();
-            CastDamage();
+            CastDamage(hitPoint);
             FinishObject();
         }
     }

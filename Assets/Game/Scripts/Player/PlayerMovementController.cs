@@ -76,6 +76,7 @@ public class PlayerMovementController : MonoBehaviour
 	private int animIDSpeedRight;
 	private int animIDLocked;
 	private int animIDDodging;
+	private int animIDCameraVerticalDirection;
 
 	private Animator animator;
 	private CharacterController controller;
@@ -160,6 +161,7 @@ public class PlayerMovementController : MonoBehaviour
 		animIDSpeedRight = Animator.StringToHash("SpeedRight");
 		animIDLocked = Animator.StringToHash("Locked");
 		animIDDodging = Animator.StringToHash("Dodging");
+		animIDCameraVerticalDirection = Animator.StringToHash("CameraVerticalDirection");
 	}
 
 	private void GroundedCheck()
@@ -180,6 +182,7 @@ public class PlayerMovementController : MonoBehaviour
 
 		cinemachineTargetYaw = ClampAngle(cinemachineTargetYaw, float.MinValue, float.MaxValue);
 		cinemachineTargetPitch = Mathf.Clamp(cinemachineTargetPitch, BottomClamp, TopClamp);
+		animator.SetFloat(animIDCameraVerticalDirection, cinemachineTargetPitch/TopClamp * -1);
 
 		CinemachineCameraTarget.transform.rotation = Quaternion.Euler(cinemachineTargetPitch + CameraAngleOverride, cinemachineTargetYaw, 0.0f);
 	}
