@@ -35,14 +35,17 @@ namespace CosmosDefender
         {
             var serializedModifier = new SerializedShop(purchaseableData.ToList());
             PlayerPrefs.SetString(key, JsonUtility.ToJson(serializedModifier));
+            PlayerPrefs.Save();
         }
 
         public void Load()
         {
+            attributesModifierShop.ForEach(x => x.ShopData = new SerializableShopModifier());
             var serializedAttributes = JsonUtility.FromJson<SerializedShop>(PlayerPrefs.GetString(AttributeKey, "{}"));
             for (int i = 0; i < serializedAttributes.modifiersPurchased.Count; i++)
                 attributesModifierShop[i].ShopData = serializedAttributes.modifiersPurchased[i];
 
+            spellModifierShop.ForEach(x => x.ShopData = new SerializableShopModifier());
             var serializedSpells = JsonUtility.FromJson<SerializedShop>(PlayerPrefs.GetString(SpellKey, "{}"));
             for (int i = 0; i < serializedSpells.modifiersPurchased.Count; i++)
                 spellModifierShop[i].ShopData = serializedSpells.modifiersPurchased[i];
@@ -60,6 +63,14 @@ namespace CosmosDefender
             List<BaseSpellModifier> attributes = new List<BaseSpellModifier>();
             spellModifierShop.ForEach(x => attributes.AddRange(x.GetPurchasedSpells()));
             return attributes;
+        }
+
+        [Button]
+        public void ResetShop()
+        {
+            PlayerPrefs.DeleteKey(AttributeKey);
+            PlayerPrefs.DeleteKey(SpellKey);
+            PlayerPrefs.Save();
         }
     }
 

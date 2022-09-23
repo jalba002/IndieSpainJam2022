@@ -177,6 +177,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f7e473edca5cf4f87815af8c2dcd6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onShow:
+    m_PersistentCalls:
+      m_Calls: []
+  onHide:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &73491320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -603,6 +609,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f7e473edca5cf4f87815af8c2dcd6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onShow:
+    m_PersistentCalls:
+      m_Calls: []
+  onHide:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 873696893}
+        m_TargetAssemblyTypeName: ShopController, Assembly-CSharp
+        m_MethodName: SaveShop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!225 &873696891
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -652,8 +676,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopModifiers: {fileID: 11400000, guid: 7409dc3df7616734ea108782f98a00e8, type: 2}
-  attributePrefab: {fileID: 6995325214627492415, guid: 1beaa09b3b05daa44bd49f37be54358c, type: 3}
-  spellPrefab: {fileID: 1056043169947485762, guid: 367f07188efa9b84a8066ef915fb07a4, type: 3}
+  attributePrefab: {fileID: 8543088958802401961, guid: 12e010244cd9d44479d6b8b75d006258, type: 3}
+  spellPrefab: {fileID: -1866288753387809870, guid: d03747d52f7d9094e8bb5370fe9d990b, type: 3}
 --- !u!1 &981459567
 GameObject:
   m_ObjectHideFlags: 0
@@ -1454,6 +1478,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f7e473edca5cf4f87815af8c2dcd6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onShow:
+    m_PersistentCalls:
+      m_Calls: []
+  onHide:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!225 &1638823313
 CanvasGroup:
   m_ObjectHideFlags: 0

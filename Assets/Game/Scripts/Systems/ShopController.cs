@@ -1,4 +1,5 @@
 using CosmosDefender;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class ShopController : MonoBehaviour
@@ -9,7 +10,6 @@ public class ShopController : MonoBehaviour
     private AttributeShopButton attributePrefab;
     [SerializeField]
     private SpellShopButton spellPrefab;
-
 
     private void Awake()
     {
@@ -31,5 +31,16 @@ public class ShopController : MonoBehaviour
             button.Initialize(item);
             button.Show();
         }
+    }
+
+    public void SaveShop()
+    {
+        shopModifiers.Save();
+    }
+
+    [Button]
+    private void ResetShop()
+    {
+        shopModifiers.ResetShop();
     }
 }
