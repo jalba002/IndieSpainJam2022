@@ -10,9 +10,10 @@ namespace CosmosDefender
         where T1 : BaseModifier<T2, T3>
         where T2 : IModifier<T3>
     {
-        [SerializeField]
         private TPurchase config;
+        [SerializeField]
         private Image image;
+        [SerializeField]
         private TMP_Text description;
 
         private T currentModifier;
