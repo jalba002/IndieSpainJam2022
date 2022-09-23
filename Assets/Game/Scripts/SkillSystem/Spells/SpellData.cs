@@ -6,6 +6,7 @@ namespace CosmosDefender
     [Serializable]
     public struct SpellData
     {
+        [Header("Base")]
         [SerializeField]
         private SpellType spellType;
         [SerializeField]
@@ -13,27 +14,35 @@ namespace CosmosDefender
         [SerializeField]
         private float cooldown;
         [SerializeField]
-        private int amount;
-        [SerializeField]
         private float speed;
+        [Header("Casting Area")]
         [SerializeField]
         private float uniformSize;
+        [Header("Projectile")]
+        [SerializeField]
+        private int amount;
         [SerializeField] 
         private float projectileRadius;
         [SerializeField] 
         private float projectileDelay;
+        [Header("Raycast")]
         [SerializeField]
         private float maxAttackDistance;
+        [SerializeField]
+        private LayerMask layerMask;
+        [Header("VFX")]
         [SerializeField]
         private float lifetime;
         [SerializeField]
         private float activeDuration;
-        [SerializeField]
-        private LayerMask layerMask;
+        [Header("Animation")]
         [SerializeField] 
         private string animationCode;
         [SerializeField] 
         private float animationDelay;
+        [Header("Preview")]
+        [SerializeField] 
+        private bool usesPreview;
 
         public SpellType SpellType => spellType;
         public float DamageMultiplier { get => damageMultiplier; set => damageMultiplier = value; }
@@ -49,5 +58,6 @@ namespace CosmosDefender
         public LayerMask LayerMask { get => layerMask; set => layerMask = value; }
         public string AnimationCode { get => animationCode; set => animationCode = value; }
         public float AnimationDelay { get => animationDelay; set => animationDelay = value; }
+        public bool UsesPreview { get => usesPreview;  set => usesPreview = value; }
     }
 }
