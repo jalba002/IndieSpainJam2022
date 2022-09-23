@@ -1,6 +1,4 @@
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace CosmosDefender
 {
@@ -10,13 +8,15 @@ namespace CosmosDefender
         where T1 : BaseModifier<T2, T3>
         where T2 : IModifier<T3>
     {
-        private TPurchase config;
-        [SerializeField]
-        private Image image;
-        [SerializeField]
-        private TMP_Text description;
+        private ShopButtonDisplay buttonDisplay;
 
+        private TPurchase config;
         private T currentModifier;
+
+        private void Awake()
+        {
+            buttonDisplay = GetComponent<ShopButtonDisplay>();
+        }
 
         public void Initialize(TPurchase config)
         {
@@ -26,8 +26,7 @@ namespace CosmosDefender
         public void Show()
         {
             currentModifier = config.GetCurrentPurchaseable();
-            image.sprite = currentModifier.thumbnail;
-            description.text = currentModifier.description;
+            buttonDisplay.ShowConfig<T, T1, T2, T3>(currentModifier);
         }
 
         public void OnClick()
