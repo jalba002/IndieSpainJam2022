@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -6,85 +7,117 @@ namespace CosmosDefender.Bullets.Implementation
     public class LaserBullet : BaseBullet
     {
         // This laser starts in a position
-        // Then casts a large box periodically, every 0.25 secs.
+        // Then casts a large box periodically, every N secs.
         // That uses the External Coroutine manager with an action.
         // CronoScheduler.Instance.ScheduleForTime();
-        [SerializeField] private VisualEffect vfx;
 
-        protected BulletInfo m_BulletInfo;
+        [SerializeField] public VisualEffect vfx;
+
+        private IReadOnlyOffensiveData combatData;
+
+        private SpellData spellData;
+
+        private Vector3 origin;
+
+        private Transform firePoint;
+
+        private SpellManager caster;
 
         public override void InstantiateBullet(Vector3 origin, Vector3 forward, Quaternion rotation,
             IReadOnlyOffensiveData combatData, SpellData spellData)
         {
             base.InstantiateBullet(origin, forward, rotation, combatData, spellData);
 
-            Vector3 maxLength = new Vector3(1f, 1f, 20f);
-            m_BulletInfo = new BulletInfo(transform, maxLength);
-            // NO NEED, THIS IS THE HEIGHT.
-            // vfx.gameObject.transform.localScale = new Vector3(maxLength.x, maxLength.z, maxLength.y);
-            // IN THE END, MODIFY THE LENGTH Z with RAYCAST. So it collides with pillars.
+            this.spellData = spellData;
+            this.combatData = combatData;
 
-            this.transform.forward = forward;
-            this.transform.rotation = rotation;
-            // Need whoever instantiated it.
+            this.origin = origin;
+
+            firePoint = FindObjectOfType<SpellManager>().FirePoint;
+            caster = firePoint.GetComponentInParent<SpellManager>();
+
+
+            //this.transform.forward = forward;
+            //this.transform.rotation = rotation;
             //this.transform.parent = origin;
 
-            // TODO Gather length size and send here.
-            CronoScheduler.Instance.ScheduleForTimeAndExecuteElapsed(3f,
-                0.25f,
-                () => CastRayDamage(ref m_BulletInfo));
+            // Setup VFX here.
+            //vfxItem.gameObject.GetComponent<VFXPropertyBinder>().AddPropertyBinder<VFXTransformBinder>().Init("Start", firePoint);
+            //vfxItem.SetVector3("Start", spellTesterFirePointPosition);
+
+            // vfx.SetVector3("Direction", forward);
+
+            // WRONG, USE THE RAYCAST MAX LENGTH
+            //vfx.SetFloat("Length", spellData.MaxAttackDistance * 0.2f);
+            //vfx.SetFloat("Width", spellData.ProjectileRadius);
+            //vfx.SetVector3("End", endPoint);
+
+            UpdateVFX();
+
+            vfx.SetFloat("Lifetime", spellData.Lifetime);
+
+            CronoScheduler.Instance.ScheduleForTime(spellData.ProjectileDelay, () => CastRayDamage(
+                transform.position,
+                transform.forward,
+                new Vector3(
+                    spellData.ProjectileRadius,
+                    spellData.ProjectileRadius,
+                    spellData.MaxAttackDistance),
+                transform.rotation));
 
             // Destroy after maxtime + delay.
-            Destroy(this.gameObject, 3.5f);
+            Destroy(this.gameObject, spellData.Lifetime * 1.5f);
         }
 
         protected override void Update()
         {
             base.Update();
-            m_BulletInfo.UpdateInfo(transform);
+
+            this.gameObject.transform.position = firePoint.position;
         }
 
-        protected struct BulletInfo
+        private void FixedUpdate()
         {
-            public Transform currentTransform;
-            public Vector3 maxLength;
-
-            public BulletInfo(Transform t, Vector3 mL)
-            {
-                currentTransform = t;
-                maxLength = mL;
-            }
-
-            public void UpdateInfo(Transform t)
-            {
-                currentTransform = t;
-            }
+            UpdateVFX();
         }
 
-        private void CastRayDamage(ref BulletInfo bInfo)
+        private void UpdateVFX()
+        {
+            Camera cam = Camera.main;
+            var ray = cam.ViewportPointToRay(new Vector2(0.5f, 0.5f));
+            float raycastDistance = (transform.position - cam.transform.position).magnitude + spellData.MaxAttackDistance;
+
+            bool didRayHit = (Physics.Raycast(ray, out RaycastHit info, raycastDistance, raycastHitLayers));
+
+            Vector3 a = 
+            (
+                didRayHit ? 
+                    info.point - caster.transform.right * 0.2f
+                    : 
+                    (ray.origin + ray.direction.normalized * (raycastDistance))
+                )
+            - firePoint.position;
+            
+            // Debug.DrawRay(ray.origin, ray.direction * info.distance, Color.green, 2f);
+            
+            transform.forward = a.normalized;
+            //vfx.SetFloat("Length", didRayHit ? info.distance * 0.2f : spellData.MaxAttackDistance * 0.2f);
+
+            // vfx.SetBool("Rayhit", didRayHit);
+            //
+            // if (didRayHit)
+            // {
+            //     vfx.SetFloat("RayDistance", info.distance * 0.2f);
+            //     //Vector3 endPoint = info.point - caster.gameObject.transform.right * 0.2f;
+            //
+            //     //transform.forward = endPoint.normalized;
+            // }
+        }
+
+        private void CastRayDamage(Vector3 origin, Vector3 forward, Vector3 length, Quaternion rotation)
         {
             // TODO Gather information about the ray size here.
-            var hits = AreaAttacksManager.BoxAttack(
-                bInfo.currentTransform.position,
-                bInfo.currentTransform.forward, bInfo.maxLength * 0.5f,
-                bInfo.currentTransform.rotation, 0.1f);
-
-            // Treat all hits.
-            string hitLog = "Hit Log:\n";
-            foreach (var collisionHit in hits)
-            {
-                // Treat collision hits.
-                hitLog += $"{collisionHit.gameObject.name}\n";
-            }
-
-            Debug.Log(hitLog);
+            AreaAttacksManager.BoxAttack(origin, forward, length * 0.5f, rotation, 0.1f);
         }
-
-        //
-        // private void CastRayDamage(Vector3 origin, Vector3 length, Quaternion rotation)
-        // {
-        //     // TODO Gather information about the ray size here.
-        //     AreaAttacksManager.BoxAttack(this.transform.position, length * 0.5f, rotation, 0.1f);
-        // }
     }
 }
