@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7867279661157371018}
   - component: {fileID: 7867279661157371021}
   - component: {fileID: 90883210197395625}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MeleeEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,6 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 100
+  starResourceData: {fileID: 11400000, guid: 389d1b4f92f3cf744a2e0c61757b5218, type: 2}
+  data: {fileID: 11400000, guid: 21f19f244fdc7e9468d42ad7da344395, type: 2}
 --- !u!1001 &1412188333364053117
 PrefabInstance:
   m_ObjectHideFlags: 0

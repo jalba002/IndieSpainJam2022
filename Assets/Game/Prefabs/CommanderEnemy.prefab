@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7867279661157371018}
   - component: {fileID: 7867279661157371021}
   - component: {fileID: -8830114718872674922}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CommanderEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,6 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 100
+  starResourceData: {fileID: 11400000, guid: 389d1b4f92f3cf744a2e0c61757b5218, type: 2}
+  data: {fileID: 11400000, guid: cd653ebbdaede9d4f88c7f4f0c45b12b, type: 2}
 --- !u!1001 &8799341909712998421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -106,6 +108,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7867279661157371022}
     m_Modifications:
+    - target: {fileID: -9050628623426152364, guid: bacb18df1caedac46844b1677e865c16, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bacb18df1caedac46844b1677e865c16, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -162,9 +168,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8596520511303060037, guid: bacb18df1caedac46844b1677e865c16, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -7326647054884026426, guid: bacb18df1caedac46844b1677e865c16, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: bacb18df1caedac46844b1677e865c16, type: 3}
       propertyPath: m_Name
       value: enemy2_Captain
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bacb18df1caedac46844b1677e865c16, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1718292709004114961, guid: bacb18df1caedac46844b1677e865c16, type: 3}
       propertyPath: m_Materials.Array.data[0]

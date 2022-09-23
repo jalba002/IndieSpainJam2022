@@ -95,6 +95,7 @@ public class PlayerMovementController : MonoBehaviour
 	public float DashDuration = 0.5f;
 	public float DashAnimationSpeed = 1f;
 	private float preDashTargetRotation;
+	public Transform PlayerCenter;
 
 	[Space(10)]
 	[Header("Attributes")]
@@ -261,6 +262,7 @@ public class PlayerMovementController : MonoBehaviour
 
 	IEnumerator OnDashTimeCo(float duration)
 	{
+		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"));
 		yield return new WaitForSeconds(duration);
 
 		StopDodge();

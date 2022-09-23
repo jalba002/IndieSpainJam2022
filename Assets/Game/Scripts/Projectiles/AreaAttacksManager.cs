@@ -47,6 +47,11 @@ namespace CosmosDefender
         }
 
         // Manage all hits here.
+        public static void DealDamageToCollisions<T>(Collider collider, float damage) where T : IDamageable
+        {
+            collider.GetComponent<T>()?.TakeDamage(damage);
+        }
+
         public static void DealDamageToCollisions<T>(Collider[] colliders, float damage) where T : IDamageable
         {
             foreach (var item in colliders)

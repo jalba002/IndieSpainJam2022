@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 183d93e62829d7944a924332a8f4dd11, type: 3}
-  m_Name: StarsResourceData
+  m_Script: {fileID: 11500000, guid: df710f69fa1529144b93679af9196105, type: 3}
+  m_Name: CommanderEnemy
   m_EditorClassIdentifier: 
-  ResourceType: 0
-  MaxResource: 100
-  CurrentResource: 0
-  StartingResource: 25
-  ResourceOverTime: 0
-  ResourcePerKill: 4
+  MaxHealth: 300
+  Speed: 0
+  AttackDamage: 0
+  AttackRange: 0
+  StarResourceOnDeath: 12
+  GoddessResourceOnDeath: 1

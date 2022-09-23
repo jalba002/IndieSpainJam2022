@@ -14,19 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseData:
     spellType: 8
-    damageMultiplier: 0
-    cooldown: 0
-    amount: 0
+    damageMultiplier: 1
+    cooldown: 5
     speed: 30
     uniformSize: 0
-    projectileRadius: 0
+    amount: 0
+    projectileRadius: 2
     projectileDelay: 0
-    maxAttackDistance: 0
-    lifetime: 0
-    activeDuration: 0.8
+    maxAttackDistance: 2
     layerMask:
       serializedVersion: 2
       m_Bits: 64
+    lifetime: 1.13
+    activeDuration: 0.8
     animationCode: CastDash
     animationDelay: 0.33
-  prefab: {fileID: 0}
+    usesPreview: 0
+  prefab: {fileID: 5007630562155684007, guid: c516aa15b3a741d41a9821773426fab0, type: 3}
