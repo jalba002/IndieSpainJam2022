@@ -90,9 +90,11 @@ namespace CosmosDefender.Bullets.Implementation
                 {
                     // Cast VFX for everyone.
                     Vector3 spawnP = (enemyHits[i].transform.position + enemyHits[i + 1].transform.position) * 0.5f;
+                    
                     var vfxItem = Instantiate(vfxPrefab, spawnP, Quaternion.identity);
                     vfxItem.SetVector3("Start", enemyHits[i].transform.position);
                     vfxItem.SetVector3("End", enemyHits[i + 1].transform.position);
+                    vfxItem.SetFloat("Lifetime", spellData.Lifetime);
 
                     Destroy(vfxItem.gameObject, vfxItem.GetFloat("Lifetime"));
                     //Debug.DrawLine(enemyHits[i].transform.position, enemyHits[i + 1].transform.position, Color.blue, 5f);

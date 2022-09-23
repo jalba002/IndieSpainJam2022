@@ -1,5 +1,8 @@
+using System.Dynamic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.VFX;
+using UnityEngine.VFX.Utility;
 
 namespace CosmosDefender
 {
@@ -7,18 +10,38 @@ namespace CosmosDefender
     public class ArcSpellWeak : BaseSpell
     {
         public VisualEffect vfxPrefab;
-        protected override void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData)
+        private Coroutine SpellCoroutine;
+
+        protected override void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation,
+            IReadOnlyOffensiveData combatData, SpellTester caster)
         {
-            var spellTesterFirePointPosition = FindObjectOfType<SpellTester>().FirePoint.position;
-            Vector3 sp = spawnPoint - (spawnPoint - spellTesterFirePointPosition) /2;
-            var vfxItem = Instantiate(vfxPrefab, sp, Quaternion.identity);
-            vfxItem.SetVector3("Start", spellTesterFirePointPosition);
-            vfxItem.SetVector3("End", spawnPoint);
+            caster.animator.SetTrigger(spellData.AnimationCode);
+            
+            if(SpellCoroutine != null)
+                CronoScheduler.Instance.StopCoroutine(SpellCoroutine);
 
-            Destroy(vfxItem.gameObject, vfxItem.GetFloat("Lifetime"));
+            SpellCoroutine = CronoScheduler.Instance.ScheduleForTime(spellData.AnimationDelay, () =>
+            {
+                var ray = Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f));
+                bool spawnRay = (Physics.Raycast(ray, out RaycastHit raycastHit, spellData.MaxAttackDistance));
 
-            var instance = Instantiate(prefab, spawnPoint, rotation);
-            instance.InstantiateBullet(spawnPoint, forward, rotation, combatData, currentData);
+                Transform firePoint = FindObjectOfType<SpellTester>().FirePoint;
+                var spellTesterFirePointPosition = firePoint.position;
+                Vector3 sp = raycastHit.point - (raycastHit.point - spellTesterFirePointPosition) / 2;
+                var vfxItem = Instantiate(vfxPrefab, sp, Quaternion.identity);
+                vfxItem.gameObject.GetComponent<VFXPropertyBinder>().AddPropertyBinder<VFXTransformBinder>().Init("Start", firePoint);
+                //vfxItem.SetVector3("Start", spellTesterFirePointPosition);
+                vfxItem.SetVector3("End", raycastHit.point);
+
+                vfxItem.SetFloat("Lifetime", spellData.Lifetime);
+                Destroy(vfxItem.gameObject, spellData.Lifetime * 1.1f);
+
+                if (spawnRay)
+                {
+                    var instance = Instantiate(prefab, raycastHit.point, rotation);
+                    instance.InstantiateBullet(raycastHit.point, forward, rotation, combatData, currentData);
+                }
+            });
         }
     }
 }
