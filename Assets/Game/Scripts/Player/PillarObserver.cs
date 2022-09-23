@@ -18,6 +18,11 @@ public class PillarObserver : MonoBehaviour
         pillarConfig.AddPillarObserver(this);
     }
 
+    public bool IsPillarInRange()
+    {
+        return pillarsInRange.Count > 0;
+    }
+
     public void AddPillar(PillarController newPillar)
     {
         pillarsInRange.Add(newPillar);
@@ -56,7 +61,6 @@ public class PillarObserver : MonoBehaviour
 
     public void AddSpell(CosmosSpell newSpell)
     {
-        Debug.Log("Add new spell");
         playerAttributes.AddSpell(newSpell);
     }
 

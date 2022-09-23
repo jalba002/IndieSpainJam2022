@@ -10,7 +10,7 @@ namespace CosmosDefender
 
         public void OnObserverInRange(PillarObserver observer)
         {
-             observer.AddModifiers(attributeModifier);
+            observer.AddModifiers(attributeModifier);
         }
 
         public void OnObserverOutsideOfRange(PillarObserver observer)
@@ -20,12 +20,12 @@ namespace CosmosDefender
 
         public void OnPillarActivate(PillarObserver observer)
         {
-            
+            Debug.Log("Active State Not Implemented Yet!");
         }
 
         public void SetPillarEmpowerState(PillarObserver observer, bool newState)
         {
-            throw new System.NotImplementedException();
+            Debug.Log("Empower State Not Implemented Yet!");
         }
     }
 }

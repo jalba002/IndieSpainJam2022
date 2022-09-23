@@ -2,9 +2,10 @@ namespace CosmosDefender
 {
     public interface IResourceModifier
     {
-        void IncreaseResource(float value);
-        void DecreaseResource(float value);
-        void CanUseResource(float value);
+        void IncreaseResource(ResourceData data, float amount);
+        void DecreaseResource(ResourceData data, float amount);
+        bool HasEnoughResource(ResourceData data, float cost);
+        void UpdateUI();
         ResourceType GetResourceType();
     }
 }

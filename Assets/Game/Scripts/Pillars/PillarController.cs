@@ -13,58 +13,66 @@ namespace CosmosDefender
             Empowered
         }
 
+        public string PillarName;
+
         public PillarStates pillarCurrentState;
         [SerializeField]
         List<IPillarObserverModifier> pillarObserverModifiers = new List<IPillarObserverModifier>(); 
 
         private List<PillarObserver> observersInRange = new List<PillarObserver>();
-        [SerializeField]
-        private PillarsConfig pillarConfig;
+        public PillarsConfig PillarConfig;
 
-        private StarResourceBehavior starResourceBehavior;
+        [SerializeField]
+        private ResourceData starResourceData;
 
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(transform.position, pillarConfig.Range);
+            Gizmos.DrawWireSphere(transform.position, PillarConfig.Range);
             Gizmos.color = Color.white;
         }
 
         private void Awake()
         {
             GetComponents(pillarObserverModifiers);
-            starResourceBehavior = GameManager.Instance.StarResourceBehavior;
         }
 
         private void Update()
         {
-            if (pillarCurrentState == PillarStates.Inactive)
-                return;
-
-            foreach (var observer in pillarConfig.PillarObservers)
+            foreach (var observer in PillarConfig.PillarObservers)
             {
                 var distanceFromObserver = Vector3.Distance(transform.position, observer.transform.position);
 
                 if (observersInRange.Contains(observer))
                 {
-                    if (distanceFromObserver > pillarConfig.Range)
+                    if (distanceFromObserver > PillarConfig.Range)
                     {
-                        foreach (var pillar in pillarObserverModifiers)
-                        {
-                            pillar.OnObserverOutsideOfRange(observer);
-                        }
                         observersInRange.Remove(observer);
+                        observer.RemovePillar(this);
+
+                        if (pillarCurrentState != PillarStates.Inactive)
+                        {
+                            foreach (var pillar in pillarObserverModifiers)
+                            {
+                                pillar.OnObserverOutsideOfRange(observer);
+                            }
+                        }
                     }
                 }
                 else
                 {
-                    if (distanceFromObserver <= pillarConfig.Range)
+                    if (distanceFromObserver <= PillarConfig.Range)
                     {
-                        foreach (var pillar in pillarObserverModifiers)
-                        {
-                            pillar.OnObserverInRange(observer);
-                        }
                         observersInRange.Add(observer);
+                        observer.AddPillar(this);
+
+                        if (pillarCurrentState != PillarStates.Inactive)
+                        {
+                            foreach (var pillar in pillarObserverModifiers)
+                            {
+                                pillar.OnObserverInRange(observer);
+                            }
+                        }
                     }
                 }
             }
@@ -76,27 +84,27 @@ namespace CosmosDefender
             if (pillarCurrentState == PillarStates.Empowered)
                 return;
 
-            if (CanBeActivated(starResourceBehavior.GetCurrentResource()))
+            if (CanBeActivated(starResourceData.CurrentResource))
             {
-                starResourceBehavior.DecreaseResource(pillarConfig.ActivateCost);
+                starResourceData.DecreaseResource(PillarConfig.ActivateCost);
                 foreach (var pillar in pillarObserverModifiers)
                 {
-                    foreach (var observer in pillarConfig.PillarObservers)
+                    foreach (var observer in PillarConfig.PillarObservers)
                     {
                         pillar.OnPillarActivate(observer);
                     }
                 }
                 pillarCurrentState = PillarStates.Active;
             }
-            else if(CanBeEmpowered(starResourceBehavior.GetCurrentResource()))
+            else if(CanBeEmpowered(starResourceData.CurrentResource))
             {
-                starResourceBehavior.DecreaseResource(pillarConfig.EmpowerCost);
+                starResourceData.DecreaseResource(PillarConfig.EmpowerCost);
                 foreach (var pillar in pillarObserverModifiers)
                 {
-                    foreach (var observer in pillarConfig.PillarObservers)
+                    foreach (var observer in PillarConfig.PillarObservers)
                     {
                         pillar.SetPillarEmpowerState(observer, true);
-                        CronoScheduler.Instance.ScheduleForTime(pillarConfig.EmpoweredDuration, () => 
+                        CronoScheduler.Instance.ScheduleForTime(PillarConfig.EmpoweredDuration, () => 
                         {
                             pillar.SetPillarEmpowerState(observer, false);
                             pillarCurrentState = PillarStates.Active;
@@ -109,12 +117,12 @@ namespace CosmosDefender
 
         private bool CanBeEmpowered(float currentResources)
         {
-            return currentResources >= pillarConfig.EmpowerCost && pillarCurrentState == PillarStates.Active;
+            return currentResources >= PillarConfig.EmpowerCost && pillarCurrentState == PillarStates.Active;
         }
 
         private bool CanBeActivated(float currentResources)
         {
-            return currentResources >= pillarConfig.ActivateCost && pillarCurrentState == PillarStates.Inactive;
+            return currentResources >= PillarConfig.ActivateCost && pillarCurrentState == PillarStates.Inactive;
         }
     }
 }
