@@ -17,8 +17,15 @@ public class PlayerInputs : MonoBehaviour
 	public bool cursorInputForLook = true;
 
 	public Action OnDashing;
+	private PlayerInput input;
 
-	public void OnMove(InputValue value)
+    private void Awake()
+    {
+		input = GetComponent<PlayerInput>();
+
+	}
+
+    public void OnMove(InputValue value)
 	{
 		MoveInput(value.Get<Vector2>());
 	}
@@ -56,5 +63,10 @@ public class PlayerInputs : MonoBehaviour
 	private void SetCursorState(bool newState)
 	{
 		Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
+	}
+
+	private void OnDisable()
+	{
+		input.actions = null;
 	}
 }

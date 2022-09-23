@@ -17,17 +17,22 @@ namespace CosmosDefender
 
         public void OnObserverInRange(PillarObserver observer)
         {
-            observer.SetSpellEmpowerState(pillarSpell, true);
+            //observer.SetSpellEmpowerState(pillarSpell, true);
         }
 
         public void OnObserverOutsideOfRange(PillarObserver observer)
         {
-            observer.SetSpellEmpowerState(pillarSpell, false);
+            //observer.SetSpellEmpowerState(pillarSpell, false);
         }
 
         public void OnPillarActivate(PillarObserver observer)
         {
-            throw new System.NotImplementedException();
+            observer.AddSpell(pillarSpell);
+        }
+
+        public void SetPillarEmpowerState(PillarObserver observer, bool newState)
+        {
+            observer.SetSpellEmpowerState(pillarSpell, newState);
         }
     }
 }

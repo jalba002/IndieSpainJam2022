@@ -21,6 +21,8 @@ namespace CosmosDefender
         [SerializeField]
         private PillarsConfig pillarConfig;
 
+        private StarResourceBehavior starResourceBehavior;
+
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.green;
@@ -31,6 +33,7 @@ namespace CosmosDefender
         private void Awake()
         {
             GetComponents(pillarObserverModifiers);
+            starResourceBehavior = GameManager.Instance.StarResourceBehavior;
         }
 
         private void Update()
@@ -61,7 +64,6 @@ namespace CosmosDefender
                         {
                             pillar.OnObserverInRange(observer);
                         }
-                        Debug.Log("Inside range");
                         observersInRange.Add(observer);
                     }
                 }
@@ -71,13 +73,48 @@ namespace CosmosDefender
         [Button]
         public void ActivatePillar()
         {
-            foreach (var pillar in pillarObserverModifiers)
+            if (pillarCurrentState == PillarStates.Empowered)
+                return;
+
+            if (CanBeActivated(starResourceBehavior.GetCurrentResource()))
             {
-                foreach (var observer in observersInRange)
+                starResourceBehavior.DecreaseResource(pillarConfig.ActivateCost);
+                foreach (var pillar in pillarObserverModifiers)
                 {
-                    pillar.OnPillarActivate(observer);
+                    foreach (var observer in pillarConfig.PillarObservers)
+                    {
+                        pillar.OnPillarActivate(observer);
+                    }
                 }
+                pillarCurrentState = PillarStates.Active;
             }
+            else if(CanBeEmpowered(starResourceBehavior.GetCurrentResource()))
+            {
+                starResourceBehavior.DecreaseResource(pillarConfig.EmpowerCost);
+                foreach (var pillar in pillarObserverModifiers)
+                {
+                    foreach (var observer in pillarConfig.PillarObservers)
+                    {
+                        pillar.SetPillarEmpowerState(observer, true);
+                        CronoScheduler.Instance.ScheduleForTime(pillarConfig.EmpoweredDuration, () => 
+                        {
+                            pillar.SetPillarEmpowerState(observer, false);
+                            pillarCurrentState = PillarStates.Active;
+                        });
+                    }
+                }
+                pillarCurrentState = PillarStates.Empowered;
+            }
+        }
+
+        private bool CanBeEmpowered(float currentResources)
+        {
+            return currentResources >= pillarConfig.EmpowerCost && pillarCurrentState == PillarStates.Active;
+        }
+
+        private bool CanBeActivated(float currentResources)
+        {
+            return currentResources >= pillarConfig.ActivateCost && pillarCurrentState == PillarStates.Inactive;
         }
     }
 }
