@@ -18,12 +18,22 @@ namespace CosmosDefender.Bullets
 
         // Components
         protected Rigidbody _rb;
+        
+        protected  IReadOnlyOffensiveData combatData;
+
+        protected SpellData spellData;
+
+        protected  ISpellCaster caster;
 
         public virtual void InstantiateBullet(Vector3 origin, Vector3 forward, Quaternion rotation,
-            IReadOnlyOffensiveData combatData, SpellData spellData)
+            IReadOnlyOffensiveData combatData, SpellData spellData, ISpellCaster caster)
         {
             // Maybe its a good choice to give it some instructions.
             _rb = GetComponent<Rigidbody>();
+
+            this.combatData = combatData;
+            this.spellData = spellData;
+            this.caster = caster;
             // no problem if there's none.
         }
 

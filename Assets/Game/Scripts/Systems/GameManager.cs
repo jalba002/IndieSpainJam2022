@@ -38,4 +38,13 @@ public class GameManager : MonoSingleton<GameManager>
             AllWaypoints.Add(item);
         }
     }
+
+    public void EndGame()
+    {
+        // Trigger endgame or something.
+        
+        // Guardar punts
+        // Afegir els punts al jugador
+        // Tornar a l'escena inicial.
+    }
 }

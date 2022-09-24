@@ -27,7 +27,7 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 257
     lifetime: 5
-    activeDuration: 1
+    activeDuration: 6
     animationCode: CastMeteor
     animationDelay: 0.7
   prefab: {fileID: 6296985688864843683, guid: 711acb15c5ab04a488a824d6f34aa041, type: 3}

@@ -3,11 +3,26 @@ guid: ad6aaf0d4398ef6498568c6543e05ea0
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Contorno Giratorio
+    second: {fileID: 2100000, guid: 1d0ff25e1e73c534f9800bc90321b1a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Contorno_Ojo
+    second: {fileID: 2100000, guid: b00fcc06a3e99ee41a0cc889a89c64d0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Corazon
+    second: {fileID: 2100000, guid: 10712c0fa97ca6c4298907b51e8f2aca, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
-    materialSearch: 1
+    materialSearch: 2
     materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
