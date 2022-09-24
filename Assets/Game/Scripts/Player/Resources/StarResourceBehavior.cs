@@ -5,54 +5,46 @@ namespace CosmosDefender
 {
     public class StarResourceBehavior : MonoBehaviour, IResourceModifier
     {
-        [SerializeField] private ResourceData resourceData;
+        [SerializeField] private ResourceConfig resourceData;
         [SerializeField] private TextMeshProUGUI resourceText;
 
-        private float currentResource = 0f;
+        private ResourceData starResourceData;
+        public ResourceType resourceType => resourceData.ResourceType;
 
         private void Start()
         {
-            currentResource = resourceData.StartingResource;
-            UpdateUI();
-        }
-
-        public bool HasEnoughResource(ResourceData data, float cost)
-        {
-            if (data.ResourceType != ResourceType.Stars)
-            {
-                return false;
-            }
-
-            return resourceData.CurrentResource >= cost;
-        }
-
-        public ResourceType GetResourceType()
-        {
-            return resourceData.ResourceType;
-        }
-
-        public void IncreaseResource(ResourceData data, float amount)
-        {
-            resourceData.CurrentResource += amount;
-            data.CurrentResource = Mathf.Clamp(data.CurrentResource, 0, data.MaxResource);
-            UpdateUI();
-        }
-
-        public void DecreaseResource(ResourceData data, float amount)
-        {
-            resourceData.CurrentResource -= amount;
-            resourceData.CurrentResource = Mathf.Clamp(resourceData.CurrentResource, 0, resourceData.MaxResource);
+            starResourceData = resourceData.baseResource;
+            starResourceData.CurrentResource = starResourceData.StartingResource;
             UpdateUI();
         }
 
         public void UpdateUI()
         {
-            resourceText.text = "Stars: " + resourceData.CurrentResource;
+            resourceText.text = "Stars: " + (int)starResourceData.CurrentResource;
         }
 
         public float GetCurrentResource()
         {
-            return currentResource;
+            return starResourceData.CurrentResource;
+        }
+
+        public void OnResourceSpent(float cost)
+        {
+            starResourceData.CurrentResource -= cost;
+            starResourceData.CurrentResource = Mathf.Clamp(starResourceData.CurrentResource, 0, starResourceData.MaxResource);
+            UpdateUI();
+        }
+
+        public void IncreaseResource(float amount)
+        {
+            starResourceData.CurrentResource += amount;
+            starResourceData.CurrentResource = Mathf.Clamp(starResourceData.CurrentResource, 0, starResourceData.MaxResource);
+            UpdateUI();
+        }
+
+        public void IncreaseResourcePerSecond()
+        {
+            IncreaseResource(starResourceData.ResourceOverTime);
         }
     }
 }

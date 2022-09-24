@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8283976831417794951}
   - component: {fileID: 4870729095682322887}
   - component: {fileID: 486890035298273822}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pilar1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb91515a108e5649a32a6b1681f0473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PillarName: Caos Pillar
+  PillarName: Pasive Pillar
   pillarCurrentState: 0
   PillarConfig: {fileID: 11400000, guid: 3ec672cbb95584d41a1ccda4e5ff4320, type: 2}
   starResourceData: {fileID: 11400000, guid: 389d1b4f92f3cf744a2e0c61757b5218, type: 2}
