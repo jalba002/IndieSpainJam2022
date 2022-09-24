@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 300
   Speed: 0
-  AttackDamage: 0
-  AttackRange: 0
+  AttackDamage: 35
+  AttackRange: 1
+  AggroRange: 5
+  Defence: 5
   StarResourceOnDeath: 12
   GoddessResourceOnDeath: 1

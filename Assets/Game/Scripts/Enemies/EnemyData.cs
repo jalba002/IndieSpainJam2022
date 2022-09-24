@@ -9,6 +9,10 @@ namespace CosmosDefender
         public float Speed;
         public float AttackDamage;
         public float AttackRange;
+        public float AggroRange = 10f;
+        [Header("Defence")] 
+        public float Defence;
+        [Header("Resources")]
         public float StarResourceOnDeath;
         public float GoddessResourceOnDeath;
     }
