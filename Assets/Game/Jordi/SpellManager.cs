@@ -103,7 +103,7 @@ public class SpellManager : MonoBehaviour
     {
         spell.Cast(pos, transform.forward, Quaternion.identity, this);
         // Add a delay when casting
-        timeUntilAvailableCast = Time.time + spell.spellData.AnimationDelay;
+        timeUntilAvailableCast = Time.time + (spell.spellData.AnimationDelay * 1.5f);
 
         cooldownSpells.Add(spell);
         CronoScheduler.Instance.ScheduleForTime(spell.spellData.Cooldown, () => { cooldownSpells.Remove(spell); });

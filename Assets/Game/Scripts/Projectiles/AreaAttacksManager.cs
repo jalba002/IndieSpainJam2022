@@ -5,21 +5,21 @@ namespace CosmosDefender
     public static class AreaAttacksManager
     {
         // This class shows Physics.Overlaps debugs.
-        public static Collider[] BoxAttack(Vector3 spawnPos, Vector3 halfSize, Quaternion spawnRot,
-            float debugDuration = 0.1f)
-        {
-            var a = Physics.OverlapBox(spawnPos, halfSize, spawnRot);
+        // public static Collider[] BoxAttack(Vector3 spawnPos, Vector3 halfSize, Quaternion spawnRot,
+        //     float debugDuration = 0.1f)
+        // {
+        //     var a = Physics.OverlapBox(spawnPos, halfSize, spawnRot);
+        //
+        //     ExtDebug.DrawBox(spawnPos, halfSize, spawnRot, Color.red, debugDuration);
+        //
+        //     return a;
+        // }
 
-            ExtDebug.DrawBox(spawnPos, halfSize, spawnRot, Color.red, debugDuration);
-
-            return a;
-        }
-
-        public static Collider[] BoxAttack(Vector3 spawnPos, Vector3 forward, Vector3 halfSize, Quaternion spawnRot,
+        public static Collider[] BoxAttack(Vector3 spawnPos, Vector3 forward, Vector3 halfSize, Quaternion spawnRot, LayerMask layerMask,
             float debugDuration = 0.1f)
         {
             Vector3 l_SpawnPos = spawnPos + (forward * halfSize.z);
-            var a = Physics.OverlapBox(l_SpawnPos, halfSize, spawnRot);
+            var a = Physics.OverlapBox(l_SpawnPos, halfSize, spawnRot, layerMask);
 
             ExtDebug.DrawBox(l_SpawnPos, halfSize, spawnRot, Color.red, debugDuration);
 

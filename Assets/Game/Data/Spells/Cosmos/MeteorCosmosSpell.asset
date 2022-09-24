@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSpell: {fileID: 11400000, guid: 16a6e7eb3a8c2984fbfd47ed00dcdd6e, type: 2}
   empoweredSpell: {fileID: 11400000, guid: 86f96f69020a13f4abd5da08665b6083, type: 2}
-  isSpellEmpowered: 1
+  isSpellEmpowered: 0

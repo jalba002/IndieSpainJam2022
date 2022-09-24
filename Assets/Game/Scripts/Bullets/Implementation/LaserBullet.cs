@@ -120,7 +120,7 @@ namespace CosmosDefender.Bullets.Implementation
         private void CastRayDamage(Vector3 origin, Vector3 forward, Vector3 length, Quaternion rotation)
         {
             // TODO Gather information about the ray size here.
-            var hits = AreaAttacksManager.BoxAttack(origin, forward, length * 0.5f, rotation, 0.1f);
+            var hits = AreaAttacksManager.BoxAttack(origin, forward, length * 0.5f, rotation, spellData.LayerMask);
             AreaAttacksManager.DealDamageToCollisions<IDamageable>(hits, combatData.AttackDamage * spellData.DamageMultiplier);
         }
     }

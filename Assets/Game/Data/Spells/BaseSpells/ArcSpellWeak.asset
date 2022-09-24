@@ -18,14 +18,14 @@ MonoBehaviour:
     damageMultiplier: 0.85
     cooldown: 4
     speed: 20
-    uniformSize: 20
+    uniformSize: 0.1
     amount: 7
-    projectileRadius: 20
+    projectileRadius: 5
     projectileDelay: 0
     maxAttackDistance: 30
     layerMask:
       serializedVersion: 2
-      m_Bits: 1
+      m_Bits: 257
     lifetime: 0.3
     activeDuration: 1
     animationCode: CastLaser

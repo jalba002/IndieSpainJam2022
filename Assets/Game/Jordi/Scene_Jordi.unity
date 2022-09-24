@@ -884,6 +884,59 @@ MonoBehaviour:
   m_DistantDisable: 0
   m_ReferenceObject: {fileID: 7924077688057731818}
   m_DistanceToObject: 20
+--- !u!1 &1864504430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1864504432}
+  - component: {fileID: 1864504431}
+  m_Layer: 0
+  m_Name: GM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1864504431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864504430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3263c4934b47498488a975bcaa2e5535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allSpells:
+  - {fileID: 11400000, guid: 0b731d7de814258418604f957ef6aaa9, type: 2}
+  - {fileID: 11400000, guid: 19301df303291ea429c98ed7010cbbe4, type: 2}
+  - {fileID: 11400000, guid: 6fdfc8ec4c6c24f489fae51bf3e66ccd, type: 2}
+  - {fileID: 11400000, guid: 3e93f3c09cf4b5f4ca3143d768edbafc, type: 2}
+  playerAttributes: {fileID: 11400000, guid: adb5b12b3ffc0a346949c9007a92b910, type: 2}
+  basicAttack: {fileID: 11400000, guid: 0b731d7de814258418604f957ef6aaa9, type: 2}
+  startWithoutModifiers: 1
+  forceInitialize: 1
+--- !u!4 &1864504432
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864504430}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1932619353
 Animator:
   serializedVersion: 4
@@ -1101,7 +1154,7 @@ GameObject:
   - component: {fileID: 2043184155}
   - component: {fileID: 2043184154}
   - component: {fileID: 2043184153}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
