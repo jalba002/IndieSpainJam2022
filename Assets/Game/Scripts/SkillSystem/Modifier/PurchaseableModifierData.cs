@@ -9,14 +9,14 @@ namespace CosmosDefender
         [SerializeField]
         private Sprite thumbnail;
         [SerializeField]
-        private float price;
+        private int price;
         [SerializeField]
         private bool canBePurchase = true;
         public T modifier;
 
         public string Description => description;
         public Sprite Thumbnail => thumbnail;
-        public float Price => price;
+        public int Price => price;
         public bool CanBePurchased => canBePurchase;
     }
 }

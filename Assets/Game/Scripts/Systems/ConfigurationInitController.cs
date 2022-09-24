@@ -10,12 +10,15 @@ namespace CosmosDefender
         [SerializeField]
         private ShopModifiers shopAttributes;
         [SerializeField]
+        private EconomyConfig economyConfig;
+        [SerializeField]
         private string menuController;
 
         private void Awake()
         {
             playerAttributes.Initialize(true);
             shopAttributes.Initialize();
+            economyConfig.Initialize();
         }
 
         private void Start()

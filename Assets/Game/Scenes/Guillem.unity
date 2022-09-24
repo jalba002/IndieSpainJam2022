@@ -16501,6 +16501,7 @@ MonoBehaviour:
   - {fileID: 7867279661157371019, guid: 0ccb0ea3bad71474fb99ed2200e75285, type: 3}
   - {fileID: 7867279661157371019, guid: 3871f3af6dcc53540823181c8efb8d0d, type: 3}
   - {fileID: 7867279661157371019, guid: 69ba6b85c3a6a094083a820debcf9332, type: 3}
+  economyConfig: {fileID: 11400000, guid: 0b3dea5db7ce92f4799f7345578e828a, type: 2}
 --- !u!114 &1683499938
 MonoBehaviour:
   m_ObjectHideFlags: 0

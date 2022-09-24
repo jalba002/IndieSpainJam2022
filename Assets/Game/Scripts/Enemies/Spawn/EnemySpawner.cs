@@ -1,5 +1,6 @@
-using Sirenix.OdinInspector;
 using System.Collections;
+using CosmosDefender;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -12,6 +13,9 @@ public class EnemySpawner : MonoBehaviour
     private Transform[] spawnPoints;
     [SerializeField]
     private GameObject[] enemyPrefabs;
+
+    [SerializeField]
+    private EconomyConfig economyConfig;
 
     private int currentWaveEnemies = 0;
 
@@ -39,6 +43,7 @@ public class EnemySpawner : MonoBehaviour
         currentWaveEnemies--;
         if (currentWaveEnemies <= 0)
         {
+            economyConfig.AddMoney(waveConfigs[currentWave].ShopCoinReward);
             StartCoroutine(NextWaveTimerCoroutine(waveConfigs[currentWave].timeForNextWave));
         }
     }

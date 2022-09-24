@@ -6,7 +6,7 @@ namespace CosmosDefender
     {
         public string Description { get; }
         public Sprite Thumbnail { get; }
-        public float Price { get; }
+        public int Price { get; }
         public bool CanBePurchased { get; }
     }
 }
