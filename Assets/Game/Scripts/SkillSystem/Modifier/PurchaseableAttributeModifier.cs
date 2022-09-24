@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace CosmosDefender
 {
-    [CreateAssetMenu(fileName = nameof(PurchaseableAttributeModifierData), menuName = "CosmosDefender/" + nameof(PurchaseableAttributeModifierData))]
+    [CreateAssetMenu(fileName = nameof(PurchaseableAttributeModifier), menuName = "CosmosDefender/" + nameof(PurchaseableAttributeModifier))]
     public class PurchaseableAttributeModifier : BasePurchaseableModifier<PurchaseableAttributeModifierData, BaseAttributeModifier, IModifier<AttributesData>, AttributesData>
     {
     }

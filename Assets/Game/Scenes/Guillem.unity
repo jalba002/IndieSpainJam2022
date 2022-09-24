@@ -16048,8 +16048,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6fdfc8ec4c6c24f489fae51bf3e66ccd, type: 2}
   playerAttributes: {fileID: 11400000, guid: fed7debed2a62174487ed40798233d77, type: 2}
   basicAttack: {fileID: 11400000, guid: 0b731d7de814258418604f957ef6aaa9, type: 2}
-  startWithoutModifiers: 1
-  forceInitialize: 1
+  startWithoutModifiers: 0
+  forceInitialize: 0
 --- !u!1 &1685584572
 GameObject:
   m_ObjectHideFlags: 0
