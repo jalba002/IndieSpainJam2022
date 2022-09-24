@@ -7,6 +7,8 @@ public class ShopController : MonoBehaviour
     [SerializeField]
     private ShopModifiers shopModifiers;
     [SerializeField]
+    private EconomyConfig economyConfig;
+    [SerializeField]
     private AttributeShopButton attributePrefab;
     [SerializeField]
     private SpellShopButton spellPrefab;
@@ -25,14 +27,14 @@ public class ShopController : MonoBehaviour
         foreach (var item in shopModifiers.AttributesModifierShop)
         {
             var button = Instantiate(attributePrefab, attributesGrid);
-            button.Initialize(item);
+            button.Initialize(item, economyConfig);
             button.Show();
         }
 
         foreach (var item in shopModifiers.SpellModifierShop)
         {
             var button = Instantiate(spellPrefab, spellsGrid);
-            button.Initialize(item);
+            button.Initialize(item, economyConfig);
             button.Show();
         }
     }
