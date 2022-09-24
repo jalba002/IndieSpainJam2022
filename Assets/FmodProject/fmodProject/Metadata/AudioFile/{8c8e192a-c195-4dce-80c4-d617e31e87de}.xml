@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{8c8e192a-c195-4dce-80c4-d617e31e87de}">
+		<property name="assetPath">
+			<value>SFX/Particles and Environment/Bola de Fuego.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>22.0499992</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.8734693877551019</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ba82e999-11c9-4353-8cee-d532737f7def}</destination>
+		</relationship>
+	</object>
+</objects>
