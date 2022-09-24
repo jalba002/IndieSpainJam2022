@@ -14,17 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseData:
     spellType: 4
+    castType: 1
     damageMultiplier: 1
     cooldown: 6
-    amount: 1
     speed: 5
     uniformSize: 3
+    amount: 1
     projectileRadius: 0
     projectileDelay: 0
     maxAttackDistance: 20
-    lifetime: 5
-    activeDuration: 0
     layerMask:
       serializedVersion: 2
       m_Bits: 1
+    lifetime: 5
+    activeDuration: 0
+    animationCode: 
+    animationDelay: 0
   prefab: {fileID: 0}

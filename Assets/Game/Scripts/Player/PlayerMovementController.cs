@@ -62,6 +62,7 @@ public class PlayerMovementController : MonoBehaviour
 	private float terminalVelocity = 53.0f;
 	private Vector3 movement = new Vector3();
 	private Vector3 inputDirection = new Vector3();
+	private bool canMove = true;
 
 	// timeout deltatime
 	private float jumpTimeoutDelta;
@@ -91,23 +92,14 @@ public class PlayerMovementController : MonoBehaviour
 	[SerializeField]
 	private bool isDashing = false;
 	public float DashLaunchSpeed = 8f;
-	public float DashUnactableTime = 0.5f;
+	public float DashDuration = 0.5f;
 	public float DashAnimationSpeed = 1f;
 	private float preDashTargetRotation;
+	public Transform PlayerCenter;
 
 	[Space(10)]
 	[Header("Attributes")]
 	[SerializeField] private PlayerAttributes playerAttributes;
-
-	private void OnEnable()
-	{
-		input.OnDashing += Dodge;
-	}
-
-	private void OnDisable()
-	{
-		input.OnDashing -= Dodge;
-	}
 
 	private void Awake()
 	{
@@ -134,11 +126,10 @@ public class PlayerMovementController : MonoBehaviour
 	{
 		JumpAndGravity();
 		GroundedCheck();
-		Dodge();
 
 		if (isDashing)
 		{
-			MoveDodge();
+			MoveDash();
 		}
 		else
 		{
@@ -191,7 +182,7 @@ public class PlayerMovementController : MonoBehaviour
 	{
 		MoveSpeed = playerAttributes.SpeedData.Speed;
 
-		float targetSpeed = MoveSpeed;
+		float targetSpeed = MoveSpeed * (canMove ? 1 : 0.5f);
 
 		if (input.Move == Vector2.zero)
 			targetSpeed = 0.0f;
@@ -243,7 +234,12 @@ public class PlayerMovementController : MonoBehaviour
 		controller.Move(movement);
 	}
 
-	private void MoveDodge()
+	public void SetMovementState(bool newState)
+    {
+		canMove = newState;
+	}
+
+	private void MoveDash()
 	{
 		float targetSpeed = DashLaunchSpeed;
 		speed = targetSpeed;
@@ -256,16 +252,20 @@ public class PlayerMovementController : MonoBehaviour
 		movement = Quaternion.Euler(0.0f, playerTargetRotation, 0.0f) * Vector3.forward;
 		movement.Normalize();
 		movement *= speed * Time.deltaTime;
-		movement.y = verticalVelocity * Time.deltaTime;
+		movement.y = verticalVelocity * Time.deltaTime * 0.3f;
 
 		controller.Move(movement);
 	}
 
-	IEnumerator OnDodgeTimeCo(float duration)
+	IEnumerator OnDashTimeCo(float duration)
 	{
+		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"));
 		yield return new WaitForSeconds(duration);
 
-		StopDodge();
+		StopDash();
+
+		yield return new WaitForSeconds(1f);
+		SetMovementState(true);
 	}
 
 	private void JumpAndGravity()
@@ -302,36 +302,33 @@ public class PlayerMovementController : MonoBehaviour
 
 		if (verticalVelocity < terminalVelocity)
 		{
-			verticalVelocity += Gravity * Time.deltaTime;
+			verticalVelocity += Gravity * Time.deltaTime * (canMove ? 1 : 0.6f);
 		}
 	}
 
-	public void Dodge()
+	public void Dash(SpellData data)
 	{
-		if (input.Dash && input.Move != Vector2.zero && !isDashing)
+		if (!isDashing)
 		{
-			StartDodge();
+			DashLaunchSpeed = data.Speed;
+			DashDuration = data.ActiveDuration;
+			StartDash();
 		}
 	}
 
-	public void StartDodge()
+	public void StartDash()
 	{
-		animator.SetFloat("DirectionX", 0f);
-		animator.SetFloat("DirectionY", 1f);
-
 		preDashTargetRotation = targetRotation;
-
-		animator.SetTrigger("Dodge");
-		animator.SetBool(animIDDodging, true);
 		input.Dash = false;
-		StartCoroutine(OnDodgeTimeCo(DashUnactableTime));
+		StartCoroutine(OnDashTimeCo(DashDuration));
 		isDashing = true;
+		controller.Move(Vector3.zero);
 	}
 
-	public void StopDodge()
+	public void StopDash()
 	{
 		isDashing = false;
-		animator.SetBool(animIDDodging, false);
+		verticalVelocity = 0;
 	}
 
 	private static float ClampAngle(float lfAngle, float lfMin, float lfMax)

@@ -9,25 +9,7 @@ public class MenuController : MonoBehaviour
     [SerializeField]
     private ShopModifiers shopModifiers;
     [SerializeField]
-    private CanvasMenu[] menus;
-    [SerializeField]
     private string gameLevel;
-
-    private void Start()
-    {
-        ActivateMenu(menus[0]);
-    }
-
-    public void ActivateMenu(CanvasMenu menu)
-    {
-        foreach (var current in menus)
-        {
-            if (current == menu)
-                current.Show();
-            else
-                current.Hide();
-        }
-    }
 
     public void LoadGame()
     {

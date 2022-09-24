@@ -1,5 +1,7 @@
 using Sirenix.OdinInspector;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -7,47 +9,57 @@ namespace CosmosDefender
 {
     public class ResourceManager : MonoBehaviour
     {
-        [SerializeField]
-        private List<IResourceModifier> resourceModifiers = new List<IResourceModifier>();
+        private Dictionary<ResourceType, IResourceModifier> resourceTable;
 
-        [SerializeField]
-        private List<ResourceData> resourceDatas = new List<ResourceData>();
+        private List<IResourceModifier> resourceModifiers;
 
         private void Awake()
         {
+            resourceModifiers = new List<IResourceModifier>();
             GetComponents(resourceModifiers);
+            resourceTable = resourceModifiers.ToDictionary(x => x.resourceType);
+            StartCoroutine(IncreaseResourceOverTimeCoroutine());
         }
 
-        void Start()
+        private IEnumerator IncreaseResourceOverTimeCoroutine()
         {
-            foreach (var item in resourceDatas)
+            while (true)
             {
-                item.Initialize();
+                foreach (var item in resourceTable)
+                {
+                    item.Value.IncreaseResourcePerSecond();
+                }
+                yield return new WaitForSeconds(1f);
             }
         }
 
         [Button("Increase Resource")]
-        public void IncreaseResource(ResourceData data, float amount)
+        public void IncreaseResource(ResourceType type, float amount)
         {
-            data.IncreaseResource(amount);
+            resourceTable[type].IncreaseResource(amount);
+            resourceTable[type].UpdateUI();
         }
 
-        public void DecreaseResource(ResourceData data, float amount)
+        public void DecreaseResource(ResourceType type, float amount)
         {
-            data.DecreaseResource(amount);
+            resourceTable[type].OnResourceSpent(amount);
+            resourceTable[type].UpdateUI();
         }
 
-        public bool HasEnoughResource(ResourceData data, float cost)
+        public void SpendResource(ResourceType type, float cost)
         {
-            return data.HasEnoughResource(cost);
+            resourceTable[type].OnResourceSpent(cost);
+            resourceTable[type].UpdateUI();
         }
 
-        public void UpdateUI()
+        public bool HasEnoughResourceToSpend(ResourceType type, float cost)
         {
-            foreach (var item in resourceModifiers)
-            {
-                item.UpdateUI();
-            }
+            return resourceTable[type].GetCurrentResource() >= cost;
+        }
+
+        public float GetCurrentResource(ResourceType type)
+        {
+            return resourceTable[type].GetCurrentResource();
         }
     }
 

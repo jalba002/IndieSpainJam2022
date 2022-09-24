@@ -13,8 +13,6 @@ namespace CosmosDefender.Projectiles
 
         [SerializeField] private MeshRenderer mrend;
         
-        [SerializeField] private LayerMask layerMask;
-
         private SpellData m_SpellData;
         private IReadOnlyOffensiveData m_CombatData;
 
@@ -82,14 +80,13 @@ namespace CosmosDefender.Projectiles
         {
             // TODO. THE RADIUS FROM SPELLDATA IS 1/5th (THAT OR MULT FOR 5 IN VFX)
             
-            var collisions = AreaAttacksManager.SphereOverlap(hitPoint, m_SpellData.ProjectileRadius * 0.3f, layerMask);
+            var collisions = AreaAttacksManager.SphereOverlap(hitPoint, m_SpellData.ProjectileRadius * 0.3f, m_SpellData.LayerMask);
             
             AreaAttacksManager.DealDamageToCollisions<IDamageable>(collisions, m_CombatData.AttackDamage * m_SpellData.DamageMultiplier);
         }
 
         protected override void FinishObject()
         {
-            // TODO switch this if there's a pooler somehow.
             Destroy(this.gameObject);
         }
 

@@ -12,18 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84fc8c7d9a30a4a4a8cd7dd4821f4fb9, type: 3}
   m_Name: WaveConfig 1
   m_EditorClassIdentifier: 
-  timeBetweenEnemySpawn: 1
+  timeBetweenEnemySpawn: 2
   timeForNextWave: 20
   EnemyConfig:
   - enemyType: 1
-    pathToFollow: 2
+    pathToFollow: 0
   - enemyType: 2
-    pathToFollow: 2
+    pathToFollow: 1
   - enemyType: 0
     pathToFollow: 2
   - enemyType: 0
-    pathToFollow: 2
+    pathToFollow: 0
   - enemyType: 0
-    pathToFollow: 2
+    pathToFollow: 0
   - enemyType: 0
-    pathToFollow: 2
+    pathToFollow: 0
+  ShopCoinReward: 0

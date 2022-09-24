@@ -5,40 +5,46 @@ namespace CosmosDefender
 {
     public class GoddessResourceBehavior : MonoBehaviour, IResourceModifier
     {
-        [SerializeField] private ResourceData resourceData;
+        [SerializeField] private ResourceConfig resourceData;
         [SerializeField] private TextMeshProUGUI resourceText;
-        [SerializeField] private ResourceData data;
 
-        private float currentResource = 0f;
+        private ResourceData goddessResourceData;
+        public ResourceType resourceType => resourceData.ResourceType;
 
-        public ResourceType GetResourceType()
+        private void Start()
         {
-            return resourceData.ResourceType;
-        }
-
-        public bool HasEnoughResource(ResourceData data, float cost)
-        {
-            if (data.ResourceType != ResourceType.Stars)
-            {
-                return false;
-            }
-
-            return currentResource >= cost;
-        }
-
-        public void IncreaseResource(ResourceData data, float amount)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void DecreaseResource(ResourceData data, float amount)
-        {
-            throw new System.NotImplementedException();
+            goddessResourceData = resourceData.baseResource;
+            goddessResourceData.CurrentResource = goddessResourceData.StartingResource;
+            UpdateUI();
         }
 
         public void UpdateUI()
         {
-            resourceText.text = "Goddess: " + data.CurrentResource;
+            resourceText.text = "Goddess: " + (int)goddessResourceData.CurrentResource;
+        }
+
+        public float GetCurrentResource()
+        {
+            return goddessResourceData.CurrentResource;
+        }
+
+        public void OnResourceSpent(float cost)
+        {
+            goddessResourceData.CurrentResource += cost;
+            goddessResourceData.CurrentResource = Mathf.Clamp(goddessResourceData.CurrentResource, 0, goddessResourceData.MaxResource);
+            UpdateUI();
+        }
+
+        public void IncreaseResource(float amount)
+        {
+            goddessResourceData.CurrentResource += amount;
+            goddessResourceData.CurrentResource = Mathf.Clamp(goddessResourceData.CurrentResource, 0, goddessResourceData.MaxResource);
+            UpdateUI();
+        }
+
+        public void IncreaseResourcePerSecond()
+        {
+            IncreaseResource(goddessResourceData.ResourceOverTime);
         }
     }
 }
