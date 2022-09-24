@@ -26,5 +26,10 @@ namespace CosmosDefender
                 instance.transform.SetParent(playerMovement.PlayerCenter);
             });
         }
+
+        public override void StopCast()
+        {
+            //
+        }
     }
 }

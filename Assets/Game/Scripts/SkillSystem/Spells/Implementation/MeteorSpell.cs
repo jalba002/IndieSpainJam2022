@@ -19,5 +19,10 @@ namespace CosmosDefender
                 instance.InstantiateBullet(spawnPoint, forward, rotation, combatData, currentData, caster);
             });
         }
+        
+        public override void StopCast()
+        {
+            //
+        }
     }
 }

@@ -19,11 +19,11 @@ namespace CosmosDefender.Bullets.Implementation
             // This object does NOT destroy itself.
             // Every time it is activated, call this function.
             
-            Activate();
+            //Activate();
         }
 
         [Button]
-        void Activate()
+        public void Activate()
         {
             particleSys.Play();
         }

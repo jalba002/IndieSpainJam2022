@@ -7,8 +7,6 @@ namespace CosmosDefender.Projectiles
 {
     public class VelocityProjectile : BaseProjectile
     {
-        [SerializeField] private VisualEffect vfx;
-
         [SerializeField] private ParticleSystem particles;
 
         [SerializeField] private MeshRenderer mrend;
@@ -26,30 +24,14 @@ namespace CosmosDefender.Projectiles
 
             m_Rigidbody.velocity = direction * spellData.Speed;
 
-            // Update VFXs
-            // Set radius
-            vfx.SetFloat("ProjectileRadius", m_SpellData.ProjectileRadius);
-            vfx.SetFloat("Lifetime", m_SpellData.Lifetime);
+            float realRadius = m_SpellData.ProjectileRadius;
+            //mrend.material.SetFloat("_Scale", realRadius);
 
-            float realRadius = m_SpellData.ProjectileRadius * 0.2f;
-            mrend.material.SetFloat("_Scale", realRadius);
-
-            ((SphereCollider) (m_Collider)).radius = realRadius * 0.5f;
+            ((SphereCollider) (m_Collider)).radius = realRadius;
+            mrend.gameObject.transform.localScale = new Vector3(realRadius, realRadius, realRadius) * 2f;
+            
+            Destroy(this.gameObject, spellData.ActiveDuration);
         }
-
-        protected override void UpdateVFX()
-        {
-            vfx.SendEvent("Play");
-            vfx.transform.parent = null;
-            vfx.transform.position = transform.position; //other.ClosestPoint(transform.position);
-            Destroy(vfx.gameObject, m_SpellData.Lifetime * 1.2f);
-        }
-
-        protected override void UpdateRenderer()
-        {
-            mrend.enabled = false;
-        }
-
         protected override void UpdateRigidbody()
         {
             m_Rigidbody.velocity = Vector3.zero;
@@ -69,11 +51,8 @@ namespace CosmosDefender.Projectiles
             // TODO set particles destroy time.
             CronoScheduler.Instance.ScheduleForTime(3f, () =>
             {
-                //particles.gameObject.SetActive(false);
                 Destroy(particles.gameObject);
             });
-            //particles.gameObject.SetActive(false);
-            // Destroy(particles.gameObject, 3f);
         }
 
         protected override void FinishObject()
@@ -83,7 +62,6 @@ namespace CosmosDefender.Projectiles
 
         private void OnTriggerEnter(Collider other)
         {
-            // TODO Ignore other projectiles until custom layers are used,
             if (other.GetComponent<BaseProjectile>() != null) return;
 
             AreaAttacksManager.DealDamageToCollisions<IDamageable>(other,

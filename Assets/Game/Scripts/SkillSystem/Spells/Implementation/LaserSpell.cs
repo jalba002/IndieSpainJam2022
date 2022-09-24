@@ -35,5 +35,10 @@ namespace CosmosDefender
                 });
             });
         }
+        
+        public override void StopCast()
+        {
+            //
+        }
     }
 }

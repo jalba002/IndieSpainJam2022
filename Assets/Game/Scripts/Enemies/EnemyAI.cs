@@ -1,9 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using CosmosDefender.Bullets;
 using Sirenix.OdinInspector;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace CosmosDefender
@@ -31,12 +26,6 @@ namespace CosmosDefender
         {
             attack.UpdateCurrentData();
             attack.Cast(attackOrigin.position, transform.forward, transform.rotation, data,this);
-        }
-
-        [Button]
-        public void StopAttack()
-        {
-            // Ranged usually stops attacking.
         }
 
         private void Update()

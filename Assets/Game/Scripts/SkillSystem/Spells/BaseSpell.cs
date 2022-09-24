@@ -25,6 +25,8 @@ namespace CosmosDefender
         //public void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData, ISpellCaster caster) => Cast(spawnPoint, forward, rotation, combatData, caster);
         public abstract void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData, ISpellCaster caster);
 
+        public abstract void StopCast();
+
         public void ApplyModifiers(IReadOnlyList<ISpellModifier> modifiers)
         {
             currentData = baseData;
