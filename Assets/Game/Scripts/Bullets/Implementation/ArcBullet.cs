@@ -37,7 +37,7 @@ namespace CosmosDefender.Bullets.Implementation
                     
                 var vfxItem = Instantiate(vfxPrefab, spawnP, Quaternion.identity);
                 vfxItem.SetVector3("Start", origin);
-                vfxItem.SetVector3("End", enemyHits[index].transform.position);
+                vfxItem.SetVector3("End", enemyHits[index].bounds.center);
                 vfxItem.SetFloat("Lifetime", spellData.Lifetime);
 
                 Destroy(vfxItem.gameObject, vfxItem.GetFloat("Lifetime"));
@@ -99,8 +99,8 @@ namespace CosmosDefender.Bullets.Implementation
                     Vector3 spawnP = (enemyHits[i].transform.position + enemyHits[i + 1].transform.position) * 0.5f;
                     
                     var vfxItem = Instantiate(vfxPrefab, spawnP, Quaternion.identity);
-                    vfxItem.SetVector3("Start", enemyHits[i].transform.position);
-                    vfxItem.SetVector3("End", enemyHits[i + 1].transform.position);
+                    vfxItem.SetVector3("Start", enemyHits[i].bounds.center);
+                    vfxItem.SetVector3("End", enemyHits[i + 1].bounds.center);
                     vfxItem.SetFloat("Lifetime", spellData.Lifetime);
 
                     Destroy(vfxItem.gameObject, vfxItem.GetFloat("Lifetime"));

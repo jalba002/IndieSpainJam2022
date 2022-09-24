@@ -16,7 +16,7 @@ public class SpellManager : MonoBehaviour
 
     private BaseSpell previewedSpell;
 
-    [SerializeField] private LayerMask layerMask;
+    [SerializeField] private LayerMask previewLayerMask;
 
     // After casting a spell, add it to the list and start a crono with that.
     private List<BaseSpell> cooldownSpells = new List<BaseSpell>();
@@ -116,7 +116,7 @@ public class SpellManager : MonoBehaviour
         Ray cameraRay = Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f));
         if (Physics.Raycast(cameraRay, out RaycastHit hit,
             previewedSpell.spellData.MaxAttackDistance +
-            Vector3.Distance(this.transform.position, Camera.main.transform.position), layerMask))
+            Vector3.Distance(this.transform.position, Camera.main.transform.position), previewLayerMask))
             skillPreviewer.Move(hit.point);
     }
 
