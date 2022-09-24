@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: GoddessResourceData
   m_EditorClassIdentifier: 
   ResourceType: 1
-  MaxResource: 60
-  StartingResource: 0
-  ResourceOverTime: 1
+  baseResource:
+    MaxResource: 60
+    CurrentResource: 0
+    StartingResource: 0
+    ResourceOverTime: 0.5
+    ResourcePerKill: 0

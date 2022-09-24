@@ -26,7 +26,7 @@ namespace CosmosDefender
         public void Show()
         {
             currentModifier = config.GetCurrentPurchaseable();
-            buttonDisplay.ShowConfig<T, T1, T2, T3>(currentModifier);
+            buttonDisplay.ShowConfig(currentModifier);
         }
 
         public void OnClick()

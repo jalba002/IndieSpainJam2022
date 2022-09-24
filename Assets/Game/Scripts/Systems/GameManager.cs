@@ -16,6 +16,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public StarResourceBehavior StarResourceBehavior;
     public GoddessResourceBehavior GoddessResourceBehavior;
+    public ResourceManager ResourceManager;
 
     void Awake()
     {

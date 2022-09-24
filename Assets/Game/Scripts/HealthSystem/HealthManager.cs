@@ -6,7 +6,7 @@ using UnityEngine;
 public class HealthManager : MonoBehaviour, IDamageable
 {
     public float MaxHealth = 100f;
-    protected float currentHealth;
+    [SerializeField]protected float currentHealth;
 
     protected bool isInvulnerable = false;
     protected Coroutine invulnerableCoroutine;

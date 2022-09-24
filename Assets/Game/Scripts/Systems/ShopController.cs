@@ -10,6 +10,10 @@ public class ShopController : MonoBehaviour
     private AttributeShopButton attributePrefab;
     [SerializeField]
     private SpellShopButton spellPrefab;
+    [SerializeField]
+    private RectTransform attributesGrid;
+    [SerializeField]
+    private RectTransform spellsGrid;
 
     private void Awake()
     {
@@ -20,14 +24,14 @@ public class ShopController : MonoBehaviour
     {
         foreach (var item in shopModifiers.AttributesModifierShop)
         {
-            var button = Instantiate(attributePrefab, transform);
+            var button = Instantiate(attributePrefab, attributesGrid);
             button.Initialize(item);
             button.Show();
         }
 
         foreach (var item in shopModifiers.SpellModifierShop)
         {
-            var button = Instantiate(spellPrefab, transform);
+            var button = Instantiate(spellPrefab, spellsGrid);
             button.Initialize(item);
             button.Show();
         }

@@ -133,10 +133,7 @@ public class PlayerMovementController : MonoBehaviour
 		}
 		else
 		{
-            if (canMove)
-            {
-				Move();
-			}
+			Move();
 		}
 	}
 
@@ -185,7 +182,7 @@ public class PlayerMovementController : MonoBehaviour
 	{
 		MoveSpeed = playerAttributes.SpeedData.Speed;
 
-		float targetSpeed = MoveSpeed;
+		float targetSpeed = MoveSpeed * (canMove ? 1 : 0.5f);
 
 		if (input.Move == Vector2.zero)
 			targetSpeed = 0.0f;
@@ -255,7 +252,7 @@ public class PlayerMovementController : MonoBehaviour
 		movement = Quaternion.Euler(0.0f, playerTargetRotation, 0.0f) * Vector3.forward;
 		movement.Normalize();
 		movement *= speed * Time.deltaTime;
-		movement.y = verticalVelocity * Time.deltaTime;
+		movement.y = verticalVelocity * Time.deltaTime * 0.3f;
 
 		controller.Move(movement);
 	}
@@ -265,7 +262,7 @@ public class PlayerMovementController : MonoBehaviour
 		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"));
 		yield return new WaitForSeconds(duration);
 
-		StopDodge();
+		StopDash();
 
 		yield return new WaitForSeconds(1f);
 		SetMovementState(true);
@@ -305,7 +302,7 @@ public class PlayerMovementController : MonoBehaviour
 
 		if (verticalVelocity < terminalVelocity)
 		{
-			verticalVelocity += Gravity * Time.deltaTime;
+			verticalVelocity += Gravity * Time.deltaTime * (canMove ? 1 : 0.6f);
 		}
 	}
 
@@ -325,11 +322,13 @@ public class PlayerMovementController : MonoBehaviour
 		input.Dash = false;
 		StartCoroutine(OnDashTimeCo(DashDuration));
 		isDashing = true;
+		controller.Move(Vector3.zero);
 	}
 
-	public void StopDodge()
+	public void StopDash()
 	{
 		isDashing = false;
+		verticalVelocity = 0;
 	}
 
 	private static float ClampAngle(float lfAngle, float lfMin, float lfMax)

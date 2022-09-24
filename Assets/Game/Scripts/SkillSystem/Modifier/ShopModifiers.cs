@@ -17,12 +17,24 @@ namespace CosmosDefender
         [SerializeField, InlineEditor]
         private List<PurchaseableSpellModifier> spellModifierShop;
 
+        [SerializeField]
+        private PurchaseableAttributeModifierData lastAttributePurchase;
+        [SerializeField]
+        private PurchaseableSpellModifierData lastSpellPurchase;
+
+        public bool addLastPurchases;
+
         public IReadOnlyList<PurchaseableAttributeModifier> AttributesModifierShop => attributesModifierShop;
         public IReadOnlyList<PurchaseableSpellModifier> SpellModifierShop => spellModifierShop;
 
         public void Initialize()
         {
             Load();
+            if (addLastPurchases)
+            {
+                attributesModifierShop.ForEach(x => x.AddUniqueModifierToPurchase(lastAttributePurchase));
+                spellModifierShop.ForEach(x => x.AddUniqueModifierToPurchase(lastSpellPurchase));
+            }
         }
 
         public void Save()

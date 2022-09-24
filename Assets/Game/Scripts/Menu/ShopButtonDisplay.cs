@@ -1,10 +1,11 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace CosmosDefender
 {
-    public class ShopButtonDisplay : MonoBehaviour
+    public class ShopButtonDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField]
         private Image image;
@@ -12,15 +13,30 @@ namespace CosmosDefender
         private TMP_Text description;
         [SerializeField]
         private TMP_Text price;
+        [SerializeField]
+        private CanvasGroup descriptionPanel;
 
-        public void ShowConfig<T, T1, T2, T3>(T config)
-            where T : PurchaseableModifierData<T1, T2, T3>
-            where T1 : BaseModifier<T2, T3>
-            where T2 : IModifier<T3>
+        private void Awake()
         {
-            image.sprite = config.thumbnail;
-            description.text = config.description;
-            price.text = config.price.ToString();
+            descriptionPanel.Hide();
+        }
+
+        public void ShowConfig(IShopDisplayer displayer)
+        {
+            price.gameObject.SetActive(displayer.CanBePurchased);
+            image.sprite = displayer.Thumbnail;
+            description.text = displayer.Description;
+            price.text = displayer.Price.ToString();
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            descriptionPanel.Show();
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            descriptionPanel.Hide();
         }
     }
 }

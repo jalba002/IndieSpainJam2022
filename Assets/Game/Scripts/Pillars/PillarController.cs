@@ -23,7 +23,9 @@ namespace CosmosDefender
         public PillarsConfig PillarConfig;
 
         [SerializeField]
-        private ResourceData starResourceData;
+        private ResourceConfig starResourceData;
+
+        private ResourceManager resourceManager;
 
         private void OnDrawGizmosSelected()
         {
@@ -35,6 +37,7 @@ namespace CosmosDefender
         private void Awake()
         {
             GetComponents(pillarObserverModifiers);
+            resourceManager = GameManager.Instance.ResourceManager;
         }
 
         private void Update()
@@ -84,9 +87,9 @@ namespace CosmosDefender
             if (pillarCurrentState == PillarStates.Empowered)
                 return;
 
-            if (CanBeActivated(starResourceData.CurrentResource))
+            if (CanBeActivated(ResourceType.Stars))
             {
-                starResourceData.DecreaseResource(PillarConfig.ActivateCost);
+                resourceManager.DecreaseResource(ResourceType.Stars, PillarConfig.ActivateCost);
                 foreach (var pillar in pillarObserverModifiers)
                 {
                     foreach (var observer in PillarConfig.PillarObservers)
@@ -96,9 +99,9 @@ namespace CosmosDefender
                 }
                 pillarCurrentState = PillarStates.Active;
             }
-            else if(CanBeEmpowered(starResourceData.CurrentResource))
+            else if(CanBeEmpowered(ResourceType.Stars))
             {
-                starResourceData.DecreaseResource(PillarConfig.EmpowerCost);
+                resourceManager.DecreaseResource(ResourceType.Stars, PillarConfig.EmpowerCost);
                 foreach (var pillar in pillarObserverModifiers)
                 {
                     foreach (var observer in PillarConfig.PillarObservers)
@@ -115,14 +118,14 @@ namespace CosmosDefender
             }
         }
 
-        private bool CanBeEmpowered(float currentResources)
+        private bool CanBeEmpowered(ResourceType resource)
         {
-            return currentResources >= PillarConfig.EmpowerCost && pillarCurrentState == PillarStates.Active;
+            return resourceManager.HasEnoughResourceToSpend(resource, PillarConfig.EmpowerCost) && pillarCurrentState == PillarStates.Active;
         }
 
-        private bool CanBeActivated(float currentResources)
+        private bool CanBeActivated(ResourceType resource)
         {
-            return currentResources >= PillarConfig.ActivateCost && pillarCurrentState == PillarStates.Inactive;
+            return resourceManager.HasEnoughResourceToSpend(resource, PillarConfig.ActivateCost) && pillarCurrentState == PillarStates.Inactive;
         }
     }
 }
