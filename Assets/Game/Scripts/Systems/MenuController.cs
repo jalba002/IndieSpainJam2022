@@ -15,7 +15,7 @@ public class MenuController : MonoBehaviour
 
     private void Start()
     {
-        ActivateMenu(menus[0]);
+        //ActivateMenu(menus[0]);
     }
 
     public void ActivateMenu(CanvasMenu menu)
