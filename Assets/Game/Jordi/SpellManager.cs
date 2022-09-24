@@ -58,6 +58,7 @@ public class SpellManager : MonoBehaviour, ISpellCaster
             case CastType.Direct:
                 CastSpell(selectedSpell, transform.position);
                 skillPreviewer.Deactivate();
+                previewedSpell = null;
                 break;
             case CastType.Preview:
                 if (previewedSpell == null || selectedSpell != previewedSpell)
@@ -107,7 +108,9 @@ public class SpellManager : MonoBehaviour, ISpellCaster
         timeUntilAvailableCast = Time.time + (spell.spellData.AnimationDelay * 1.5f);
 
         _cooldownSpells.Add(spell);
-        CronoScheduler.Instance.ScheduleForTime(spell.spellData.Cooldown, () => { _cooldownSpells.Remove(spell); });
+        CronoScheduler.Instance.ScheduleForTime(
+            spell.spellData.Cooldown - (spell.spellData.Cooldown * playerAttributes.CombatData.CooldownReduction / 100), 
+            () => { _cooldownSpells.Remove(spell); });
     }
 
     private void Update()

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace CosmosDefender
 {
-    [CreateAssetMenu(fileName = nameof(HealthRegenAdditiveModifier), menuName = "CosmosDefender/" + nameof(HealthRegenAdditiveModifier))]
+    [CreateAssetMenu(fileName = nameof(HealthRegenAdditiveModifier), menuName = "CosmosDefender/Modifiers/" + nameof(HealthRegenAdditiveModifier))]
     public class HealthRegenAdditiveModifier : BaseAttributeModifier
     {
         [SerializeField]

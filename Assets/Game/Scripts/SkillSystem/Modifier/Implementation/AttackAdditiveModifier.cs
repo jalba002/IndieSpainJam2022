@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace CosmosDefender
 {
-    [CreateAssetMenu(fileName = nameof(AttackAdditiveModifier), menuName = "CosmosDefender/" + nameof(AttackAdditiveModifier))]
+    [CreateAssetMenu(fileName = nameof(AttackAdditiveModifier), menuName = "CosmosDefender/Modifiers/" + nameof(AttackAdditiveModifier))]
     public class AttackAdditiveModifier : BaseAttributeModifier
     {
         [SerializeField]

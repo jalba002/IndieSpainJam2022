@@ -1,14 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace CosmosDefender.Bullets.Implementation
 {
     public class DashBullet : BaseBullet
     {
-        private IReadOnlyOffensiveData combatData;
-        private SpellData spellData;
         private Vector3 origin;
         private Transform firePoint;
         private PlayerMovementController playerMovement;
