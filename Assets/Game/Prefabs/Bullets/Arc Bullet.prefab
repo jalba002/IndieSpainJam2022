@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2182018053682096247}
   - component: {fileID: 5992997824349814215}
   - component: {fileID: 7957709564838626636}
+  - component: {fileID: 3449290969015483958}
   m_Layer: 0
   m_Name: Arc Bullet
   m_TagString: Untagged
@@ -103,3 +104,33 @@ MonoBehaviour:
     m_Bits: 0
   rayToGroundDistance: 10
   vfxPrefab: {fileID: 9110588522201821569, guid: 13ffb4ca6eda97e4f9e600bdc8fb62fc, type: 3}
+--- !u!114 &3449290969015483958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7957709564838626638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1542828291
+      Data2: 1294220817
+      Data3: 166171777
+      Data4: -1871263826
+    Path: event:/SFX/Player/Electricity
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 10
