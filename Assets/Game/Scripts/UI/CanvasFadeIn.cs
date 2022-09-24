@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CanvasFadeIn : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class CanvasFadeIn : MonoBehaviour
     public float DelayFadeOut = 0f;
     private CanvasGroup canvGroup;
     public bool StartWithFadeOut;
+
+    public UnityEvent onShow;
+    public UnityEvent onHide;
 
     public void Awake()
     {
@@ -27,19 +31,19 @@ public class CanvasFadeIn : MonoBehaviour
 
     public void FadeIn()
     {
-        StartCoroutine(DoFade(canvGroup, canvGroup.alpha, 1, DelayFadeIn));
+        StartCoroutine(DoFade(canvGroup, canvGroup.alpha, 1, DelayFadeIn, onShow));
     }
 
     public void FadeOut()
     {
-        StartCoroutine(DoFade(canvGroup, canvGroup.alpha, 0, DelayFadeOut));
+        StartCoroutine(DoFade(canvGroup, canvGroup.alpha, 0, DelayFadeOut, onHide));
     }
 
-    public IEnumerator DoFade(CanvasGroup canvGroup, float start, float end, float delay)
+    public IEnumerator DoFade(CanvasGroup canvGroup, float start, float end, float delay, UnityEvent onFinish)
     {
         float counter = 0f;
 
-        if(end == 1)
+        if (end == 1)
         {
             canvGroup.interactable = true;
             canvGroup.blocksRaycasts = true;
@@ -59,5 +63,7 @@ public class CanvasFadeIn : MonoBehaviour
 
             yield return null;
         }
+
+        onFinish.Invoke();
     }
 }

@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.Networking;
-using System;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
-using FMODUnity;
 using CosmosDefender;
+using FMODUnity;
+using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public enum MenuState
 {
