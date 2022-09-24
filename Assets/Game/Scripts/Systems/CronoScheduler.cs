@@ -8,19 +8,19 @@ namespace CosmosDefender
     {
         protected override bool dontDestroyOnLoad => true;
 
-        public void ScheduleForTime(float time, Action callback)
+        public Coroutine ScheduleForTime(float time, Action callback)
         {
-            StartCoroutine(CoroutineForTime(time, callback));
+            return StartCoroutine(CoroutineForTime(time, callback));
         }
 
-        public void ScheduleForTimeAndExecuteElapsed(float maxTime, float elapsedTime, Action callback)
+        public Coroutine ScheduleForTimeAndExecuteElapsed(float maxTime, float elapsedTime, Action callback)
         {
-            StartCoroutine(CoroutineForTime(maxTime, elapsedTime, callback));
+            return StartCoroutine(CoroutineForTime(maxTime, elapsedTime, callback));
         }
 
-        public void ScheduleForRepetitions(int repetitions, float delay, Action callback)
+        public Coroutine ScheduleForRepetitions(int repetitions, float delay, Action callback)
         {
-            StartCoroutine(CoroutineForAmount(repetitions, delay, callback));
+            return StartCoroutine(CoroutineForAmount(repetitions, delay, callback));
         }
 
 
@@ -35,8 +35,8 @@ namespace CosmosDefender
             float timer = Time.time + maxTime;
             while (Time.time < timer)
             {
-                yield return new WaitForSeconds(elapsedTime);
                 callback.Invoke();
+                yield return new WaitForSeconds(elapsedTime);
             }
         }
 

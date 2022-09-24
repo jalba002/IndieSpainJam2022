@@ -19,6 +19,8 @@ namespace CosmosDefender
         private PlayerAttributes playerAttributes;
 
         public SpellType spellType => baseData.SpellType;
+        public CastType castType => baseData.CastType;
+        
         public SpellData spellData => currentData;
 
         public void SetPlayerAttributes(PlayerAttributes playerAttributes)
@@ -26,8 +28,9 @@ namespace CosmosDefender
             this.playerAttributes = playerAttributes;
         }
 
-        public void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation) => Cast(spawnPoint, forward, rotation, playerAttributes.CombatData);
-        protected abstract void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData);
+        public void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation) => Cast(spawnPoint, forward, rotation, playerAttributes.CombatData, null);
+        public void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation, SpellManager caster) => Cast(spawnPoint, forward, rotation, playerAttributes.CombatData, caster);
+        protected abstract void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData, SpellManager caster);
 
         public void ApplyModifiers(IReadOnlyList<ISpellModifier> modifiers)
         {

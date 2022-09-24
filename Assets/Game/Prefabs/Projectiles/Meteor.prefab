@@ -5061,4 +5061,4 @@ MonoBehaviour:
   mrend: {fileID: 8828071469463868860}
   layerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 257

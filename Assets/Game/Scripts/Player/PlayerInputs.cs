@@ -8,6 +8,7 @@ public class PlayerInputs : MonoBehaviour
 	public Vector2 Move;
 	public Vector2 Look;
 	public bool Dash;
+	public bool InteractButton;
 
 	[Header("Movement Settings")]
 	public bool AnalogMovement;
@@ -16,9 +17,14 @@ public class PlayerInputs : MonoBehaviour
 	public bool cursorLocked = true;
 	public bool cursorInputForLook = true;
 
-	public Action OnDashing;
+	private PlayerInput input;
 
-	public void OnMove(InputValue value)
+    private void Awake()
+    {
+		input = GetComponent<PlayerInput>();
+	}
+
+    public void OnMove(InputValue value)
 	{
 		MoveInput(value.Get<Vector2>());
 	}
@@ -30,7 +36,12 @@ public class PlayerInputs : MonoBehaviour
 
 	public void OnDodge(InputValue value)
 	{
-		DodgeInput(value.isPressed);
+		SetInputState(value.isPressed, ref Dash);
+	}
+
+	public void OnInteractButton(InputValue value)
+    {
+		SetInputState(value.isPressed, ref InteractButton);
 	}
 
 	public void MoveInput(Vector2 newMoveDirection)
@@ -43,9 +54,9 @@ public class PlayerInputs : MonoBehaviour
 		Look = newLookDirection;
 	}
 
-	public void DodgeInput(bool newRollState)
+	public void SetInputState(bool newState, ref bool keyRef)
 	{
-		Dash = newRollState;
+		keyRef = newState;
 	}
 
 	private void OnApplicationFocus(bool hasFocus)
@@ -56,5 +67,10 @@ public class PlayerInputs : MonoBehaviour
 	private void SetCursorState(bool newState)
 	{
 		Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
+	}
+
+	private void OnDisable()
+	{
+		input.actions = null;
 	}
 }

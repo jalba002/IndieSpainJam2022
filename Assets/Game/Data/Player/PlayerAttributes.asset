@@ -19,5 +19,4 @@ MonoBehaviour:
     maxHealth: 100
     healthRegeneration: 0
   spells:
-  - {fileID: 11400000, guid: 6fdfc8ec4c6c24f489fae51bf3e66ccd, type: 2}
-  - {fileID: 11400000, guid: 19301df303291ea429c98ed7010cbbe4, type: 2}
+  - {fileID: 11400000, guid: 0b731d7de814258418604f957ef6aaa9, type: 2}
