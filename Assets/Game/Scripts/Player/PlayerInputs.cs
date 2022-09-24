@@ -18,13 +18,54 @@ public class PlayerInputs : MonoBehaviour
 	public bool cursorInputForLook = true;
 
 	private PlayerInput input;
+	InputActionMap ingameMap;
+	InputActionMap uiMap;
+	public bool GameOver = false;
 
-    private void Awake()
+	private void Awake()
     {
 		input = GetComponent<PlayerInput>();
+		ingameMap = input.actions.FindActionMap("Player");
+		uiMap = input.actions.FindActionMap("UI");
 	}
 
-    public void OnMove(InputValue value)
+	public void SetInputMap(PlayerInputMaps inputMap)
+    {
+		switch (inputMap)
+        {
+			case PlayerInputMaps.Ingame:
+				ingameMap.Enable();
+				uiMap.Disable();
+				Cursor.lockState = CursorLockMode.Locked;
+				Cursor.visible = false;
+				break;
+
+			case PlayerInputMaps.UI:
+				ingameMap.Disable();
+				uiMap.Enable();
+				Cursor.lockState = CursorLockMode.None;
+				Cursor.visible = true;
+				break;
+		}
+    }
+
+	void OnPause()
+    {
+		if (!GameOver)
+		{
+			PauseManager.Instance.PauseGame();
+
+			SetInputMap(PauseManager.Instance.isGamePaused ? PlayerInputMaps.UI : PlayerInputMaps.Ingame);
+		}
+	}
+
+	public void DisableInputs()
+	{
+		ingameMap.Disable();
+		uiMap.Disable();
+	}
+
+	public void OnMove(InputValue value)
 	{
 		MoveInput(value.Get<Vector2>());
 	}
@@ -73,4 +114,10 @@ public class PlayerInputs : MonoBehaviour
 	{
 		input.actions = null;
 	}
+}
+
+public enum PlayerInputMaps
+{
+	Ingame,
+	UI
 }

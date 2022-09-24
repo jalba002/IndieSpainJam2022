@@ -10,19 +10,19 @@ public class PauseManager : MonoBehaviour
     private CanvasFadeIn canvasFade;
 
     public static PauseManager Instance;
-    PlayerInputsManager playerMenuInputs;
+    PlayerInputs playerMenuInputs;
 
     private void Awake()
     {
         Instance = this;
         canvasFade = GetComponent<CanvasFadeIn>();
-        playerMenuInputs = FindObjectOfType<PlayerInputsManager>();
+        playerMenuInputs = FindObjectOfType<PlayerInputs>();
     }
 
     public void Resume()
     {
         PauseGame();
-        playerMenuInputs.ChangeInputs();
+        playerMenuInputs.SetInputMap(PlayerInputMaps.Ingame);
     }
 
     public void LoadScene(string scene_name)
