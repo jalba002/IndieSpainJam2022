@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: StarsResourceData
   m_EditorClassIdentifier: 
   ResourceType: 0
-  MaxResource: 100
-  CurrentResource: 0
-  StartingResource: 25
-  ResourceOverTime: 0
-  ResourcePerKill: 4
+  baseResource:
+    MaxResource: 100
+    CurrentResource: 0
+    StartingResource: 25
+    ResourceOverTime: 0
+    ResourcePerKill: 0

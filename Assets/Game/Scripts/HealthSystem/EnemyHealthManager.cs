@@ -9,10 +9,12 @@ public class EnemyHealthManager : HealthManager
     //private EnemySoundPlayer sounds;
     private ScreenShake screenShake;
     [SerializeField]
-    private ResourceData starResourceData;
+    private ResourceConfig starResourceData;
 
     [SerializeField]
     private EnemyData data;
+
+    private EnemySpawner enemySpawner;
 
     private void Awake()
     {
@@ -32,8 +34,9 @@ public class EnemyHealthManager : HealthManager
     {
         //animator.SetTrigger("Death");
         //sounds.PlayDamageSound();
-        GameManager.Instance.StarResourceBehavior.IncreaseResource(starResourceData, data.StarResourceOnDeath);
-        GameManager.Instance.GoddessResourceBehavior.IncreaseResource(data.GoddessResourceOnDeath);
+        GameManager.Instance.ResourceManager.IncreaseResource(ResourceType.Stars, data.StarResourceOnDeath);
+        GameManager.Instance.ResourceManager.IncreaseResource(ResourceType.Goddess, data.StarResourceOnDeath);
+        enemySpawner.DecreaseCurrentEnemyCounter();
         Destroy(gameObject);
     }
 
@@ -42,5 +45,10 @@ public class EnemyHealthManager : HealthManager
         //animator.SetTrigger("TakeDamage");
         //sounds.PlayDamageSound();
         //screenShake.CameraShake(0.1f, 0.75f);
+    }
+
+    public void SetEnemySpawner(EnemySpawner enemySpawner)
+    {
+        this.enemySpawner = enemySpawner;
     }
 }

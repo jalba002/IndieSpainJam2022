@@ -38,8 +38,10 @@ namespace CosmosDefender
                 playerAttributes.RemoveAllAttributeModifiers();
                 playerAttributes.RemoveAllSpellModifiers();
             }
+            
+            
         }
-
+        
         private void Reset()
         {
             var GUIDS = AssetDatabase.FindAssets("t: " + nameof(CosmosSpell));

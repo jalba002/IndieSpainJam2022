@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = nameof(WaveConfig), menuName = "CosmosDefender/" + nameof(WaveConfig))]
@@ -7,7 +6,7 @@ public class WaveConfig : ScriptableObject
     public float timeBetweenEnemySpawn;
     public float timeForNextWave;
     public EnemyWaveConfig[] EnemyConfig;
-    public float ShopCoinReward;
+    public int ShopCoinReward;
 }
 
 [System.Serializable]

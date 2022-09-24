@@ -22,6 +22,8 @@ namespace CosmosDefender {
         [SerializeField] private Animator animator;
         [SerializeField] private PlayerAttributes playerAttributes;
 
+        private bool isUpdatingHealthbar = false;
+
         private void Awake()
         {
             //inputs = GetComponent<PlayerInputsManager>();
@@ -38,12 +40,28 @@ namespace CosmosDefender {
             HealthSliderYellow.value = MaxHealth;
 
             base.Start();
+
+            StartCoroutine(HealthRegenerationCoroutine());
+        }
+
+        private IEnumerator HealthRegenerationCoroutine()
+        {
+            while (true)
+            {
+                if(currentHealth < MaxHealth)
+                {
+                    IncreaseHealth(playerAttributes.DefensiveData.HealthRegeneration);
+                    if (!isUpdatingHealthbar)
+                        IncreaseHealthSmoothUpdateUI(currentHealth, 10f);
+                }
+                yield return new WaitForSeconds(1f);
+            }
         }
 
         public override void Die()
         {
             //mainCameraShake.CameraShake(CameraShakeDuration, CameraShakeIntensity);
-            SmoothUpdateUI(currentHealth, -50f);
+            DecreaseHealthSmoothUpdateUI(currentHealth, -50f);
             //inputs.DisableInputs();
             StartCoroutine(DeathCoroutine());
             animator.SetTrigger("Death");
@@ -54,10 +72,10 @@ namespace CosmosDefender {
         {
             InvulnerableOverTime(InvulnerableTime);
             //mainCameraShake.CameraShake(CameraShakeDuration, CameraShakeIntensity);
-            SmoothUpdateUI(currentHealth, -50f);
+            DecreaseHealthSmoothUpdateUI(currentHealth, -50f);
         }
 
-        private void SmoothUpdateUI(float healthRemaining, float duration)
+        private void DecreaseHealthSmoothUpdateUI(float healthRemaining, float duration)
         {
             if (healthBarLerpCoroutine != null)
             {
@@ -68,11 +86,21 @@ namespace CosmosDefender {
                 StopCoroutine(healthBarYellowLerpCoroutine);
             }
 
-            healthBarLerpCoroutine = StartCoroutine(LerpCoroutine(healthRemaining, duration, 0, HealthSlider));
-            healthBarYellowLerpCoroutine = StartCoroutine(LerpCoroutine(healthRemaining, -25f, 1f, HealthSliderYellow));
+            isUpdatingHealthbar = true;
+            healthBarLerpCoroutine = StartCoroutine(DecreaseLerpCoroutine(healthRemaining, duration, 0, HealthSlider));
+            healthBarYellowLerpCoroutine = StartCoroutine(DecreaseLerpCoroutine(healthRemaining, -25f, 1f, HealthSliderYellow));
         }
 
-        IEnumerator LerpCoroutine(float end, float speed, float delay, Slider healthSlider)
+        private void IncreaseHealthSmoothUpdateUI(float healthRemaining, float duration)
+        {
+            if (healthBarLerpCoroutine != null)
+            {
+                StopCoroutine(healthBarLerpCoroutine);
+            }
+            healthBarLerpCoroutine = StartCoroutine(IcreaseLerpCoroutine(healthRemaining, duration, 0, HealthSlider));
+        }
+
+        IEnumerator DecreaseLerpCoroutine(float end, float speed, float delay, Slider healthSlider)
         {
             float preChangeValue = healthSlider.value;
 
@@ -86,7 +114,29 @@ namespace CosmosDefender {
                 yield return null;
             }
 
-            healthSlider.value = end;
+            healthSlider.value = currentHealth;
+            if (healthSlider == HealthSliderYellow)
+            {
+                isUpdatingHealthbar = false;
+            }
+        }
+
+        IEnumerator IcreaseLerpCoroutine(float end, float speed, float delay, Slider healthSlider)
+        {
+            float preChangeValue = healthSlider.value;
+
+            yield return new WaitForSeconds(delay);
+
+            while (preChangeValue < end)
+            {
+                preChangeValue += Time.deltaTime * speed;
+                healthSlider.value = preChangeValue;
+
+                yield return null;
+            }
+
+            healthSlider.value = currentHealth;
+            HealthSliderYellow.value = currentHealth;
         }
 
         IEnumerator DeathCoroutine()

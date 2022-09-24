@@ -1,5 +1,6 @@
-using Sirenix.OdinInspector;
 using System.Collections;
+using CosmosDefender;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -13,6 +14,11 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private GameObject[] enemyPrefabs;
 
+    [SerializeField]
+    private EconomyConfig economyConfig;
+
+    private int currentWaveEnemies = 0;
+
     void Start()
     {
         currentWave = -1;
@@ -23,11 +29,23 @@ public class EnemySpawner : MonoBehaviour
         currentWave++;
         if (currentWave < waveConfigs.Length)
         {
+            currentWaveEnemies = waveConfigs[currentWave].EnemyConfig.Length;
             StartCoroutine(EnemySpawnCoroutine(waveConfigs[currentWave]));
         }
         else
         {
             Debug.Log("Game finished");
+        }
+    }
+
+    public void DecreaseCurrentEnemyCounter()
+    {
+        currentWaveEnemies--;
+        economyConfig.AddMoney(waveConfigs[currentWave].ShopCoinReward);
+
+        if (currentWaveEnemies <= 0)
+        {
+            StartCoroutine(NextWaveTimerCoroutine(waveConfigs[currentWave].timeForNextWave));
         }
     }
 
@@ -37,9 +55,15 @@ public class EnemySpawner : MonoBehaviour
         {
             var enemy = Instantiate(enemyPrefabs[(int)item.enemyType], spawnPoints[(int)item.pathToFollow].position, spawnPoints[(int)item.pathToFollow].rotation);
             enemy.GetComponent<PathFollower>().SetPath(item);
+            enemy.GetComponent<EnemyHealthManager>().SetEnemySpawner(this);
             yield return new WaitForSeconds(currentWaveConfig.timeBetweenEnemySpawn);
         }
         yield return new WaitForSeconds(currentWaveConfig.timeForNextWave);
+    }
+
+    IEnumerator NextWaveTimerCoroutine(float time)
+    {
+        yield return new WaitForSeconds(time);
         StartNextWave();
     }
 }

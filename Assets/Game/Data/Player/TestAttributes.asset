@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TestAttributes
   m_EditorClassIdentifier: 
   baseAttributes:
-    attackDamage: 10
+    attackDamage: 35
     speed: 10
     cooldownReduction: 0
     maxHealth: 0

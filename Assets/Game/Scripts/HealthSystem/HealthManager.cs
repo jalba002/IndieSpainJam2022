@@ -6,7 +6,7 @@ using UnityEngine;
 public class HealthManager : MonoBehaviour, IDamageable
 {
     public float MaxHealth = 100f;
-    protected float currentHealth;
+    [SerializeField]protected float currentHealth;
 
     protected bool isInvulnerable = false;
     protected Coroutine invulnerableCoroutine;
@@ -32,10 +32,12 @@ public class HealthManager : MonoBehaviour, IDamageable
         if (isInvulnerable)
             return;
 
+        if (currentHealth <= 0) return;
+
         currentHealth -= value;
         currentHealth = Mathf.Clamp(currentHealth, 0f, MaxHealth);
 
-        if (currentHealth == 0)
+        if (currentHealth <= 0)
         {
             Die();
         }

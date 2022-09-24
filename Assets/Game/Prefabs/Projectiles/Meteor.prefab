@@ -5059,6 +5059,3 @@ MonoBehaviour:
   vfx: {fileID: 8828071467763602704}
   particles: {fileID: 8828071467901376603}
   mrend: {fileID: 8828071469463868860}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 257

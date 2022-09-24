@@ -20,7 +20,7 @@ namespace CosmosDefender
 
         public void OnPillarActivate(PillarObserver observer)
         {
-            Debug.Log("Active State Not Implemented Yet!");
+            
         }
 
         public void SetPillarEmpowerState(PillarObserver observer, bool newState)

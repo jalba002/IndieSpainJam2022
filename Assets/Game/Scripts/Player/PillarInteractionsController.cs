@@ -50,7 +50,6 @@ namespace CosmosDefender
 
             selectedPillar.ActivatePillar();
             uiButton.SetButtonText(selectedPillar);
-            resourceManager.UpdateUI();
         }
     }
 }

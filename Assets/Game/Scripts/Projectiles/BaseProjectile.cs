@@ -10,7 +10,7 @@ namespace CosmosDefender.Projectiles
 
         [SerializeField] protected Rigidbody m_Rigidbody;
 
-        public virtual void InitializeProjectile(Vector3 spawnPoint, IReadOnlyOffensiveData combatData, SpellData spellData)
+        public virtual void InitializeProjectile(Vector3 spawnPoint, Vector3 direction, IReadOnlyOffensiveData combatData, SpellData spellData)
         {
             // A.
         }
