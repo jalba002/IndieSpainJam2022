@@ -14,6 +14,8 @@ namespace CosmosDefender
         [SerializeField]
         private TMP_Text price;
         [SerializeField]
+        private TMP_Text level;
+        [SerializeField]
         private CanvasGroup descriptionPanel;
 
         private void Awake()
@@ -21,12 +23,12 @@ namespace CosmosDefender
             descriptionPanel.Hide();
         }
 
-        public void ShowConfig(IShopDisplayer displayer)
+        public void ShowConfig(IShopDisplayer displayer, int level)
         {
-            price.gameObject.SetActive(displayer.CanBePurchased);
             image.sprite = displayer.Thumbnail;
             description.text = displayer.Description;
-            price.text = displayer.Price.ToString();
+            price.text = !displayer.CanBePurchased ? "None" : displayer.Price.ToString();
+            this.level.text = level.ToString();
         }
 
         public void OnPointerEnter(PointerEventData eventData)

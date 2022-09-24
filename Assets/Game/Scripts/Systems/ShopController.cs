@@ -1,5 +1,6 @@
 using CosmosDefender;
 using Sirenix.OdinInspector;
+using TMPro;
 using UnityEngine;
 
 public class ShopController : MonoBehaviour
@@ -16,10 +17,19 @@ public class ShopController : MonoBehaviour
     private RectTransform attributesGrid;
     [SerializeField]
     private RectTransform spellsGrid;
+    [SerializeField]
+    private TMP_Text currentMoney;
 
     private void Awake()
     {
         InitializeShop();
+        UpdateMoney(economyConfig.GetMoney());
+        economyConfig.OnMoneyUpdated += UpdateMoney;
+    }
+
+    private void OnDestroy()
+    {
+        economyConfig.OnMoneyUpdated -= UpdateMoney;
     }
 
     private void InitializeShop()
@@ -37,6 +47,11 @@ public class ShopController : MonoBehaviour
             button.Initialize(item, economyConfig);
             button.Show();
         }
+    }
+
+    private void UpdateMoney(int money)
+    {
+        currentMoney.text = money.ToString();
     }
 
     public void SaveShop()
