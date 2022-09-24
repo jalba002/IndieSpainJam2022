@@ -9,9 +9,9 @@ namespace CosmosDefender.Bullets.Implementation
 
         //[Button("Test Bullet")]
         public override void InstantiateBullet(Vector3 origin, Vector3 forward, Quaternion rotation,
-            IReadOnlyOffensiveData combatData, SpellData spellData)
+            IReadOnlyOffensiveData combatData, SpellData spellData, ISpellCaster caster)
         {
-            base.InstantiateBullet(origin, forward, rotation, combatData, spellData);
+            base.InstantiateBullet(origin, forward, rotation, combatData, spellData, caster);
 
             // This starts a crono that spawns meteorites over time. 
             CronoScheduler.Instance.ScheduleForRepetitions(
@@ -38,7 +38,7 @@ namespace CosmosDefender.Bullets.Implementation
             modOrigin += Random.insideUnitCircle * spellData.UniformSize;
             Vector3 spawnPos = new Vector3(modOrigin.x, origin.y + height, modOrigin.y);
             var instance = Instantiate(prefab, spawnPos, Quaternion.identity);
-            instance.InitializeProjectile(spawnPos, combatData, spellData);
+            instance.InitializeProjectile(spawnPos, Vector3.down, combatData, spellData);
         }
     }
 }

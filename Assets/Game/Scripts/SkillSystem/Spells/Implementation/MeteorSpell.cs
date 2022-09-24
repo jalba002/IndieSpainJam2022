@@ -6,9 +6,9 @@ namespace CosmosDefender
     public class MeteorSpell : BaseSpell
     {
         private Coroutine SpellCoroutine;
-        protected override void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData, SpellManager caster)
+        public override void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData, ISpellCaster caster)
         {
-            caster.animator.SetTrigger(spellData.AnimationCode);
+            caster.SetAnimationTrigger(spellData.AnimationCode);
             
             if(SpellCoroutine != null)
                 CronoScheduler.Instance.StopCoroutine(SpellCoroutine);
@@ -16,8 +16,13 @@ namespace CosmosDefender
             SpellCoroutine = CronoScheduler.Instance.ScheduleForTime(spellData.AnimationDelay, () =>
             {
                 var instance = Instantiate(prefab, spawnPoint, rotation);
-                instance.InstantiateBullet(spawnPoint, forward, rotation, combatData, currentData);
+                instance.InstantiateBullet(spawnPoint, forward, rotation, combatData, currentData, caster);
             });
+        }
+        
+        public override void StopCast()
+        {
+            //
         }
     }
 }

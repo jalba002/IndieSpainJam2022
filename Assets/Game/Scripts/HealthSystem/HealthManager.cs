@@ -32,10 +32,12 @@ public class HealthManager : MonoBehaviour, IDamageable
         if (isInvulnerable)
             return;
 
+        if (currentHealth <= 0) return;
+
         currentHealth -= value;
         currentHealth = Mathf.Clamp(currentHealth, 0f, MaxHealth);
 
-        if (currentHealth == 0)
+        if (currentHealth <= 0)
         {
             Die();
         }

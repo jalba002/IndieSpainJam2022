@@ -55,7 +55,7 @@ namespace CosmosDefender
         {
             foreach (var spell in spells)
             {
-                spell.SetPlayerAttributes(this);
+                //spell.SetPlayerAttributes(this);
                 spell.ApplyModifiers(spellModifiers);
             }
         }
