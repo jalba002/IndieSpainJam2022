@@ -18,3 +18,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e542ab57d1174e945b2bf2b0c5809780, type: 2}
   lastAttributePurchase: {fileID: 11400000, guid: 8d7d766c55b7ca84287938ce800a68ee, type: 2}
   lastSpellPurchase: {fileID: 11400000, guid: 12794b182a176ad4f9a478893af284c8, type: 2}
+  addLastPurchases: 1
