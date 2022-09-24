@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerVCA" id="{c73ffe1a-0da8-4cae-a7c3-bab63859a9b6}">
+		<property name="name">
+			<value>Music</value>
+		</property>
+		<relationship name="mixer">
+			<destination>{3b6d0290-2642-4510-8c97-cf67d7889fcc}</destination>
+		</relationship>
+	</object>
+</objects>
