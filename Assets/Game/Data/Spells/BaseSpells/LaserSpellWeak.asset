@@ -14,21 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseData:
     spellType: 1
-    damageMultiplier: 1
-    cooldown: 6
-    amount: 1
-    speed: 30
+    castType: 0
+    damageMultiplier: 0.35
+    cooldown: 1
+    speed: 1
     uniformSize: 0
-    projectileRadius: 1
+    amount: 1
+    projectileRadius: 0.25
     projectileDelay: 0.1
-    maxAttackDistance: 10
-    lifetime: 0.5
-    activeDuration: 1
+    maxAttackDistance: 15
     layerMask:
       serializedVersion: 2
-      m_Bits: 1
+      m_Bits: 257
+    lifetime: 0.3
+    activeDuration: 1
     animationCode: CastLaser
-    animationDelay: 0.72
+    animationDelay: 0.65
   prefab: {fileID: 8022966244273749140, guid: b16f71c6529304a48a5cd7b493a9aea7, type: 3}
   _layerMask:
     serializedVersion: 2

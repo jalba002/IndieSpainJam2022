@@ -177,3 +177,4 @@ MonoBehaviour:
     m_Bits: 1
   rayToGroundDistance: 10
   vfx: {fileID: 8022966244239508526}
+  sizeScaling: 0.168

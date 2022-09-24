@@ -7,6 +7,7 @@ public class WaveConfig : ScriptableObject
     public float timeBetweenEnemySpawn;
     public float timeForNextWave;
     public EnemyWaveConfig[] EnemyConfig;
+    public float ShopCoinReward;
 }
 
 [System.Serializable]

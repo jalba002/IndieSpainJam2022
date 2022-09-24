@@ -18,4 +18,5 @@ MonoBehaviour:
     cooldownReduction: 0
     maxHealth: 100
     healthRegeneration: 0
-  spells: []
+  spells:
+  - {fileID: 11400000, guid: 0b731d7de814258418604f957ef6aaa9, type: 2}

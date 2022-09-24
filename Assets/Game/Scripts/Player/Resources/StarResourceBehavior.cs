@@ -7,14 +7,13 @@ namespace CosmosDefender
     {
         [SerializeField] private ResourceData resourceData;
         [SerializeField] private TextMeshProUGUI resourceText;
-        [SerializeField] private ResourceData data;
 
         private float currentResource = 0f;
 
         private void Start()
         {
             currentResource = resourceData.StartingResource;
-            resourceText.text = "Stars: " + currentResource;
+            UpdateUI();
         }
 
         public bool HasEnoughResource(ResourceData data, float cost)
@@ -24,7 +23,7 @@ namespace CosmosDefender
                 return false;
             }
 
-            return currentResource >= cost;
+            return resourceData.CurrentResource >= cost;
         }
 
         public ResourceType GetResourceType()
@@ -34,19 +33,21 @@ namespace CosmosDefender
 
         public void IncreaseResource(ResourceData data, float amount)
         {
-            currentResource += amount;
+            resourceData.CurrentResource += amount;
+            data.CurrentResource = Mathf.Clamp(data.CurrentResource, 0, data.MaxResource);
             UpdateUI();
         }
 
         public void DecreaseResource(ResourceData data, float amount)
         {
-            currentResource -= amount;
+            resourceData.CurrentResource -= amount;
+            resourceData.CurrentResource = Mathf.Clamp(resourceData.CurrentResource, 0, resourceData.MaxResource);
             UpdateUI();
         }
 
         public void UpdateUI()
         {
-            resourceText.text = "Stars: " + data.CurrentResource;
+            resourceText.text = "Stars: " + resourceData.CurrentResource;
         }
 
         public float GetCurrentResource()

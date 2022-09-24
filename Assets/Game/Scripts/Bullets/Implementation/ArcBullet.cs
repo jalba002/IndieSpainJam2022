@@ -27,12 +27,20 @@ namespace CosmosDefender.Bullets.Implementation
             m_CombatData = combatData;
 
             //_rigidbody.velocity = forward * spellData.Speed;
-            var a = AreaAttacksManager.SphereOverlap(origin, 0.01f, spellData.LayerMask);
+            var a = AreaAttacksManager.SphereOverlap(origin, spellData.UniformSize, spellData.LayerMask);
             int index = GetClosestIndexFromList(a.ToList());
             if (a.Length > 0 && a[index].GetComponent<IDamageable>() != null)
             {
                 enemyHits.Add(a[index]);
                 DetectAllEnemies(enemyHits[index].transform.position, combatData, spellData);
+                Vector3 spawnP = (enemyHits[index].transform.position + origin) * 0.5f;
+                    
+                var vfxItem = Instantiate(vfxPrefab, spawnP, Quaternion.identity);
+                vfxItem.SetVector3("Start", origin);
+                vfxItem.SetVector3("End", enemyHits[index].transform.position);
+                vfxItem.SetFloat("Lifetime", spellData.Lifetime);
+
+                Destroy(vfxItem.gameObject, vfxItem.GetFloat("Lifetime"));
             }
 
             CronoScheduler.Instance.ScheduleForTime(spellData.Amount * spellData.ProjectileDelay + 1f,
@@ -46,12 +54,11 @@ namespace CosmosDefender.Bullets.Implementation
 
             //enemyHits = new List<Collider>();
             Vector3 nextPosition = origin;
-            float realRadius = spellData.ProjectileRadius * .2f;
             // Amount is the max amount of enemies that will be hit.
             for (int i = 0; i < spellData.Amount - 1; i++)
             {
                 // TODO Could cause issues.
-                var hits = AreaAttacksManager.SphereOverlap(nextPosition, realRadius, m_SpellData.LayerMask).ToList();
+                var hits = AreaAttacksManager.SphereOverlap(nextPosition, spellData.ProjectileRadius, m_SpellData.LayerMask).ToList();
                 if (hits.Count <= 0)
                 {
                     Debug.Log("No more enemies detected.");

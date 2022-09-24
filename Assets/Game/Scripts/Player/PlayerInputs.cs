@@ -17,7 +17,6 @@ public class PlayerInputs : MonoBehaviour
 	public bool cursorLocked = true;
 	public bool cursorInputForLook = true;
 
-	public Action OnDashing;
 	private PlayerInput input;
 
     private void Awake()
