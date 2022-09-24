@@ -13,18 +13,11 @@ namespace CosmosDefender.Bullets.Implementation
 
         private List<Collider> enemyHits = new List<Collider>();
 
-        private IReadOnlyOffensiveData m_CombatData;
-
-        private SpellData m_SpellData;
 
         public override void InstantiateBullet(Vector3 origin, Vector3 forward, Quaternion rotation,
-            IReadOnlyOffensiveData combatData, SpellData spellData)
+            IReadOnlyOffensiveData combatData, SpellData spellData, ISpellCaster caster)
         {
-            base.InstantiateBullet(origin, forward, rotation, combatData, spellData);
-
-            m_SpellData = spellData;
-
-            m_CombatData = combatData;
+            base.InstantiateBullet(origin, forward, rotation, combatData, spellData, caster);
 
             //_rigidbody.velocity = forward * spellData.Speed;
             var a = AreaAttacksManager.SphereOverlap(origin, spellData.UniformSize, spellData.LayerMask);
@@ -58,7 +51,7 @@ namespace CosmosDefender.Bullets.Implementation
             for (int i = 0; i < spellData.Amount - 1; i++)
             {
                 // TODO Could cause issues.
-                var hits = AreaAttacksManager.SphereOverlap(nextPosition, spellData.ProjectileRadius, m_SpellData.LayerMask).ToList();
+                var hits = AreaAttacksManager.SphereOverlap(nextPosition, spellData.ProjectileRadius, spellData.LayerMask).ToList();
                 if (hits.Count <= 0)
                 {
                     Debug.Log("No more enemies detected.");
@@ -78,7 +71,7 @@ namespace CosmosDefender.Bullets.Implementation
                     if (hits.Count > 0)
                     {
                         enemyHits.Add(hits[index]);
-                        nextPosition = hits[index].gameObject.transform.position;
+                        nextPosition = hits[index].bounds.center;
                     }
                 }
             }
@@ -96,7 +89,7 @@ namespace CosmosDefender.Bullets.Implementation
                 for (int i = 0; i < enemyHits.Count - 1; i++)
                 {
                     // Cast VFX for everyone.
-                    Vector3 spawnP = (enemyHits[i].transform.position + enemyHits[i + 1].transform.position) * 0.5f;
+                    Vector3 spawnP = (enemyHits[i].bounds.center + enemyHits[i + 1].bounds.center) * 0.5f;
                     
                     var vfxItem = Instantiate(vfxPrefab, spawnP, Quaternion.identity);
                     vfxItem.SetVector3("Start", enemyHits[i].bounds.center);
@@ -108,7 +101,7 @@ namespace CosmosDefender.Bullets.Implementation
                 }
 
                 AreaAttacksManager.DealDamageToCollisions<IDamageable>(enemyHits.ToArray(),
-                    m_CombatData.AttackDamage * m_SpellData.DamageMultiplier);
+                    combatData.AttackDamage * spellData.DamageMultiplier);
             }
         }
 
@@ -122,7 +115,7 @@ namespace CosmosDefender.Bullets.Implementation
         //         _rigidbody.velocity = Vector3.zero;
         //         // Mesh renderer disabled too?
         //         enemyHits.Add(other);
-        //         DetectAllEnemies(other.gameObject.transform.position, m_CombatData, m_SpellData);
+        //         DetectAllEnemies(other.gameObject.transform.position, combatData, spellData);
         //     }
         // }
 

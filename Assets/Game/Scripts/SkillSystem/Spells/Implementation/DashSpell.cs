@@ -7,22 +7,22 @@ namespace CosmosDefender
     {
         private Coroutine SpellCoroutine;
 
-        protected override void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData, SpellManager caster)
+        public override void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData, ISpellCaster caster)
         {
-            caster.animator.SetTrigger(spellData.AnimationCode);
-            caster.GetComponent<PlayerHealthManager>().InvulnerableOverTime(spellData.ActiveDuration + 1f);
+            caster.Animator.SetTrigger(spellData.AnimationCode);
+            caster.GameObject.GetComponent<PlayerHealthManager>().InvulnerableOverTime(spellData.ActiveDuration + 1f);
 
             if (SpellCoroutine != null)
                 CronoScheduler.Instance.StopCoroutine(SpellCoroutine);
 
-            var playerMovement = caster.GetComponent<PlayerMovementController>();
+            var playerMovement = caster.GameObject.GetComponent<PlayerMovementController>();
             playerMovement.SetMovementState(false);
 
             SpellCoroutine = CronoScheduler.Instance.ScheduleForTime(spellData.AnimationDelay, () =>
             {
                 playerMovement.Dash(spellData);
                 var instance = Instantiate(prefab, spawnPoint, rotation);
-                instance.InstantiateBullet(spawnPoint, forward, rotation, combatData, spellData);
+                instance.InstantiateBullet(spawnPoint, forward, rotation, combatData, spellData, caster);
                 instance.transform.SetParent(playerMovement.PlayerCenter);
             });
         }

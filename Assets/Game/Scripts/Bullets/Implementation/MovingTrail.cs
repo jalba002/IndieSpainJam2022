@@ -9,8 +9,10 @@ namespace CosmosDefender.Bullets.Implementation
     {
         public float bulletSpeed = 1f;
 
-        public override void InstantiateBullet(Vector3 origin, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData, SpellData spellData)
+        public override void InstantiateBullet(Vector3 origin, Vector3 forward, Quaternion rotation,
+            IReadOnlyOffensiveData combatData, SpellData spellData, ISpellCaster caster)
         {
+            base.InstantiateBullet(origin, forward, rotation, combatData, spellData, caster);
             // Setup and coroutine.
             // Get VFX duration.
             // Get component damage.

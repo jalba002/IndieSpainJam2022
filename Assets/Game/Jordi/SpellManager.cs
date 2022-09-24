@@ -1,25 +1,26 @@
 using System;
 using System.Collections.Generic;
 using CosmosDefender;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class SpellManager : MonoBehaviour
+public class SpellManager : MonoBehaviour, ISpellCaster
 {
     [SerializeField] private PlayerAttributes playerAttributes;
     private AttributesData attackData;
-    public Animator animator;
+    [SerializeField] private Animator animator;
     public Transform FirePoint;
 
     [SerializeField] private SkillPreview skillPreviewPrefab;
 
     private SkillPreview skillPreviewer;
 
-    private BaseSpell previewedSpell;
+    private ISpell previewedSpell;
 
     [SerializeField] private LayerMask previewLayerMask;
 
     // After casting a spell, add it to the list and start a crono with that.
-    private List<BaseSpell> cooldownSpells = new List<BaseSpell>();
+    private readonly List<ISpell> _cooldownSpells = new List<ISpell>();
 
     private float timeUntilAvailableCast = 0f;
 
@@ -47,7 +48,7 @@ public class SpellManager : MonoBehaviour
 
         var selectedSpell = playerAttributes.GetSpell(spellKey);
 
-        if (cooldownSpells.Contains(selectedSpell)) return;
+        if (_cooldownSpells.Contains(selectedSpell)) return;
 
         // Cooldown between animation casts.
         if (timeUntilAvailableCast > Time.time) return;
@@ -91,7 +92,7 @@ public class SpellManager : MonoBehaviour
         }
     }
 
-    void CastPreviewedSpell(ref BaseSpell spell)
+    void CastPreviewedSpell(ref ISpell spell)
     {
         CastSpell(spell, skillPreviewer.transform.position);
         spell = null;
@@ -99,14 +100,14 @@ public class SpellManager : MonoBehaviour
     }
 
 
-    void CastSpell(BaseSpell spell, Vector3 pos)
+    void CastSpell(ISpell spell, Vector3 pos)
     {
-        spell.Cast(pos, transform.forward, Quaternion.identity, this);
+        spell.Cast(pos, transform.forward, Quaternion.identity, playerAttributes.CombatData, this);
         // Add a delay when casting
         timeUntilAvailableCast = Time.time + (spell.spellData.AnimationDelay * 1.5f);
 
-        cooldownSpells.Add(spell);
-        CronoScheduler.Instance.ScheduleForTime(spell.spellData.Cooldown, () => { cooldownSpells.Remove(spell); });
+        _cooldownSpells.Add(spell);
+        CronoScheduler.Instance.ScheduleForTime(spell.spellData.Cooldown, () => { _cooldownSpells.Remove(spell); });
     }
 
     private void Update()
@@ -155,4 +156,10 @@ public class SpellManager : MonoBehaviour
     {
         CastSpell(SpellKeyType.Spell3);
     }
+
+    public GameObject GameObject => this.gameObject;
+    public Animator Animator => animator;
+    public Transform CastingPoint => FirePoint;
+    public void SetAnimationTrigger(string triggerName) => Animator.SetTrigger(triggerName);
+
 }

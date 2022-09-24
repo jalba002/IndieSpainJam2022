@@ -10,10 +10,9 @@ namespace CosmosDefender
         public VisualEffect vfxPrefab;
         private Coroutine SpellCoroutine;
 
-        protected override void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation,
-            IReadOnlyOffensiveData combatData, SpellManager caster)
+        public override void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData, ISpellCaster caster)
         {
-            caster.animator.SetTrigger(spellData.AnimationCode);
+            caster.Animator.SetTrigger(spellData.AnimationCode);
             
             if(SpellCoroutine != null)
                 CronoScheduler.Instance.StopCoroutine(SpellCoroutine);
@@ -37,7 +36,7 @@ namespace CosmosDefender
                 if (spawnRay)
                 {
                     var instance = Instantiate(prefab, raycastHit.point, rotation);
-                    instance.InstantiateBullet(raycastHit.point, forward, rotation, combatData, currentData);
+                    instance.InstantiateBullet(raycastHit.point, forward, rotation, combatData, currentData, caster);
                 }
             });
         }

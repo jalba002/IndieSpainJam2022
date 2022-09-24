@@ -16,21 +16,14 @@ namespace CosmosDefender
         [SerializeField]
         protected BaseBullet prefab;
 
-        private PlayerAttributes playerAttributes;
-
         public SpellType spellType => baseData.SpellType;
         public CastType castType => baseData.CastType;
         
         public SpellData spellData => currentData;
-
-        public void SetPlayerAttributes(PlayerAttributes playerAttributes)
-        {
-            this.playerAttributes = playerAttributes;
-        }
-
-        public void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation) => Cast(spawnPoint, forward, rotation, playerAttributes.CombatData, null);
-        public void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation, SpellManager caster) => Cast(spawnPoint, forward, rotation, playerAttributes.CombatData, caster);
-        protected abstract void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData, SpellManager caster);
+        
+        //public void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData) => Cast(spawnPoint, forward, rotation, combatData, null);
+        //public void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData, ISpellCaster caster) => Cast(spawnPoint, forward, rotation, combatData, caster);
+        public abstract void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData, ISpellCaster caster);
 
         public void ApplyModifiers(IReadOnlyList<ISpellModifier> modifiers)
         {
@@ -42,6 +35,11 @@ namespace CosmosDefender
 
                 modifier.Modify(ref currentData);
             }
+        }
+
+        public void UpdateCurrentData()
+        {
+            currentData = baseData;
         }
     }
 }

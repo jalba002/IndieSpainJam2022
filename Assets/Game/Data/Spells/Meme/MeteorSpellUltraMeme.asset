@@ -14,19 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseData:
     spellType: 2
+    castType: 0
     damageMultiplier: 2
     cooldown: 8
-    amount: 100
     speed: 30
     uniformSize: 50
+    amount: 100
     projectileRadius: 50
     projectileDelay: 0.01
     maxAttackDistance: 35
-    lifetime: 6
-    activeDuration: 0
     layerMask:
       serializedVersion: 2
       m_Bits: 1
+    lifetime: 6
+    activeDuration: 10
     animationCode: CastMeteor
     animationDelay: 0.7
   prefab: {fileID: 6296985688864843683, guid: 711acb15c5ab04a488a824d6f34aa041, type: 3}

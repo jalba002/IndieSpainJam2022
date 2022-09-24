@@ -9,25 +9,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 563e068342d46b74d9bc7998074ab54b, type: 3}
-  m_Name: TornadoSpellWeak
+  m_Script: {fileID: 11500000, guid: 3e5cbfdc4d3aad54796701ddc8ef1e67, type: 3}
+  m_Name: FireSpellWeak
   m_EditorClassIdentifier: 
   baseData:
-    spellType: 4
-    castType: 1
+    spellType: 1
+    castType: 0
     damageMultiplier: 1
     cooldown: 6
-    speed: 5
-    uniformSize: 3
-    amount: 1
+    speed: 20
+    uniformSize: 1
+    amount: 0
     projectileRadius: 0
     projectileDelay: 0
-    maxAttackDistance: 20
+    maxAttackDistance: 0
     layerMask:
       serializedVersion: 2
-      m_Bits: 1
-    lifetime: 5
-    activeDuration: 0
-    animationCode: 
-    animationDelay: 0
-  prefab: {fileID: 0}
+      m_Bits: 0
+    lifetime: 1
+    activeDuration: -1
+    animationCode: CastFire
+    animationDelay: 0.5
+  prefab: {fileID: 3147084912358688545, guid: 24d72574ab85abf4ba2bfa5ba8e21ba8, type: 3}
