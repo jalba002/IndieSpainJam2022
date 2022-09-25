@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 502178eac667e9c4c82412a069146d21, type: 3}
-  m_Name: DashSpellWeak
+  m_Name: DashSpellStrong
   m_EditorClassIdentifier: 
   baseData:
     spellType: 8
     castType: 0
     damageMultiplier: 1
     cooldown: 5
-    speed: 30
+    speed: 40
     uniformSize: 0
     amount: 0
-    projectileRadius: 2
+    projectileRadius: 3
     projectileDelay: 0
     maxAttackDistance: 2
     layerMask:
@@ -30,5 +30,5 @@ MonoBehaviour:
     activeDuration: 0.8
     animationCode: CastDash
     animationDelay: 0.33
-    abilityIcon: {fileID: 21300000, guid: 00a2bff583fe7fc40811df8647b0e332, type: 3}
+    abilityIcon: {fileID: 21300000, guid: 5786eb29bd6d47049910fdac53bd8d59, type: 3}
   prefab: {fileID: 5007630562155684007, guid: c516aa15b3a741d41a9821773426fab0, type: 3}

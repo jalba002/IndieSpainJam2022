@@ -30,4 +30,5 @@ MonoBehaviour:
     activeDuration: -1
     animationCode: CastFire
     animationDelay: 0.5
+    abilityIcon: {fileID: 21300000, guid: 9b96aa67dbb7b9f4d9aa0e50f194459d, type: 3}
   prefab: {fileID: 3147084912358688545, guid: 24d72574ab85abf4ba2bfa5ba8e21ba8, type: 3}

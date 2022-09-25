@@ -69,6 +69,7 @@ namespace CosmosDefender
         public bool HasSpellKey(SpellKeyType type) => spells.Count > (int)type;
         [Button]
         public BaseSpell GetSpell(SpellKeyType type) => spells[(int)type].GetSpell();
+        public List<CosmosSpell> GetAllSpells() => spells;
         public void RemoveAllSpells() => spells.Clear();
 
         public void AddAttributeModifier(BaseAttributeModifier modifier) => attributeModifiers.AddModifier(modifier);
