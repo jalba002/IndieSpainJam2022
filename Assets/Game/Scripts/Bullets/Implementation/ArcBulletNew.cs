@@ -7,7 +7,7 @@ using UnityEngine.VFX;
 
 namespace CosmosDefender.Bullets.Implementation
 {
-    public class ArcBullet : BaseBullet
+    public class ArcBulletNew : BaseBullet
     {
         [SerializeField] private VisualEffect vfxPrefab;
 
@@ -40,9 +40,10 @@ namespace CosmosDefender.Bullets.Implementation
             Vector3 spawnP = (posOne + posTwo) * 0.5f;
 
             var vfxItem = Instantiate(vfxPrefab, spawnP, Quaternion.identity);
-            vfxItem.SetVector3("Start", posOne);
-            vfxItem.SetVector3("End", posTwo);
-            vfxItem.SetFloat("Lifetime", spellData.Lifetime);
+            //vfxItem.SetVector3("Start", posOne);
+            //vfxItem.SetVector3("End", posTwo);
+            //vfxItem.SetFloat("Lifetime", spellData.Lifetime);
+            vfxItem.GetComponent<ArcSetter>().SetTarget(posTwo);
             Destroy(vfxItem.gameObject, spellData.Lifetime);
         }
 
