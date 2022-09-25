@@ -59,10 +59,10 @@ public class MainMenu : MonoBehaviour
     private MenuController menuController;
 
     //public StudioEventEmitter HoverSoundRef;
-    //public StudioEventEmitter ClickSoundRef;
+    public StudioEventEmitter ClickSoundRef;
     public StudioEventEmitter BackgroundMusic;
 
-    private readonly string twitterNameParameter = "Juega a este increible juego de @andrew_raaya @JordiAlbaDev @Sergisggs @GuillemLlovDev @Belmontes_ART @montane @ovillaloboss_ y @RenderingCode hecho para la #IndieSpainJam ! Aquí teneis el link:";
+    private readonly string twitterNameParameter = "Juega a este increíble juego creado por @andrew_raaya @JordiAlbaDev @Sergisggs @GuillemLlovDev @Belmontes_ART @montane @ovillaloboss_ y @RenderingCode hecho para la #IndieSpainJam (@IndieDevDay @spaingamedevs)!\n\nAquí tenéis el link:\n\n";
     private readonly string twitterDescriptionParam = "";
     private readonly string twitterAdress = "https://twitter.com/intent/tweet";
     private readonly string miniGameJamLink = "https://andrew-raya.itch.io/cosmic-defender";
@@ -100,6 +100,8 @@ public class MainMenu : MonoBehaviour
         LoadingScreen.FadeIn();
         //protagonistAnimator.SetTrigger("Start");
         StartCoroutine(LoadAfterFade(scene_name));
+
+        PlayClickSound();
     }
 
     IEnumerator LoadAfterFade(string scene_name)
@@ -127,7 +129,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayClickSound()
     {
-        //ClickSoundRef.Play();
+        ClickSoundRef.Play();
     }
 
     public void MainMenuFade()
@@ -147,6 +149,8 @@ public class MainMenu : MonoBehaviour
 
         gameStateCanvasTable[newMenu].FadeIn();
         gameStateCanvasTable[previousMenu].FadeOut();
+
+        PlayClickSound();
     }
 
     public void OptionsMenu()
@@ -172,6 +176,7 @@ public class MainMenu : MonoBehaviour
     public void ShareTwitter()
     {
         Application.OpenURL(twitterAdress + "?text=" + UnityWebRequest.EscapeURL(twitterNameParameter + "\n" + twitterDescriptionParam + "\n" + miniGameJamLink));
+        PlayClickSound();
     }
 
     [Serializable]
