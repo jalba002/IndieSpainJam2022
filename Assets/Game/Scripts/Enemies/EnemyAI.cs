@@ -12,7 +12,7 @@ namespace CosmosDefender
     {
         [SerializeField] private EnemyData data;
 
-        private Transform chasingTarget;
+        private Transform alerterTarget;
 
         [SerializeField] private BaseSpell attack;
 
@@ -35,6 +35,7 @@ namespace CosmosDefender
         [SerializeField] private PathFollower path;
         private EnemyAlerter currentAlerter;
         private bool isAttacking = false;
+        private bool wasChasing = false;
 
         private void Update()
         {
@@ -48,43 +49,46 @@ namespace CosmosDefender
             // if in range of the player and attack, ATTACK.
             // If out of range of attack, STOP ATTACK.
 
-            if (chasingTarget != null)
+            if (alerterTarget != null)
             {
-                if (isAttacking == false)
-                {
-                    path.ReturnToPath();
-                }
-
-                Vector3 enemyDirection = (chasingTarget.position - transform.position);
-                if (Vector3.Distance(transform.position, chasingTarget.position) >= data.attackRange)
-                {
-                    Vector3 attackPosition = (transform.position - chasingTarget.position).normalized;
-                    Vector3 finalPos = chasingTarget.position + attackPosition * (data.attackRange);
-                    agent.SetDestination(finalPos);
-                }
-
                 // Rotate here to face player constantly. Use the rotation speed or some.
-                // Does the agent rotate towards the player alone?
-
-                if (enemyDirection.magnitude > data.AggroRange)
-                {
-                    chasingTarget = null;
-                    //path.ReturnToPath();
-                }
-                else if (enemyDirection.magnitude < data.attackRange)
+                // Does the agent rotate towards the player alone? Maybe
+                Vector3 alerterDirection = (alerterTarget.position - transform.position);
+                if (alerterDirection.magnitude <= data.attackRange)
                 {
                     // Try to attack.
                     // FORCE ROTATION IF DOESNT WORK
-                    AttackAndCooldown();
+                    Debug.Log("Skill is " + (IsSkillOnCooldown()? "" : "not ")+ "on cooldown");
+                    if (IsSkillOnCooldown())
+                    {
+                        agent.destination = alerterTarget.position;
+                    }
+                    else
+                    {
+                        AttackAndCooldown();
+                    }
+                }
+                else if(alerterDirection.magnitude > data.AggroRange)
+                {
+                    agent.destination = alerterTarget.position;
+                }
+                else if (alerterDirection.magnitude <= data.AggroRange)
+                {
+                    alerterTarget = null;
+                }
+            }
+            else if (wasChasing)
+            {
+                if (isAttacking == false)
+                {
+                    wasChasing = false;
+                    path.ReturnToPath();
                 }
             }
         }
 
         public void AttackAndCooldown()
         {
-            // If the skill is not on cooldown, then attack!
-            if (!(Time.time > timeToAttack)) return;
-            
             Attack();
             // apply cooldown.
             timeToAttack = Time.time + attack.spellData.Cooldown;
@@ -92,6 +96,11 @@ namespace CosmosDefender
             { 
                 isAttacking = false;
             });
+        }
+
+        bool IsSkillOnCooldown()
+        {
+            return Time.time < timeToAttack;
         }
 
         [Button]
@@ -102,10 +111,10 @@ namespace CosmosDefender
             attack.UpdateCurrentData();
             // Raycast anyway to rotate to player.
             Quaternion targetRotation = transform.rotation;
-            if (chasingTarget != null)
+            if (alerterTarget != null)
             {
                 targetRotation = Quaternion.LookRotation((
-                    (chasingTarget.transform.position + Vector3.up) -
+                    (alerterTarget.transform.position + Vector3.up) -
                     attackOrigin.transform.position).normalized);
             }
 
@@ -114,9 +123,10 @@ namespace CosmosDefender
 
         public void Alert(EnemyAlerter alerter)
         {
-            if(currentAlerter != null && currentAlerter.priority > alerter.priority)
+            if (currentAlerter?.priority >= alerter.priority)
+                return;
             // When the player gets nearby it will notice the enemies around him.
-            chasingTarget = alerter.transform;
+            alerterTarget = alerter.transform;
             //agent.isStopped = false;
         }
     }
