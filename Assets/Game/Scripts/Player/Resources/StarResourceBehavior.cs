@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -11,6 +12,8 @@ namespace CosmosDefender
         private ResourceData starResourceData;
         public ResourceType resourceType => resourceData.ResourceType;
 
+        public Action<float> OnResourceUpdated;
+
         private void Start()
         {
             starResourceData = resourceData.baseResource;
@@ -20,7 +23,8 @@ namespace CosmosDefender
 
         public void UpdateUI()
         {
-            resourceText.text = "Stars: " + (int)starResourceData.CurrentResource;
+            OnResourceUpdated?.Invoke(starResourceData.CurrentResource);
+            //resourceText.text = "Stars: " + (int)starResourceData.CurrentResource;
         }
 
         public float GetCurrentResourceAmout()

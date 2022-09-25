@@ -4,8 +4,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
 using System;
 using System.Collections.Generic;
+using CosmosDefender;
 using UnityEngine.UI;
 using FMODUnity;
+using TMPro;
+
 //using FMODUnity;
 
 public class WinMenu : MonoBehaviour
@@ -21,6 +24,8 @@ public class WinMenu : MonoBehaviour
     private readonly string twitterDescriptionParam = "";
     private readonly string twitterAdress = "https://twitter.com/intent/tweet";
     private readonly string miniGameJamLink = "https://andrew-raya.itch.io/cosmic-defender";
+
+    [SerializeField] private TMP_Text moneyText;
 
     private void Start()
     {
@@ -72,5 +77,10 @@ public class WinMenu : MonoBehaviour
     public void ShareTwitter()
     {
         Application.OpenURL(twitterAdress + "?text=" + UnityWebRequest.EscapeURL(twitterNameParameter + "\n" + twitterDescriptionParam + "\n" + miniGameJamLink));
+    }
+
+    private void OnEnable()
+    {
+        moneyText.text = $"Tienes <color=green>{GameManager.Instance.economyConfig.GetMoney()}</color> monedas acumuladas.\n\nPuedes gastarlas en <color=orange>mejoras permanentes</color> en la <color=yellow>tienda del menú principal</color>.";
     }
 }

@@ -90,8 +90,9 @@ MonoBehaviour:
   virtualCamera: {fileID: 0}
   isDashing: 0
   DashLaunchSpeed: 8
-  DashUnactableTime: 0.5
+  DashDuration: 0.5
   DashAnimationSpeed: 1
+  PlayerCenter: {fileID: 0}
   playerAttributes: {fileID: 11400000, guid: fed7debed2a62174487ed40798233d77, type: 2}
 --- !u!114 &3510532656747954583
 MonoBehaviour:
@@ -108,6 +109,7 @@ MonoBehaviour:
   Move: {x: 0, y: 0}
   Look: {x: 0, y: 0}
   Dash: 0
+  InteractButton: 0
   AnalogMovement: 1
   cursorLocked: 1
   cursorInputForLook: 1
@@ -169,13 +171,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 100
+  currentHealth: 0
   InvulnerableTime: 1
   mainCameraShake: {fileID: 0}
   CameraShakeDuration: 0.15
   CameraShakeIntensity: 5
   HealthSlider: {fileID: 0}
   HealthSliderYellow: {fileID: 0}
-  animator: {fileID: 0}
+  animator: {fileID: 4643297276398087287}
   playerAttributes: {fileID: 11400000, guid: fed7debed2a62174487ed40798233d77, type: 2}
 --- !u!114 &4643297276277702613
 MonoBehaviour:
@@ -192,6 +195,10 @@ MonoBehaviour:
   playerAttributes: {fileID: 11400000, guid: fed7debed2a62174487ed40798233d77, type: 2}
   animator: {fileID: 4643297276398087287}
   FirePoint: {fileID: 4643297276403663012}
+  skillPreviewPrefab: {fileID: 0}
+  previewLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &4643297276403663015
 GameObject:
   m_ObjectHideFlags: 0

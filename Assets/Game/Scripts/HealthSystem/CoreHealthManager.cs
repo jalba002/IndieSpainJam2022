@@ -27,7 +27,7 @@ namespace CosmosDefender
 
         public override void DamageFeedback()
         {
-            // base.DamageFeedback();
+            base.DamageFeedback();
             animator.SetTrigger("Damaged");
             animator.SetFloat("Life", currentHealth / MaxHealth);
         }

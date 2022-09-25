@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -6,13 +7,14 @@ namespace CosmosDefender
     public class GoddessResourceBehavior : MonoBehaviour, IResourceModifier
     {
         [SerializeField] private ResourceConfig resourceData;
-        [SerializeField] private TextMeshProUGUI resourceText;
 
         public ResourceData goddessResourceData;
         public ResourceType resourceType => resourceData.ResourceType;
 
         private Animator animator;
         private MaterialModifier materialModifier;
+
+        public Action<float> OnResourceUpdated;
 
         private void Awake()
         {
@@ -29,7 +31,8 @@ namespace CosmosDefender
 
         public void UpdateUI()
         {
-            resourceText.text = "Goddess: " + (int)goddessResourceData.CurrentResource;
+            OnResourceUpdated?.Invoke(goddessResourceData.CurrentResource);
+            //resourceText.text = "Goddess: " + (int)goddessResourceData.CurrentResource;
         }
 
         public float GetCurrentResourceAmout()

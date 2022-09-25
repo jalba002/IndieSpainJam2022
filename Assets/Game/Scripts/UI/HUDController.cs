@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.Utilities;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI.ProceduralImage;
 
@@ -22,7 +23,7 @@ namespace CosmosDefender
         private Dictionary<CosmosSpell, HUDAbility>
             instantiatedHudAbilities = new Dictionary<CosmosSpell, HUDAbility>();
 
-        private List<RectTransform> availablePos;
+        private List<RectTransform> availablePos = new List<RectTransform>();
 
         // TODO Initialize with other stuff.
         private void Start()
@@ -42,12 +43,18 @@ namespace CosmosDefender
 
             FindObjectOfType<CoreHealthManager>().OnDamageTaken += UpdateCoreLife;
 
+            FindObjectOfType<StarResourceBehavior>().OnResourceUpdated += UpdateStars;
+
+            FindObjectOfType<GoddessResourceBehavior>().OnResourceUpdated += UpdateGoddess;
+
             availablePos = new List<RectTransform>();
             availablePos.AddRange(abilityPositions);
         }
 
-        void AddSpell(CosmosSpell newSpell)
+        void AddSpell(CosmosSpell newSpell, bool addSpell)
         {
+            if (!addSpell) return;
+            
             if (availablePos.Count <= 0)
             {
                 Debug.LogWarning("Cannot add visual spell. No slot available.");
@@ -74,6 +81,7 @@ namespace CosmosDefender
         {
             var a = instantiatedHudAbilities.Keys.ToList();
             var b = a.Find(x => x.GetSpell().spellData.GetHashCode() == spell.spellData.GetHashCode());
+            if (b == null) return;
             instantiatedHudAbilities.TryGetValue(b, out HUDAbility hudReference);
 
             if (hudReference == null) return;
@@ -93,6 +101,22 @@ namespace CosmosDefender
         public void UpdateCoreLife(float currentHealth, float maxHealth)
         {
             coreLife.fillAmount = currentHealth / maxHealth;
+        }
+        
+        
+        [Header("Waves")] [SerializeField] private TMP_Text nextWaveTimer;
+
+        [Header("Resources")] 
+        [SerializeField] private TMP_Text starsText;
+        
+        public void UpdateStars(float value)
+        {
+            starsText.text = ((int)value).ToString();
+        }
+
+        public void UpdateGoddess(float value)
+        {
+            
         }
     }
 }
