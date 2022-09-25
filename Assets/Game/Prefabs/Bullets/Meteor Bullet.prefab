@@ -50,4 +50,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   rayToGroundDistance: 10
+  soundsFMOD: {fileID: 0}
   prefab: {fileID: 8828071469463868859, guid: e8c547c163c971d4891a76ec40a5bd90, type: 3}

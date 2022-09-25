@@ -4939,8 +4939,8 @@ GameObject:
   - component: {fileID: 8828071469463868863}
   - component: {fileID: 8828071469463868856}
   - component: {fileID: 8828071469463868859}
-  - component: {fileID: 577407192498375984}
-  - component: {fileID: 3006265867905302904}
+  - component: {fileID: 7646555926291285299}
+  - component: {fileID: -6141810237484339239}
   m_Layer: 0
   m_Name: Meteor
   m_TagString: Untagged
@@ -5058,10 +5058,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Collider: {fileID: 8828071469463868863}
   m_Rigidbody: {fileID: 8828071469463868856}
+  meteorStart: {fileID: 7646555926291285299}
+  meteorImpact: {fileID: -6141810237484339239}
   vfx: {fileID: 8828071467763602704}
   particles: {fileID: 8828071467901376603}
   mrend: {fileID: 8828071469463868860}
---- !u!114 &577407192498375984
+--- !u!114 &7646555926291285299
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5083,15 +5085,15 @@ MonoBehaviour:
     Path: event:/SFX/Player/Meteoritico_Cae
   Event: 
   PlayEvent: 1
-  StopEvent: 0
+  StopEvent: 2
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 60
---- !u!114 &3006265867905302904
+  OverrideMinDistance: 5
+  OverrideMaxDistance: 50
+--- !u!114 &-6141810237484339239
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5113,11 +5115,11 @@ MonoBehaviour:
     Path: event:/SFX/Player/Meteorito_Impacta 1
   Event: 
   PlayEvent: 1
-  StopEvent: 0
+  StopEvent: 2
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 60
+  OverrideMinDistance: 5
+  OverrideMaxDistance: 50

@@ -92,6 +92,9 @@
 		<property name="length">
 			<value>3.0040816326530613</value>
 		</property>
+		<relationship name="fadeOutCurve">
+			<destination>{6bdf1f6d-ee58-4470-aaa7-50222a36ea29}</destination>
+		</relationship>
 		<relationship name="audioFile">
 			<destination>{184da520-2f53-4749-a836-c46aacd29044}</destination>
 		</relationship>
@@ -118,6 +121,14 @@
 	</object>
 	<object class="MixerBusPanner" id="{380ee9ee-82ad-4915-a657-239bc3cbeb05}" />
 	<object class="MixerBusFader" id="{5be1e117-5cb9-4aef-a835-6d8df780fd75}" />
+	<object class="FadeCurve" id="{6bdf1f6d-ee58-4470-aaa7-50222a36ea29}">
+		<relationship name="startPoint">
+			<destination>{e08126b5-6257-469e-8e25-2392e29add3d}</destination>
+		</relationship>
+		<relationship name="endPoint">
+			<destination>{b95f6153-59a6-46d8-b7a5-cc69ab4f970a}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusEffectChain" id="{85d759e8-38bf-4e8e-885d-2cc5488147f5}">
 		<relationship name="effects">
 			<destination>{a32c02e4-92d2-4737-92da-82e8cd36e90b}</destination>
@@ -127,6 +138,25 @@
 	<object class="MixerBusPanner" id="{09ba39ca-c52c-4c6a-a2d6-bb123336c830}" />
 	<object class="MixerBusFader" id="{8c00ad20-f044-4d3d-a553-2795c2c6c1e7}" />
 	<object class="SpatialiserEffect" id="{ecb8d992-85b3-4ada-83d4-1d9b5057af1f}" />
+	<object class="AutomationPoint" id="{e08126b5-6257-469e-8e25-2392e29add3d}">
+		<property name="position">
+			<value>1.8500000000000001</value>
+		</property>
+		<property name="value">
+			<value>1</value>
+		</property>
+		<property name="curveShape">
+			<value>0.051254265</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{b95f6153-59a6-46d8-b7a5-cc69ab4f970a}">
+		<property name="position">
+			<value>3.0040816326530613</value>
+		</property>
+		<property name="value">
+			<value>0</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{a32c02e4-92d2-4737-92da-82e8cd36e90b}" />
 	<object class="MultibandEqEffect" id="{dcc1c43f-5a02-4547-a8eb-150877e6b10a}">
 		<property name="frequencyA">

@@ -38,7 +38,10 @@ namespace CosmosDefender.Bullets
             this.spellData = spellData;
             this.caster = caster;
             // no problem if there's none.
-            soundsFMOD.Play();
+            if (soundsFMOD!=null)
+            {
+                soundsFMOD.Play();
+            }            
         }
 
         protected virtual void Update()

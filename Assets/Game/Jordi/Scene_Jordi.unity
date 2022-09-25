@@ -4806,6 +4806,7 @@ MonoBehaviour:
   AnalogMovement: 1
   cursorLocked: 1
   cursorInputForLook: 1
+  GameOver: 0
 --- !u!114 &8126645059460301754
 MonoBehaviour:
   m_ObjectHideFlags: 0

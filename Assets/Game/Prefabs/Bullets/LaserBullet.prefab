@@ -208,5 +208,5 @@ MonoBehaviour:
   Preload: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 1
+  OverrideMinDistance: 5
   OverrideMaxDistance: 20
