@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.010860737, g: 0.013859531, b: 0.020732978, a: 1}
+  m_IndirectSpecularColor: {r: 0.20576781, g: 0.2633091, b: 0.30353314, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -19267,6 +19267,9 @@ MonoBehaviour:
   GoddessResourceBehavior: {fileID: 8126645059460301759}
   ResourceManager: {fileID: 8126645059460301757}
   ActivePillars: []
+  gameOver: 0
+  endScreen: {fileID: 0}
+  endScreenText: {fileID: 0}
 --- !u!114 &1683499937
 MonoBehaviour:
   m_ObjectHideFlags: 0
