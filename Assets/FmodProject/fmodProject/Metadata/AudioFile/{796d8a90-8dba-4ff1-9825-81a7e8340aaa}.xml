@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{796d8a90-8dba-4ff1-9825-81a7e8340aaa}">
+		<property name="assetPath">
+			<value>Woman_Hitted.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>10.92</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ba82e999-11c9-4353-8cee-d532737f7def}</destination>
+		</relationship>
+	</object>
+</objects>
