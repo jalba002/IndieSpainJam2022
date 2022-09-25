@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace CosmosDefender
 {
-    [CreateAssetMenu(fileName = nameof(SpeedAdditiveModifier), menuName = "CosmosDefender/" + nameof(SpeedAdditiveModifier))]
+    [CreateAssetMenu(fileName = nameof(SpeedAdditiveModifier), menuName = "CosmosDefender/Modifiers/" + nameof(SpeedAdditiveModifier))]
     public class SpeedAdditiveModifier : BaseAttributeModifier
     {
         [SerializeField]

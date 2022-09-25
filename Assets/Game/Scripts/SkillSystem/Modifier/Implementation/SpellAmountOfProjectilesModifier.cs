@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace CosmosDefender
 {
-    [CreateAssetMenu(fileName = nameof(SpellAmountOfProjectilesModifier), menuName = "CosmosDefender/" + nameof(SpellAmountOfProjectilesModifier))]
+    [CreateAssetMenu(fileName = nameof(SpellAmountOfProjectilesModifier), menuName = "CosmosDefender/Modifiers/" + nameof(SpellAmountOfProjectilesModifier))]
     public class SpellAmountOfProjectilesModifier : BaseSpellModifier
     {
         public int amountToAdd;

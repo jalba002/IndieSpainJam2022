@@ -17,5 +17,5 @@ MonoBehaviour:
     MaxResource: 100
     CurrentResource: 0
     StartingResource: 25
-    ResourceOverTime: 0
+    ResourceOverTime: 10
     ResourcePerKill: 0

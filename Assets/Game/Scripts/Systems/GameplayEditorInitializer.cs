@@ -30,7 +30,7 @@ namespace CosmosDefender
 
             playerAttributes.Initialize(forceInitialize);
             playerAttributes.RemoveAllSpells();
-            playerAttributes.AddSpell(basicAttack);
+            //playerAttributes.AddSpell(basicAttack);
             allSpells.ForEach(playerAttributes.AddSpell);
 
             if (startWithoutModifiers)
