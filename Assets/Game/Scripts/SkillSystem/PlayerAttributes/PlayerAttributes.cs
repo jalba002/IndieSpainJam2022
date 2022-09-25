@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace CosmosDefender
@@ -29,6 +31,9 @@ namespace CosmosDefender
         public IReadOnlyMovementData SpeedData => currentAttributes;
 
         private bool isInitialized;
+
+        public Action<CosmosSpell> OnSpellUpdated;
+        public Action<CosmosSpell> OnSpellAdded;
 
         public void Initialize(bool forceInitialize = false)
         {
@@ -59,11 +64,20 @@ namespace CosmosDefender
             }
         }
 
+        public void EmpowerSpell(CosmosSpell spell, bool state)
+        {
+            // Does this work? Anyway, trigger event.
+            spells.Find(x => x == spell).isSpellEmpowered = state;
+            OnSpellUpdated?.Invoke(spell);
+            //spell.isSpellEmpowered = state;
+        }
+
         [Button]
         public void AddSpell(CosmosSpell spell)
         {
             spells.Add(spell);
             spellModifiers.ForceUpdate();
+            OnSpellAdded.Invoke(spell);
         }
         [Button]
         public bool HasSpellKey(SpellKeyType type) => spells.Count > (int)type;
