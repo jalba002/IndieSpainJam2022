@@ -66,6 +66,7 @@ public class PillarObserver : MonoBehaviour
 
     public void SetSpellEmpowerState(CosmosSpell newSpell, bool newState)
     {
-        newSpell.isSpellEmpowered = newState;
+        playerAttributes.EmpowerSpell(newSpell, newState);
+        //newSpell.isSpellEmpowered = newState;
     }
 }

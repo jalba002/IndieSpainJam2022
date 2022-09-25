@@ -7,6 +7,7 @@ namespace CosmosDefender
     public class CoreHealthManager : HealthManager
     {
         [SerializeField] private Animator animator;
+        [SerializeField] private float healthRegeneration;
         public override void Die()
         {
             // base.Die();

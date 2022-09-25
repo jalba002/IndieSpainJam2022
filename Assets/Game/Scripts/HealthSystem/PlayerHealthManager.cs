@@ -146,5 +146,13 @@ namespace CosmosDefender {
             yield return new WaitForSeconds(1f);
             GameManager.Instance.EndGame(false);
         }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.tag == "MapLimit")
+            {
+                TakeDamage(10f);
+            }
+        }
     }
 }

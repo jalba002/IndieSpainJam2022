@@ -24,6 +24,8 @@ public class SpellManager : MonoBehaviour, ISpellCaster
 
     private float timeUntilAvailableCast = 0f;
 
+    public Action<ISpell> OnSpellCasted;
+
     private void Awake()
     {
         playerAttributes.Initialize();
@@ -111,6 +113,8 @@ public class SpellManager : MonoBehaviour, ISpellCaster
         // Add a delay when casting
         timeUntilAvailableCast = Time.time + (spell.spellData.AnimationDelay * 1.5f);
 
+        OnSpellCasted.Invoke(spell);
+        
         _cooldownSpells.Add(spell);
         CronoScheduler.Instance.ScheduleForTime(
             spell.spellData.Cooldown - (spell.spellData.Cooldown * playerAttributes.CombatData.CooldownReduction / 100), 

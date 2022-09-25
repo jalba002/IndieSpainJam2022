@@ -140,21 +140,28 @@ namespace CosmosDefender
 
                     CronoScheduler.Instance.ScheduleForTime(duration, () =>
                     {
-                        GoddessDeactivated();
-                        animator.SetBool("GoddessMode", false);
+                        pillar.SetPillarEmpowerState(observer, false);
                     });
                 }
             }
+
             animator.SetBool("GoddessMode", true);
+
+            CronoScheduler.Instance.ScheduleForTime(duration, () =>
+            {
+                GoddessDeactivated();
+            });
         }
 
         public void GoddessDeactivated()
         {
+            animator.SetBool("GoddessMode", false);
+
             foreach (var pillar in pillarObserverModifiers)
             {
                 foreach (var observer in PillarConfig.PillarObservers)
                 {
-                    pillar.SetPillarEmpowerState(observer, false);
+                    pillar.OnGoddessUnactive(observer);
                 }
             }
             pillarCurrentState = PillarStates.Active;
