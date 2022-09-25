@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 9375602860376326}
   - component: {fileID: 9375602860376321}
   - component: {fileID: 9375602860376440}
+  - component: {fileID: 33022559262818115}
+  - component: {fileID: -7483110044963440644}
   m_Layer: 0
   m_Name: Fireball Projectile
   m_TagString: Untagged
@@ -79,8 +81,70 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Collider: {fileID: 9375602860376326}
   m_Rigidbody: {fileID: 9375602860376321}
+  startSound: {fileID: 33022559262818115}
+  impactSound: {fileID: -7483110044963440644}
   particles: {fileID: 9375603483348194}
   mrend: {fileID: 4974018859654836356}
+--- !u!114 &33022559262818115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9375602860376327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1410756407
+      Data2: 1138026715
+      Data3: 1129264516
+      Data4: 28978762
+    Path: event:/SFX/Enemies/Enemy - 03 (Ranged)/Attack
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 3
+--- !u!114 &-7483110044963440644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9375602860376327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1608835727
+      Data2: 1265259319
+      Data3: -365518204
+      Data4: -1811549960
+    Path: event:/SFX/Enemies/Enemy - 03 (Ranged)/Bola Fuego
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 5
 --- !u!1 &9375603483348197
 GameObject:
   m_ObjectHideFlags: 0

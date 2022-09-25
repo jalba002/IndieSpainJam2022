@@ -19,12 +19,12 @@ namespace CosmosDefender.Bullets
 
         // Components
         protected Rigidbody _rb;
-        
-        protected  IReadOnlyOffensiveData combatData;
+
+        protected IReadOnlyOffensiveData combatData;
 
         protected SpellData spellData;
 
-        protected  ISpellCaster caster;
+        protected ISpellCaster caster;
 
         [SerializeField] protected StudioEventEmitter soundsFMOD;
 
@@ -38,10 +38,10 @@ namespace CosmosDefender.Bullets
             this.spellData = spellData;
             this.caster = caster;
             // no problem if there's none.
-            if (soundsFMOD!=null)
+            if (soundsFMOD != null)
             {
                 soundsFMOD.Play();
-            }            
+            }
         }
 
         protected virtual void Update()
@@ -75,7 +75,7 @@ namespace CosmosDefender.Bullets
 
         protected virtual void SnapToGround()
         {
-            if (Physics.Raycast(transform.position, transform.TransformDirection(-Vector3.up), out RaycastHit hit,
+            if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit,
                 rayToGroundDistance, raycastHitLayers))
             {
                 transform.position = new Vector3(transform.position.x, hit.point.y, transform.position.z);

@@ -26,8 +26,8 @@ MonoBehaviour:
     layerMask:
       serializedVersion: 2
       m_Bits: 321
-    lifetime: 1
-    activeDuration: 10
+    lifetime: 10
+    activeDuration: 1
     animationCode: CastFireball
     animationDelay: 0.5
   prefab: {fileID: 4188161244540416761, guid: d695f6b6cc4470c45b350cd96a2b8eac, type: 3}

@@ -26,8 +26,8 @@ MonoBehaviour:
     layerMask:
       serializedVersion: 2
       m_Bits: 65
-    lifetime: 0
-    activeDuration: 0.05
+    lifetime: 5
+    activeDuration: 3
     animationCode: MeleeAttack
     animationDelay: 1.7
-  prefab: {fileID: 0}
+  prefab: {fileID: 6318961147610064565, guid: f429d0a7375788f4b8dba93b42eaf610, type: 3}

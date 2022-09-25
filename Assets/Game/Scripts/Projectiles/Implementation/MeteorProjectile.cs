@@ -99,7 +99,8 @@ namespace CosmosDefender.Projectiles
 
             var hitPoint = other.ClosestPointOnBounds(transform.position);
             
-            meteorImpact.Play();
+            if(impactSound != null)
+                impactSound.Play();
 
             UpdateVFX();
             UpdateRenderer();

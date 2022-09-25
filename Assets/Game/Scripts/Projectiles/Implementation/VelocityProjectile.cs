@@ -30,7 +30,7 @@ namespace CosmosDefender.Projectiles
             ((SphereCollider) (m_Collider)).radius = realRadius;
             mrend.gameObject.transform.localScale = new Vector3(realRadius, realRadius, realRadius) * 2f;
             
-            Destroy(this.gameObject, spellData.ActiveDuration);
+            Destroy(this.gameObject, spellData.Lifetime);
         }
         protected override void UpdateRigidbody()
         {

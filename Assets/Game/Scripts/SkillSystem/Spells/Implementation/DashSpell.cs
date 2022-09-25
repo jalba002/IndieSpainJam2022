@@ -23,7 +23,7 @@ namespace CosmosDefender
                 playerMovement.Dash(spellData);
                 var instance = Instantiate(prefab, spawnPoint, rotation);
                 instance.InstantiateBullet(spawnPoint, forward, rotation, combatData, spellData, caster);
-                instance.transform.SetParent(playerMovement.PlayerCenter);
+                //instance.transform.SetParent(playerMovement.PlayerCenter);
             });
         }
 

@@ -19,10 +19,9 @@ namespace CosmosDefender.Bullets.Implementation
             Destroy(this.gameObject, spellData.Lifetime);
         }
 
-
         void FixedUpdate()
         {
-            CastRayDamage(transform.position, spellData.ProjectileRadius, raycastHitLayers);
+            CastRayDamage(caster.CastingPoint.position, spellData.ProjectileRadius, raycastHitLayers);
         }
 
         private void CastRayDamage(Vector3 origin, float radius, LayerMask layerMask)

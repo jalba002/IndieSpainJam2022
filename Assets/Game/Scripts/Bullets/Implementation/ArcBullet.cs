@@ -13,7 +13,6 @@ namespace CosmosDefender.Bullets.Implementation
 
         private List<Collider> enemyHits = new List<Collider>();
 
-
         public override void InstantiateBullet(Vector3 origin, Vector3 forward, Quaternion rotation,
             IReadOnlyOffensiveData combatData, SpellData spellData, ISpellCaster caster)
         {
