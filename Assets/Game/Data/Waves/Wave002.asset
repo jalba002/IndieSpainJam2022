@@ -15,14 +15,6 @@ MonoBehaviour:
   timeBetweenEnemySpawn: 3
   timeForNextWave: 20
   EnemyConfig:
-  - enemyType: 0
-    pathToFollow: 0
-  - enemyType: 0
-    pathToFollow: 0
-  - enemyType: 0
-    pathToFollow: 0
-  - enemyType: 0
-    pathToFollow: 0
   - enemyType: 2
     pathToFollow: 1
   - enemyType: 0
@@ -34,50 +26,22 @@ MonoBehaviour:
   - enemyType: 1
     pathToFollow: 1
   - enemyType: 0
-    pathToFollow: 1
-  - enemyType: 0
-    pathToFollow: 1
-  - enemyType: 0
-    pathToFollow: 2
-  - enemyType: 0
-    pathToFollow: 2
-  - enemyType: 2
-    pathToFollow: 2
-  - enemyType: 0
-    pathToFollow: 2
-  - enemyType: 0
-    pathToFollow: 2
-  - enemyType: 0
-    pathToFollow: 2
-  - enemyType: 0
-    pathToFollow: 2
-  - enemyType: 2
-    pathToFollow: 1
-  - enemyType: 1
-    pathToFollow: 1
-  - enemyType: 0
-    pathToFollow: 1
-  - enemyType: 0
-    pathToFollow: 1
-  - enemyType: 1
-    pathToFollow: 1
-  - enemyType: 0
-    pathToFollow: 1
+    pathToFollow: 0
   - enemyType: 0
     pathToFollow: 0
   - enemyType: 0
     pathToFollow: 0
   - enemyType: 1
     pathToFollow: 0
-  - enemyType: 2
-    pathToFollow: 0
   - enemyType: 0
     pathToFollow: 0
   - enemyType: 0
     pathToFollow: 0
-  - enemyType: 2
+  - enemyType: 0
     pathToFollow: 0
   - enemyType: 1
+    pathToFollow: 1
+  - enemyType: 0
     pathToFollow: 0
   - enemyType: 0
     pathToFollow: 0

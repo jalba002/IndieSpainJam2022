@@ -30,5 +30,5 @@ MonoBehaviour:
     activeDuration: 6
     animationCode: CastMeteor
     animationDelay: 0.7
-    abilityIcon: {fileID: 21300000, guid: b68ad398bc1eaf54f91aa8cc34ec7cbc, type: 3}
+    abilityIcon: {fileID: 21300000, guid: c05fa003a3f6de14d8c496beca2cdc61, type: 3}
   prefab: {fileID: 6296985688864843683, guid: 711acb15c5ab04a488a824d6f34aa041, type: 3}
