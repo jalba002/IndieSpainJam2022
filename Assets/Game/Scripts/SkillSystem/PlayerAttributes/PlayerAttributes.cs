@@ -33,7 +33,7 @@ namespace CosmosDefender
         private bool isInitialized;
 
         public Action<CosmosSpell> OnSpellUpdated;
-        public Action<CosmosSpell> OnSpellAdded;
+        public Action<CosmosSpell, bool> OnSpellAdded;
 
         public void Initialize(bool forceInitialize = false)
         {
@@ -73,11 +73,11 @@ namespace CosmosDefender
         }
 
         [Button]
-        public void AddSpell(CosmosSpell spell)
+        public void AddSpell(CosmosSpell spell, bool addSpell = true)
         {
             spells.Add(spell);
             spellModifiers.ForceUpdate();
-            OnSpellAdded?.Invoke(spell);
+            OnSpellAdded?.Invoke(spell, addSpell);
         }
         [Button]
         public bool HasSpellKey(SpellKeyType type) => spells.Count > (int)type;

@@ -34,16 +34,16 @@ namespace CosmosDefender {
         public override void Start()
         {
             MaxHealth = playerAttributes.DefensiveData.MaxHealth;
-
-            HealthSlider.maxValue = MaxHealth;
-            HealthSliderYellow.maxValue = MaxHealth;
-
-            HealthSlider.value = MaxHealth;
-            HealthSliderYellow.value = MaxHealth;
+            //
+            // HealthSlider.maxValue = MaxHealth;
+            // HealthSliderYellow.maxValue = MaxHealth;
+            //
+            // HealthSlider.value = MaxHealth;
+            // HealthSliderYellow.value = MaxHealth;
 
             base.Start();
 
-            StartCoroutine(HealthRegenerationCoroutine());
+            //StartCoroutine(HealthRegenerationCoroutine());
         }
 
         private IEnumerator HealthRegenerationCoroutine()
@@ -63,7 +63,7 @@ namespace CosmosDefender {
         public override void Die()
         {
             //mainCameraShake.CameraShake(CameraShakeDuration, CameraShakeIntensity);
-            DecreaseHealthSmoothUpdateUI(currentHealth, -50f);
+            //DecreaseHealthSmoothUpdateUI(currentHealth, -50f);
             //inputs.DisableInputs();
             StartCoroutine(DeathCoroutine());
             animator.SetTrigger("Death");
@@ -72,9 +72,10 @@ namespace CosmosDefender {
 
         public override void DamageFeedback()
         {
+            base.DamageFeedback();
             InvulnerableOverTime(InvulnerableTime);
             //mainCameraShake.CameraShake(CameraShakeDuration, CameraShakeIntensity);
-            DecreaseHealthSmoothUpdateUI(currentHealth, -50f);
+            //DecreaseHealthSmoothUpdateUI(currentHealth, -50f);
         }
 
         private void DecreaseHealthSmoothUpdateUI(float healthRemaining, float duration)

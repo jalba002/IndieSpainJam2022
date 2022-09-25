@@ -9,6 +9,10 @@ namespace CosmosDefender
         private CosmosSpell pillarSpell;
 
         private SpellManager spellController;
+        
+        [Header("Tutorial")]
+        [SerializeField] private TutorialConfig firstPillar;
+        [SerializeField] private TutorialConfig empowerPillar;
 
         private void Awake()
         {
@@ -30,7 +34,7 @@ namespace CosmosDefender
             observer.AddSpell(pillarSpell);
             if (!GameManager.Instance.hasActivatedFirstSkillPillar)
             {
-                TutorialPopUpManager.Instance.ActivateTutorial(2, 1f);
+                TutorialPopUpManager.Instance.ActivateTutorial(firstPillar, 1f);
                 GameManager.Instance.hasActivatedFirstSkillPillar = true;
             }
         }
@@ -41,7 +45,7 @@ namespace CosmosDefender
             {
                 if (!GameManager.Instance.hasEmpoweredFirstPillar)
                 {
-                    TutorialPopUpManager.Instance.ActivateTutorial(3, 1f);
+                    TutorialPopUpManager.Instance.ActivateTutorial(empowerPillar, 1f);
                     GameManager.Instance.hasEmpoweredFirstPillar = true;
                 }
             }

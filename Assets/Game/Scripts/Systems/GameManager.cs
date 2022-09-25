@@ -33,6 +33,11 @@ public class GameManager : MonoSingleton<GameManager>
     public bool hasActivatedFirstSkillPillar;
     public bool hasEmpoweredFirstPillar;
     public bool hasActivatedFirstGoddess;
+    
+    [Header("Tutorial")]
+    [SerializeField] private TutorialConfig tutorial;
+
+    [SerializeField] public EconomyConfig economyConfig;
 
     void Awake()
     {
@@ -82,7 +87,7 @@ public class GameManager : MonoSingleton<GameManager>
         if (!hasActivatedFirstGoddess)
         {
             hasActivatedFirstGoddess = true;
-            TutorialPopUpManager.Instance.ActivateTutorial(4, 2f);
+            TutorialPopUpManager.Instance.ActivateTutorial(tutorial, 2f);
         }
 
         foreach (var pillar in ActivePillars)

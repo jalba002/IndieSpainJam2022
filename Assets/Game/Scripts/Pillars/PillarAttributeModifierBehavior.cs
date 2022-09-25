@@ -14,6 +14,9 @@ namespace CosmosDefender
         [SerializeField]
         private List<BaseTemporalAttributeModifier> goddessAttributeModifier = new List<BaseTemporalAttributeModifier>();
 
+        [SerializeField] private TutorialConfig abilityTutorial;
+        [SerializeField] private TutorialConfig empowerTutorial;
+
         public void OnGoddessActive(PillarObserver observer)
         {
             foreach (var item in goddessAttributeModifier)
@@ -42,7 +45,7 @@ namespace CosmosDefender
             observer.AddModifiers(attributeModifier);
             if (!GameManager.Instance.hasActivatedFirstPasivePillar)
             {
-                TutorialPopUpManager.Instance.ActivateTutorial(1, 1f);
+                TutorialPopUpManager.Instance.ActivateTutorial(abilityTutorial, 1f);
                 GameManager.Instance.hasActivatedFirstPasivePillar = true;
             }
         }
@@ -58,7 +61,7 @@ namespace CosmosDefender
 
                 if (!GameManager.Instance.hasEmpoweredFirstPillar)
                 {
-                    TutorialPopUpManager.Instance.ActivateTutorial(3, 1f);
+                    TutorialPopUpManager.Instance.ActivateTutorial(empowerTutorial, 1f);
                     GameManager.Instance.hasEmpoweredFirstPillar = true;
                 }
             }

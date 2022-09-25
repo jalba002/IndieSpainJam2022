@@ -79,5 +79,6 @@ public class HealthManager : MonoBehaviour, IDamageable
 
     public virtual void DamageFeedback()
     {
+        OnDamageTaken?.Invoke(currentHealth, MaxHealth);
     }
 }
