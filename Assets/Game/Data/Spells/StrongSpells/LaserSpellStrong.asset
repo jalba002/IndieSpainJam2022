@@ -25,7 +25,7 @@ MonoBehaviour:
     maxAttackDistance: 50
     layerMask:
       serializedVersion: 2
-      m_Bits: 257
+      m_Bits: 256
     lifetime: 0.3
     activeDuration: 0.1
     animationCode: CastLaser

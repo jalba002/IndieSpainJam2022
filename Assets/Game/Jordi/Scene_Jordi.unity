@@ -750,6 +750,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
+  priority: 0
 --- !u!114 &982790118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4861,6 +4862,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
+  priority: 0
 --- !u!114 &8126645059460301756
 MonoBehaviour:
   m_ObjectHideFlags: 0

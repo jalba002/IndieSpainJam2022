@@ -64,6 +64,8 @@ namespace CosmosDefender.Projectiles
         {
             if (other.GetComponent<BaseProjectile>() != null) return;
 
+            if (other.GetComponent<EnemyAI>() != null) return;
+
             AreaAttacksManager.DealDamageToCollisions<IDamageable>(other,
                 m_CombatData.AttackDamage * m_SpellData.DamageMultiplier);
 
