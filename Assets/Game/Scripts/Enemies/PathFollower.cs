@@ -7,7 +7,6 @@ public class PathFollower : MonoBehaviour
 {
     private List<Transform> followedPath = new List<Transform>();
 
-    [SerializeField]
     private GameManager gameManager;
 
     [SerializeField]
@@ -65,6 +64,8 @@ public class PathFollower : MonoBehaviour
     [Button]
     public void ReturnToPath()
     {
+        if (!gameManager) return;
+        
         var closestWaypoint = gameManager.AllWaypoints[0];
         var closestWaypointDistance = Vector3.Distance(closestWaypoint.position, transform.position);
         foreach (var item in gameManager.AllWaypoints)
