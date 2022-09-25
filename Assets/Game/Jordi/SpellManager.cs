@@ -61,7 +61,7 @@ public class SpellManager : MonoBehaviour, ISpellCaster
                 previewedSpell = null;
                 break;
             case CastType.Preview:
-                if (previewedSpell == null || selectedSpell != previewedSpell)
+                if (previewedSpell == null)
                 {
                     previewedSpell = selectedSpell;
                     skillPreviewer.Activate();

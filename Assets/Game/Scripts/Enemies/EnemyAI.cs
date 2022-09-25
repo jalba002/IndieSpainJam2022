@@ -22,8 +22,6 @@ namespace CosmosDefender
 
         [SerializeField] private NavMeshAgent agent;
 
-        private float timeToMove = 0f;
-
         public GameObject GameObject => this.gameObject;
 
         public Animator Animator => _animator;
@@ -146,16 +144,40 @@ namespace CosmosDefender
             attack.Cast(attackOrigin.position, transform.forward, targetRotation, data, this);
         }
 
-        public void Alert(EnemyAlerter alerter)
+        public void Alert(EnemyAlerter newAlerter)
         {
-            if (currentAlerter?.priority >= alerter.priority)
-                return;
+            if (currentAlerter != null)
+            {
+                if (currentAlerter.priority >= newAlerter.priority)
+                    return;
+
+                if (IsPathIsValid(currentAlerter.transform.position))
+                { 
+
+                }
+            }
+            
             // When the player gets nearby it will notice the enemies around him.
-            Vector3 alerterDirection = (alerter.transform.position - transform.position);
+            Vector3 alerterDirection = (newAlerter.transform.position - transform.position);
             if (alerterDirection.magnitude <= data.AggroRange)
             {
-                alerterTarget = alerter.transform;
+                alerterTarget = newAlerter.transform;
                 wasChasing = true;
+            }
+        }
+
+        private bool IsPathIsValid(Vector3 position)
+        {
+            NavMeshPath navMeshPath = new NavMeshPath();
+            agent.CalculatePath(currentAlerter.transform.position, navMeshPath);
+
+            if (navMeshPath.status != NavMeshPathStatus.PathComplete)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
     }

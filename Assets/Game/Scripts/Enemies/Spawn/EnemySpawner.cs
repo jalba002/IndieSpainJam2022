@@ -33,10 +33,6 @@ public class EnemySpawner : MonoBehaviour
             currentWaveEnemies = waveConfigs[currentWave].EnemyConfig.Length;
             StartCoroutine(EnemySpawnCoroutine(waveConfigs[currentWave]));
         }
-        else
-        {
-            Debug.Log("Game finished");
-        }
     }
 
     public void PillarActivated()
@@ -62,6 +58,10 @@ public class EnemySpawner : MonoBehaviour
     {
         economyConfig.AddMoney(waveConfigs[currentWave].ShopCoinReward);
         StartCoroutine(NextWaveTimerCoroutine(waveConfigs[currentWave].timeForNextWave));
+        if (currentWave >= waveConfigs.Length-1)
+        {
+            CronoScheduler.Instance.ScheduleForTime(2f, () => GameManager.Instance.EndGame(true));
+        }
     }
 
     IEnumerator EnemySpawnCoroutine(WaveConfig currentWaveConfig)

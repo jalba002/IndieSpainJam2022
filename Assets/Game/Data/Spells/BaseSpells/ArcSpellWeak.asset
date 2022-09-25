@@ -28,7 +28,7 @@ MonoBehaviour:
       m_Bits: 256
     lifetime: 0.3
     activeDuration: 1
-    animationCode: CastLaser
+    animationCode: CastThunder
     animationDelay: 0.65
   prefab: {fileID: 7957709564838626636, guid: 9d0fcf9d4ea36d8448ec86727065ac67, type: 3}
   vfxPrefab: {fileID: 9110588522201821569, guid: 13ffb4ca6eda97e4f9e600bdc8fb62fc, type: 3}

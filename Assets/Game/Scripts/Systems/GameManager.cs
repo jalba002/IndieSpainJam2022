@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using CosmosDefender;
+using TMPro;
+using Sirenix.OdinInspector;
 
 public class GameManager : MonoSingleton<GameManager>
 {
@@ -19,10 +21,18 @@ public class GameManager : MonoSingleton<GameManager>
     public ResourceManager ResourceManager;
 
     public List<PillarController> ActivePillars;
+    public bool gameOver = false;
+
+    [SerializeField]
+    private CanvasFadeIn endScreen;
+    [SerializeField]
+    private TextMeshProUGUI endScreenText;
+    private PlayerInputs playerMenuInputs;
 
     void Awake()
     {
         pillarsConfig.ClearObserverList();
+        playerMenuInputs = FindObjectOfType<PlayerInputs>();
     }
 
     private void Start()
@@ -41,12 +51,25 @@ public class GameManager : MonoSingleton<GameManager>
         }
     }
 
-    public void EndGame()
+    [Button]
+    public void EndGame(bool gameWon)
     {
         // Trigger endgame or something.
-        
-        // Afegir els punts al jugador
+
         // Tornar a l'escena inicial.
+        gameOver = true;
+
+        endScreen.FadeIn();
+        playerMenuInputs.SetInputMap(PlayerInputMaps.UI);
+        Time.timeScale = 0f;
+        if (gameWon)
+        {
+            endScreenText.text = "Has ganado...\nPor ahora";
+        }
+        else
+        {
+            endScreenText.text = "Has muerto...";
+        }
     }
 
     public void ActivateGoddessMode()
