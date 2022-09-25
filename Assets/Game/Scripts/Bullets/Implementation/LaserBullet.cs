@@ -97,7 +97,8 @@ namespace CosmosDefender.Bullets.Implementation
 
             foreach (var enemy in hits)
             {
-                Instantiate(feedbackVFX, enemy.bounds.center, Quaternion.identity);
+                var a = Instantiate(feedbackVFX, enemy.bounds.center, Quaternion.identity);
+                Destroy(a, spellData.Lifetime);
             }
 
             AreaAttacksManager.DealDamageToCollisions<IDamageable>(hits,
