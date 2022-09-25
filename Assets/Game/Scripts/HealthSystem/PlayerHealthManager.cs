@@ -18,8 +18,6 @@ namespace CosmosDefender {
 
         private Coroutine healthBarLerpCoroutine;
         private Coroutine healthBarYellowLerpCoroutine;
-        //private PlayerInputsManager inputs;
-        //public CanvasFadeIn LoadingScreen;
         [SerializeField] private Animator animator;
         [SerializeField] private PlayerAttributes playerAttributes;
 
@@ -34,16 +32,10 @@ namespace CosmosDefender {
         public override void Start()
         {
             MaxHealth = playerAttributes.DefensiveData.MaxHealth;
-            //
-            // HealthSlider.maxValue = MaxHealth;
-            // HealthSliderYellow.maxValue = MaxHealth;
-            //
-            // HealthSlider.value = MaxHealth;
-            // HealthSliderYellow.value = MaxHealth;
 
             base.Start();
 
-            //StartCoroutine(HealthRegenerationCoroutine());
+            StartCoroutine(HealthRegenerationCoroutine());
         }
 
         private IEnumerator HealthRegenerationCoroutine()
@@ -53,8 +45,9 @@ namespace CosmosDefender {
                 if(currentHealth < MaxHealth)
                 {
                     IncreaseHealth(playerAttributes.DefensiveData.HealthRegeneration);
-                    if (!isUpdatingHealthbar)
-                        IncreaseHealthSmoothUpdateUI(currentHealth, 10f);
+                    OnDamageTaken?.Invoke(currentHealth, MaxHealth);
+                    //if (!isUpdatingHealthbar)
+                    //    IncreaseHealthSmoothUpdateUI(currentHealth, 10f);
                 }
                 yield return new WaitForSeconds(1f);
             }
