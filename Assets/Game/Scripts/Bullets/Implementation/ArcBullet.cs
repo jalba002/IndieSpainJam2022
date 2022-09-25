@@ -25,7 +25,7 @@ namespace CosmosDefender.Bullets.Implementation
             if (a.Length > 0 && a[index].GetComponent<IDamageable>() != null)
             {
                 enemyHits.Add(a[index]);
-                DetectAllEnemies(enemyHits[index].transform.position, combatData, spellData);
+                DetectAllEnemies(a[index].transform.position, combatData, spellData);
 
                 Bind(origin, enemyHits[index].bounds.center);
             }

@@ -6,7 +6,6 @@ namespace CosmosDefender
 	public class TargetButtonUI : MonoBehaviour
 	{
         public TextMeshProUGUI ButtonText;
-        public TextMeshProUGUI ButtonSubText;
         private bool isActive = false;
 
         public void SetState(bool newState)
@@ -20,16 +19,15 @@ namespace CosmosDefender
             switch (pillarController.pillarCurrentState)
             {
                 case PillarController.PillarStates.Inactive:
-                    ButtonText.text = "(E) to activate\n" + pillarController.PillarName;
-                    ButtonSubText.text = "Cost: " + pillarController.PillarConfig.ActivateCost;
+                    ButtonText.text = 
+                        $"<color=green>(E)</color> para activar un\n{pillarController.PillarName}\nCoste: <color=orange>{pillarController.PillarConfig.ActivateCost}</color> estrellas.";
                     break;
                 case PillarController.PillarStates.Active:
-                    ButtonText.text = "(E) to empower\n" + pillarController.PillarName;
-                    ButtonSubText.text = "Cost: " + pillarController.PillarConfig.EmpowerCost;
+                    ButtonText.text =
+                        $"<color=green>(E)</color> para empoderar un\n{pillarController.PillarName}\nCoste: <color=orange>{pillarController.PillarConfig.EmpowerCost}</color> estrellas."; 
                     break;
                 case PillarController.PillarStates.Empowered:
-                    ButtonText.text = "Empowered!";
-                    ButtonSubText.text = "";
+                    ButtonText.text = "<size=52>PILAR EMPODERADO!</size>";
                     break;
             }
             

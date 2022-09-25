@@ -85,6 +85,8 @@ MonoBehaviour:
   attributeModifier: []
   empoweredAttributeModifier: []
   goddessAttributeModifier: []
+  abilityTutorial: {fileID: 11400000, guid: cac86bf6aca57724a8cbe686859de9fe, type: 2}
+  empowerTutorial: {fileID: 11400000, guid: cc129975c511d0d4a9ed15ada611a408, type: 2}
 --- !u!114 &3820504198834970877
 MonoBehaviour:
   m_ObjectHideFlags: 0
