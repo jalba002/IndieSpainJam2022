@@ -29,22 +29,18 @@ namespace CosmosDefender
 
                 bool spawnRay = (Physics.Raycast(ray, out RaycastHit raycastHit, cameraCompensatedLength));
 
-                Transform firePoint = FindObjectOfType<SpellManager>().FirePoint;
-                var spellTesterFirePointPosition = firePoint.position;
-                Vector3 sp = raycastHit.point - (raycastHit.point - spellTesterFirePointPosition) / 2;
-                var vfxItem = Instantiate(vfxPrefab, sp, Quaternion.identity);
-                vfxItem.gameObject.GetComponent<VFXPropertyBinder>().AddPropertyBinder<VFXTransformBinder>()
-                    .Init("Start", firePoint);
-                //vfxItem.SetVector3("Start", spellTesterFirePointPosition);
+                Vector3 middlePoint = caster.CastingPoint.position + ((spawnPoint - caster.CastingPoint.position) * 0.5f);
+                var vfxItem = Instantiate(vfxPrefab, middlePoint, Quaternion.identity);
 
                 vfxItem.SetFloat("Lifetime", spellData.Lifetime);
                 Destroy(vfxItem.gameObject, spellData.Lifetime * 1.1f);
 
-                Vector3 spawnPos = spawnRay ? raycastHit.point : ray.origin + ray.direction * cameraCompensatedLength;
-                vfxItem.SetVector3("End", spawnPos);
+                Vector3 endPos = spawnRay ? raycastHit.point : ray.origin + ray.direction * cameraCompensatedLength;
+                vfxItem.gameObject.GetComponent<VFXPropertyBinder>().AddPropertyBinder<VFXTransformBinder>().Init("Start", caster.CastingPoint);
+                vfxItem.SetVector3("End", endPos);
 
-                var instance = Instantiate(prefab, spawnPos, rotation);
-                instance.InstantiateBullet(spawnPos, forward, rotation, combatData, currentData, caster);
+                var instance = Instantiate(prefab, endPos, rotation);
+                instance.InstantiateBullet(endPos, forward, rotation, combatData, currentData, caster);
             });
         }
 
