@@ -77,7 +77,7 @@ namespace CosmosDefender
         {
             spells.Add(spell);
             spellModifiers.ForceUpdate();
-            OnSpellAdded.Invoke(spell);
+            OnSpellAdded?.Invoke(spell);
         }
         [Button]
         public bool HasSpellKey(SpellKeyType type) => spells.Count > (int)type;

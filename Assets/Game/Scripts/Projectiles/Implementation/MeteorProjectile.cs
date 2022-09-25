@@ -15,6 +15,7 @@ namespace CosmosDefender.Projectiles
         
         private SpellData m_SpellData;
         private IReadOnlyOffensiveData m_CombatData;
+        private ScreenShake screenShake;
 
         public override void InitializeProjectile(Vector3 spawnPoint, Vector3 direction, IReadOnlyOffensiveData combatData, SpellData spellData)
         {
@@ -35,7 +36,9 @@ namespace CosmosDefender.Projectiles
             mrend.material.SetFloat("_Scale", realRadius);
 
             ((SphereCollider) (m_Collider)).radius = realRadius * 0.5f;
-            
+
+            screenShake = FindObjectOfType<ScreenShake>();
+
             Destroy(this.gameObject, spellData.ActiveDuration);
         }
 
@@ -108,6 +111,7 @@ namespace CosmosDefender.Projectiles
             UpdateParticles();
             UpdateCollisions();
             CastDamage(hitPoint);
+            screenShake.CameraShake(0.15f, 3f);
             FinishObject();
         }
     }

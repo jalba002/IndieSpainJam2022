@@ -113,7 +113,7 @@ public class SpellManager : MonoBehaviour, ISpellCaster
         // Add a delay when casting
         timeUntilAvailableCast = Time.time + (spell.spellData.AnimationDelay * 1.5f);
 
-        OnSpellCasted.Invoke(spell);
+        OnSpellCasted?.Invoke(spell);
         
         _cooldownSpells.Add(spell);
         CronoScheduler.Instance.ScheduleForTime(
