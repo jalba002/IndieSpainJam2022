@@ -15,7 +15,7 @@ MonoBehaviour:
   baseData:
     spellType: 0
     castType: 0
-    damageMultiplier: 0.5
+    damageMultiplier: 1
     cooldown: 3
     speed: 0
     uniformSize: 0

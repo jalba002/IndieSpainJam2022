@@ -37,6 +37,15 @@ namespace CosmosDefender
         private bool isAttacking = false;
         private bool wasChasing = false;
 
+        private float loseAggroRange;
+        private Coroutine attackCooldownCoroutine;
+
+        private void Start()
+        {
+            //We increase aggro range in case the nav mesh moves this character away from the alerter, this way we prevent ReturnToPath spam
+            loseAggroRange = data.AggroRange + 1.5f;
+        }
+
         private void Update()
         {
             UpdateAI();
@@ -44,10 +53,13 @@ namespace CosmosDefender
 
         private void UpdateAI()
         {
+            if (isAttacking)
+                return;
             // Ai goes for the nexus
             // if detects the player, go for him. Until he goes really far.
             // if in range of the player and attack, ATTACK.
             // If out of range of attack, STOP ATTACK.
+            _animator.SetFloat("Speed", agent.isStopped ? 0f : agent.velocity.magnitude / agent.speed);
 
             if (alerterTarget != null)
             {
@@ -56,23 +68,24 @@ namespace CosmosDefender
                 Vector3 alerterDirection = (alerterTarget.position - transform.position);
                 if (alerterDirection.magnitude <= data.attackRange)
                 {
+                    agent.isStopped = true;
                     // Try to attack.
                     // FORCE ROTATION IF DOESNT WORK
-                    Debug.Log("Skill is " + (IsSkillOnCooldown()? "" : "not ")+ "on cooldown");
-                    if (IsSkillOnCooldown())
-                    {
-                        agent.destination = alerterTarget.position;
-                    }
-                    else
+                    if (!IsSkillOnCooldown())
                     {
                         AttackAndCooldown();
                     }
+                    else
+                    {
+                        transform.LookAt(alerterTarget);
+                        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+                    }
                 }
-                else if(alerterDirection.magnitude > data.AggroRange)
+                else if(alerterDirection.magnitude > data.attackRange && alerterDirection.magnitude <= loseAggroRange)
                 {
                     agent.destination = alerterTarget.position;
                 }
-                else if (alerterDirection.magnitude <= data.AggroRange)
+                else if (alerterDirection.magnitude > loseAggroRange)
                 {
                     alerterTarget = null;
                 }
@@ -92,10 +105,19 @@ namespace CosmosDefender
             Attack();
             // apply cooldown.
             timeToAttack = Time.time + attack.spellData.Cooldown;
-            CronoScheduler.Instance.ScheduleForTime(attack.spellData.ActiveDuration, () => 
+            attackCooldownCoroutine = CronoScheduler.Instance.ScheduleForTime(attack.spellData.ActiveDuration, () => 
             { 
                 isAttacking = false;
+                agent.isStopped = false;
             });
+        }
+
+        public void Death()
+        {
+            if(attackCooldownCoroutine != null)
+                StopCoroutine(attackCooldownCoroutine);
+
+            attack.StopCast();
         }
 
         bool IsSkillOnCooldown()
@@ -106,8 +128,11 @@ namespace CosmosDefender
         [Button]
         void Attack()
         {
+            transform.LookAt(alerterTarget);
+            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+
             isAttacking = true;
-            path.StopFollowingPath();
+            agent.isStopped = true;
             attack.UpdateCurrentData();
             // Raycast anyway to rotate to player.
             Quaternion targetRotation = transform.rotation;
@@ -126,8 +151,12 @@ namespace CosmosDefender
             if (currentAlerter?.priority >= alerter.priority)
                 return;
             // When the player gets nearby it will notice the enemies around him.
-            alerterTarget = alerter.transform;
-            //agent.isStopped = false;
+            Vector3 alerterDirection = (alerter.transform.position - transform.position);
+            if (alerterDirection.magnitude <= data.AggroRange)
+            {
+                alerterTarget = alerter.transform;
+                wasChasing = true;
+            }
         }
     }
 }

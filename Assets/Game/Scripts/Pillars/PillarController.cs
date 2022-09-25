@@ -28,6 +28,8 @@ namespace CosmosDefender
         private ResourceManager resourceManager;
         [SerializeField]
         private EnemySpawner enemySpawner;
+        [SerializeField]
+        private Animator animator;
 
         private void OnDrawGizmosSelected()
         {
@@ -38,6 +40,7 @@ namespace CosmosDefender
 
         private void Awake()
         {
+            animator = GetComponent<Animator>();
             GetComponents(pillarObserverModifiers);
             resourceManager = GameManager.Instance.ResourceManager;
         }
@@ -93,6 +96,7 @@ namespace CosmosDefender
             {
                 resourceManager.DecreaseResource(ResourceType.Stars, PillarConfig.ActivateCost);
                 enemySpawner.PillarActivated();
+                GameManager.Instance.ActivePillars.Add(this);
                 foreach (var pillar in pillarObserverModifiers)
                 {
                     foreach (var observer in PillarConfig.PillarObservers)
@@ -101,6 +105,7 @@ namespace CosmosDefender
                     }
                 }
                 pillarCurrentState = PillarStates.Active;
+                animator.SetTrigger("Active");
             }
             else if(CanBeEmpowered(ResourceType.Stars))
             {
@@ -114,11 +119,46 @@ namespace CosmosDefender
                         {
                             pillar.SetPillarEmpowerState(observer, false);
                             pillarCurrentState = PillarStates.Active;
+                            animator.SetBool("Empowered", false);
                         });
                     }
                 }
                 pillarCurrentState = PillarStates.Empowered;
+                animator.SetBool("Empowered", true);
             }
+        }
+
+        public void GoddessActive(float duration)
+        {
+            if (pillarCurrentState != PillarStates.Active) 
+                return;
+
+            foreach (var pillar in pillarObserverModifiers)
+            {
+                foreach (var observer in PillarConfig.PillarObservers)
+                {
+                    pillar.OnGoddessActive(observer);
+
+                    CronoScheduler.Instance.ScheduleForTime(duration, () =>
+                    {
+                        GoddessDeactivated();
+                        animator.SetBool("GoddessMode", false);
+                    });
+                }
+            }
+            animator.SetBool("GoddessMode", true);
+        }
+
+        public void GoddessDeactivated()
+        {
+            foreach (var pillar in pillarObserverModifiers)
+            {
+                foreach (var observer in PillarConfig.PillarObservers)
+                {
+                    pillar.SetPillarEmpowerState(observer, false);
+                }
+            }
+            pillarCurrentState = PillarStates.Active;
         }
 
         private bool CanBeEmpowered(ResourceType resource)

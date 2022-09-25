@@ -44,6 +44,7 @@ public class EnemySpawner : MonoBehaviour
         if (firstPillarActivated)
             return;
 
+        firstPillarActivated = true;
         StartNextWave();
     }
 

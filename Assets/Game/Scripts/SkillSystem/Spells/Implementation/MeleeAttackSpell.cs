@@ -30,6 +30,10 @@ namespace CosmosDefender
         
         public override void StopCast()
         {
+            if (delayedDamage != null)
+                CronoScheduler.Instance.StopCoroutine(delayedDamage);
+            if (delayedAnimation != null)
+                CronoScheduler.Instance.StopCoroutine(delayedAnimation);
         }
     }
 }

@@ -27,3 +27,4 @@ MonoBehaviour:
     pathToFollow: 2
   - enemyType: 0
     pathToFollow: 2
+  ShopCoinReward: 20

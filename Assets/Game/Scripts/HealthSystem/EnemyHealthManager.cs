@@ -15,12 +15,14 @@ public class EnemyHealthManager : HealthManager
     private EnemyData data;
 
     private EnemySpawner enemySpawner;
+    private EnemyAI enemyAI;
 
     private void Awake()
     {
         //animator = GetComponent<Animator>();
         //sounds = GetComponent<EnemySoundPlayer>();
         screenShake = FindObjectOfType<ScreenShake>();
+        enemyAI = GetComponent<EnemyAI>();
     }
 
     public override void Start()
@@ -37,6 +39,7 @@ public class EnemyHealthManager : HealthManager
         GameManager.Instance.ResourceManager.IncreaseResource(ResourceType.Stars, data.StarResourceOnDeath);
         GameManager.Instance.ResourceManager.IncreaseResource(ResourceType.Goddess, data.StarResourceOnDeath);
         enemySpawner.DecreaseCurrentEnemyCounter();
+        enemyAI.Death();
         Destroy(gameObject);
     }
 

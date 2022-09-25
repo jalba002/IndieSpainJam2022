@@ -144,7 +144,7 @@ namespace CosmosDefender {
             yield return new WaitForSeconds(1f);
             //LoadingScreen.FadeIn();
             yield return new WaitForSeconds(1f);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            GameManager.Instance.EndGame();
         }
     }
 }

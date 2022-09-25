@@ -18,6 +18,8 @@ public class GameManager : MonoSingleton<GameManager>
     public GoddessResourceBehavior GoddessResourceBehavior;
     public ResourceManager ResourceManager;
 
+    public List<PillarController> ActivePillars;
+
     void Awake()
     {
         pillarsConfig.ClearObserverList();
@@ -43,8 +45,15 @@ public class GameManager : MonoSingleton<GameManager>
     {
         // Trigger endgame or something.
         
-        // Guardar punts
         // Afegir els punts al jugador
         // Tornar a l'escena inicial.
+    }
+
+    public void ActivateGoddessMode()
+    {
+        foreach (var pillar in ActivePillars)
+        {
+            pillar.GoddessActive(ResourceManager.GetResourceData(ResourceType.Goddess).EffectDuration);
+        }
     }
 }

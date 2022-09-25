@@ -19,13 +19,6 @@ namespace CosmosDefender
 
         public int priority = 0;
 
-
-
-        private void OnDrawGizmos()
-        {
-            Gizmos.DrawWireSphere(transform.position, radius);
-        }
-
         private void Start()
         {
             timeToCast = Time.time + delay;

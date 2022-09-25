@@ -31,6 +31,7 @@ namespace CosmosDefender.Projectiles.Implementation
         public override void StopCast()
         {
             //throw new System.NotImplementedException();
+            CronoScheduler.Instance.StopCoroutine(castedSpell);
         }
     }
 }

@@ -266,6 +266,7 @@ public class PlayerMovementController : MonoBehaviour
 
 		yield return new WaitForSeconds(1f);
 		SetMovementState(true);
+		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);
 	}
 
 	private void JumpAndGravity()

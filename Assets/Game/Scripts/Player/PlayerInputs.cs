@@ -1,3 +1,4 @@
+using CosmosDefender;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -21,12 +22,14 @@ public class PlayerInputs : MonoBehaviour
 	InputActionMap ingameMap;
 	InputActionMap uiMap;
 	public bool GameOver = false;
+	private ResourceManager resourceManager;
 
 	private void Awake()
     {
 		input = GetComponent<PlayerInput>();
 		ingameMap = input.actions.FindActionMap("Player");
 		uiMap = input.actions.FindActionMap("UI");
+		resourceManager = GetComponent<ResourceManager>();
 	}
 
 	public void SetInputMap(PlayerInputMaps inputMap)
@@ -48,6 +51,14 @@ public class PlayerInputs : MonoBehaviour
 				break;
 		}
     }
+
+	void OnGoddessMode()
+    {
+		if (resourceManager.SpendResource(ResourceType.Goddess, resourceManager.GetResourceData(ResourceType.Goddess).MaxResource))
+		{
+			GameManager.Instance.ActivateGoddessMode();
+		}
+	}
 
 	void OnPause()
     {

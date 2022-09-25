@@ -15,12 +15,12 @@ MonoBehaviour:
   baseData:
     spellType: 0
     castType: 0
-    damageMultiplier: 0.5
+    damageMultiplier: 1
     cooldown: 2
     speed: 0
     uniformSize: 0
     amount: 1
-    projectileRadius: 0.35
+    projectileRadius: 1
     projectileDelay: 0
     maxAttackDistance: 0
     layerMask:

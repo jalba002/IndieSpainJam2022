@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 300
   Speed: 2.5
-  attackDamage: 15
+  attackDamage: 35
   attackRange: 3
   AggroRange: 12
   Defence: 5

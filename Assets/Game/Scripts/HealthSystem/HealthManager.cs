@@ -29,10 +29,8 @@ public class HealthManager : MonoBehaviour, IDamageable
 
     public void TakeDamage(float value)
     {
-        if (isInvulnerable)
+        if (isInvulnerable || currentHealth <= 0)
             return;
-
-        if (currentHealth <= 0) return;
 
         currentHealth -= value;
         currentHealth = Mathf.Clamp(currentHealth, 0f, MaxHealth);

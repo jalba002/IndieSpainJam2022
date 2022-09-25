@@ -18,5 +18,6 @@ namespace CosmosDefender
 		public float StartingResource;
 		public float ResourceOverTime;
 		public float ResourcePerKill;
+		public float EffectDuration;
 	}
 }

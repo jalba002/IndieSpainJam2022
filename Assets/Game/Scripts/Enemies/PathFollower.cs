@@ -35,7 +35,7 @@ namespace CosmosDefender
 
         void Update()
         {
-            if (navMeshAgent.updatePosition == false)
+            if (navMeshAgent.updatePosition == false || followedPath.Count == 0)
                 return;
 
             animator.SetFloat("Speed", navMeshAgent.isStopped ? 0f : navMeshAgent.velocity.magnitude / navMeshAgent.speed);
@@ -73,7 +73,7 @@ namespace CosmosDefender
         [Button]
         public void StopFollowingPath()
         {
-            navMeshAgent.updatePosition = false;
+            navMeshAgent.isStopped = true;
         }
 
         [Button]

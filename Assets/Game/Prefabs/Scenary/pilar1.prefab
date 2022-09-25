@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4870729095682322887}
   - component: {fileID: 486890035298273822}
   - component: {fileID: 3820504198834970877}
-  - component: {fileID: 274116617}
+  - component: {fileID: 6407804852336859908}
   m_Layer: 7
   m_Name: pilar1
   m_TagString: Untagged
@@ -69,6 +69,7 @@ MonoBehaviour:
   pillarCurrentState: 0
   PillarConfig: {fileID: 11400000, guid: 3ec672cbb95584d41a1ccda4e5ff4320, type: 2}
   starResourceData: {fileID: 11400000, guid: 389d1b4f92f3cf744a2e0c61757b5218, type: 2}
+  enemySpawner: {fileID: 0}
 --- !u!114 &486890035298273822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,6 +83,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributeModifier: []
+  empoweredAttributeModifier: []
+  goddessAttributeModifier: []
 --- !u!114 &3820504198834970877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,25 +115,26 @@ MonoBehaviour:
   OverrideAttenuation: 1
   OverrideMinDistance: 1.5
   OverrideMaxDistance: 18
---- !u!111 &274116617
-Animation:
+--- !u!95 &6407804852336859908
+Animator:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3700727119980266512}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: fcff47dbbdb31b44695fa51e63a1bcbe, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: fcff47dbbdb31b44695fa51e63a1bcbe, type: 2}
-  - {fileID: 7400000, guid: bdda27de4dbfe864e949e94b8f5e062f, type: 2}
-  - {fileID: 7400000, guid: 5a9272b7a6bf6c74aa287aee1d5f80ac, type: 2}
-  - {fileID: 7400000, guid: ec62072a33b99334ea7df87df03d2c68, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4d566a6e68e4fac40809fc35aaba13f9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2140459356
 PrefabInstance:
   m_ObjectHideFlags: 0
