@@ -217,7 +217,7 @@ Transform:
   m_GameObject: {fileID: 1016583398895143541}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.786}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6487757226555234042}
@@ -2762,9 +2762,6 @@ GameObject:
   - component: {fileID: 7867279661157371021}
   - component: {fileID: -994680194147940822}
   - component: {fileID: 8865683714585661008}
-  - component: {fileID: 677796644860480885}
-  - component: {fileID: 483201429537565571}
-  - component: {fileID: 1373271382519810042}
   m_Layer: 8
   m_Name: RangedEnemy
   m_TagString: Untagged
@@ -2798,10 +2795,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 1
+  m_Height: 3
   m_Direction: 2
-  m_Center: {x: 0, y: 0.87, z: -0.21}
+  m_Center: {x: 0, y: 1.62, z: -0.5}
 --- !u!195 &7867279661157371018
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2811,19 +2808,19 @@ NavMeshAgent:
   m_GameObject: {fileID: 7867279661157371019}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.8
+  m_Radius: 1
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_AngularSpeed: 180
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1.5
+  m_Height: 2.5
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 3
 --- !u!114 &7867279661157371021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2836,7 +2833,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b309bcca6caf943b5193ed14512708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
   waypointReachedRadius: 2
 --- !u!114 &-994680194147940822
 MonoBehaviour:
@@ -2870,96 +2866,8 @@ MonoBehaviour:
   attack: {fileID: 11400000, guid: e7c7db3d6be45294bacccda1e857cfd1, type: 2}
   attackOrigin: {fileID: 5672733887208469603}
   _animator: {fileID: 6030422495075093173}
---- !u!114 &677796644860480885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7867279661157371019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 1410756407
-      Data2: 1138026715
-      Data3: 1129264516
-      Data4: 28978762
-    Path: event:/SFX/Enemies/Enemy - 03 (Ranged)/Attack
-  Event: 
-  PlayEvent: 1
-  StopEvent: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 1
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 8
---- !u!114 &483201429537565571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7867279661157371019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 1427596330
-      Data2: 1088282325
-      Data3: -1977055083
-      Data4: 446832460
-    Path: event:/SFX/Enemies/Enemy - 03 (Ranged)/TakeDamage
-  Event: 
-  PlayEvent: 1
-  StopEvent: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 1
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 8
---- !u!114 &1373271382519810042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7867279661157371019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 366520285
-      Data2: 1089300624
-      Data3: 1045978542
-      Data4: -1961523123
-    Path: event:/SFX/Enemies/Enemy - 03 (Ranged)/Die
-  Event: 
-  PlayEvent: 1
-  StopEvent: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 1
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 8
+  agent: {fileID: 7867279661157371018}
+  path: {fileID: 7867279661157371021}
 --- !u!1 &8139841878624893029
 GameObject:
   m_ObjectHideFlags: 0
