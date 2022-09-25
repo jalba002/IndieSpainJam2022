@@ -151,7 +151,7 @@ namespace CosmosDefender {
         {
             if (other.tag == "MapLimit")
             {
-                TakeDamage(10f);
+                TakeDamage(25f);
             }
         }
     }
