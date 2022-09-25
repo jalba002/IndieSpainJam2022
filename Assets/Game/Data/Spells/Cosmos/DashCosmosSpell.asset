@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DashCosmosSpell
   m_EditorClassIdentifier: 
   baseSpell: {fileID: 11400000, guid: fcbe8bde45cf4734d8571307d6648d7b, type: 2}
-  empoweredSpell: {fileID: 11400000, guid: fcbe8bde45cf4734d8571307d6648d7b, type: 2}
+  empoweredSpell: {fileID: 11400000, guid: f57051106bc8b3548a940e73c3872703, type: 2}
   isSpellEmpowered: 0

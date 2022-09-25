@@ -36,6 +36,7 @@ namespace CosmosDefender
         [Header("VFX")]
         [SerializeField]
         private float lifetime;
+        [Header("Collision")]
         [SerializeField]
         private float activeDuration;
         [Header("Animation")]
@@ -43,6 +44,9 @@ namespace CosmosDefender
         private string animationCode;
         [SerializeField] 
         private float animationDelay;
+
+        [Header("HUD")] 
+        [SerializeField] private Sprite abilityIcon;
 
         public SpellType SpellType => spellType;
         public CastType CastType => castType;
@@ -59,5 +63,6 @@ namespace CosmosDefender
         public LayerMask LayerMask { get => layerMask; set => layerMask = value; }
         public string AnimationCode { get => animationCode; set => animationCode = value; }
         public float AnimationDelay { get => animationDelay; set => animationDelay = value; }
+        public Sprite AbilityIcon { get => abilityIcon; set => abilityIcon = value; }
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9110588522201821568}
   - component: {fileID: 6231882927052489352}
   m_Layer: 0
-  m_Name: VFX_Arc
+  m_Name: VFX_ArcEmpowered
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,7 +42,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9110588522201821575}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: e52398e73d656c842b6990185a139918, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: 4ce49d45dcaf4784f85ddeef6f9275eb, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
