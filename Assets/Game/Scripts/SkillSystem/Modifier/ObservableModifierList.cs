@@ -17,7 +17,11 @@ namespace CosmosDefender
         {
             attributeModifiers.Add(attribute);
             if (attribute is ITemporalModifier temporalModifier)
-                CronoScheduler.Instance.ScheduleForTime(temporalModifier.Time, () => RemoveModifier(attribute));
+            {
+                UnityEngine.Debug.Log(attribute.name + " buff for " + temporalModifier.Time + " seconds");
+                CronoScheduler.Instance.ScheduleForTime(temporalModifier.Time, () => { RemoveModifier(attribute); UnityEngine.Debug.Log(attribute.name + " buff expired"); });
+
+            }
 
             if (updateList)
                 onListUpdated(attributeModifiers);

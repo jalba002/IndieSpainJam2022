@@ -21,7 +21,6 @@ public class PlayerInputs : MonoBehaviour
 	private PlayerInput input;
 	InputActionMap ingameMap;
 	InputActionMap uiMap;
-	public bool GameOver = false;
 	private ResourceManager resourceManager;
 
 	private void Awake()
@@ -62,7 +61,7 @@ public class PlayerInputs : MonoBehaviour
 
 	void OnPause()
     {
-		if (!GameOver)
+		if (!GameManager.Instance.gameOver)
 		{
 			PauseManager.Instance.PauseGame();
 

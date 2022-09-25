@@ -12,7 +12,7 @@ namespace CosmosDefender
             // base.Die();
             // Play animation? Or don't.
             animator.SetTrigger("Die");
-            GameManager.Instance.EndGame();
+            GameManager.Instance.EndGame(false);
         }
 
         public override void DamageFeedback()

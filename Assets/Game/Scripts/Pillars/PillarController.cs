@@ -28,7 +28,6 @@ namespace CosmosDefender
         private ResourceManager resourceManager;
         [SerializeField]
         private EnemySpawner enemySpawner;
-        [SerializeField]
         private Animator animator;
 
         private void OnDrawGizmosSelected()
