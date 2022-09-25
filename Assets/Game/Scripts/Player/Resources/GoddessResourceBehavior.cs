@@ -11,6 +11,15 @@ namespace CosmosDefender
         public ResourceData goddessResourceData;
         public ResourceType resourceType => resourceData.ResourceType;
 
+        private Animator animator;
+        private MaterialModifier materialModifier;
+
+        private void Awake()
+        {
+            materialModifier = GetComponent<MaterialModifier>();
+            animator = GetComponentInChildren<Animator>();
+        }
+
         private void Start()
         {
             goddessResourceData = resourceData.baseResource;
@@ -32,6 +41,9 @@ namespace CosmosDefender
         {
             goddessResourceData.CurrentResource -= cost;
             goddessResourceData.CurrentResource = Mathf.Clamp(goddessResourceData.CurrentResource, 0, goddessResourceData.MaxResource);
+            animator.SetTrigger("GoddessMode");
+            materialModifier.ChangeMaterial(true);
+            CronoScheduler.Instance.ScheduleForTime(10f, () => materialModifier.ChangeMaterial(false));
             UpdateUI();
         }
 
