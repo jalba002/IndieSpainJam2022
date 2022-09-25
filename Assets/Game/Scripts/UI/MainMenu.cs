@@ -53,15 +53,17 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private GameStateButtonTable gameStateButtonTable;
 
-    public Animator protagonistAnimator;
-
+    public Animator PlayerMenuAnimator;
+    public Animator CircleMenuAnimator;
+    
+    
     [SerializeField]
     private MenuController menuController;
 
     //public StudioEventEmitter HoverSoundRef;
     public StudioEventEmitter ClickSoundRef;
     public StudioEventEmitter BackgroundMusic;
-
+    
     private readonly string twitterNameParameter = "Juega a este increíble juego creado por @andrew_raaya @JordiAlbaDev @Sergisggs @GuillemLlovDev @Belmontes_ART @montane @ovillaloboss_ y @RenderingCode hecho para la #IndieSpainJam (@IndieDevDay @spaingamedevs)!\n\nAquí tenéis el link:\n\n";
     private readonly string twitterDescriptionParam = "";
     private readonly string twitterAdress = "https://twitter.com/intent/tweet";
@@ -98,7 +100,6 @@ public class MainMenu : MonoBehaviour
         BackgroundMusic.Stop();
         canvas.interactable = false;
         LoadingScreen.FadeIn();
-        //protagonistAnimator.SetTrigger("Start");
         StartCoroutine(LoadAfterFade(scene_name));
 
         PlayClickSound();
@@ -130,6 +131,9 @@ public class MainMenu : MonoBehaviour
     public void PlayClickSound()
     {
         ClickSoundRef.Play();
+        CircleMenuAnimator.SetTrigger("ButtonPressed");
+        PlayerMenuAnimator.SetTrigger("ButtonPressed");
+        startGameButton.onClick.AddListener( () => { PlayerMenuAnimator.SetTrigger("StartPressed"); });
     }
 
     public void MainMenuFade()
