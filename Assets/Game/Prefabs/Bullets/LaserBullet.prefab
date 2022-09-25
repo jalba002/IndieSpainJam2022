@@ -179,6 +179,7 @@ MonoBehaviour:
   rayToGroundDistance: 10
   soundsFMOD: {fileID: 1066048985}
   vfx: {fileID: 8022966244239508526}
+  feedbackVFX: {fileID: 3722151613815829291, guid: c76a251255273764fb3965f45220b02d, type: 3}
   sizeScaling: 0.168
 --- !u!114 &1066048985
 MonoBehaviour:

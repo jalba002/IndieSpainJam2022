@@ -78,14 +78,18 @@ public class SpellManager : MonoBehaviour, ISpellCaster
                 break;
             case CastType.Raycast:
                 Ray cameraRay = Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f));
-
-                Physics.Raycast(
+                float cameraCorrectedDistance = selectedSpell.spellData.MaxAttackDistance +
+                                                Vector3.Distance(Camera.main.transform.position, transform.position);
+                bool rayHit = Physics.Raycast(
                     cameraRay,
                     out RaycastHit info,
-                    selectedSpell.spellData.MaxAttackDistance +
-                    Vector3.Distance(Camera.main.transform.position, transform.position));
+                    cameraCorrectedDistance
+                    );
 
-                CastSpell(selectedSpell, info.point);
+                Vector3 castPos =
+                    rayHit ? info.point : cameraRay.origin + cameraRay.direction * cameraCorrectedDistance;
+                
+                CastSpell(selectedSpell, castPos);
                 skillPreviewer.Deactivate();
                 break;
             default:

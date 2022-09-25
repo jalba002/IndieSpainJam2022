@@ -13,6 +13,9 @@ namespace CosmosDefender.Bullets.Implementation
 
         [SerializeField] public VisualEffect vfx;
 
+        [SerializeField] public VisualEffect feedbackVFX;
+
+
         [Range(0f, 1f)] [SerializeField] private float sizeScaling = 0.17f;
 
         public override void InstantiateBullet(Vector3 origin, Vector3 forward, Quaternion rotation,
@@ -91,6 +94,12 @@ namespace CosmosDefender.Bullets.Implementation
         {
             // TODO Gather information about the ray size here.
             var hits = AreaAttacksManager.BoxAttack(origin, forward, length * 0.5f, rotation, spellData.LayerMask);
+
+            foreach (var enemy in hits)
+            {
+                Instantiate(feedbackVFX, enemy.bounds.center, Quaternion.identity);
+            }
+
             AreaAttacksManager.DealDamageToCollisions<IDamageable>(hits,
                 combatData.AttackDamage * spellData.DamageMultiplier);
         }
