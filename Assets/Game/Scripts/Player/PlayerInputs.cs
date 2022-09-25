@@ -21,14 +21,21 @@ public class PlayerInputs : MonoBehaviour
 	private PlayerInput input;
 	InputActionMap ingameMap;
 	InputActionMap uiMap;
+	InputActionMap tutorialMap;
 	private ResourceManager resourceManager;
+
+	public Action OnDismissAction;
 
 	private void Awake()
     {
 		input = GetComponent<PlayerInput>();
 		ingameMap = input.actions.FindActionMap("Player");
 		uiMap = input.actions.FindActionMap("UI");
+		tutorialMap = input.actions.FindActionMap("Tutorial");
 		resourceManager = GetComponent<ResourceManager>();
+
+		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
 	}
 
 	public void SetInputMap(PlayerInputMaps inputMap)
@@ -38,15 +45,23 @@ public class PlayerInputs : MonoBehaviour
 			case PlayerInputMaps.Ingame:
 				ingameMap.Enable();
 				uiMap.Disable();
+				tutorialMap.Disable();
 				Cursor.lockState = CursorLockMode.Locked;
 				Cursor.visible = false;
 				break;
-
 			case PlayerInputMaps.UI:
 				ingameMap.Disable();
 				uiMap.Enable();
+				tutorialMap.Disable();
 				Cursor.lockState = CursorLockMode.None;
 				Cursor.visible = true;
+				break;
+			case PlayerInputMaps.Tutorial:
+				ingameMap.Disable();
+				uiMap.Disable();
+				tutorialMap.Enable();
+				Cursor.lockState = CursorLockMode.Locked;
+				Cursor.visible = false;
 				break;
 		}
     }
@@ -67,6 +82,11 @@ public class PlayerInputs : MonoBehaviour
 
 			SetInputMap(PauseManager.Instance.isGamePaused ? PlayerInputMaps.UI : PlayerInputMaps.Ingame);
 		}
+	}
+
+	void OnDismiss()
+	{
+		OnDismissAction?.Invoke();
 	}
 
 	public void DisableInputs()
@@ -129,5 +149,6 @@ public class PlayerInputs : MonoBehaviour
 public enum PlayerInputMaps
 {
 	Ingame,
-	UI
+	UI,
+	Tutorial
 }

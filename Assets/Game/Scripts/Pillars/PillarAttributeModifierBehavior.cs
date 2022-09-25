@@ -40,6 +40,11 @@ namespace CosmosDefender
         public void OnPillarActivate(PillarObserver observer)
         {
             observer.AddModifiers(attributeModifier);
+            if (!GameManager.Instance.hasActivatedFirstPasivePillar)
+            {
+                TutorialPopUpManager.Instance.ActivateTutorial(1, 1f);
+                GameManager.Instance.hasActivatedFirstPasivePillar = true;
+            }
         }
 
         public void SetPillarEmpowerState(PillarObserver observer, bool newState)
@@ -48,8 +53,13 @@ namespace CosmosDefender
             {
                 foreach (var item in empoweredAttributeModifier)
                 {
-                    Debug.Log("Empower!");
                     observer.AddModifier(item);
+                }
+
+                if (!GameManager.Instance.hasEmpoweredFirstPillar)
+                {
+                    TutorialPopUpManager.Instance.ActivateTutorial(3, 1f);
+                    GameManager.Instance.hasEmpoweredFirstPillar = true;
                 }
             }
         }

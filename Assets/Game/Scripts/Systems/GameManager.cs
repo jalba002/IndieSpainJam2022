@@ -29,6 +29,11 @@ public class GameManager : MonoSingleton<GameManager>
     private TextMeshProUGUI endScreenText;
     private PlayerInputs playerMenuInputs;
 
+    public bool hasActivatedFirstPasivePillar;
+    public bool hasActivatedFirstSkillPillar;
+    public bool hasEmpoweredFirstPillar;
+    public bool hasActivatedFirstGoddess;
+
     void Awake()
     {
         pillarsConfig.ClearObserverList();
@@ -74,6 +79,12 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void ActivateGoddessMode()
     {
+        if (!hasActivatedFirstGoddess)
+        {
+            hasActivatedFirstGoddess = true;
+            TutorialPopUpManager.Instance.ActivateTutorial(4, 2f);
+        }
+
         foreach (var pillar in ActivePillars)
         {
             pillar.GoddessActive(ResourceManager.GetResourceData(ResourceType.Goddess).EffectDuration);

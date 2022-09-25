@@ -17,17 +17,10 @@ namespace CosmosDefender {
 
         private Coroutine healthBarLerpCoroutine;
         private Coroutine healthBarYellowLerpCoroutine;
-        //private PlayerInputsManager inputs;
-        //public CanvasFadeIn LoadingScreen;
         [SerializeField] private Animator animator;
         [SerializeField] private PlayerAttributes playerAttributes;
 
         private bool isUpdatingHealthbar = false;
-
-        private void Awake()
-        {
-            //inputs = GetComponent<PlayerInputsManager>();
-        }
 
         public override void Start()
         {
@@ -60,9 +53,7 @@ namespace CosmosDefender {
 
         public override void Die()
         {
-            //mainCameraShake.CameraShake(CameraShakeDuration, CameraShakeIntensity);
             DecreaseHealthSmoothUpdateUI(currentHealth, -50f);
-            //inputs.DisableInputs();
             StartCoroutine(DeathCoroutine());
             animator.SetTrigger("Death");
             SetInvulnerableState(true);
@@ -71,7 +62,6 @@ namespace CosmosDefender {
         public override void DamageFeedback()
         {
             InvulnerableOverTime(InvulnerableTime);
-            //mainCameraShake.CameraShake(CameraShakeDuration, CameraShakeIntensity);
             DecreaseHealthSmoothUpdateUI(currentHealth, -50f);
         }
 

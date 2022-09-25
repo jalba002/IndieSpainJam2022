@@ -128,6 +128,7 @@ GameObject:
   - component: {fileID: 8954109858579312734}
   - component: {fileID: 8568385057537897533}
   - component: {fileID: 1058067930736090168}
+  - component: {fileID: 8237263014788105390}
   m_Layer: 0
   m_Name: Piedra_flotante_1
   m_TagString: Untagged
@@ -200,6 +201,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8237263014788105390
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4727910291323595206}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.050800025, y: 0.118994676, z: 0.20966056}
+  m_Center: {x: 0.0010217343, y: -0.0013472051, z: -0.017961893}
 --- !u!1 &6202356191323958465
 GameObject:
   m_ObjectHideFlags: 0

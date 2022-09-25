@@ -28,10 +28,23 @@ namespace CosmosDefender
         public void OnPillarActivate(PillarObserver observer)
         {
             observer.AddSpell(pillarSpell);
+            if (!GameManager.Instance.hasActivatedFirstSkillPillar)
+            {
+                TutorialPopUpManager.Instance.ActivateTutorial(2, 1f);
+                GameManager.Instance.hasActivatedFirstSkillPillar = true;
+            }
         }
 
         public void SetPillarEmpowerState(PillarObserver observer, bool newState)
         {
+            if (newState)
+            {
+                if (!GameManager.Instance.hasEmpoweredFirstPillar)
+                {
+                    TutorialPopUpManager.Instance.ActivateTutorial(3, 1f);
+                    GameManager.Instance.hasEmpoweredFirstPillar = true;
+                }
+            }
             observer.SetSpellEmpowerState(pillarSpell, newState);
         }
 
