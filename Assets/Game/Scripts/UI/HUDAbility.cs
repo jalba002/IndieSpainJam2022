@@ -37,13 +37,13 @@ namespace CosmosDefender
         }
 
         [Button]
-        private void ApplyVisualCooldown(float maxCooldown)
+        public void ApplyVisualCooldown(float maxCooldown)
         {
             UpdateRadial();
             this.currentCooldown = maxCooldown;
             this.maxCooldown = maxCooldown;
         }
-
+        
         public void UpdateVisual(Sprite AbilityIcon)
         {
             // Only gather visuals.

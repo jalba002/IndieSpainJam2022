@@ -8,6 +8,15 @@ namespace CosmosDefender
     {
         [SerializeField] private Animator animator;
         [SerializeField] private float healthRegeneration;
+
+        public override void Start()
+        {
+
+            base.Start();
+
+            StartCoroutine(HealthRegenerationCoroutine());
+        }
+
         public override void Die()
         {
             // base.Die();
@@ -21,6 +30,18 @@ namespace CosmosDefender
             // base.DamageFeedback();
             animator.SetTrigger("Damaged");
             animator.SetFloat("Life", currentHealth / MaxHealth);
+        }
+
+        private IEnumerator HealthRegenerationCoroutine()
+        {
+            while (true)
+            {
+                if (currentHealth < MaxHealth)
+                {
+                    IncreaseHealth(healthRegeneration);
+                }
+                yield return new WaitForSeconds(1f);
+            }
         }
     }
 }
