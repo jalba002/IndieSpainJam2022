@@ -16,7 +16,7 @@ namespace CosmosDefender
 
         public void OnGoddessActive(PillarObserver observer)
         {
-            foreach (var item in empoweredAttributeModifier)
+            foreach (var item in goddessAttributeModifier)
             {
                 observer.AddModifier(item);
             }

@@ -101,6 +101,8 @@ public class PlayerMovementController : MonoBehaviour
 	[Header("Attributes")]
 	[SerializeField] private PlayerAttributes playerAttributes;
 
+	private Vector3 spawnPosition;
+
 	private void Awake()
 	{
 		// get a reference to our main camera
@@ -118,6 +120,7 @@ public class PlayerMovementController : MonoBehaviour
 	{
 		AssignAnimationIDs();
 
+		spawnPosition = transform.position;
 		jumpTimeoutDelta = JumpTimeout;
 		fallTimeoutDelta = FallTimeout;
 	}
@@ -353,4 +356,15 @@ public class PlayerMovementController : MonoBehaviour
 
 		Gizmos.DrawWireSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
 	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "MapLimit")
+        {
+			controller.enabled = false;
+			transform.position = spawnPosition;
+			controller.enabled = true;
+			verticalVelocity = 0;
+		}
+    }
 }
