@@ -5211,10 +5211,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 23.44
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5cf6c7995b284645b34d6f7434fedcd, type: 3}
 --- !u!4 &649534469 stripped
@@ -5543,6 +5539,41 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eebfc8ad3c27c72429091a6e62ca4285, type: 3}
+--- !u!1 &733238407 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6609869081853829031, guid: eebfc8ad3c27c72429091a6e62ca4285, type: 3}
+  m_PrefabInstance: {fileID: 733238406}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &733238408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733238407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1031441906
+      Data2: 1318061534
+      Data3: 1618191525
+      Data4: -807014109
+    Path: event:/SFX/Player/Hitted
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 130
 --- !u!1001 &745707760
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5789,7 +5820,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-49794
+  m_Name: pb_Mesh71982
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6841,7 +6872,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-49796
+  m_Name: pb_Mesh71408
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8155,10 +8186,6 @@ PrefabInstance:
       value: 375.71988
       objectReference: {fileID: 0}
     - target: {fileID: 8840713862096466139, guid: a5cf6c7995b284645b34d6f7434fedcd, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
@@ -9557,6 +9584,71 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0c5b97177628d841996a1fe0212aca4, type: 3}
+--- !u!1 &1400175316 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3510532656747954585, guid: f0c5b97177628d841996a1fe0212aca4, type: 3}
+  m_PrefabInstance: {fileID: 1400175315}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1400175317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400175316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1167692537
+      Data2: 1133014220
+      Data3: -849582186
+      Data4: 1177105210
+    Path: event:/SFX/Player/M.Diosa Desactivado
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1400175318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400175316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -188545582
+      Data2: 1203553204
+      Data3: -1237476463
+      Data4: 39498720
+    Path: event:/SFX/Player/M.Diosa Activado
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 8
 --- !u!1001 &1424737164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9761,7 +9853,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-49682
+  m_Name: pb_Mesh71914
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10155,7 +10247,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-49800
+  m_Name: pb_Mesh71474
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11568,7 +11660,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7867279661157371022, guid: 3871f3af6dcc53540823181c8efb8d0d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.699344
+      value: -11.237
       objectReference: {fileID: 0}
     - target: {fileID: 7867279661157371022, guid: 3871f3af6dcc53540823181c8efb8d0d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13317,7 +13409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7867279661157371022, guid: 0ccb0ea3bad71474fb99ed2200e75285, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.699344
+      value: -16.64
       objectReference: {fileID: 0}
     - target: {fileID: 7867279661157371022, guid: 0ccb0ea3bad71474fb99ed2200e75285, type: 3}
       propertyPath: m_LocalPosition.y

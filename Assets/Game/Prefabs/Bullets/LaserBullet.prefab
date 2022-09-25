@@ -177,6 +177,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   rayToGroundDistance: 10
+  soundsFMOD: {fileID: 1066048985}
   vfx: {fileID: 8022966244239508526}
   sizeScaling: 0.168
 --- !u!114 &1066048985

@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 7867279661157371018}
   - component: {fileID: 7867279661157371021}
   - component: {fileID: -8830114718872674922}
+  - component: {fileID: 9020926798481995061}
+  - component: {fileID: 2480029145887701576}
+  - component: {fileID: 3072207586860261241}
   m_Layer: 8
   m_Name: CommanderEnemy
   m_TagString: Untagged
@@ -102,6 +105,96 @@ MonoBehaviour:
   currentHealth: 0
   starResourceData: {fileID: 11400000, guid: 389d1b4f92f3cf744a2e0c61757b5218, type: 2}
   data: {fileID: 11400000, guid: cd653ebbdaede9d4f88c7f4f0c45b12b, type: 2}
+--- !u!114 &9020926798481995061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7867279661157371019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1737094330
+      Data2: 1236381063
+      Data3: 2096503992
+      Data4: -1558227890
+    Path: event:/SFX/Enemies/Enemy - 02 (Tank)/Attack
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 8
+--- !u!114 &2480029145887701576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7867279661157371019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2124324586
+      Data2: 1133075388
+      Data3: 1823992767
+      Data4: 951399487
+    Path: event:/SFX/Enemies/Enemy - 02 (Tank)/TakeDamage
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 8
+--- !u!114 &3072207586860261241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7867279661157371019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 181598143
+      Data2: 1268275351
+      Data3: -239210327
+      Data4: 675417138
+    Path: event:/SFX/Enemies/Enemy - 02 (Tank)/Die
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 8
 --- !u!1001 &5544870761470887552
 PrefabInstance:
   m_ObjectHideFlags: 0

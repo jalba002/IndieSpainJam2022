@@ -1,4 +1,5 @@
 using UnityEngine;
+using FMODUnity;
 
 namespace CosmosDefender.Bullets
 {
@@ -25,6 +26,8 @@ namespace CosmosDefender.Bullets
 
         protected  ISpellCaster caster;
 
+        [SerializeField] protected StudioEventEmitter soundsFMOD;
+
         public virtual void InstantiateBullet(Vector3 origin, Vector3 forward, Quaternion rotation,
             IReadOnlyOffensiveData combatData, SpellData spellData, ISpellCaster caster)
         {
@@ -35,6 +38,7 @@ namespace CosmosDefender.Bullets
             this.spellData = spellData;
             this.caster = caster;
             // no problem if there's none.
+            soundsFMOD.Play();
         }
 
         protected virtual void Update()

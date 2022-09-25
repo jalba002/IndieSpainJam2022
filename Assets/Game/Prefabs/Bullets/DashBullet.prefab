@@ -51,6 +51,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   rayToGroundDistance: 10
+  soundsFMOD: {fileID: 4055834850988648716}
 --- !u!114 &4055834850988648716
 MonoBehaviour:
   m_ObjectHideFlags: 0

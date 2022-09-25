@@ -103,6 +103,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   rayToGroundDistance: 10
+  soundsFMOD: {fileID: 3449290969015483958}
   vfxPrefab: {fileID: 9110588522201821569, guid: 13ffb4ca6eda97e4f9e600bdc8fb62fc, type: 3}
 --- !u!114 &3449290969015483958
 MonoBehaviour:
@@ -132,5 +133,5 @@ MonoBehaviour:
   Preload: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 10
+  OverrideMinDistance: 30
+  OverrideMaxDistance: 50
