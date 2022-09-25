@@ -16,14 +16,14 @@ namespace CosmosDefender.Projectiles
         private SpellData m_SpellData;
         private IReadOnlyOffensiveData m_CombatData;
 
-        public override void InitializeProjectile(Vector3 spawnPoint, IReadOnlyOffensiveData combatData, SpellData spellData)
+        public override void InitializeProjectile(Vector3 spawnPoint, Vector3 direction, IReadOnlyOffensiveData combatData, SpellData spellData)
         {
-            base.InitializeProjectile(spawnPoint, combatData, spellData);
+            base.InitializeProjectile(spawnPoint, direction, combatData, spellData);
             // Enable collider?
             m_SpellData = spellData;
             m_CombatData = combatData;
             
-            m_Rigidbody.velocity = Vector3.down * spellData.Speed;
+            m_Rigidbody.velocity = direction * spellData.Speed;
             
             // Update VFXs
             // Set radius
@@ -35,6 +35,8 @@ namespace CosmosDefender.Projectiles
             mrend.material.SetFloat("_Scale", realRadius);
 
             ((SphereCollider) (m_Collider)).radius = realRadius * 0.5f;
+            
+            Destroy(this.gameObject, spellData.ActiveDuration);
         }
 
         protected override void UpdateVFX()
@@ -97,6 +99,9 @@ namespace CosmosDefender.Projectiles
 
             var hitPoint = other.ClosestPointOnBounds(transform.position);
             
+            if(impactSound != null)
+                impactSound.Play();
+
             UpdateVFX();
             UpdateRenderer();
             UpdateRigidbody();

@@ -10,7 +10,7 @@ namespace CosmosDefender
 
         public Coroutine ScheduleForTime(float time, Action callback)
         {
-            return StartCoroutine(CoroutineForTime(time, callback));
+            return StartCoroutine(CoroutineForTime(Mathf.Max(time,0), callback));
         }
 
         public Coroutine ScheduleForTimeAndExecuteElapsed(float maxTime, float elapsedTime, Action callback)

@@ -51,19 +51,25 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 0.3
+      - m_Value: 0.4
         m_Name: Lifetime
         m_Overridden: 1
+      - m_Value: 0.5
+        m_Name: ArcThickness
+        m_Overridden: 1
+      - m_Value: 64
+        m_Name: StripAmount
+        m_Overridden: 0
     m_Vector2f:
       m_Array: []
     m_Vector3f:
       m_Array:
-      - m_Value: {x: 0, y: 0, z: 0}
+      - m_Value: {x: 0, y: 1, z: 0}
         m_Name: Start
-        m_Overridden: 0
-      - m_Value: {x: 0, y: 0, z: 0}
+        m_Overridden: 1
+      - m_Value: {x: 0, y: 1, z: -3}
         m_Name: End
-        m_Overridden: 0
+        m_Overridden: 1
     m_Vector4f:
       m_Array: []
     m_Uint:

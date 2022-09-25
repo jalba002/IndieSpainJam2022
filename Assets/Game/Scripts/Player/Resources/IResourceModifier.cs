@@ -7,6 +7,7 @@ namespace CosmosDefender
         void IncreaseResource(float amount);
         void IncreaseResourcePerSecond();
         void UpdateUI();
-        float GetCurrentResource();
+        float GetCurrentResourceAmout();
+        ResourceData GetResourceData();
     }
 }

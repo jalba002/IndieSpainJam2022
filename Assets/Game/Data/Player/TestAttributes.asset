@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: TestAttributes
   m_EditorClassIdentifier: 
   baseAttributes:
-    attackDamage: 10
+    attackDamage: 35
     speed: 10
     cooldownReduction: 0
-    maxHealth: 0
+    maxHealth: 100
     healthRegeneration: 0
   spells:
   - {fileID: 11400000, guid: 0b731d7de814258418604f957ef6aaa9, type: 2}

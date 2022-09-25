@@ -13,42 +13,15 @@ namespace CosmosDefender.Bullets.Implementation
 
         [SerializeField] public VisualEffect vfx;
 
-        private IReadOnlyOffensiveData combatData;
+        [SerializeField] public VisualEffect feedbackVFX;
 
-        private SpellData spellData;
 
-        private Vector3 origin;
-
-        private Transform firePoint;
-
-        private SpellManager caster;
-
-        [Range(0f, 1f)]
-        [SerializeField] private float sizeScaling = 0.17f;
+        [Range(0f, 1f)] [SerializeField] private float sizeScaling = 0.17f;
 
         public override void InstantiateBullet(Vector3 origin, Vector3 forward, Quaternion rotation,
-            IReadOnlyOffensiveData combatData, SpellData spellData)
+            IReadOnlyOffensiveData combatData, SpellData spellData, ISpellCaster caster)
         {
-            base.InstantiateBullet(origin, forward, rotation, combatData, spellData);
-
-            this.spellData = spellData;
-            this.combatData = combatData;
-
-            this.origin = origin;
-
-            firePoint = FindObjectOfType<SpellManager>().FirePoint;
-            caster = firePoint.GetComponentInParent<SpellManager>();
-
-
-            //this.transform.forward = forward;
-            //this.transform.rotation = rotation;
-            //this.transform.parent = origin;
-
-            // Setup VFX here.
-            //vfxItem.gameObject.GetComponent<VFXPropertyBinder>().AddPropertyBinder<VFXTransformBinder>().Init("Start", firePoint);
-            //vfxItem.SetVector3("Start", spellTesterFirePointPosition);
-
-            // vfx.SetVector3("Direction", forward);
+            base.InstantiateBullet(origin, forward, rotation, combatData, spellData, caster);
 
             // WRONG, USE THE RAYCAST MAX LENGTH
             vfx.SetFloat("Length", spellData.MaxAttackDistance * sizeScaling);
@@ -76,7 +49,7 @@ namespace CosmosDefender.Bullets.Implementation
         {
             base.Update();
 
-            this.gameObject.transform.position = firePoint.position;
+            this.gameObject.transform.position = caster.CastingPoint.position;
         }
 
         private void FixedUpdate()
@@ -88,21 +61,21 @@ namespace CosmosDefender.Bullets.Implementation
         {
             Camera cam = Camera.main;
             var ray = cam.ViewportPointToRay(new Vector2(0.5f, 0.5f));
-            float raycastDistance = (transform.position - cam.transform.position).magnitude + spellData.MaxAttackDistance;
+            float raycastDistance =
+                (transform.position - cam.transform.position).magnitude + spellData.MaxAttackDistance;
 
             bool didRayHit = (Physics.Raycast(ray, out RaycastHit info, raycastDistance, raycastHitLayers));
 
-            Vector3 a = 
-            (
-                didRayHit ? 
-                    info.point - caster.transform.right * 0.2f
-                    : 
-                    (ray.origin + ray.direction.normalized * (raycastDistance))
+            Vector3 a =
+                (
+                    didRayHit
+                        ? info.point - caster.GameObject.transform.right * 0.2f
+                        : (ray.origin + ray.direction.normalized * (raycastDistance))
                 )
-            - firePoint.position;
-            
+                - caster.CastingPoint.position;
+
             // Debug.DrawRay(ray.origin, ray.direction * info.distance, Color.green, 2f);
-            
+
             transform.forward = a.normalized;
             //vfx.SetFloat("Length", didRayHit ? info.distance * 0.2f : spellData.MaxAttackDistance * 0.2f);
 
@@ -121,7 +94,15 @@ namespace CosmosDefender.Bullets.Implementation
         {
             // TODO Gather information about the ray size here.
             var hits = AreaAttacksManager.BoxAttack(origin, forward, length * 0.5f, rotation, spellData.LayerMask);
-            AreaAttacksManager.DealDamageToCollisions<IDamageable>(hits, combatData.AttackDamage * spellData.DamageMultiplier);
+
+            foreach (var enemy in hits)
+            {
+                var a = Instantiate(feedbackVFX, enemy.bounds.center, Quaternion.identity);
+                Destroy(a, spellData.Lifetime);
+            }
+
+            AreaAttacksManager.DealDamageToCollisions<IDamageable>(hits,
+                combatData.AttackDamage * spellData.DamageMultiplier);
         }
     }
 }

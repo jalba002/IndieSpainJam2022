@@ -30,7 +30,7 @@ namespace CosmosDefender
 
             playerAttributes.Initialize(forceInitialize);
             playerAttributes.RemoveAllSpells();
-            playerAttributes.AddSpell(basicAttack);
+            //playerAttributes.AddSpell(basicAttack);
             allSpells.ForEach(playerAttributes.AddSpell);
 
             if (startWithoutModifiers)
@@ -38,8 +38,10 @@ namespace CosmosDefender
                 playerAttributes.RemoveAllAttributeModifiers();
                 playerAttributes.RemoveAllSpellModifiers();
             }
+            
+            
         }
-
+        
         private void Reset()
         {
             var GUIDS = AssetDatabase.FindAssets("t: " + nameof(CosmosSpell));

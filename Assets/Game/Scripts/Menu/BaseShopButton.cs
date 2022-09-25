@@ -12,29 +12,32 @@ namespace CosmosDefender
 
         private TPurchase config;
         private T currentModifier;
+        private EconomyConfig economyConfig;
 
         private void Awake()
         {
             buttonDisplay = GetComponent<ShopButtonDisplay>();
         }
 
-        public void Initialize(TPurchase config)
+        public void Initialize(TPurchase config, EconomyConfig economyConfig)
         {
             this.config = config;
+            this.economyConfig = economyConfig;
         }
 
         public void Show()
         {
             currentModifier = config.GetCurrentPurchaseable();
-            buttonDisplay.ShowConfig(currentModifier);
+            var currentIndex = config.GetCurrentPurchaseIndex();
+            buttonDisplay.ShowConfig(currentModifier, currentIndex + 1);
         }
 
         public void OnClick()
         {
-            //TODO: Check money!
-            if (/*have enough money*/ true)
+            if (currentModifier.CanBePurchased && economyConfig.GetMoney() > currentModifier.Price)
             {
                 config.Purchase(currentModifier);
+                economyConfig.SubstractMoney(currentModifier.Price);
                 Show();
             }
         }

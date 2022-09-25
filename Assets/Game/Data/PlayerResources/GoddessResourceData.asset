@@ -17,5 +17,6 @@ MonoBehaviour:
     MaxResource: 60
     CurrentResource: 0
     StartingResource: 0
-    ResourceOverTime: 0.5
+    ResourceOverTime: 10
     ResourcePerKill: 0
+    EffectDuration: 10

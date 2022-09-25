@@ -8,7 +8,7 @@ namespace CosmosDefender
         [SerializeField] private ResourceConfig resourceData;
         [SerializeField] private TextMeshProUGUI resourceText;
 
-        private ResourceData goddessResourceData;
+        public ResourceData goddessResourceData;
         public ResourceType resourceType => resourceData.ResourceType;
 
         private void Start()
@@ -23,14 +23,14 @@ namespace CosmosDefender
             resourceText.text = "Goddess: " + (int)goddessResourceData.CurrentResource;
         }
 
-        public float GetCurrentResource()
+        public float GetCurrentResourceAmout()
         {
             return goddessResourceData.CurrentResource;
         }
 
         public void OnResourceSpent(float cost)
         {
-            goddessResourceData.CurrentResource += cost;
+            goddessResourceData.CurrentResource -= cost;
             goddessResourceData.CurrentResource = Mathf.Clamp(goddessResourceData.CurrentResource, 0, goddessResourceData.MaxResource);
             UpdateUI();
         }
@@ -45,6 +45,11 @@ namespace CosmosDefender
         public void IncreaseResourcePerSecond()
         {
             IncreaseResource(goddessResourceData.ResourceOverTime);
+        }
+
+        public ResourceData GetResourceData()
+        {
+            return goddessResourceData;
         }
     }
 }

@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{ddb50eab-611b-4b3e-a97b-f47f787bab19}">
 		<property name="assetPath">
-			<value>Music/Full OST.mp3</value>
+			<value>Music/In Game/Full OST.mp3</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

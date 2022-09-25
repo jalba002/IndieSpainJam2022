@@ -1,5 +1,6 @@
-using Sirenix.OdinInspector;
 using System.Collections;
+using CosmosDefender;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -13,7 +14,11 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private GameObject[] enemyPrefabs;
 
+    [SerializeField]
+    private EconomyConfig economyConfig;
+
     private int currentWaveEnemies = 0;
+    private bool firstPillarActivated = false;
 
     void Start()
     {
@@ -28,18 +33,34 @@ public class EnemySpawner : MonoBehaviour
             currentWaveEnemies = waveConfigs[currentWave].EnemyConfig.Length;
             StartCoroutine(EnemySpawnCoroutine(waveConfigs[currentWave]));
         }
-        else
-        {
-            Debug.Log("Game finished");
-        }
+    }
+
+    public void PillarActivated()
+    {
+        if (firstPillarActivated)
+            return;
+
+        firstPillarActivated = true;
+        StartNextWave();
     }
 
     public void DecreaseCurrentEnemyCounter()
     {
         currentWaveEnemies--;
+
         if (currentWaveEnemies <= 0)
         {
-            StartCoroutine(NextWaveTimerCoroutine(waveConfigs[currentWave].timeForNextWave));
+            FinishWave();
+        }
+    }
+
+    private void FinishWave()
+    {
+        economyConfig.AddMoney(waveConfigs[currentWave].ShopCoinReward);
+        StartCoroutine(NextWaveTimerCoroutine(waveConfigs[currentWave].timeForNextWave));
+        if (currentWave >= waveConfigs.Length-1)
+        {
+            CronoScheduler.Instance.ScheduleForTime(2f, () => GameManager.Instance.EndGame(true));
         }
     }
 

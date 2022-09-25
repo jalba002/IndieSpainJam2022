@@ -2,6 +2,6 @@ namespace CosmosDefender
 {
     public interface ITemporalModifier
     {
-        public float Time { get; }
+        float Time { get; }
     }
 }

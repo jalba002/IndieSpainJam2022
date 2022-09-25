@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e5cbfdc4d3aad54796701ddc8ef1e67, type: 3}
+  m_Name: FireSpellWeak
+  m_EditorClassIdentifier: 
+  baseData:
+    spellType: 1
+    castType: 0
+    damageMultiplier: 1
+    cooldown: 6
+    speed: 20
+    uniformSize: 1
+    amount: 0
+    projectileRadius: 0
+    projectileDelay: 0
+    maxAttackDistance: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    lifetime: 1
+    activeDuration: -1
+    animationCode: CastFire
+    animationDelay: 0.5
+    abilityIcon: {fileID: 21300000, guid: 9b96aa67dbb7b9f4d9aa0e50f194459d, type: 3}
+  prefab: {fileID: 3147084912358688545, guid: 24d72574ab85abf4ba2bfa5ba8e21ba8, type: 3}

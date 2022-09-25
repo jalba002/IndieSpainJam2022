@@ -1,29 +1,27 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace CosmosDefender.Bullets.Implementation
 {
     public class DashBullet : BaseBullet
     {
-        private IReadOnlyOffensiveData combatData;
-        private SpellData spellData;
         private Vector3 origin;
         private Transform firePoint;
         private PlayerMovementController playerMovement;
         private List<Collider> enemiesAlreadyHit = new List<Collider>();
 
-        public override void InstantiateBullet(Vector3 origin, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData, SpellData spellData)
+        public override void InstantiateBullet(Vector3 origin, Vector3 forward, Quaternion rotation,
+            IReadOnlyOffensiveData combatData,
+            SpellData spellData, ISpellCaster caster)
         {
-            this.spellData = spellData;
-            this.combatData = combatData;
+            base.InstantiateBullet(origin, forward, rotation, combatData, spellData, caster);
+
             Destroy(this.gameObject, spellData.Lifetime);
         }
 
         void FixedUpdate()
         {
-            CastRayDamage(transform.position, spellData.ProjectileRadius, raycastHitLayers);
+            CastRayDamage(caster.CastingPoint.position, spellData.ProjectileRadius, raycastHitLayers);
         }
 
         private void CastRayDamage(Vector3 origin, float radius, LayerMask layerMask)
@@ -35,7 +33,8 @@ namespace CosmosDefender.Bullets.Implementation
                 if (enemiesAlreadyHit.Contains(item))
                     continue;
 
-                AreaAttacksManager.DealDamageToCollisions<IDamageable>(item, combatData.AttackDamage * spellData.DamageMultiplier);
+                AreaAttacksManager.DealDamageToCollisions<IDamageable>(item,
+                    combatData.AttackDamage * spellData.DamageMultiplier);
                 enemiesAlreadyHit.Add(item);
             }
         }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace CosmosDefender
 {
-    [CreateAssetMenu(fileName = nameof(SpeedAdditiveTemporalModifier), menuName = "CosmosDefender/" + nameof(SpeedAdditiveTemporalModifier))]
+    [CreateAssetMenu(fileName = nameof(SpeedAdditiveTemporalModifier), menuName = "CosmosDefender/Modifiers/" + nameof(SpeedAdditiveTemporalModifier))]
     public class SpeedAdditiveTemporalModifier : BaseTemporalAttributeModifier
     {
         [SerializeField]

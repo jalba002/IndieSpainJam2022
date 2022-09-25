@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PillarObservers:
   - {fileID: 0}
-  Range: 17
-  EmpoweredDuration: 10
+  Range: 35
+  EmpoweredDuration: 30
   ActivateCost: 25
   EmpowerCost: 50

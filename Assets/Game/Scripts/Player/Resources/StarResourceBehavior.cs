@@ -23,7 +23,7 @@ namespace CosmosDefender
             resourceText.text = "Stars: " + (int)starResourceData.CurrentResource;
         }
 
-        public float GetCurrentResource()
+        public float GetCurrentResourceAmout()
         {
             return starResourceData.CurrentResource;
         }
@@ -45,6 +45,11 @@ namespace CosmosDefender
         public void IncreaseResourcePerSecond()
         {
             IncreaseResource(starResourceData.ResourceOverTime);
+        }
+
+        public ResourceData GetResourceData()
+        {
+            return starResourceData;
         }
     }
 }

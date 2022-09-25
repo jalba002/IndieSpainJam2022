@@ -34,5 +34,15 @@ namespace CosmosDefender
         {
             observer.SetSpellEmpowerState(pillarSpell, newState);
         }
+
+        public void OnGoddessActive(PillarObserver observer)
+        {
+            observer.SetSpellEmpowerState(pillarSpell, true);
+        }
+
+        public void OnGoddessUnactive(PillarObserver observer)
+        {
+            observer.SetSpellEmpowerState(pillarSpell, false);
+        }
     }
 }

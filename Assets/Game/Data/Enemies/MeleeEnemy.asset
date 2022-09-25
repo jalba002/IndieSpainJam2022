@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: MeleeEnemy
   m_EditorClassIdentifier: 
   MaxHealth: 100
-  Speed: 0
-  AttackDamage: 0
-  AttackRange: 0.5
-  AggroRange: 10
+  Speed: 5
+  attackDamage: 10
+  attackRange: 2
+  AggroRange: 15
   Defence: 0
   StarResourceOnDeath: 3
   GoddessResourceOnDeath: 1

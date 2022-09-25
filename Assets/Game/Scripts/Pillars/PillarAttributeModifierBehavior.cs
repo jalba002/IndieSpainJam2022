@@ -8,6 +8,25 @@ namespace CosmosDefender
         [SerializeField]
         private List<BaseAttributeModifier> attributeModifier = new List<BaseAttributeModifier>();
 
+        [SerializeField]
+        private List<BaseTemporalAttributeModifier> empoweredAttributeModifier = new List<BaseTemporalAttributeModifier>();
+
+        [SerializeField]
+        private List<BaseTemporalAttributeModifier> goddessAttributeModifier = new List<BaseTemporalAttributeModifier>();
+
+        public void OnGoddessActive(PillarObserver observer)
+        {
+            foreach (var item in goddessAttributeModifier)
+            {
+                observer.AddModifier(item);
+            }
+        }
+
+        public void OnGoddessUnactive(PillarObserver observer)
+        {
+            //Modifier is temporal, so no need to do anything on goddess mode becoming unactive
+        }
+
         public void OnObserverInRange(PillarObserver observer)
         {
             observer.AddModifiers(attributeModifier);
@@ -20,12 +39,19 @@ namespace CosmosDefender
 
         public void OnPillarActivate(PillarObserver observer)
         {
-            
+            observer.AddModifiers(attributeModifier);
         }
 
         public void SetPillarEmpowerState(PillarObserver observer, bool newState)
         {
-            Debug.Log("Empower State Not Implemented Yet!");
+            if (newState)
+            {
+                foreach (var item in empoweredAttributeModifier)
+                {
+                    Debug.Log("Empower!");
+                    observer.AddModifier(item);
+                }
+            }
         }
     }
 }

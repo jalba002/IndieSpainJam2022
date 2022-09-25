@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: CommanderEnemy
   m_EditorClassIdentifier: 
   MaxHealth: 300
-  Speed: 0
-  AttackDamage: 35
-  AttackRange: 1
-  AggroRange: 5
+  Speed: 2.5
+  attackDamage: 35
+  attackRange: 3
+  AggroRange: 12
   Defence: 5
   StarResourceOnDeath: 12
   GoddessResourceOnDeath: 1

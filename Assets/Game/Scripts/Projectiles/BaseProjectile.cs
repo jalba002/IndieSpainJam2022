@@ -1,4 +1,5 @@
 using UnityEngine;
+using FMODUnity;
 
 namespace CosmosDefender.Projectiles
 {
@@ -10,9 +11,14 @@ namespace CosmosDefender.Projectiles
 
         [SerializeField] protected Rigidbody m_Rigidbody;
 
-        public virtual void InitializeProjectile(Vector3 spawnPoint, IReadOnlyOffensiveData combatData, SpellData spellData)
+        [SerializeField] protected StudioEventEmitter startSound;
+        [SerializeField] protected StudioEventEmitter impactSound;
+        
+        public virtual void InitializeProjectile(Vector3 spawnPoint, Vector3 direction, IReadOnlyOffensiveData combatData, SpellData spellData)
         {
-            // A.
+            // A+J = Love for ever jj
+            if(startSound != null)
+                startSound.Play();
         }
 
         protected virtual void UpdateRenderer()

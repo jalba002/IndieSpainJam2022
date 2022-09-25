@@ -46,20 +46,39 @@ namespace CosmosDefender
             resourceTable[type].UpdateUI();
         }
 
-        public void SpendResource(ResourceType type, float cost)
+        /// <summary>
+        /// Returns false if cost is higher than the actual resource amount
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="cost"></param>
+        /// <returns></returns>
+        public bool SpendResource(ResourceType type, float cost)
         {
-            resourceTable[type].OnResourceSpent(cost);
-            resourceTable[type].UpdateUI();
+            if (HasEnoughResourceToSpend(type, cost))
+            {
+                resourceTable[type].OnResourceSpent(cost);
+                resourceTable[type].UpdateUI();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public bool HasEnoughResourceToSpend(ResourceType type, float cost)
         {
-            return resourceTable[type].GetCurrentResource() >= cost;
+            return resourceTable[type].GetCurrentResourceAmout() >= cost;
         }
 
         public float GetCurrentResource(ResourceType type)
         {
-            return resourceTable[type].GetCurrentResource();
+            return resourceTable[type].GetCurrentResourceAmout();
+        }
+
+        public ResourceData GetResourceData(ResourceType type)
+        {
+            return resourceTable[type].GetResourceData();
         }
     }
 
