@@ -17,10 +17,10 @@ public class WinMenu : MonoBehaviour
     //public StudioEventEmitter ClickSoundRef;
     public StudioEventEmitter BackgroundMusic;
 
-    private readonly string twitterNameParameter = "Check this amazing game made by @andrew_raya @JordiAlbaDev @Sergisggs @GuillemLlovDev @Belmontes_ART for the #MiniJam113 ! Here the link: ";
+    private readonly string twitterNameParameter = "Juega a este increible juego de @andrew_raaya @JordiAlbaDev @Sergisggs @GuillemLlovDev @Belmontes_ART @montane @ovillaloboss_ y @RenderingCode hecho para la #IndieSpainJam ! Aquí teneis el link:";
     private readonly string twitterDescriptionParam = "";
     private readonly string twitterAdress = "https://twitter.com/intent/tweet";
-    private readonly string miniGameJamLink = "https://andrew-raya.itch.io/serpent-blade";
+    private readonly string miniGameJamLink = "https://andrew-raya.itch.io/cosmic-defender";
 
     private void Start()
     {
