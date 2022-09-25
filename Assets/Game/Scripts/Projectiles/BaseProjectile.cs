@@ -1,4 +1,5 @@
 using UnityEngine;
+using FMODUnity;
 
 namespace CosmosDefender.Projectiles
 {
@@ -10,9 +11,13 @@ namespace CosmosDefender.Projectiles
 
         [SerializeField] protected Rigidbody m_Rigidbody;
 
+        [SerializeField] protected StudioEventEmitter meteorStart;
+        [SerializeField] protected StudioEventEmitter meteorImpact;
+        
         public virtual void InitializeProjectile(Vector3 spawnPoint, Vector3 direction, IReadOnlyOffensiveData combatData, SpellData spellData)
         {
-            // A.
+            // A+J = Love for ever jj
+            meteorStart.Play();
         }
 
         protected virtual void UpdateRenderer()

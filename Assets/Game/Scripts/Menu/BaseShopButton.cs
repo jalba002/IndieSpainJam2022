@@ -28,7 +28,8 @@ namespace CosmosDefender
         public void Show()
         {
             currentModifier = config.GetCurrentPurchaseable();
-            buttonDisplay.ShowConfig(currentModifier);
+            var currentIndex = config.GetCurrentPurchaseIndex();
+            buttonDisplay.ShowConfig(currentModifier, currentIndex + 1);
         }
 
         public void OnClick()

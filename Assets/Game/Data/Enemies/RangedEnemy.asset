@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: RangedEnemy
   m_EditorClassIdentifier: 
   MaxHealth: 80
-  Speed: 0
-  attackDamage: 20
-  attackRange: 0
+  Speed: 4
+  attackDamage: 30
+  attackRange: 10
   AggroRange: 20
   Defence: 0
   StarResourceOnDeath: 3

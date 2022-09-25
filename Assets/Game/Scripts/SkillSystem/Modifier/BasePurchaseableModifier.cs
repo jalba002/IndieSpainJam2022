@@ -21,6 +21,7 @@ namespace CosmosDefender
         public T GetCurrentPurchaseable() => IsModifierCompletelyPurchased() ? modifers[modifers.Count - 1] : modifers[shopData.purchasedModifiersCount];
 
         public bool IsModifierCompletelyPurchased() => shopData.purchasedModifiersCount == modifers.Count;
+        public int GetCurrentPurchaseIndex() => shopData.purchasedModifiersCount;
 
         public void AddUniqueModifierToPurchase(T modifier)
         {
