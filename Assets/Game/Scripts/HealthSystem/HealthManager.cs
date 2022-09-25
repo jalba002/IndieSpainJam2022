@@ -1,3 +1,4 @@
+using System;
 using CosmosDefender;
 using Sirenix.OdinInspector;
 using System.Collections;
@@ -6,21 +7,24 @@ using UnityEngine;
 public class HealthManager : MonoBehaviour, IDamageable
 {
     public float MaxHealth = 100f;
-    [SerializeField]protected float currentHealth;
+    [SerializeField] protected float currentHealth;
 
     protected bool isInvulnerable = false;
     protected Coroutine invulnerableCoroutine;
+
+    public Action<float, float> OnDamageTaken;
 
     public virtual void Start()
     {
         currentHealth = MaxHealth;
     }
-    
+
     public void IncreaseHealth(float value)
     {
         currentHealth += value;
         currentHealth = Mathf.Clamp(currentHealth, 0f, MaxHealth);
     }
+
     [Button]
     public void DecreaseHealth10()
     {
@@ -69,7 +73,11 @@ public class HealthManager : MonoBehaviour, IDamageable
         isInvulnerable = false;
     }
 
-    public virtual void Die() { }
+    public virtual void Die()
+    {
+    }
 
-    public virtual void DamageFeedback() { }
+    public virtual void DamageFeedback()
+    {
+    }
 }
