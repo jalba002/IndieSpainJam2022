@@ -17,7 +17,7 @@ namespace CosmosDefender
 
         private float timeToCast;
 
-        private List<EnemyAI> hitEnemies;
+        public int priority = 0;
         private void Start()
         {
             timeToCast = Time.time + delay;
@@ -40,7 +40,7 @@ namespace CosmosDefender
             var a = AreaAttacksManager.SphereOverlap(transform.position, radius, enemyLayer);
             foreach (var enemy in a)
             {
-                enemy.GetComponent<EnemyAI>().Alert(this.gameObject.transform);
+                enemy.GetComponent<EnemyAI>().Alert(this);
             }
         }
     }

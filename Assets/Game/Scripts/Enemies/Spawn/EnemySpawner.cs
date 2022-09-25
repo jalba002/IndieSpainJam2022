@@ -18,6 +18,7 @@ public class EnemySpawner : MonoBehaviour
     private EconomyConfig economyConfig;
 
     private int currentWaveEnemies = 0;
+    private bool firstPillarActivated = false;
 
     void Start()
     {
@@ -36,6 +37,14 @@ public class EnemySpawner : MonoBehaviour
         {
             Debug.Log("Game finished");
         }
+    }
+
+    public void PillarActivated()
+    {
+        if (firstPillarActivated)
+            return;
+
+        StartNextWave();
     }
 
     public void DecreaseCurrentEnemyCounter()

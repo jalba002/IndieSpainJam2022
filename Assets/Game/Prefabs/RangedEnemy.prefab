@@ -2834,6 +2834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypointReachedRadius: 2
+  data: {fileID: 11400000, guid: 02be1a9cdab5bdf49bcffc85b462b953, type: 2}
 --- !u!114 &-994680194147940822
 MonoBehaviour:
   m_ObjectHideFlags: 0

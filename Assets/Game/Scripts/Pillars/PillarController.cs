@@ -26,6 +26,8 @@ namespace CosmosDefender
         private ResourceConfig starResourceData;
 
         private ResourceManager resourceManager;
+        [SerializeField]
+        private EnemySpawner enemySpawner;
 
         private void OnDrawGizmosSelected()
         {
@@ -90,6 +92,7 @@ namespace CosmosDefender
             if (CanBeActivated(ResourceType.Stars))
             {
                 resourceManager.DecreaseResource(ResourceType.Stars, PillarConfig.ActivateCost);
+                enemySpawner.PillarActivated();
                 foreach (var pillar in pillarObserverModifiers)
                 {
                     foreach (var observer in PillarConfig.PillarObservers)

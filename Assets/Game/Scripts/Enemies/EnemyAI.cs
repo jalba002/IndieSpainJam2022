@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -32,19 +33,11 @@ namespace CosmosDefender
         private float timeToAttack = 0f;
 
         [SerializeField] private PathFollower path;
-
-        private void Start()
-        {
-            agent.updateRotation = true;
-            agent.speed = data.Speed;
-            agent.stoppingDistance = data.attackRange * 0.25f;
-            //agent.isStopped = true;
-            //agent.updateRotation = false;
-        }
+        private EnemyAlerter currentAlerter;
+        private bool isAttacking = false;
 
         private void Update()
         {
-            Animator.SetFloat("Speed", agent.isStopped ? 0f : agent.velocity.magnitude / agent.speed);
             UpdateAI();
         }
 
@@ -57,6 +50,11 @@ namespace CosmosDefender
 
             if (chasingTarget != null)
             {
+                if (isAttacking == false)
+                {
+                    path.ReturnToPath();
+                }
+
                 Vector3 enemyDirection = (chasingTarget.position - transform.position);
                 if (Vector3.Distance(transform.position, chasingTarget.position) >= data.attackRange)
                 {
@@ -90,12 +88,17 @@ namespace CosmosDefender
             Attack();
             // apply cooldown.
             timeToAttack = Time.time + attack.spellData.Cooldown;
-            CronoScheduler.Instance.ScheduleForTime(attack.spellData.Cooldown, () => { agent.updatePosition = true; });
+            CronoScheduler.Instance.ScheduleForTime(attack.spellData.ActiveDuration, () => 
+            { 
+                isAttacking = false;
+            });
         }
 
         [Button]
         void Attack()
         {
+            isAttacking = true;
+            path.StopFollowingPath();
             attack.UpdateCurrentData();
             // Raycast anyway to rotate to player.
             Quaternion targetRotation = transform.rotation;
@@ -107,13 +110,13 @@ namespace CosmosDefender
             }
 
             attack.Cast(attackOrigin.position, transform.forward, targetRotation, data, this);
-            agent.updatePosition = false;
         }
 
-        public void Alert(Transform who)
+        public void Alert(EnemyAlerter alerter)
         {
+            if(currentAlerter != null && currentAlerter.priority > alerter.priority)
             // When the player gets nearby it will notice the enemies around him.
-            chasingTarget = who;
+            chasingTarget = alerter.transform;
             //agent.isStopped = false;
         }
     }
