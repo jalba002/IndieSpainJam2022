@@ -4887,4 +4887,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   rayToGroundDistance: 10
+  soundsFMOD: {fileID: 0}
   particleSys: {fileID: 1546156436795791940}

@@ -4939,6 +4939,8 @@ GameObject:
   - component: {fileID: 8828071469463868863}
   - component: {fileID: 8828071469463868856}
   - component: {fileID: 8828071469463868859}
+  - component: {fileID: 7646555926291285299}
+  - component: {fileID: -6141810237484339239}
   m_Layer: 0
   m_Name: Meteor
   m_TagString: Untagged
@@ -4953,7 +4955,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8828071469463868862}
-  m_LocalRotation: {x: -0.0036703248, y: 0.007867948, z: 0.00089338695, w: 0.9999619}
+  m_LocalRotation: {x: -0.0036669984, y: 0.007865719, z: 0.0008927479, w: 0.999962}
   m_LocalPosition: {x: 0.78, y: 12.93, z: 3.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5056,6 +5058,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Collider: {fileID: 8828071469463868863}
   m_Rigidbody: {fileID: 8828071469463868856}
+  meteorStart: {fileID: 7646555926291285299}
+  meteorImpact: {fileID: -6141810237484339239}
   vfx: {fileID: 8828071467763602704}
   particles: {fileID: 8828071467901376603}
   mrend: {fileID: 8828071469463868860}
+--- !u!114 &7646555926291285299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8828071469463868862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 646660364
+      Data2: 1264124812
+      Data3: 345830542
+      Data4: -1971111348
+    Path: event:/SFX/Player/Meteoritico_Cae
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 5
+  OverrideMaxDistance: 50
+--- !u!114 &-6141810237484339239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8828071469463868862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 584910411
+      Data2: 1149407498
+      Data3: 1924837040
+      Data4: 1386383243
+    Path: event:/SFX/Player/Meteorito_Impacta 1
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 5
+  OverrideMaxDistance: 50

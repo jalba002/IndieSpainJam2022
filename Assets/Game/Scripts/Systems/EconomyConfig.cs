@@ -12,6 +12,8 @@ namespace CosmosDefender
         [SerializeField]
         private EconomyData economy;
 
+        public Action<int> OnMoneyUpdated;
+
         public void Initialize()
         {
             Load();
@@ -31,15 +33,16 @@ namespace CosmosDefender
             Save();
         }
 
-        public float GetMoney() => economy.money;
+        public int GetMoney() => economy.money;
 
         private void Load()
         {
-            economy = JsonUtility.FromJson<EconomyData>(PlayerPrefs.GetString(EconomyKey, ""));
+            economy = JsonUtility.FromJson<EconomyData>(PlayerPrefs.GetString(EconomyKey, "{}"));
         }
 
         private void Save()
         {
+            OnMoneyUpdated?.Invoke(economy.money);
             PlayerPrefs.SetString(EconomyKey, JsonUtility.ToJson(economy));
         }
     }
