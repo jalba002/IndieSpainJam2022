@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Sirenix.Utilities;
 using UnityEngine;
+using UnityEngine.UI.ProceduralImage;
 
 namespace CosmosDefender
 {
@@ -18,7 +19,8 @@ namespace CosmosDefender
 
         [SerializeField] private RectTransform goddessPosition;
 
-        private Dictionary<CosmosSpell, HUDAbility> instantiatedHudAbilities = new Dictionary<CosmosSpell, HUDAbility>();
+        private Dictionary<CosmosSpell, HUDAbility>
+            instantiatedHudAbilities = new Dictionary<CosmosSpell, HUDAbility>();
 
         private List<RectTransform> availablePos;
 
@@ -34,12 +36,16 @@ namespace CosmosDefender
             playerAtts.OnSpellAdded += AddSpell;
             playerAtts.OnSpellUpdated += UpdateSpell;
 
-            FindObjectOfType<SpellManager>().OnSpellCasted += ApplyCooldown; 
-            
+            FindObjectOfType<SpellManager>().OnSpellCasted += ApplyCooldown;
+
+            FindObjectOfType<PlayerHealthManager>().OnDamageTaken += UpdateLife;
+
+            FindObjectOfType<CoreHealthManager>().OnDamageTaken += UpdateCoreLife;
+
             availablePos = new List<RectTransform>();
             availablePos.AddRange(abilityPositions);
         }
-        
+
         void AddSpell(CosmosSpell newSpell)
         {
             if (availablePos.Count <= 0)
@@ -59,7 +65,7 @@ namespace CosmosDefender
             instantiatedHudAbilities.TryGetValue(spell, out HUDAbility hudReference);
 
             if (hudReference == null) return;
-            
+
             hudReference.UpdateVisual(spell.GetSpell().spellData.AbilityIcon);
             hudReference.ApplyVisualCooldown(0f);
         }
@@ -69,44 +75,24 @@ namespace CosmosDefender
             var a = instantiatedHudAbilities.Keys.ToList();
             var b = a.Find(x => x.GetSpell().spellData.GetHashCode() == spell.spellData.GetHashCode());
             instantiatedHudAbilities.TryGetValue(b, out HUDAbility hudReference);
-            
+
             if (hudReference == null) return;
 
             hudReference.ApplyVisualCooldown(spell.spellData.Cooldown);
         }
 
-        // void InstantiateAllSpells()
-        // {
-        //     var spells = playerAtts.GetAllSpells();
-        //     for (int i = 0; i < spells.Count; i++)
-        //     {
-        //         var spell = spells[i].GetSpell();
-        //         //spell.UpdateCurrentData();
-        //
-        //         var hudInstance = Instantiate(abilityPrefab, abilityPositions[i].position, Quaternion.identity,
-        //             this.transform);
-        //         instantiatedHudAbilities.Add(hudInstance);
-        //         hudInstance.UpdateVisual(spell.spellData.AbilityIcon);
-        //     }
-        //
-        //     var goddessInstance =
-        //         Instantiate(abilityPrefab, goddessPosition.position, Quaternion.identity, this.transform);
-        //     instantiatedHudAbilities.Add(goddessInstance);
-        //     //goddessInstance.UpdateVisual(); // Goddess mode.
-        // }
+        [Header("Game")] [SerializeField] private ProceduralImage life;
 
-        public void PlaceOnCooldown(SpellKeyType spellKey)
+        public void UpdateLife(float currentHealth, float maxHealth)
         {
-            if (!playerAtts.HasSpellKey(spellKey))
-                return;
+            life.fillAmount = currentHealth / maxHealth;
+        }
 
-            var selectedSpell = playerAtts.GetSpell(spellKey);
-
-            // When having the selected spell, cycle through all HUDAbilty
-            // Then call .applyCooldown on it.
-            // The rest will do itself.
-
-            // When an update comes, update with time so.
+        [SerializeField] private ProceduralImage coreLife;
+        
+        public void UpdateCoreLife(float currentHealth, float maxHealth)
+        {
+            coreLife.fillAmount = currentHealth / maxHealth;
         }
     }
 }

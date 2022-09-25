@@ -10,57 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84fc8c7d9a30a4a4a8cd7dd4821f4fb9, type: 3}
-  m_Name: Wave001
+  m_Name: Wave002
   m_EditorClassIdentifier: 
-  timeBetweenEnemySpawn: 3.5
+  timeBetweenEnemySpawn: 3
   timeForNextWave: 20
   EnemyConfig:
   - enemyType: 0
+    pathToFollow: 0
+  - enemyType: 0
+    pathToFollow: 0
+  - enemyType: 0
+    pathToFollow: 0
+  - enemyType: 0
+    pathToFollow: 0
+  - enemyType: 2
     pathToFollow: 1
-  - enemyType: 0
-    pathToFollow: 1
-  - enemyType: 1
-    pathToFollow: 1
-  - enemyType: 0
-    pathToFollow: 2
-  - enemyType: 0
-    pathToFollow: 2
-  - enemyType: 0
-    pathToFollow: 0
-  - enemyType: 0
-    pathToFollow: 0
-  - enemyType: 0
-    pathToFollow: 0
-  - enemyType: 1
-    pathToFollow: 2
-  - enemyType: 0
-    pathToFollow: 2
-  - enemyType: 1
-    pathToFollow: 2
-  - enemyType: 0
-    pathToFollow: 0
-  - enemyType: 0
-    pathToFollow: 0
-  - enemyType: 1
-    pathToFollow: 1
-  - enemyType: 1
-    pathToFollow: 2
-  - enemyType: 0
-    pathToFollow: 0
-  - enemyType: 1
-    pathToFollow: 0
-  - enemyType: 0
-    pathToFollow: 1
-  - enemyType: 0
-    pathToFollow: 1
-  - enemyType: 0
-    pathToFollow: 2
-  - enemyType: 1
-    pathToFollow: 2
-  - enemyType: 1
-    pathToFollow: 2
-  - enemyType: 1
-    pathToFollow: 2
   - enemyType: 0
     pathToFollow: 1
   - enemyType: 0
@@ -70,9 +34,51 @@ MonoBehaviour:
   - enemyType: 1
     pathToFollow: 1
   - enemyType: 0
+    pathToFollow: 1
+  - enemyType: 0
+    pathToFollow: 1
+  - enemyType: 0
+    pathToFollow: 2
+  - enemyType: 0
+    pathToFollow: 2
+  - enemyType: 2
+    pathToFollow: 2
+  - enemyType: 0
+    pathToFollow: 2
+  - enemyType: 0
+    pathToFollow: 2
+  - enemyType: 0
+    pathToFollow: 2
+  - enemyType: 0
+    pathToFollow: 2
+  - enemyType: 2
+    pathToFollow: 1
+  - enemyType: 1
+    pathToFollow: 1
+  - enemyType: 0
+    pathToFollow: 1
+  - enemyType: 0
+    pathToFollow: 1
+  - enemyType: 1
+    pathToFollow: 1
+  - enemyType: 0
+    pathToFollow: 1
+  - enemyType: 0
+    pathToFollow: 0
+  - enemyType: 0
     pathToFollow: 0
   - enemyType: 1
     pathToFollow: 0
+  - enemyType: 2
+    pathToFollow: 0
+  - enemyType: 0
+    pathToFollow: 0
+  - enemyType: 0
+    pathToFollow: 0
+  - enemyType: 2
+    pathToFollow: 0
   - enemyType: 1
     pathToFollow: 0
-  ShopCoinReward: 35
+  - enemyType: 0
+    pathToFollow: 0
+  ShopCoinReward: 40
