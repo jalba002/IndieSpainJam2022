@@ -50,12 +50,17 @@ public class EnemySpawner : MonoBehaviour
     public void DecreaseCurrentEnemyCounter()
     {
         currentWaveEnemies--;
-        economyConfig.AddMoney(waveConfigs[currentWave].ShopCoinReward);
 
         if (currentWaveEnemies <= 0)
         {
-            StartCoroutine(NextWaveTimerCoroutine(waveConfigs[currentWave].timeForNextWave));
+            FinishWave();
         }
+    }
+
+    private void FinishWave()
+    {
+        economyConfig.AddMoney(waveConfigs[currentWave].ShopCoinReward);
+        StartCoroutine(NextWaveTimerCoroutine(waveConfigs[currentWave].timeForNextWave));
     }
 
     IEnumerator EnemySpawnCoroutine(WaveConfig currentWaveConfig)
