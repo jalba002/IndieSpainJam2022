@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MediumCooldownPurchase
   m_EditorClassIdentifier: 
   description: Reduce el enfriamiento de las habilidades un 25%
-  thumbnail: {fileID: 21300000, guid: 5a984bff39e031944bdd8fc5ae443bd8, type: 3}
+  thumbnail: {fileID: 21300000, guid: c9a52ee326d1c324d81b5378e5cb441b, type: 3}
   price: 100
   canBePurchase: 1
   modifier: {fileID: 11400000, guid: 843fed7c13f2a6347814ccb9986a3708, type: 2}

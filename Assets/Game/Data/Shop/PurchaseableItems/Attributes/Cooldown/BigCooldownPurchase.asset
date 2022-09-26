@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BigCooldownPurchase
   m_EditorClassIdentifier: 
   description: Reduce el enfriamiento de las habilidades un 40%
-  thumbnail: {fileID: 21300000, guid: 5a984bff39e031944bdd8fc5ae443bd8, type: 3}
+  thumbnail: {fileID: 21300000, guid: f92781eb0a9137b40a7bfd672f5ed10f, type: 3}
   price: 150
   canBePurchase: 1
   modifier: {fileID: 11400000, guid: ae8c9305b8e8e5c4cbe0acc4a54ee44e, type: 2}
