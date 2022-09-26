@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ArcSpellWeak
   m_EditorClassIdentifier: 
   baseData:
-    spellType: 1
+    spellType: 32
     castType: 2
     damageMultiplier: 0.85
     cooldown: 4

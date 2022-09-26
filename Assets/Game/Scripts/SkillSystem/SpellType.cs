@@ -14,6 +14,7 @@ namespace CosmosDefender
         TornadoEmpowered = Tornado + Empowered,
         DashEmpowered = Dash + Empowered,
         Empowered = 1 << 4,
-        All = ~(1 << 5)
+        Thunder = 1 << 5,
+        All = ~(1 << 6)
     }
 }

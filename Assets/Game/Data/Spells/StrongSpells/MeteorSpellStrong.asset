@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MeteorSpellStrong
   m_EditorClassIdentifier: 
   baseData:
-    spellType: 2
+    spellType: 18
     castType: 1
     damageMultiplier: 2
     cooldown: 4
