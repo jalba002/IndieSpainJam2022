@@ -120,7 +120,7 @@ public class GameManager : MonoSingleton<GameManager>
             endScreenText.text = "Has perdido";
         }
 
-        endScreenSubtext.text = $"Tienes <color=green>{economyConfig.GetMoney()}</color> monedas acumuladas.\n\nPuedes gastarlas en <color=orange>mejoras permanentes</color> en la <color=yellow>tienda del men� principal</color>.";
+        endScreenSubtext.text = $"Tienes <color=green>{economyConfig.GetMoney()}</color> fragmentos cósmicos acumulados.\n\nPuedes gastarlas en <color=orange>mejoras permanentes</color> en la <color=yellow>tienda del men� principal</color>.";
     }
 
     public void ActivateGoddessMode()
