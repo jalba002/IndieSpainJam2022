@@ -96,8 +96,8 @@ public class GameManager : MonoSingleton<GameManager>
         }
 
         if (hasActivatedBasicTutorial) return;
-        Save(nameof(hasActivatedBasicTutorial), hasActivatedBasicTutorial = true);
         TutorialPopUpManager.Instance.ActivateTutorial(basicTutorial, 3f);
+        Save(nameof(hasActivatedBasicTutorial), hasActivatedBasicTutorial = true);
     }
 
     [Button]
@@ -113,7 +113,7 @@ public class GameManager : MonoSingleton<GameManager>
         Time.timeScale = 0f;
         if (gameWon)
         {
-            endScreenText.text = "�Has ganado!";
+            endScreenText.text = "¡Has ganado!";
         }
         else
         {

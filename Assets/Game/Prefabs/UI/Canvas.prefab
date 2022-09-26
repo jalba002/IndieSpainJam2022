@@ -1741,7 +1741,7 @@ PrefabInstance:
       objectReference: {fileID: 8607176488208367809}
     - target: {fileID: 1506308199812393379, guid: eef1bf7775e638e4e80f54e9152e6d10, type: 3}
       propertyPath: m_text
-      value: 161
+      value: 635
       objectReference: {fileID: 0}
     - target: {fileID: 2026498885912690582, guid: eef1bf7775e638e4e80f54e9152e6d10, type: 3}
       propertyPath: amountOfZeroes

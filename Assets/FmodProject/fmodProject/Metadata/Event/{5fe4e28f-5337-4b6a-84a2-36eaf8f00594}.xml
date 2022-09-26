@@ -61,6 +61,12 @@
 		<property name="maxVoices">
 			<value>5</value>
 		</property>
+		<property name="minimumDistance">
+			<value>7</value>
+		</property>
+		<property name="maximumDistance">
+			<value>60</value>
+		</property>
 	</object>
 	<object class="MarkerTrack" id="{690e712c-c14d-4ce3-8039-8bc224cb87d4}" />
 	<object class="GroupTrack" id="{7904b8ad-a67e-46b5-bcb1-003668eccd8b}">
@@ -170,7 +176,17 @@
 	</object>
 	<object class="MixerBusPanner" id="{52cc3d69-dce5-4cce-8d7e-3f0d64b7e06a}" />
 	<object class="MixerBusFader" id="{6b647280-b222-4811-9341-dcb53d9d5ff6}" />
-	<object class="SpatialiserEffect" id="{d52fde3d-b670-4f7a-86e9-02af4055fb31}" />
+	<object class="SpatialiserEffect" id="{d52fde3d-b670-4f7a-86e9-02af4055fb31}">
+		<property name="distanceRolloffType">
+			<value>1</value>
+		</property>
+		<property name="minimumDistance">
+			<value>7</value>
+		</property>
+		<property name="maximumDistance">
+			<value>60</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{d5ab0c17-47f3-4f24-8145-e02a0e0317ee}" />
 	<object class="MixerBusFader" id="{e96a1005-f138-434f-a5c6-3ab550b22923}" />
 </objects>

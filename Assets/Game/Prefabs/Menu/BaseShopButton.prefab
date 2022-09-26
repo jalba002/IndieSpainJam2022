@@ -661,6 +661,8 @@ MonoBehaviour:
   price: {fileID: 8049154145331135243}
   level: {fileID: 8049154147206851111}
   descriptionPanel: {fileID: 8736937062599315340}
+  validPurchase: {r: 0.92941177, g: 0.73333335, b: 0.23921569, a: 1}
+  invalidPurchase: {r: 0.7372549, g: 0.047058824, b: 0.05490196, a: 1}
 --- !u!1001 &8372496484007639230
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -791,8 +793,24 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1983064044355468213, guid: 8c354e2dcc6dc3246b3cc99f3a7f7136, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.05175458
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983064044355468213, guid: 8c354e2dcc6dc3246b3cc99f3a7f7136, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.045122836
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983064044355468213, guid: 8c354e2dcc6dc3246b3cc99f3a7f7136, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.735849
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983064044355468213, guid: 8c354e2dcc6dc3246b3cc99f3a7f7136, type: 3}
       propertyPath: m_enableAutoSizing
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983064044355468213, guid: 8c354e2dcc6dc3246b3cc99f3a7f7136, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4279045308
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c354e2dcc6dc3246b3cc99f3a7f7136, type: 3}

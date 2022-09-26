@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace CosmosDefender
 {
-    public class BaseShopButton<TPurchase, T, T1, T2, T3> : MonoBehaviour
+    public class BaseShopButton<TPurchase, T, T1, T2, T3> : MonoBehaviour, IShopButton
         where TPurchase : BasePurchaseableModifier<T, T1, T2, T3>
         where T : PurchaseableModifierData<T1, T2, T3>
         where T1 : BaseModifier<T2, T3>
@@ -29,7 +29,7 @@ namespace CosmosDefender
         {
             currentModifier = config.GetCurrentPurchaseable();
             var currentIndex = config.GetCurrentPurchaseIndex();
-            buttonDisplay.ShowConfig(currentModifier, currentIndex + 1);
+            buttonDisplay.ShowConfig(currentModifier, currentIndex + 1, economyConfig.GetMoney());
         }
 
         public void OnClick()
