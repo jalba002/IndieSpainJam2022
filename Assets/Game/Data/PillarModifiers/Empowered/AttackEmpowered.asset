@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c79d53d60ca03348b184dbc81159f4a, type: 3}
   m_Name: AttackEmpowered
   m_EditorClassIdentifier: 
-  buffSprite: {fileID: 0}
+  buffSprite: {fileID: 21300000, guid: d0c48eb8e1196334796ceee635034b5c, type: 3}
   priority: 0
   time: 30
-  additiveDamage: 1.5
+  additiveDamage: 30

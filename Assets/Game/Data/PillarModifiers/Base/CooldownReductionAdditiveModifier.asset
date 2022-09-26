@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aab38605da317a4390bf00409790cb8, type: 3}
   m_Name: CooldownReductionAdditiveModifier
   m_EditorClassIdentifier: 
+  buffSprite: {fileID: 21300000, guid: 45c0f4ada1e1d6948ac692901782377d, type: 3}
   priority: 1
   additiveCooldownReduction: 10
