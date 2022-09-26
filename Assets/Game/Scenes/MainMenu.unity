@@ -4870,6 +4870,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3149647630335189062, guid: c247d19cd3e9b59459116f0dd3ef5985, type: 3}
+      propertyPath: m_ScrollSensitivity
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 3590736257479444391, guid: c247d19cd3e9b59459116f0dd3ef5985, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

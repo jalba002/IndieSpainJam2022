@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SpeedDashLv3
   m_EditorClassIdentifier: 
   description: Incremento grande de velodidad de la embestida
-  thumbnail: {fileID: 0}
+  thumbnail: {fileID: 21300000, guid: 3f119e8f2c0934342aa127589ed32cc4, type: 3}
   price: 150
   canBePurchase: 1
   modifier: {fileID: 11400000, guid: 984e58d1764f50d47882ee2ddf0398d6, type: 2}
