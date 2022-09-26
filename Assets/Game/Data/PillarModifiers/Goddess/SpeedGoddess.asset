@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474df879a51b6f2498990963f6ab9131, type: 3}
   m_Name: SpeedGoddess
   m_EditorClassIdentifier: 
+  buffSprite: {fileID: 21300000, guid: 4501a68a3385b6f458efca1cf36e0ca5, type: 3}
   priority: 1
   time: 10
   additiveSpeed: 12

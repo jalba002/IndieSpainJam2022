@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13fe345a83ccbf94e9fa686fa5cddbdf, type: 3}
   m_Name: CooldownReductionEmpowered
   m_EditorClassIdentifier: 
+  buffSprite: {fileID: 21300000, guid: 45c0f4ada1e1d6948ac692901782377d, type: 3}
   priority: 1
   time: 30
   cooldownReductionAdditive: 30

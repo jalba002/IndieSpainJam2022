@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9acb173906a6fe046ae659476286bfb2, type: 3}
   m_Name: StrongPercentageAttack
   m_EditorClassIdentifier: 
+  buffSprite: {fileID: 21300000, guid: d0c48eb8e1196334796ceee635034b5c, type: 3}
   priority: 1
   additivePercentage: 80
