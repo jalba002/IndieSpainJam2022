@@ -84,7 +84,7 @@ namespace CosmosDefender
             hudReference.UpdateCooldownValues(0f, spell.GetSpell().spellData.Cooldown);
         }
 
-        void ApplyCooldown(ISpell spell)
+        void ApplyCooldown(ISpell spell, float cooldown)
         {
             var a = instantiatedHudAbilities.Keys.ToList();
             var b = a.Find(x => x.GetSpell().spellData.GetHashCode() == spell.spellData.GetHashCode());
@@ -93,7 +93,7 @@ namespace CosmosDefender
 
             if (hudReference == null) return;
 
-            hudReference.SetCooldown(spell.spellData.Cooldown);
+            hudReference.SetCooldown(cooldown);
         }
 
         [Header("Game")] [SerializeField] private ProceduralImage life;
