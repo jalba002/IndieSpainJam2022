@@ -78,9 +78,4 @@ public class WinMenu : MonoBehaviour
     {
         Application.OpenURL(twitterAdress + "?text=" + UnityWebRequest.EscapeURL(twitterNameParameter + "\n" + twitterDescriptionParam + "\n" + miniGameJamLink));
     }
-
-    private void OnEnable()
-    {
-        moneyText.text = $"Tienes <color=green>{GameManager.Instance.economyConfig.GetMoney()}</color> monedas acumuladas.\n\nPuedes gastarlas en <color=orange>mejoras permanentes</color> en la <color=yellow>tienda del menú principal</color>.";
-    }
 }

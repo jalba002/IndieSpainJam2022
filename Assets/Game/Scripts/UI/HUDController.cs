@@ -99,7 +99,7 @@ namespace CosmosDefender
         [Header("Game")] [SerializeField] private ProceduralImage life;
         bool isHealthDecreasing = false;
         Coroutine healthDecreaseCoroutine;
-        private float previousHealth;
+        private float previousHealth = 1000f;
 
         public void UpdateLife(float currentHealth, float maxHealth)
         {
@@ -113,47 +113,20 @@ namespace CosmosDefender
                 {
                     StopCoroutine(healthDecreaseCoroutine);
                 }
-
-                healthDecreaseCoroutine =
-                    StartCoroutine(DecreaseLerpCoroutine(currentHealth / maxHealth, -50f, 0, life));
+                isHealthDecreasing = true;
+                healthDecreaseCoroutine = StartCoroutine(DecreaseLerpCoroutine(currentHealth / maxHealth, 2f, life, () => isHealthDecreasing = false));
             }
 
             previousHealth = currentHealth;
         }
 
-        [SerializeField] private ProceduralImage coreLife;
-
-        public void UpdateCoreLife(float currentHealth, float maxHealth)
+        IEnumerator DecreaseLerpCoroutine(float end, float speed, ProceduralImage healthImage, Action healthDecreasing)
         {
-            if (currentHealth >= previousHealth && !isHealthDecreasing)
-            {
-                coreLife.fillAmount = currentHealth / maxHealth;
-            }
-            else
-            {
-                if (healthDecreaseCoroutine != null)
-                {
-                    StopCoroutine(healthDecreaseCoroutine);
-                }
-
-                healthDecreaseCoroutine =
-                    StartCoroutine(DecreaseLerpCoroutine(currentHealth / maxHealth, -50f, 0, life));
-            }
-
-            previousHealth = currentHealth;
-            coreLife.fillAmount = currentHealth / maxHealth;
-        }
-
-        IEnumerator DecreaseLerpCoroutine(float end, float speed, float delay, ProceduralImage healthImage)
-        {
-            isHealthDecreasing = true;
             float preChangeValue = healthImage.fillAmount;
-
-            yield return new WaitForSeconds(delay);
 
             while (preChangeValue > end)
             {
-                preChangeValue += Time.deltaTime * speed;
+                preChangeValue -= Time.deltaTime * speed;
                 healthImage.fillAmount = preChangeValue;
 
                 yield return null;
@@ -161,7 +134,31 @@ namespace CosmosDefender
 
             healthImage.fillAmount = end;
 
-            isHealthDecreasing = false;
+            healthDecreasing?.Invoke();
+        }
+
+        [SerializeField] private ProceduralImage coreLife;
+        bool isCoreHealthDecreasing = false;
+        Coroutine coreHealthDecreaseCoroutine;
+        private float corePreviousHealth = 1000f;
+
+        public void UpdateCoreLife(float currentHealth, float maxHealth)
+        {
+            if (currentHealth >= corePreviousHealth && !isCoreHealthDecreasing)
+            {
+                coreLife.fillAmount = currentHealth / maxHealth;
+            }
+            else
+            {
+                if (coreHealthDecreaseCoroutine != null)
+                {
+                    StopCoroutine(coreHealthDecreaseCoroutine);
+                }
+                isCoreHealthDecreasing = true;
+                coreHealthDecreaseCoroutine = StartCoroutine(DecreaseLerpCoroutine(currentHealth / maxHealth, 2f, coreLife, () => isCoreHealthDecreasing = false));
+            }
+
+            corePreviousHealth = currentHealth;
         }
 
         [Header("Waves")] [SerializeField] private TMP_Text nextWaveTimer;

@@ -28,6 +28,9 @@ public class GameManager : MonoSingleton<GameManager>
     private CanvasFadeIn endScreen;
     [SerializeField]
     private TextMeshProUGUI endScreenText;
+    [SerializeField]
+    private TextMeshProUGUI endScreenSubtext;
+
     private PlayerInputs playerMenuInputs;
 
     public bool hasActivatedFirstPasivePillar;
@@ -77,12 +80,14 @@ public class GameManager : MonoSingleton<GameManager>
         Time.timeScale = 0f;
         if (gameWon)
         {
-            endScreenText.text = "Has ganado...\nPor ahora";
+            endScreenText.text = "¡Has ganado!";
         }
         else
         {
-            endScreenText.text = "Has muerto...";
+            endScreenText.text = "Has perdido";
         }
+
+        endScreenSubtext.text = $"Tienes <color=green>{economyConfig.GetMoney()}</color> monedas acumuladas.\n\nPuedes gastarlas en <color=orange>mejoras permanentes</color> en la <color=yellow>tienda del menú principal</color>.";
     }
 
     public void ActivateGoddessMode()

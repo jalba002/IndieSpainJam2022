@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d176b54a835e0d940b035cf19a0557f2, type: 3}
   m_Name: SmallSpellSizeIncreaserModifier
   m_EditorClassIdentifier: 
+  buffSprite: {fileID: 0}
   priority: 0
-  spellType: -33
-  timesBigger: 0.2
+  spellType: -62
+  timesBigger: 1.5

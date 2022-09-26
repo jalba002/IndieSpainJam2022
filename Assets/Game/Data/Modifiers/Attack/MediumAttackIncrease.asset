@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buffSprite: {fileID: 21300000, guid: 0fd84a6f87b6dc44990cfe48594a3751, type: 3}
   priority: 0
-  additiveDamage: 50
+  additiveDamage: 15

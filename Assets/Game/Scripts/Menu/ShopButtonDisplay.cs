@@ -28,7 +28,7 @@ namespace CosmosDefender
             image.sprite = displayer.Thumbnail;
             description.text = displayer.Description;
             price.text = !displayer.CanBePurchased ? "None" : displayer.Price.ToString();
-            this.level.text = level.ToString();
+            this.level.text = !displayer.CanBePurchased ? "" : level.ToString();
         }
 
         public void OnPointerEnter(PointerEventData eventData)

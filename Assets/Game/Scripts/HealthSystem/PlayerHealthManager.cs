@@ -58,6 +58,7 @@ namespace CosmosDefender {
             //mainCameraShake.CameraShake(CameraShakeDuration, CameraShakeIntensity);
             //DecreaseHealthSmoothUpdateUI(currentHealth, -50f);
             //inputs.DisableInputs();
+            OnDamageTaken?.Invoke(currentHealth, MaxHealth);
             StartCoroutine(DeathCoroutine());
             animator.SetTrigger("Death");
             SetInvulnerableState(true);
