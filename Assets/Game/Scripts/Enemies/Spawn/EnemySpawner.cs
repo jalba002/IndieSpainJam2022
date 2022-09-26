@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using CosmosDefender;
 using FMODUnity;
@@ -26,6 +27,11 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private StudioEventEmitter CombatMusicRef;
     [SerializeField] private StudioEventEmitter WinSoundRef;
 
+    // A
+    public Action OnWaveStart;
+    // Time for next wave.
+    public Action<float> OnWaveEnd;
+
     void Start()
     {
         currentWave = -1;
@@ -41,6 +47,7 @@ public class EnemySpawner : MonoBehaviour
             currentWaveEnemies = waveConfigs[currentWave].EnemyConfig.Length;
             StartCoroutine(EnemySpawnCoroutine(waveConfigs[currentWave]));
         }
+        OnWaveStart?.Invoke();
     }
 
     public void PillarActivated()
@@ -65,7 +72,11 @@ public class EnemySpawner : MonoBehaviour
     private void FinishWave()
     {
         economyConfig.AddMoney(waveConfigs[currentWave].ShopCoinReward);
-        StartCoroutine(NextWaveTimerCoroutine(waveConfigs[currentWave].timeForNextWave));
+        
+        float time = waveConfigs[currentWave].timeForNextWave;
+        StartCoroutine(NextWaveTimerCoroutine(time));
+        OnWaveEnd?.Invoke(time);
+        
         FinishWaveMusicRef.Play();
         CombatMusicRef.Stop();
         if (currentWave >= waveConfigs.Length-1)
