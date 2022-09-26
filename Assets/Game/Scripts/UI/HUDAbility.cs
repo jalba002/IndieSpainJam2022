@@ -19,7 +19,7 @@ namespace CosmosDefender
         
         [SerializeField] protected Image abilityCooldown;
         
-        [SerializeField] private TMP_Text numberAbilityCooldown;
+        [SerializeField] protected TMP_Text numberAbilityCooldown;
 
         [SerializeField] private CooldownVisuals visualMode;
 
@@ -74,7 +74,7 @@ namespace CosmosDefender
             }
         }
 
-        private void UpdateFillAmount()
+        protected void UpdateFillAmount()
         {
             abilityCooldown.fillAmount = (float)((currentCooldown * 100f) / (maxCooldown * 100f));
             if (currentCooldown <= 0f)
