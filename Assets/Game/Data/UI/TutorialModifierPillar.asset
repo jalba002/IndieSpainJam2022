@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TutorialModifierPillar
   m_EditorClassIdentifier: 
   title: Pilar modificador
-  description: "Activar un pilar modificador mejorar\xE1 una caracteristica de Shyofra
-    mientra est\xE9 cerca."
+  description: "Activar un <color=yellow>pilar</color> modificador mejorar\xE1 una
+    caracteristica de Shyofra mientra est\xE9 cerca."
   dismiss: <size=30><color=green>ESC</color></size> o <size=30 ><color=green>START</color></size>
     para continuar.

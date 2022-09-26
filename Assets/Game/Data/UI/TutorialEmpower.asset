@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TutorialEmpower
   m_EditorClassIdentifier: 
   title: "Empoderaci\xF3n de pilar"
-  description: "Cuando un pilar est\xE1 empoderado otorga una bonificaci\xF3n m\xE1s
-    grande al efecto del pilar temporalmente."
+  description: "Cuando un <color=yellow>pilar</color> est\xE1 empoderado otorga una
+    bonificaci\xF3n m\xE1s grande al efecto del  <color=yellow>pilar</color> temporalmente."
   dismiss: <size=30><color=green>ESC</color></size> o <size=30 ><color=green>START</color></size>
     para continuar.
