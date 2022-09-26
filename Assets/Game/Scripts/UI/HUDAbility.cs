@@ -23,6 +23,8 @@ namespace CosmosDefender
 
         [SerializeField] private CooldownVisuals visualMode;
 
+        [SerializeField] protected TMP_Text keybindComponent;
+
         private float maxCooldown;
         private float currentCooldown;
 
@@ -62,6 +64,12 @@ namespace CosmosDefender
         {
             // Only gather visuals.
             abilityImageComponent.sprite = AbilityIcon;
+        }
+
+        public void SetKey(string key)
+        {
+            keybindComponent.text = key;
+            keybindComponent.rectTransform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(25f + key.Length * 15f, 25f);
         }
 
         protected virtual void Update()

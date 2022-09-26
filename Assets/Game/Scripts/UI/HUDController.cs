@@ -69,6 +69,7 @@ namespace CosmosDefender
             var hudInstance = Instantiate(abilityPrefab, availablePos[0].position, Quaternion.identity, this.transform);
             instantiatedHudAbilities.Add(newSpell, hudInstance);
             hudInstance.UpdateVisual(newSpell.GetSpell().spellData.AbilityIcon);
+            hudInstance.SetKey((abilityPositions.FindIndex(x => x == availablePos[0])+1).ToString());
             hudInstance.UpdateCooldownValues(0f, newSpell.GetSpell().spellData.Cooldown);
 
             availablePos.RemoveAt(0);
