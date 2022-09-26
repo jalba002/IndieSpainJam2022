@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52c557175144f424793cec74ea13a63b, type: 3}
   m_Name: LargeAmountOfProjectilesIncreaseModifier
   m_EditorClassIdentifier: 
+  buffSprite: {fileID: 21300000, guid: 231241d8d51835941aa4bef317ef59ec, type: 3}
   priority: 0
   spellType: 2
   amountToAdd: 3

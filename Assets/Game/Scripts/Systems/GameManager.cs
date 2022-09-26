@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using CosmosDefender;
@@ -38,6 +39,8 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] private TutorialConfig tutorial;
 
     [SerializeField] public EconomyConfig economyConfig;
+
+    public Action OnGoddessMode;
 
     void Awake()
     {
@@ -94,5 +97,7 @@ public class GameManager : MonoSingleton<GameManager>
         {
             pillar.GoddessActive(ResourceManager.GetResourceData(ResourceType.Goddess).EffectDuration);
         }
+
+        OnGoddessMode?.Invoke();
     }
 }

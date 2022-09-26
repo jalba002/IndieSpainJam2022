@@ -20,11 +20,11 @@ public class SpellManager : MonoBehaviour, ISpellCaster
     [SerializeField] private LayerMask previewLayerMask;
 
     // After casting a spell, add it to the list and start a crono with that.
-    private readonly List<ISpell> _cooldownSpells = new List<ISpell>();
+    private List<ISpell> _cooldownSpells = new List<ISpell>();
 
     private float timeUntilAvailableCast = 0f;
 
-    public Action<ISpell> OnSpellCasted;
+    public Action<ISpell, float> OnSpellCasted;
 
     private void Awake()
     {
@@ -36,6 +36,8 @@ public class SpellManager : MonoBehaviour, ISpellCaster
         {
             skillPreviewer = Instantiate(skillPreviewPrefab, transform.position, Quaternion.identity);
         }
+
+        GetComponent<GoddessResourceBehavior>().OnActivation += () => { _cooldownSpells = new List<ISpell>();};
     }
 
     private void Start()
@@ -106,18 +108,19 @@ public class SpellManager : MonoBehaviour, ISpellCaster
         skillPreviewer.Deactivate();
     }
 
-
     void CastSpell(ISpell spell, Vector3 pos)
     {
         spell.Cast(pos, transform.forward, Quaternion.identity, playerAttributes.CombatData, this);
         // Add a delay when casting
         timeUntilAvailableCast = Time.time + (spell.spellData.AnimationDelay * 1.5f);
 
-        OnSpellCasted?.Invoke(spell);
+        float cd = spell.spellData.Cooldown -
+                   (spell.spellData.Cooldown * playerAttributes.CombatData.CooldownReduction / 100);
+        OnSpellCasted?.Invoke(spell, cd);
         
         _cooldownSpells.Add(spell);
         CronoScheduler.Instance.ScheduleForTime(
-            spell.spellData.Cooldown - (spell.spellData.Cooldown * playerAttributes.CombatData.CooldownReduction / 100), 
+            cd, 
             () => { _cooldownSpells.Remove(spell); });
     }
 

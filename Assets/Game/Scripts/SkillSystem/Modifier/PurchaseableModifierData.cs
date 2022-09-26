@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace CosmosDefender
@@ -12,6 +13,7 @@ namespace CosmosDefender
         private int price;
         [SerializeField]
         private bool canBePurchase = true;
+        [InlineEditor]
         public T modifier;
 
         public string Description => description;
