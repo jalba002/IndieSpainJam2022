@@ -40,7 +40,7 @@ MonoBehaviour:
   - enemyType: 0
     pathToFollow: 0
   - enemyType: 1
-    pathToFollow: 1
+    pathToFollow: 0
   - enemyType: 0
     pathToFollow: 0
   - enemyType: 0
