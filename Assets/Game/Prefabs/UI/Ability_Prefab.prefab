@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityImageComponent: {fileID: 7646237979610628338}
-  abilityCooldown: {fileID: 0}
+  abilityCooldown: {fileID: 2554756580505036910}
   numberAbilityCooldown: {fileID: 7646237979384357918}
   visualMode: 0
 --- !u!1 &7646237979384357916
@@ -470,7 +470,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 0
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
