@@ -23,6 +23,11 @@ namespace CosmosDefender
             OnModifiersUpdated(playerAttributes.RequestBuffs());
         }
 
+        private void OnDestroy()
+        {
+            playerAttributes.onModifiersUpdated -= OnModifiersUpdated;
+        }
+
         private void OnModifiersUpdated(IReadOnlyList<IBuffProvider> modifiers)
         {
             ResizeBuffs(modifiers.Count);
