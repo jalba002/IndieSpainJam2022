@@ -214,5 +214,11 @@ namespace CosmosDefender
                 ability.SetCooldown(0f);
             }
         }
+
+        private void OnDestroy()
+        {
+            playerAtts.OnSpellAdded -= AddSpell;
+            playerAtts.OnSpellEmpowered -= EmpowerSpell;
+        }
     }
 }
