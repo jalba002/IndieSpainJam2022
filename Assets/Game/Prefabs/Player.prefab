@@ -182,6 +182,7 @@ GameObject:
   - component: {fileID: 3510532656747954581}
   - component: {fileID: 3510532656747954578}
   - component: {fileID: 4643297276277702613}
+  - component: {fileID: 6089240379870643447}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -365,6 +366,35 @@ MonoBehaviour:
   previewLayerMask:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &6089240379870643447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3510532656747954585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4d42da7323d26b4abb464208bfa9649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderers:
+  - {fileID: 7642166350115956213}
+  - {fileID: 8245340625798557504}
+  goddessColor: {r: 5.3403134, g: 0, b: 0.25163785, a: 0}
+  goddessHairColor: {r: 1, g: 0.078431375, b: 0.09019608, a: 0}
+  wingL: {fileID: 12791338819581339}
+  wingR: {fileID: 2068336063824711993}
+  Delay: 0.5
+  ActivateDuration: 0.25
+  DeactivateDuration: 1.5
+  NormalFresnel: 0
+  GoddessFresnel: 1
+  GoddessParticles:
+  - {fileID: 0}
+  - {fileID: 0}
+  GoddessActivateSoundRef: {fileID: 0}
+  GoddessDeactivateSoundRef: {fileID: 0}
 --- !u!1 &4643297276403663015
 GameObject:
   m_ObjectHideFlags: 0
@@ -2216,6 +2246,11 @@ MonoBehaviour:
   m_Height: 0.6
   m_Direction: 0
   m_Bound: 0
+--- !u!137 &7642166350115956213 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -6161448157782799470, guid: 4fbbc79b1a8b81e459b3469621b52c91, type: 3}
+  m_PrefabInstance: {fileID: 4643297276767628903}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7890189622755515406 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5976316366144851351, guid: 4fbbc79b1a8b81e459b3469621b52c91, type: 3}
@@ -2260,6 +2295,11 @@ MonoBehaviour:
   m_Height: 0.6
   m_Direction: 0
   m_Bound: 0
+--- !u!137 &8245340625798557504 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -5612298943211503321, guid: 4fbbc79b1a8b81e459b3469621b52c91, type: 3}
+  m_PrefabInstance: {fileID: 4643297276767628903}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8258374232080801629 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3669287860725330234, guid: 4fbbc79b1a8b81e459b3469621b52c91, type: 3}

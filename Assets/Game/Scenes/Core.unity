@@ -27619,11 +27619,6 @@ Transform:
   m_Father: {fileID: 1448084120}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: -230.331, z: 0}
---- !u!137 &1202279741 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 8245340625798557504, guid: f0c5b97177628d841996a1fe0212aca4, type: 3}
-  m_PrefabInstance: {fileID: 4643297278257152558}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1203317936
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38620,11 +38615,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8629598779908575721, guid: c61c0591e25b806418f9c668739fc2a3, type: 3}
   m_PrefabInstance: {fileID: 1936196696}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1941269367 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 12791338819581339, guid: f0c5b97177628d841996a1fe0212aca4, type: 3}
-  m_PrefabInstance: {fileID: 4643297278257152558}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1946170235
 GameObject:
   m_ObjectHideFlags: 0
@@ -39943,11 +39933,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!137 &2093855182 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 7642166350115956213, guid: f0c5b97177628d841996a1fe0212aca4, type: 3}
-  m_PrefabInstance: {fileID: 4643297278257152558}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2095017963
 GameObject:
   m_ObjectHideFlags: 0
@@ -40292,11 +40277,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6327450589728554239, guid: 6900203e7c462a14a92675a4c2b39300, type: 3}
   m_PrefabInstance: {fileID: 2119131366}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2119762844 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2068336063824711993, guid: f0c5b97177628d841996a1fe0212aca4, type: 3}
-  m_PrefabInstance: {fileID: 4643297278257152558}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2126851079
 GameObject:
@@ -41642,6 +41622,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.0000007308305
       objectReference: {fileID: 0}
+    - target: {fileID: 6089240379870643447, guid: f0c5b97177628d841996a1fe0212aca4, type: 3}
+      propertyPath: GoddessActivateSoundRef
+      value: 
+      objectReference: {fileID: 8126645059460301786}
+    - target: {fileID: 6089240379870643447, guid: f0c5b97177628d841996a1fe0212aca4, type: 3}
+      propertyPath: GoddessDeactivateSoundRef
+      value: 
+      objectReference: {fileID: 8126645059460301785}
+    - target: {fileID: 6089240379870643447, guid: f0c5b97177628d841996a1fe0212aca4, type: 3}
+      propertyPath: GoddessParticles.Array.data[0]
+      value: 
+      objectReference: {fileID: 1840542373}
+    - target: {fileID: 6089240379870643447, guid: f0c5b97177628d841996a1fe0212aca4, type: 3}
+      propertyPath: GoddessParticles.Array.data[1]
+      value: 
+      objectReference: {fileID: 1156381714}
     - target: {fileID: 6152305606044089977, guid: f0c5b97177628d841996a1fe0212aca4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 44.86334
@@ -42376,35 +42372,6 @@ MonoBehaviour:
   backgroundScreen: {fileID: 940442833}
   prefab: {fileID: 7588948293043029279, guid: 1be6b9c32107d7f40a61cf2bc21901dc, type: 3}
   tutorial: {fileID: 11400000, guid: aa9d7f25a3aa4d340b25814472d9244a, type: 2}
---- !u!114 &8126645059460301777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8126645059460301751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4d42da7323d26b4abb464208bfa9649, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  renderers:
-  - {fileID: 2093855182}
-  - {fileID: 1202279741}
-  goddessColor: {r: 5.3403134, g: 0, b: 0.25163785, a: 0}
-  goddessHairColor: {r: 1, g: 0.078431375, b: 0.09019608, a: 0}
-  wingL: {fileID: 1941269367}
-  wingR: {fileID: 2119762844}
-  Delay: 0.5
-  ActivateDuration: 0.25
-  DeactivateDuration: 1.5
-  NormalFresnel: 0
-  GoddessFresnel: 1
-  GoddessParticles:
-  - {fileID: 1840542373}
-  - {fileID: 1156381714}
-  GoddessActivateSoundRef: {fileID: 8126645059460301786}
-  GoddessDeactivateSoundRef: {fileID: 8126645059460301785}
 --- !u!114 &8126645059460301785
 MonoBehaviour:
   m_ObjectHideFlags: 0

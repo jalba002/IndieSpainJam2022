@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: "Controles b\xE1sicos"
   description: "<color=green>WASD</color></b> o <color=green>Stick Izquierdo</color>
-    para moverse. \\n <color=green>Rat\xF3n/Stick Derecho </color>para mover la c\xE1mara.
-    \\n <color=green>E</color> o <color=green>X</color> (de mando) para <color=yellow>interactuar</color>
-    con los <color=yellow>pilares</color>."
+    para moverse.\n<color=green>Rat\xF3n/Stick Derecho </color>para mover la c\xE1mara.\n\n<color=green>E</color>
+    o <color=green>X</color> (de mando) para <color=yellow>interactuar</color> con
+    los <color=yellow>pilares</color>.\n\nPara empezar las oledas, <color=orange>interact\xFAa</color>
+    con un pilar."
   dismiss: <size=30><color=green>ESC</color></size> o <size=30 ><color=green>START</color></size>
     para continuar.
