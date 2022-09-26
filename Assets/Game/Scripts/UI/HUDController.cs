@@ -47,6 +47,10 @@ namespace CosmosDefender
 
             FindObjectOfType<StarResourceBehavior>().OnResourceUpdated += UpdateStars;
 
+            var enemySpawner = FindObjectOfType<EnemySpawner>();
+            enemySpawner.OnWaveStart += WaveStarted;
+            enemySpawner.OnWaveEnd += WaveEnded;
+
             var l_Siofra = FindObjectOfType<GoddessResourceBehavior>();
             l_Siofra.OnResourceUpdated += UpdateGoddess;
             l_Siofra.OnActivation += ActivateGoddess;
@@ -97,6 +101,31 @@ namespace CosmosDefender
             hudReference.SetCooldown(cooldown);
         }
 
+        [SerializeField] private TMP_Text waveTimer;
+
+        public Animator waveAnimator;
+        private void WaveStarted()
+        {
+            waveAnimator.SetTrigger("Deactivate");
+        }
+
+        private void WaveEnded(float timeToStart)
+        {
+            waveAnimator.SetTrigger("Activate");
+            StartCoroutine(WaveTimer(timeToStart));
+        }
+
+        private IEnumerator WaveTimer(float time)
+        {
+            float currentTime = time;
+            while (currentTime >= 0f)
+            {
+                waveTimer.text = currentTime.ToString();
+                currentTime--;
+                yield return  new WaitForSeconds(1f);
+            }
+        }
+        
         [Header("Game")] [SerializeField] private ProceduralImage life;
         bool isHealthDecreasing = false;
         Coroutine healthDecreaseCoroutine;
