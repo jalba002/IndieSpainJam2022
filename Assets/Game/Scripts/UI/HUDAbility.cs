@@ -17,7 +17,7 @@ namespace CosmosDefender
     {
         [SerializeField] private Image abilityImageComponent;
         
-        [SerializeField] private Image abilityCooldown;
+        [SerializeField] protected Image abilityCooldown;
         
         [SerializeField] private TMP_Text numberAbilityCooldown;
 
@@ -26,7 +26,7 @@ namespace CosmosDefender
         private float maxCooldown;
         private float currentCooldown;
 
-        private void UpdateRadial()
+        protected void UpdateRadial()
         {
             abilityCooldown.fillMethod = visualMode == CooldownVisuals.Radial
                 ? Image.FillMethod.Radial360
@@ -36,12 +36,26 @@ namespace CosmosDefender
                  : 1;
         }
 
-        [Button]
-        public void ApplyVisualCooldown(float maxCooldown)
+        public void UpdateCooldownValues(float cd, float maxcd)
+        {
+            this.currentCooldown = cd;
+            this.maxCooldown = maxcd;
+            UpdateRadial();
+            UpdateFillAmount();
+        }
+
+        public void UpdateMaxCooldown(float maxCooldown)
         {
             UpdateRadial();
-            this.currentCooldown = maxCooldown;
+            //this.currentCooldown = maxCooldown;
             this.maxCooldown = maxCooldown;
+            UpdateFillAmount();
+        }
+
+        public void SetCooldown(float cooldown)
+        {
+            currentCooldown = cooldown;
+            UpdateFillAmount();
         }
         
         public void UpdateVisual(Sprite AbilityIcon)
@@ -50,7 +64,7 @@ namespace CosmosDefender
             abilityImageComponent.sprite = AbilityIcon;
         }
 
-        void Update()
+        protected virtual void Update()
         {
             if (currentCooldown > 0f)
             {

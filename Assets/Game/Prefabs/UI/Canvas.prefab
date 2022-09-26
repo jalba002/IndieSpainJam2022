@@ -6041,6 +6041,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8607176488076367601}
     m_Modifications:
+    - target: {fileID: 5466830638571961041, guid: 2ea07f2a3a94fa946bf95bad1f8a2cfa, type: 3}
+      propertyPath: goddessPrefab
+      value: 
+      objectReference: {fileID: 2931940176114914129, guid: 9de0232d5dfe0134f9f6376e1773e875, type: 3}
     - target: {fileID: 5466830638571961044, guid: 2ea07f2a3a94fa946bf95bad1f8a2cfa, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

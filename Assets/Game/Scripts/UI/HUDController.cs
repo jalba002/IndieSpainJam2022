@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.Utilities;
@@ -14,7 +15,8 @@ namespace CosmosDefender
 
         [Header("Prefabs")] [SerializeField] private HUDAbility abilityPrefab;
 
-        [SerializeField] private HUDAbility goddessPrefab;
+        [SerializeField] private HUDGoddessAbility goddessPrefab;
+        private HUDGoddessAbility goddess;
 
         [Header("Positions")] [SerializeField] private List<RectTransform> abilityPositions;
 
@@ -35,7 +37,7 @@ namespace CosmosDefender
         void Initialize()
         {
             playerAtts.OnSpellAdded += AddSpell;
-            playerAtts.OnSpellUpdated += UpdateSpell;
+            playerAtts.OnSpellEmpowered += EmpowerSpell;
 
             FindObjectOfType<SpellManager>().OnSpellCasted += ApplyCooldown;
 
@@ -45,7 +47,11 @@ namespace CosmosDefender
 
             FindObjectOfType<StarResourceBehavior>().OnResourceUpdated += UpdateStars;
 
-            FindObjectOfType<GoddessResourceBehavior>().OnResourceUpdated += UpdateGoddess;
+            var l_Siofra = FindObjectOfType<GoddessResourceBehavior>();
+            l_Siofra.OnResourceUpdated += UpdateGoddess;
+            l_Siofra.OnActivation += ActivateGoddess;
+
+            goddess = Instantiate(goddessPrefab, goddessPosition.position, Quaternion.identity, this.transform);
 
             availablePos = new List<RectTransform>();
             availablePos.AddRange(abilityPositions);
@@ -54,7 +60,7 @@ namespace CosmosDefender
         void AddSpell(CosmosSpell newSpell, bool addSpell)
         {
             if (!addSpell) return;
-            
+
             if (availablePos.Count <= 0)
             {
                 Debug.LogWarning("Cannot add visual spell. No slot available.");
@@ -63,21 +69,22 @@ namespace CosmosDefender
             var hudInstance = Instantiate(abilityPrefab, availablePos[0].position, Quaternion.identity, this.transform);
             instantiatedHudAbilities.Add(newSpell, hudInstance);
             hudInstance.UpdateVisual(newSpell.GetSpell().spellData.AbilityIcon);
+            hudInstance.UpdateCooldownValues(0f, newSpell.GetSpell().spellData.Cooldown);
 
             availablePos.RemoveAt(0);
         }
 
-        void UpdateSpell(CosmosSpell spell)
+        void EmpowerSpell(CosmosSpell spell)
         {
             instantiatedHudAbilities.TryGetValue(spell, out HUDAbility hudReference);
 
             if (hudReference == null) return;
 
             hudReference.UpdateVisual(spell.GetSpell().spellData.AbilityIcon);
-            hudReference.ApplyVisualCooldown(0f);
+            hudReference.UpdateCooldownValues(0f, spell.GetSpell().spellData.Cooldown);
         }
 
-        void ApplyCooldown(ISpell spell)
+        void ApplyCooldown(ISpell spell, float cooldown)
         {
             var a = instantiatedHudAbilities.Keys.ToList();
             var b = a.Find(x => x.GetSpell().spellData.GetHashCode() == spell.spellData.GetHashCode());
@@ -86,37 +93,99 @@ namespace CosmosDefender
 
             if (hudReference == null) return;
 
-            hudReference.ApplyVisualCooldown(spell.spellData.Cooldown);
+            hudReference.SetCooldown(cooldown);
         }
 
         [Header("Game")] [SerializeField] private ProceduralImage life;
+        bool isHealthDecreasing = false;
+        Coroutine healthDecreaseCoroutine;
+        private float previousHealth;
 
         public void UpdateLife(float currentHealth, float maxHealth)
         {
-            life.fillAmount = currentHealth / maxHealth;
+            if (currentHealth >= previousHealth && !isHealthDecreasing)
+            {
+                life.fillAmount = currentHealth / maxHealth;
+            }
+            else
+            {
+                if (healthDecreaseCoroutine != null)
+                {
+                    StopCoroutine(healthDecreaseCoroutine);
+                }
+
+                healthDecreaseCoroutine =
+                    StartCoroutine(DecreaseLerpCoroutine(currentHealth / maxHealth, -50f, 0, life));
+            }
+
+            previousHealth = currentHealth;
         }
 
         [SerializeField] private ProceduralImage coreLife;
-        
+
         public void UpdateCoreLife(float currentHealth, float maxHealth)
         {
+            if (currentHealth >= previousHealth && !isHealthDecreasing)
+            {
+                coreLife.fillAmount = currentHealth / maxHealth;
+            }
+            else
+            {
+                if (healthDecreaseCoroutine != null)
+                {
+                    StopCoroutine(healthDecreaseCoroutine);
+                }
+
+                healthDecreaseCoroutine =
+                    StartCoroutine(DecreaseLerpCoroutine(currentHealth / maxHealth, -50f, 0, life));
+            }
+
+            previousHealth = currentHealth;
             coreLife.fillAmount = currentHealth / maxHealth;
         }
-        
-        
-        [Header("Waves")] [SerializeField] private TMP_Text nextWaveTimer;
 
-        [Header("Resources")] 
-        [SerializeField] private TMP_Text starsText;
-        
-        public void UpdateStars(float value)
+        IEnumerator DecreaseLerpCoroutine(float end, float speed, float delay, ProceduralImage healthImage)
         {
-            starsText.text = ((int)value).ToString();
+            isHealthDecreasing = true;
+            float preChangeValue = healthImage.fillAmount;
+
+            yield return new WaitForSeconds(delay);
+
+            while (preChangeValue > end)
+            {
+                preChangeValue += Time.deltaTime * speed;
+                healthImage.fillAmount = preChangeValue;
+
+                yield return null;
+            }
+
+            healthImage.fillAmount = end;
+
+            isHealthDecreasing = false;
         }
 
-        public void UpdateGoddess(float value)
+        [Header("Waves")] [SerializeField] private TMP_Text nextWaveTimer;
+
+        [Header("Resources")] [SerializeField] private TMP_Text starsText;
+
+        public void UpdateStars(float value)
         {
-            
+            starsText.text = ((int) value).ToString();
+        }
+
+        public void UpdateGoddess(float currentValue, float maxValue)
+        {
+            // Force values with goddess.
+            goddess.SetResources(currentValue, maxValue);
+        }
+
+        public void ActivateGoddess()
+        {
+            var a = instantiatedHudAbilities.Values.ToList();
+            foreach (var ability in a)
+            {
+                ability.SetCooldown(0f);
+            }
         }
     }
 }

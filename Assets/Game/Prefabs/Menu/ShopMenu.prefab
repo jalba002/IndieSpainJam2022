@@ -600,7 +600,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopModifiers: {fileID: 11400000, guid: 7409dc3df7616734ea108782f98a00e8, type: 2}
   economyConfig: {fileID: 11400000, guid: 0b3dea5db7ce92f4799f7345578e828a, type: 2}
-  attributePrefab: {fileID: 8543088958802401961, guid: 12e010244cd9d44479d6b8b75d006258, type: 3}
+  attributePrefab: {fileID: 6501016648393740250, guid: 12e010244cd9d44479d6b8b75d006258, type: 3}
   spellPrefab: {fileID: -1866288753387809870, guid: d03747d52f7d9094e8bb5370fe9d990b, type: 3}
   attributesGrid: {fileID: 7197003756187361126}
   spellsGrid: {fileID: 1424739326059456128}
