@@ -18,6 +18,10 @@ public class MaterialModifier : MonoBehaviour
 
     private Color normalHairColor;
 
+    public GameObject wingL;
+    public GameObject wingR;
+
+
     [SerializeField]
     private float Delay;
     [SerializeField]
@@ -49,6 +53,8 @@ public class MaterialModifier : MonoBehaviour
         {
             item.Stop();
         }
+        wingL.SetActive(false);
+        wingR.SetActive(false);
     }
 
     public void ChangeMaterial(bool goddessState)
@@ -61,6 +67,8 @@ public class MaterialModifier : MonoBehaviour
                 item.Play();
             }
             GoddessActivateSoundRef.Play();
+            wingL.SetActive(true);
+            wingR.SetActive(true);
         }
         else
         {
@@ -70,6 +78,8 @@ public class MaterialModifier : MonoBehaviour
                 item.Stop();
             }
             GoddessDeactivateSoundRef.Play();
+            wingL.SetActive(false);
+            wingR.SetActive(false);
         }
     }
 
