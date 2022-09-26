@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f89b4321206945543b0f9f019eea68ee, type: 3}
   m_Name: MediumProjectileSizeModifier
   m_EditorClassIdentifier: 
-  description: "Aumenta el tama\xF1o de los proyectiles a 200%"
-  thumbnail: {fileID: 21300000, guid: c05fa003a3f6de14d8c496beca2cdc61, type: 3}
+  description: 2 more projectile
+  thumbnail: {fileID: 21300000, guid: 8e26c48721e61354092cc82467befa5f, type: 3}
   price: 100
   canBePurchase: 1
   modifier: {fileID: 11400000, guid: c05eaf87c3dca6943b5b8cc8dc689df1, type: 2}

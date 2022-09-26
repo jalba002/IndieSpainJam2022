@@ -19,8 +19,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: acf23d25d1bae6c488247c818152792e, type: 2}
   - {fileID: 11400000, guid: 693289e55b39ea248848e979c445023b, type: 2}
   spellModifierShop:
+  - {fileID: 11400000, guid: 97102af40a7405f40a8e48d4bfe23f59, type: 2}
+  - {fileID: 11400000, guid: 5c25acfa497af3746af21a59d8edb1c0, type: 2}
+  - {fileID: 11400000, guid: 21b482a6b961de04485aba69431c847e, type: 2}
+  - {fileID: 11400000, guid: 40591ad1fbecc7748b60663388de08a5, type: 2}
   - {fileID: 11400000, guid: e542ab57d1174e945b2bf2b0c5809780, type: 2}
   - {fileID: 11400000, guid: 1e039660d35b2d7448963d1dfd514bea, type: 2}
+  - {fileID: 11400000, guid: dc27c089af37fe548aafaadf5783b88a, type: 2}
+  - {fileID: 11400000, guid: 2674d22dd4da07549adf8e6f9bd3cfc5, type: 2}
   lastAttributePurchase: {fileID: 11400000, guid: 8d7d766c55b7ca84287938ce800a68ee, type: 2}
   lastSpellPurchase: {fileID: 11400000, guid: 12794b182a176ad4f9a478893af284c8, type: 2}
   addLastPurchases: 1

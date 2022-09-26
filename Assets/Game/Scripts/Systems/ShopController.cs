@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using CosmosDefender;
 using Sirenix.OdinInspector;
 using TMPro;
@@ -20,6 +21,8 @@ public class ShopController : MonoBehaviour
     [SerializeField]
     private TMP_Text currentMoney;
 
+    private List<IShopButton> shopButtons = new List<IShopButton>();
+
     private void Awake()
     {
         InitializeShop();
@@ -38,20 +41,29 @@ public class ShopController : MonoBehaviour
         {
             var button = Instantiate(attributePrefab, attributesGrid);
             button.Initialize(item, economyConfig);
-            button.Show();
+            shopButtons.Add(button);
         }
 
         foreach (var item in shopModifiers.SpellModifierShop)
         {
             var button = Instantiate(spellPrefab, spellsGrid);
             button.Initialize(item, economyConfig);
-            button.Show();
+            shopButtons.Add(button);
         }
+
+        RefreshShop();
+    }
+
+    public void RefreshShop()
+    {
+        foreach (var item in shopButtons)
+            item.Show();
     }
 
     private void UpdateMoney(int money)
     {
         currentMoney.text = money.ToString();
+        RefreshShop();
     }
 
     public void SaveShop()

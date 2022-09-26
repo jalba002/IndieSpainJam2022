@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SmallAmountProjectileModifier
   m_EditorClassIdentifier: 
   description: Aumenta a 5 el numero de meteoritos que caen del cielo
-  thumbnail: {fileID: 21300000, guid: c05fa003a3f6de14d8c496beca2cdc61, type: 3}
+  thumbnail: {fileID: 21300000, guid: b462ad5032b67954faf2fe8f457d8f9c, type: 3}
   price: 75
   canBePurchase: 1
   modifier: {fileID: 11400000, guid: 4c99d27eddeab924eaa33f040ddd91ab, type: 2}

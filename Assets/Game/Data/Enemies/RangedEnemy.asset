@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df710f69fa1529144b93679af9196105, type: 3}
   m_Name: RangedEnemy
   m_EditorClassIdentifier: 
-  MaxHealth: 80
+  MaxHealth: 50
   Speed: 4
   attackDamage: 17
   attackRange: 10
   AggroRange: 20
   Defence: 0
-  StarResourceOnDeath: 3
+  StarResourceOnDeath: 7
   GoddessResourceOnDeath: 1

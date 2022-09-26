@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df710f69fa1529144b93679af9196105, type: 3}
   m_Name: MeleeEnemy
   m_EditorClassIdentifier: 
-  MaxHealth: 100
+  MaxHealth: 50
   Speed: 5
   attackDamage: 10
   attackRange: 2
   AggroRange: 15
   Defence: 0
-  StarResourceOnDeath: 3
+  StarResourceOnDeath: 5
   GoddessResourceOnDeath: 1
