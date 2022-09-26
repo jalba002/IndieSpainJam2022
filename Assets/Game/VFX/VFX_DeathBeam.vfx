@@ -19,8 +19,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: -150
     y: -190
-    width: 1684
-    height: 1755
+    width: 1515
+    height: 1825
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Children:
   - {fileID: 8926484042661614580}
   - {fileID: 8926484042661615825}
-  m_UIPosition: {x: 941, y: 108}
+  m_UIPosition: {x: 941, y: 61}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -198,8 +198,8 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.AABox, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"center":{"x":0.0,"y":0.0,"z":0.0},"size":{"x":50.0,"y":50.0,"z":50.0}}'
-    m_Space: 1
+      m_SerializableObject: '{"center":{"x":0.0,"y":0.0,"z":0.0},"size":{"x":1.0,"y":1.0,"z":1.0}}'
+    m_Space: 0
   m_Property:
     name: bounds
     m_serializedType:
@@ -549,7 +549,7 @@ MonoBehaviour:
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: 941, y: 502}
+  m_UIPosition: {x: 941, y: 551}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
@@ -704,7 +704,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614608}
   - {fileID: 8926484042661614622}
   - {fileID: 8926484042661614627}
-  m_UIPosition: {x: 1110, y: 633}
+  m_UIPosition: {x: 941, y: 703}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -2845,7 +2845,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661615341}
       inputSlot: {fileID: 8926484042661614628}
-    position: {x: 873, y: 1408}
+    position: {x: 726, y: 1418}
     expandedSlots: []
     expanded: 0
 --- !u!114 &8926484042661615341
@@ -3871,7 +3871,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":0.6886793375015259,"y":0.1179245114326477,"z":1.0}'
+      m_SerializableObject: '{"x":0.19587954878807069,"y":0.031149892136454583,"z":0.9433962106704712}'
     m_Space: 2147483647
   m_Property:
     name: Color

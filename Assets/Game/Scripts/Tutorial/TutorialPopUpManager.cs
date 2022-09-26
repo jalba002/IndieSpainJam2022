@@ -1,8 +1,6 @@
 using System.Collections;
 using CosmosDefender;
-using Sirenix.OdinInspector.Editor.GettingStarted;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class TutorialPopUpManager : MonoBehaviour
