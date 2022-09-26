@@ -113,7 +113,7 @@ public class GameManager : MonoSingleton<GameManager>
         Time.timeScale = 0f;
         if (gameWon)
         {
-            endScreenText.text = "�Has ganado!";
+            endScreenText.text = "¡Has ganado!";
         }
         else
         {

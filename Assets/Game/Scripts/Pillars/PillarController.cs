@@ -1,3 +1,4 @@
+using FMODUnity;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,6 +30,7 @@ namespace CosmosDefender
         [SerializeField]
         private EnemySpawner enemySpawner;
         private Animator animator;
+        private StudioEventEmitter activatedSoundRef;
 
         private void OnDrawGizmosSelected()
         {
@@ -42,6 +44,7 @@ namespace CosmosDefender
             animator = GetComponent<Animator>();
             GetComponents(pillarObserverModifiers);
             resourceManager = GameManager.Instance.ResourceManager;
+            activatedSoundRef = GetComponent<StudioEventEmitter>();
         }
 
         private void Update()
@@ -95,6 +98,7 @@ namespace CosmosDefender
             {
                 resourceManager.DecreaseResource(ResourceType.Stars, PillarConfig.ActivateCost);
                 enemySpawner.PillarActivated();
+                activatedSoundRef.Play();
                 GameManager.Instance.ActivePillars.Add(this);
                 foreach (var pillar in pillarObserverModifiers)
                 {
@@ -114,6 +118,7 @@ namespace CosmosDefender
                     foreach (var observer in PillarConfig.PillarObservers)
                     {
                         pillar.SetPillarEmpowerState(observer, true);
+                        activatedSoundRef.Play();
                         CronoScheduler.Instance.ScheduleForTime(PillarConfig.EmpoweredDuration, () => 
                         {
                             pillar.SetPillarEmpowerState(observer, false);

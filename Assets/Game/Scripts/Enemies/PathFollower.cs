@@ -35,8 +35,11 @@ namespace CosmosDefender
 
         void Update()
         {
-            if (navMeshAgent.updatePosition == false || followedPath.Count == 0)
+            if (navMeshAgent.updatePosition == false)
                 return;
+
+            if (followedPath.Count == 0)
+                ReturnToPath();
 
             animator.SetFloat("Speed", navMeshAgent.isStopped ? 0f : navMeshAgent.velocity.magnitude / navMeshAgent.speed);
             if (Vector3.Distance(followedPath[currentWaypoint].position, transform.position) < waypointReachedRadius)

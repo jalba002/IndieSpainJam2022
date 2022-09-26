@@ -150,11 +150,6 @@ namespace CosmosDefender
             {
                 if (currentAlerter.priority >= newAlerter.priority)
                     return;
-
-                if (IsPathIsValid(currentAlerter.transform.position))
-                { 
-
-                }
             }
             
             // When the player gets nearby it will notice the enemies around him.
