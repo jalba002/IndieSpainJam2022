@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5b05681b3c60364cbc20fdb5e9709b7, type: 3}
   m_Name: StrongAttackIncrease
   m_EditorClassIdentifier: 
+  buffSprite: {fileID: 21300000, guid: 0d8c18b56cb7d044484c24babd457888, type: 3}
   priority: 0
   additiveDamage: 70

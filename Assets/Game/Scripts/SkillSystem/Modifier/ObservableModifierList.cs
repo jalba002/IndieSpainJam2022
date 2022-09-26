@@ -17,10 +17,7 @@ namespace CosmosDefender
         {
             attributeModifiers.Add(attribute);
             if (attribute is ITemporalModifier temporalModifier)
-            {
                 CronoScheduler.Instance.ScheduleForTime(temporalModifier.Time, () => RemoveModifier(attribute));
-
-            }
 
             if (updateList)
                 onListUpdated(attributeModifiers);
