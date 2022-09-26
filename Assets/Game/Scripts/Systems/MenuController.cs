@@ -13,6 +13,7 @@ public class MenuController : MonoBehaviour
 
     public void LoadGame()
     {
+        playerAttributes.RemoveAllSpells();
         playerAttributes.RemoveAllAttributeModifiers();
         playerAttributes.RemoveAllSpellModifiers();
         playerAttributes.AddAttributeModifiers(shopModifiers.GetAttributeModifiers());
