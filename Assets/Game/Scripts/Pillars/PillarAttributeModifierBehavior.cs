@@ -46,7 +46,7 @@ namespace CosmosDefender
             if (!GameManager.Instance.hasActivatedFirstPasivePillar)
             {
                 TutorialPopUpManager.Instance.ActivateTutorial(abilityTutorial, 1f);
-                GameManager.Instance.hasActivatedFirstPasivePillar = true;
+                GameManager.Instance.Save(nameof(GameManager.Instance.hasActivatedFirstPasivePillar), GameManager.Instance.hasActivatedFirstPasivePillar = true);
             }
         }
 
@@ -62,7 +62,7 @@ namespace CosmosDefender
                 if (!GameManager.Instance.hasEmpoweredFirstPillar)
                 {
                     TutorialPopUpManager.Instance.ActivateTutorial(empowerTutorial, 1f);
-                    GameManager.Instance.hasEmpoweredFirstPillar = true;
+                    GameManager.Instance.Save(nameof(GameManager.Instance.hasEmpoweredFirstPillar), GameManager.Instance.hasEmpoweredFirstPillar = true);
                 }
             }
         }

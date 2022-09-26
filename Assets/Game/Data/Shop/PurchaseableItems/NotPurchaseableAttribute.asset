@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c87db31f7ddea47a0e23f947cd24ee, type: 3}
   m_Name: NotPurchaseableAttribute
   m_EditorClassIdentifier: 
-  description: Nothing to purchase
+  description: Todas las mejoras adquiridas
   thumbnail: {fileID: 21300000, guid: 4a0cb101304f771448ce202bf79633d0, type: 3}
   price: 0
   canBePurchase: 0

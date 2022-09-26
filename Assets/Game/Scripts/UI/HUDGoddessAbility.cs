@@ -35,7 +35,12 @@ namespace CosmosDefender
         void UpdateValues()
         {
             UpdateRadial();
-            abilityCooldown.fillAmount = (maxResource - currentResource) / maxResource;
+            float value = maxResource - currentResource;
+            abilityCooldown.fillAmount = value / maxResource;
+            if (value <= 0f)
+                numberAbilityCooldown.text = "";
+            else
+                numberAbilityCooldown.text = value > 1f ? ((int) value).ToString(): value.ToString("F1");
         }
     }
 }

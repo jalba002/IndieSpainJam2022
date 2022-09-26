@@ -40,7 +40,6 @@ public class TutorialPopUpManager : MonoBehaviour
     private void Start()
     {
         popupInstance = Instantiate(prefab, backgroundScreen.transform.parent);
-        ActivateTutorial(tutorial, 2f);
     }
 
     public void ActivateTutorial(TutorialConfig configSet, float delay)

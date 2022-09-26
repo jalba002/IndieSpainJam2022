@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65a33ed1079ed494f9475a82ff881f11, type: 3}
+  m_Name: CooldownUpgrade
+  m_EditorClassIdentifier: 
+  modifers:
+  - {fileID: 11400000, guid: cf1d731f6cd8a8b44a598f33e53ecd52, type: 2}
+  - {fileID: 11400000, guid: d47d6033f36e49541b3b9af493a352c6, type: 2}
+  - {fileID: 11400000, guid: d364f51e725544d47957e5309c7a9f7b, type: 2}
+  - {fileID: 11400000, guid: 8d7d766c55b7ca84287938ce800a68ee, type: 2}
+  shopData:
+    purchasedModifiersCount: 0
