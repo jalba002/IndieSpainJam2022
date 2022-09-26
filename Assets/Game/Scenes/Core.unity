@@ -30587,6 +30587,71 @@ Transform:
   m_Father: {fileID: 1832298912}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -230.331, z: 0}
+--- !u!1 &1596829794 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1280063730506147974, guid: 569660167ada0ad4f95d715102cc60c3, type: 3}
+  m_PrefabInstance: {fileID: 1568893166}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1596829796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596829794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -188545582
+      Data2: 1203553204
+      Data3: -1237476463
+      Data4: 39498720
+    Path: event:/SFX/Player/M.Diosa Activado
+  Event: 
+  PlayEvent: 0
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1596829797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596829794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1167692537
+      Data2: 1133014220
+      Data3: -849582186
+      Data4: 1177105210
+    Path: event:/SFX/Player/M.Diosa Desactivado
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 7
+  OverrideMaxDistance: 60
 --- !u!1001 &1597842739
 PrefabInstance:
   m_ObjectHideFlags: 0

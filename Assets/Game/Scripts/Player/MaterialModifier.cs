@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,6 +32,12 @@ public class MaterialModifier : MonoBehaviour
     [SerializeField]
     private ParticleSystem[] GoddessParticles;
 
+    [SerializeField]
+    private StudioEventEmitter GoddessActivateSoundRef;
+
+    [SerializeField]
+    private StudioEventEmitter GoddessDeactivateSoundRef;
+
     private void Start()
     {
         NormalFresnel = renderers[0].material.GetFloat("_FresnelPower");
@@ -53,6 +60,7 @@ public class MaterialModifier : MonoBehaviour
             {
                 item.Play();
             }
+            GoddessActivateSoundRef.Play();
         }
         else
         {
@@ -61,6 +69,7 @@ public class MaterialModifier : MonoBehaviour
             {
                 item.Stop();
             }
+            GoddessDeactivateSoundRef.Play();
         }
     }
 
