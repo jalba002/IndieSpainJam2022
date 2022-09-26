@@ -9257,6 +9257,17 @@ Transform:
   m_Father: {fileID: 1448084120}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -230.331, z: 0}
+--- !u!114 &422185393 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8607176487316032595, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+  m_PrefabInstance: {fileID: 940442832}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &435222979
 GameObject:
   m_ObjectHideFlags: 0
@@ -24241,6 +24252,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 212.559
       objectReference: {fileID: 0}
+    - target: {fileID: 8607176487405452490, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8607176488076367601, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -24328,6 +24343,10 @@ PrefabInstance:
     - target: {fileID: 8607176488076367605, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8607176488360307785, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
@@ -25747,6 +25766,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1067322964 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8607176488360307780, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+  m_PrefabInstance: {fileID: 940442832}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd3bf32ccd207d84cae48c1602d89e2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1069030653
 GameObject:
   m_ObjectHideFlags: 0
@@ -30677,8 +30707,8 @@ MonoBehaviour:
   ResourceManager: {fileID: 8126645059460301757}
   ActivePillars: []
   gameOver: 0
-  endScreen: {fileID: 0}
-  endScreenText: {fileID: 0}
+  endScreen: {fileID: 1067322964}
+  endScreenText: {fileID: 422185393}
   hasActivatedFirstPasivePillar: 0
   hasActivatedFirstSkillPillar: 0
   hasEmpoweredFirstPillar: 0
