@@ -62,7 +62,7 @@ namespace CosmosDefender
                 if (!GameManager.Instance.hasEmpoweredFirstPillar)
                 {
                     TutorialPopUpManager.Instance.ActivateTutorial(empowerTutorial, 1f);
-                    GameManager.Instance.Save(nameof(GameManager.Instance.hasActivatedFirstSkillPillar), GameManager.Instance.hasActivatedFirstSkillPillar = true);
+                    GameManager.Instance.Save(nameof(GameManager.Instance.hasEmpoweredFirstPillar), GameManager.Instance.hasEmpoweredFirstPillar = true);
                 }
             }
         }
