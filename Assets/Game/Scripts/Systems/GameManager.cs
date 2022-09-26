@@ -96,8 +96,8 @@ public class GameManager : MonoSingleton<GameManager>
         }
 
         if (hasActivatedBasicTutorial) return;
-        Save(nameof(hasActivatedBasicTutorial), hasActivatedBasicTutorial = true);
         TutorialPopUpManager.Instance.ActivateTutorial(basicTutorial, 3f);
+        Save(nameof(hasActivatedBasicTutorial), hasActivatedBasicTutorial = true);
     }
 
     [Button]

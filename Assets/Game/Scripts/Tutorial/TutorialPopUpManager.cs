@@ -25,6 +25,7 @@ public class TutorialPopUpManager : MonoBehaviour
         Instance = this;
 
         playerInputs = GetComponent<PlayerInputs>();
+        popupInstance = Instantiate(prefab, backgroundScreen.transform.parent);
     }
 
     private void OnEnable()
@@ -39,7 +40,6 @@ public class TutorialPopUpManager : MonoBehaviour
 
     private void Start()
     {
-        popupInstance = Instantiate(prefab, backgroundScreen.transform.parent);
     }
 
     public void ActivateTutorial(TutorialConfig configSet, float delay)

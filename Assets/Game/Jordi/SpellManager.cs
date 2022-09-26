@@ -37,7 +37,7 @@ public class SpellManager : MonoBehaviour, ISpellCaster
             skillPreviewer = Instantiate(skillPreviewPrefab, transform.position, Quaternion.identity);
         }
 
-        GetComponent<GoddessResourceBehavior>().OnActivation += () => { _cooldownSpells = new List<ISpell>();};
+        GetComponent<GoddessResourceBehavior>().OnActivation += () => { _cooldownSpells = new List<ISpell>(); };
     }
 
     private void Start()
@@ -87,12 +87,13 @@ public class SpellManager : MonoBehaviour, ISpellCaster
                 bool rayHit = Physics.Raycast(
                     cameraRay,
                     out RaycastHit info,
-                    cameraCorrectedDistance
-                    );
+                    cameraCorrectedDistance,
+                    previewLayerMask
+                );
 
                 Vector3 castPos =
                     rayHit ? info.point : cameraRay.origin + cameraRay.direction * cameraCorrectedDistance;
-                
+
                 CastSpell(selectedSpell, castPos);
                 skillPreviewer.Deactivate();
                 break;
@@ -117,10 +118,10 @@ public class SpellManager : MonoBehaviour, ISpellCaster
         float cd = spell.spellData.Cooldown -
                    (spell.spellData.Cooldown * playerAttributes.CombatData.CooldownReduction / 100);
         OnSpellCasted?.Invoke(spell, cd);
-        
+
         _cooldownSpells.Add(spell);
         CronoScheduler.Instance.ScheduleForTime(
-            cd, 
+            cd,
             () => { _cooldownSpells.Remove(spell); });
     }
 
@@ -129,10 +130,23 @@ public class SpellManager : MonoBehaviour, ISpellCaster
         if (!skillPreviewer.IsActive) return;
 
         Ray cameraRay = Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f));
-        if (Physics.Raycast(cameraRay, out RaycastHit hit,
-            previewedSpell.spellData.MaxAttackDistance +
-            Vector3.Distance(this.transform.position, Camera.main.transform.position), previewLayerMask))
-            skillPreviewer.Move(hit.point);
+        float cameraCorrectedDistance = previewedSpell.spellData.MaxAttackDistance +
+                                        Vector3.Distance(this.transform.position, Camera.main.transform.position);
+
+        bool firstRayhit = Physics.Raycast(cameraRay, out RaycastHit hit, cameraCorrectedDistance, previewLayerMask);
+
+        Vector3 castPos = firstRayhit ? hit.point : cameraRay.origin + cameraRay.direction * cameraCorrectedDistance;
+
+        if(!firstRayhit)
+        {
+            Ray verticalRay = new Ray(castPos, Vector3.down);
+            if (Physics.Raycast(verticalRay, out RaycastHit info2, cameraCorrectedDistance, previewLayerMask))
+            {
+                castPos = info2.point;
+            }
+        }
+
+        skillPreviewer.Move(castPos);
     }
 
     void OnFire()
@@ -175,5 +189,4 @@ public class SpellManager : MonoBehaviour, ISpellCaster
     public Animator Animator => animator;
     public Transform CastingPoint => FirePoint;
     public void SetAnimationTrigger(string triggerName) => Animator.SetTrigger(triggerName);
-
 }
