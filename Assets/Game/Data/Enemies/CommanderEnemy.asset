@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df710f69fa1529144b93679af9196105, type: 3}
   m_Name: CommanderEnemy
   m_EditorClassIdentifier: 
-  MaxHealth: 300
+  MaxHealth: 150
   Speed: 2.5
   attackDamage: 35
   attackRange: 3
   AggroRange: 12
   Defence: 5
-  StarResourceOnDeath: 12
+  StarResourceOnDeath: 15
   GoddessResourceOnDeath: 1

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: Small increase
   thumbnail: {fileID: 21300000, guid: 5a984bff39e031944bdd8fc5ae443bd8, type: 3}
-  price: 100
+  price: 75
   canBePurchase: 1
   modifier: {fileID: 11400000, guid: 7ad2d575a2332bf48b7df3fcc2e29604, type: 2}
