@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ArcSpellStrong
   m_EditorClassIdentifier: 
   baseData:
-    spellType: 1
+    spellType: 48
     castType: 2
     damageMultiplier: 1.25
     cooldown: 4
