@@ -1141,6 +1141,7 @@ MonoBehaviour:
   currentHealth: 0
   starResourceData: {fileID: 11400000, guid: 389d1b4f92f3cf744a2e0c61757b5218, type: 2}
   data: {fileID: 11400000, guid: cd653ebbdaede9d4f88c7f4f0c45b12b, type: 2}
+  prefab: {fileID: 0}
 --- !u!114 &8575225185708762517
 MonoBehaviour:
   m_ObjectHideFlags: 0
