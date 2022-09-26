@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: 1 more projectile
   thumbnail: {fileID: 21300000, guid: b462ad5032b67954faf2fe8f457d8f9c, type: 3}
-  price: 123
+  price: 75
   canBePurchase: 1
   modifier: {fileID: 11400000, guid: 2d877a8a1498e8645a5468a36ecc0b8b, type: 2}
