@@ -4,11 +4,11 @@ using UnityEngine;
 using CosmosDefender;
 using TMPro;
 using Sirenix.OdinInspector;
+using Unity.VisualScripting;
 
 public class GameManager : MonoSingleton<GameManager>
 {
-    [SerializeField]
-    private PillarsConfig pillarsConfig;
+    [SerializeField] private PillarsConfig pillarsConfig;
     public List<Transform> WaypointsPaths1 = new List<Transform>();
     public List<Transform> WaypointsPaths2 = new List<Transform>();
     public List<Transform> WaypointsPaths3 = new List<Transform>();
@@ -24,19 +24,18 @@ public class GameManager : MonoSingleton<GameManager>
     public List<PillarController> ActivePillars;
     public bool gameOver = false;
 
-    [SerializeField]
-    private CanvasFadeIn endScreen;
-    [SerializeField]
-    private TextMeshProUGUI endScreenText;
+    [SerializeField] private CanvasFadeIn endScreen;
+    [SerializeField] private TextMeshProUGUI endScreenText;
     private PlayerInputs playerMenuInputs;
 
+    public bool hasActivatedBasicTutorial;
     public bool hasActivatedFirstPasivePillar;
     public bool hasActivatedFirstSkillPillar;
     public bool hasEmpoweredFirstPillar;
     public bool hasActivatedFirstGoddess;
-    
-    [Header("Tutorial")]
-    [SerializeField] private TutorialConfig tutorial;
+
+    [Header("Tutorial")] [SerializeField] private TutorialConfig goddessTutorial;
+    [Header("Tutorial")] [SerializeField] private TutorialConfig basicTutorial;
 
     [SerializeField] public EconomyConfig economyConfig;
 
@@ -46,22 +45,54 @@ public class GameManager : MonoSingleton<GameManager>
     {
         pillarsConfig.ClearObserverList();
         playerMenuInputs = FindObjectOfType<PlayerInputs>();
+        // Get PlayerPrefs data.
+    }
+    
+
+    void LoadPlayerPrefs()
+    {
+        Load(nameof(hasActivatedBasicTutorial),ref hasActivatedBasicTutorial);
+        Load(nameof(hasActivatedFirstPasivePillar),ref hasActivatedFirstPasivePillar);
+        Load(nameof(hasActivatedFirstSkillPillar),ref hasActivatedFirstSkillPillar);
+        Load(nameof(hasEmpoweredFirstPillar),ref hasEmpoweredFirstPillar);
+        Load(nameof(hasActivatedFirstGoddess),ref hasActivatedFirstGoddess);
+    }
+
+    void Load(string key, ref bool variable)
+    {
+        variable = PlayerPrefs.GetInt(key) >= 1 ? true : false;
+        Debug.Log($"{key} has a value of {variable}");
+    }
+
+    public void Save(string key, bool variable)
+    {
+        PlayerPrefs.SetInt(key, variable ? 1 : 0);
+        Debug.Log($"Saving {key} with value {variable}");
+        PlayerPrefs.Save();
     }
 
     private void Start()
     {
+        LoadPlayerPrefs();
+
         foreach (var item in WaypointsPaths1)
         {
             AllWaypoints.Add(item);
         }
+
         foreach (var item in WaypointsPaths2)
         {
             AllWaypoints.Add(item);
         }
+
         foreach (var item in WaypointsPaths3)
         {
             AllWaypoints.Add(item);
         }
+
+        if (hasActivatedBasicTutorial) return;
+        Save(nameof(hasActivatedBasicTutorial), hasActivatedBasicTutorial = true);
+        TutorialPopUpManager.Instance.ActivateTutorial(basicTutorial, 3f);
     }
 
     [Button]
@@ -89,8 +120,8 @@ public class GameManager : MonoSingleton<GameManager>
     {
         if (!hasActivatedFirstGoddess)
         {
-            hasActivatedFirstGoddess = true;
-            TutorialPopUpManager.Instance.ActivateTutorial(tutorial, 2f);
+            Save(nameof(hasActivatedFirstGoddess), hasActivatedFirstGoddess = true);
+            TutorialPopUpManager.Instance.ActivateTutorial(goddessTutorial, 2f);
         }
 
         foreach (var pillar in ActivePillars)
