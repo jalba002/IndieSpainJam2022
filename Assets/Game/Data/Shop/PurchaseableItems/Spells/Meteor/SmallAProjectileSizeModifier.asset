@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f89b4321206945543b0f9f019eea68ee, type: 3}
   m_Name: SmallAProjectileSizeModifier
   m_EditorClassIdentifier: 
-  description: 1 more projectile
-  thumbnail: {fileID: 21300000, guid: b462ad5032b67954faf2fe8f457d8f9c, type: 3}
-  price: 123
+  description: "Aumenta el tama\xF1o de los proyectiles a 150%"
+  thumbnail: {fileID: 21300000, guid: c05fa003a3f6de14d8c496beca2cdc61, type: 3}
+  price: 75
   canBePurchase: 1
   modifier: {fileID: 11400000, guid: 2d877a8a1498e8645a5468a36ecc0b8b, type: 2}

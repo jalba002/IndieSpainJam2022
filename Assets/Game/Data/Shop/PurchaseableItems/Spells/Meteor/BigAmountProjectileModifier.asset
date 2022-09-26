@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BigAmountProjectileModifier
   m_EditorClassIdentifier: 
   description: ' a 12 el numero de meteoritos que caen del cielo'
-  thumbnail: {fileID: 21300000, guid: 97a3b52ceb3e78d49acd20116705b823, type: 3}
-  price: 789
+  thumbnail: {fileID: 21300000, guid: 231241d8d51835941aa4bef317ef59ec, type: 3}
+  price: 150
   canBePurchase: 1
   modifier: {fileID: 11400000, guid: b1b1f6e68a78e1242b6e575f01769ef2, type: 2}

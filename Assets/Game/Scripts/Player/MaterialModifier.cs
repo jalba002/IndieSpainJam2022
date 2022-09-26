@@ -28,12 +28,20 @@ public class MaterialModifier : MonoBehaviour
     [SerializeField]
     private float GoddessFresnel;
 
+    [SerializeField]
+    private ParticleSystem[] GoddessParticles;
+
     private void Start()
     {
         NormalFresnel = renderers[0].material.GetFloat("_FresnelPower");
         normalColor = renderers[0].material.GetColor("_GalaxyColor");
 
         normalHairColor = renderers[1].material.GetColor("_GalaxyColor");
+
+        foreach (var item in GoddessParticles)
+        {
+            item.Stop();
+        }
     }
 
     public void ChangeMaterial(bool goddessState)
@@ -41,10 +49,18 @@ public class MaterialModifier : MonoBehaviour
         if (goddessState)
         {
             StartCoroutine(MaterialChangeCoroutine(NormalFresnel, GoddessFresnel, ActivateDuration, Delay, normalColor, goddessColor, normalHairColor, goddessHairColor));
+            foreach (var item in GoddessParticles)
+            {
+                item.Play();
+            }
         }
         else
         {
             StartCoroutine(MaterialChangeCoroutine(GoddessFresnel, NormalFresnel, DeactivateDuration, 0f, goddessColor, normalColor, goddessHairColor, normalHairColor));
+            foreach (var item in GoddessParticles)
+            {
+                item.Stop();
+            }
         }
     }
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using CosmosDefender;
+using FMODUnity;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -20,13 +21,20 @@ public class EnemySpawner : MonoBehaviour
     private int currentWaveEnemies = 0;
     private bool firstPillarActivated = false;
 
+    [SerializeField] private StudioEventEmitter BeforeCombatMusicRef;
+    [SerializeField] private StudioEventEmitter FinishWaveMusicRef;
+    [SerializeField] private StudioEventEmitter CombatMusicRef;
+    [SerializeField] private StudioEventEmitter WinSoundRef;
+
     void Start()
     {
         currentWave = -1;
     }
-    [Button]
+    
     public void StartNextWave()
     {
+        BeforeCombatMusicRef.Stop();
+        CombatMusicRef.Play();
         currentWave++;
         if (currentWave < waveConfigs.Length)
         {
@@ -58,9 +66,13 @@ public class EnemySpawner : MonoBehaviour
     {
         economyConfig.AddMoney(waveConfigs[currentWave].ShopCoinReward);
         StartCoroutine(NextWaveTimerCoroutine(waveConfigs[currentWave].timeForNextWave));
+        FinishWaveMusicRef.Play();
+        CombatMusicRef.Stop();
         if (currentWave >= waveConfigs.Length-1)
         {
             CronoScheduler.Instance.ScheduleForTime(2f, () => GameManager.Instance.EndGame(true));
+            FinishWaveMusicRef.Stop();
+            WinSoundRef.Play();
         }
     }
 
