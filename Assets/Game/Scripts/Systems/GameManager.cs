@@ -31,10 +31,6 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField]
     private TextMeshProUGUI endScreenSubtext;
 
-
-    [SerializeField] private CanvasFadeIn endScreen;
-    [SerializeField] private TextMeshProUGUI endScreenText;
-
     private PlayerInputs playerMenuInputs;
 
     public bool hasActivatedBasicTutorial;

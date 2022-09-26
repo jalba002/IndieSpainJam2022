@@ -24231,6 +24231,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3655970887405656446, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3655970887405656446, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839495697125804619, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839495697125804619, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4190073013072368729, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -24252,6 +24268,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4190073014068019210, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8098229628404321326, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8098229628404321326, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
@@ -30721,11 +30745,13 @@ MonoBehaviour:
   endScreen: {fileID: 1067322964}
   endScreenText: {fileID: 422185393}
   endScreenSubtext: {fileID: 416662587}
+  hasActivatedBasicTutorial: 0
   hasActivatedFirstPasivePillar: 0
   hasActivatedFirstSkillPillar: 0
   hasEmpoweredFirstPillar: 0
   hasActivatedFirstGoddess: 0
-  tutorial: {fileID: 11400000, guid: aa9d7f25a3aa4d340b25814472d9244a, type: 2}
+  goddessTutorial: {fileID: 11400000, guid: eb874f6659b96004fb9bebc9f2be7b10, type: 2}
+  basicTutorial: {fileID: 11400000, guid: aa9d7f25a3aa4d340b25814472d9244a, type: 2}
   economyConfig: {fileID: 11400000, guid: 0b3dea5db7ce92f4799f7345578e828a, type: 2}
 --- !u!114 &1683499937
 MonoBehaviour:
