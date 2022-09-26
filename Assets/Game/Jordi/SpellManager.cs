@@ -20,7 +20,7 @@ public class SpellManager : MonoBehaviour, ISpellCaster
     [SerializeField] private LayerMask previewLayerMask;
 
     // After casting a spell, add it to the list and start a crono with that.
-    private readonly List<ISpell> _cooldownSpells = new List<ISpell>();
+    private List<ISpell> _cooldownSpells = new List<ISpell>();
 
     private float timeUntilAvailableCast = 0f;
 
@@ -36,6 +36,8 @@ public class SpellManager : MonoBehaviour, ISpellCaster
         {
             skillPreviewer = Instantiate(skillPreviewPrefab, transform.position, Quaternion.identity);
         }
+
+        GetComponent<GoddessResourceBehavior>().OnActivation += () => { _cooldownSpells = new List<ISpell>();};
     }
 
     private void Start()
@@ -105,7 +107,6 @@ public class SpellManager : MonoBehaviour, ISpellCaster
         spell = null;
         skillPreviewer.Deactivate();
     }
-
 
     void CastSpell(ISpell spell, Vector3 pos)
     {

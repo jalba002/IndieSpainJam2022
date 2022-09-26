@@ -32,7 +32,7 @@ namespace CosmosDefender
 
         private bool isInitialized;
 
-        public Action<CosmosSpell> OnSpellUpdated;
+        public Action<CosmosSpell> OnSpellEmpowered;
         public Action<CosmosSpell, bool> OnSpellAdded;
 
         public void Initialize(bool forceInitialize = false)
@@ -68,7 +68,7 @@ namespace CosmosDefender
         {
             // Does this work? Anyway, trigger event.
             spells.Find(x => x == spell).isSpellEmpowered = state;
-            OnSpellUpdated?.Invoke(spell);
+            OnSpellEmpowered?.Invoke(spell);
             //spell.isSpellEmpowered = state;
         }
 

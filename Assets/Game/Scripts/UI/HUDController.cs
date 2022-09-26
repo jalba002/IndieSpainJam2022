@@ -15,7 +15,8 @@ namespace CosmosDefender
 
         [Header("Prefabs")] [SerializeField] private HUDAbility abilityPrefab;
 
-        [SerializeField] private HUDAbility goddessPrefab;
+        [SerializeField] private HUDGoddessAbility goddessPrefab;
+        private HUDGoddessAbility goddess;
 
         [Header("Positions")] [SerializeField] private List<RectTransform> abilityPositions;
 
@@ -36,7 +37,7 @@ namespace CosmosDefender
         void Initialize()
         {
             playerAtts.OnSpellAdded += AddSpell;
-            playerAtts.OnSpellUpdated += UpdateSpell;
+            playerAtts.OnSpellEmpowered += EmpowerSpell;
 
             FindObjectOfType<SpellManager>().OnSpellCasted += ApplyCooldown;
 
@@ -46,7 +47,11 @@ namespace CosmosDefender
 
             FindObjectOfType<StarResourceBehavior>().OnResourceUpdated += UpdateStars;
 
-            FindObjectOfType<GoddessResourceBehavior>().OnResourceUpdated += UpdateGoddess;
+            var l_Siofra = FindObjectOfType<GoddessResourceBehavior>();
+            l_Siofra.OnResourceUpdated += UpdateGoddess;
+            l_Siofra.OnActivation += ActivateGoddess;
+
+            goddess = Instantiate(goddessPrefab, goddessPosition.position, Quaternion.identity, this.transform);
 
             availablePos = new List<RectTransform>();
             availablePos.AddRange(abilityPositions);
@@ -55,7 +60,7 @@ namespace CosmosDefender
         void AddSpell(CosmosSpell newSpell, bool addSpell)
         {
             if (!addSpell) return;
-            
+
             if (availablePos.Count <= 0)
             {
                 Debug.LogWarning("Cannot add visual spell. No slot available.");
@@ -64,18 +69,19 @@ namespace CosmosDefender
             var hudInstance = Instantiate(abilityPrefab, availablePos[0].position, Quaternion.identity, this.transform);
             instantiatedHudAbilities.Add(newSpell, hudInstance);
             hudInstance.UpdateVisual(newSpell.GetSpell().spellData.AbilityIcon);
+            hudInstance.UpdateCooldownValues(0f, newSpell.GetSpell().spellData.Cooldown);
 
             availablePos.RemoveAt(0);
         }
 
-        void UpdateSpell(CosmosSpell spell)
+        void EmpowerSpell(CosmosSpell spell)
         {
             instantiatedHudAbilities.TryGetValue(spell, out HUDAbility hudReference);
 
             if (hudReference == null) return;
 
             hudReference.UpdateVisual(spell.GetSpell().spellData.AbilityIcon);
-            hudReference.ApplyVisualCooldown(0f);
+            hudReference.UpdateCooldownValues(0f, spell.GetSpell().spellData.Cooldown);
         }
 
         void ApplyCooldown(ISpell spell)
@@ -87,7 +93,7 @@ namespace CosmosDefender
 
             if (hudReference == null) return;
 
-            hudReference.ApplyVisualCooldown(spell.spellData.Cooldown);
+            hudReference.SetCooldown(spell.spellData.Cooldown);
         }
 
         [Header("Game")] [SerializeField] private ProceduralImage life;
@@ -107,7 +113,9 @@ namespace CosmosDefender
                 {
                     StopCoroutine(healthDecreaseCoroutine);
                 }
-                healthDecreaseCoroutine = StartCoroutine(DecreaseLerpCoroutine(currentHealth / maxHealth, -50f, 0, life));
+
+                healthDecreaseCoroutine =
+                    StartCoroutine(DecreaseLerpCoroutine(currentHealth / maxHealth, -50f, 0, life));
             }
 
             previousHealth = currentHealth;
@@ -127,7 +135,9 @@ namespace CosmosDefender
                 {
                     StopCoroutine(healthDecreaseCoroutine);
                 }
-                healthDecreaseCoroutine = StartCoroutine(DecreaseLerpCoroutine(currentHealth / maxHealth, -50f, 0, life));
+
+                healthDecreaseCoroutine =
+                    StartCoroutine(DecreaseLerpCoroutine(currentHealth / maxHealth, -50f, 0, life));
             }
 
             previousHealth = currentHealth;
@@ -150,25 +160,32 @@ namespace CosmosDefender
             }
 
             healthImage.fillAmount = end;
-            
+
             isHealthDecreasing = false;
         }
 
         [Header("Waves")] [SerializeField] private TMP_Text nextWaveTimer;
 
-        [Header("Resources")] 
-        [SerializeField] private TMP_Text starsText;
-        
+        [Header("Resources")] [SerializeField] private TMP_Text starsText;
+
         public void UpdateStars(float value)
         {
-            starsText.text = ((int)value).ToString();
+            starsText.text = ((int) value).ToString();
         }
 
-        public void UpdateGoddess(float value)
+        public void UpdateGoddess(float currentValue, float maxValue)
         {
-            
+            // Force values with goddess.
+            goddess.SetResources(currentValue, maxValue);
         }
 
-
+        public void ActivateGoddess()
+        {
+            var a = instantiatedHudAbilities.Values.ToList();
+            foreach (var ability in a)
+            {
+                ability.SetCooldown(0f);
+            }
+        }
     }
 }

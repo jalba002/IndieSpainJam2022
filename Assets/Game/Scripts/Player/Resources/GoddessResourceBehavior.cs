@@ -14,7 +14,9 @@ namespace CosmosDefender
         private Animator animator;
         private MaterialModifier materialModifier;
 
-        public Action<float> OnResourceUpdated;
+        public Action<float, float> OnResourceUpdated;
+
+        public Action OnActivation;
 
         private void Awake()
         {
@@ -31,7 +33,7 @@ namespace CosmosDefender
 
         public void UpdateUI()
         {
-            OnResourceUpdated?.Invoke(goddessResourceData.CurrentResource);
+            OnResourceUpdated?.Invoke(goddessResourceData.CurrentResource, goddessResourceData.MaxResource);
             //resourceText.text = "Goddess: " + (int)goddessResourceData.CurrentResource;
         }
 
@@ -47,6 +49,7 @@ namespace CosmosDefender
             animator.SetTrigger("GoddessMode");
             materialModifier.ChangeMaterial(true);
             CronoScheduler.Instance.ScheduleForTime(10f, () => materialModifier.ChangeMaterial(false));
+            OnActivation?.Invoke();
             UpdateUI();
         }
 
