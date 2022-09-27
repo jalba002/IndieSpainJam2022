@@ -44,7 +44,6 @@ namespace CosmosDefender
 
         public void Save()
         {
-            Debug.Log("Saving store data.");
             SaveModifierData(attributesModifierShop.Select(x => x.ShopData), AttributeKey);
             SaveModifierData(spellModifierShop.Select(x => x.ShopData), SpellKey);
         }

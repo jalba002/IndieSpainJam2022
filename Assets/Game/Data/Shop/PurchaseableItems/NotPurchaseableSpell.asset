@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: NotPurchaseableSpell
   m_EditorClassIdentifier: 
   description: Todas las mejoras adquiridas
-  thumbnail: {fileID: 21300000, guid: 4a0cb101304f771448ce202bf79633d0, type: 3}
+  thumbnail: {fileID: 21300000, guid: cdf7f31393ed784468cffd04bf07cb55, type: 3}
   price: 0
-  canBePurchase: 0
+  canBePurchased: 0
   modifier: {fileID: 0}
