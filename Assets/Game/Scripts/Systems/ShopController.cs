@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using CosmosDefender;
 using Sirenix.OdinInspector;
@@ -69,6 +70,11 @@ public class ShopController : MonoBehaviour
     public void SaveShop()
     {
         shopModifiers.Save();
+    }
+
+    private void OnDisable()
+    {
+        SaveShop();
     }
 
     [Button]

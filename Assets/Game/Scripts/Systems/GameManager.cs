@@ -66,7 +66,7 @@ public class GameManager : MonoSingleton<GameManager>
     void Load(string key, ref bool variable)
     {
         variable = PlayerPrefs.GetInt(key) >= 1 ? true : false;
-        Debug.Log($"{key} has a value of {variable}");
+        //Debug.Log($"{key} has a value of {variable}");
     }
 
     public void Save(string key, bool variable)

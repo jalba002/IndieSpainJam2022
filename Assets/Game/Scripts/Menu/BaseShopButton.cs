@@ -34,7 +34,7 @@ namespace CosmosDefender
 
         public void OnClick()
         {
-            if (currentModifier.CanBePurchased && economyConfig.GetMoney() > currentModifier.Price)
+            if (currentModifier.CanBePurchased && economyConfig.GetMoney() >= currentModifier.Price)
             {
                 config.Purchase(currentModifier);
                 economyConfig.SubstractMoney(currentModifier.Price);

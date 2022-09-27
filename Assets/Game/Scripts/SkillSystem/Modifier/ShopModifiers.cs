@@ -27,6 +27,11 @@ namespace CosmosDefender
         public IReadOnlyList<PurchaseableAttributeModifier> AttributesModifierShop => attributesModifierShop;
         public IReadOnlyList<PurchaseableSpellModifier> SpellModifierShop => spellModifierShop;
 
+        private void Awake()
+        {
+            Initialize();
+        }
+
         public void Initialize()
         {
             Load();
@@ -39,6 +44,7 @@ namespace CosmosDefender
 
         public void Save()
         {
+            Debug.Log("Saving store data.");
             SaveModifierData(attributesModifierShop.Select(x => x.ShopData), AttributeKey);
             SaveModifierData(spellModifierShop.Select(x => x.ShopData), SpellKey);
         }
@@ -55,12 +61,16 @@ namespace CosmosDefender
             attributesModifierShop.ForEach(x => x.ShopData = new SerializableShopModifier());
             var serializedAttributes = JsonUtility.FromJson<SerializedShop>(PlayerPrefs.GetString(AttributeKey, "{}"));
             for (int i = 0; i < serializedAttributes.modifiersPurchased.Count; i++)
+            {
                 attributesModifierShop[i].ShopData = serializedAttributes.modifiersPurchased[i];
-
+            }
+            
             spellModifierShop.ForEach(x => x.ShopData = new SerializableShopModifier());
             var serializedSpells = JsonUtility.FromJson<SerializedShop>(PlayerPrefs.GetString(SpellKey, "{}"));
             for (int i = 0; i < serializedSpells.modifiersPurchased.Count; i++)
+            {
                 spellModifierShop[i].ShopData = serializedSpells.modifiersPurchased[i];
+            }
         }
 
         public List<BaseAttributeModifier> GetAttributeModifiers()
