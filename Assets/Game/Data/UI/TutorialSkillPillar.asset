@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Pilar de habilidad
   description: "Activar un <color=yellow>pilar</color> de habilidad otorgar\xE1 a
-    Shyofra una habilidad permanentemente."
+    Shyofra una habilidad permanentemente.\n\nActivarlo por segunda vez mejorar\xE1
+    dicha habilidad temporalmente."
   dismiss: <size=30><color=green>ESC</color></size> o <size=30 ><color=green>START</color></size>
     para continuar.

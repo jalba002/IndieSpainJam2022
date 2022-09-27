@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f89b4321206945543b0f9f019eea68ee, type: 3}
+  m_Name: LaserUpgrade_Range_Tier1
+  m_EditorClassIdentifier: 
+  description: "Incremento peque\xF1o de la distancia del laser"
+  thumbnail: {fileID: 21300000, guid: ca1f841139f1117438a7026336915812, type: 3}
+  price: 75
+  canBePurchased: 1
+  modifier: {fileID: 11400000, guid: 9ddaa991c4df9a441a12fe1af761d528, type: 2}

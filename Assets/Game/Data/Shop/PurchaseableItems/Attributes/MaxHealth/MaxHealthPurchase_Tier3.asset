@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c87db31f7ddea47a0e23f947cd24ee, type: 3}
+  m_Name: MaxHealthPurchase_Tier3
+  m_EditorClassIdentifier: 
+  description: "Aumenta a 200 la vida m\xE1xima"
+  thumbnail: {fileID: 21300000, guid: 82cd9825735848d429de362097ec9e78, type: 3}
+  price: 150
+  canBePurchase: 1
+  modifier: {fileID: 11400000, guid: 250942cbcdc1bf7488c99a0dc82b71d6, type: 2}

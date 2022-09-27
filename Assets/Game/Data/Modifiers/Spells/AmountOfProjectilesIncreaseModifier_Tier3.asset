@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52c557175144f424793cec74ea13a63b, type: 3}
+  m_Name: AmountOfProjectilesIncreaseModifier_Tier3
+  m_EditorClassIdentifier: 
+  buffSprite: {fileID: 21300000, guid: c05fa003a3f6de14d8c496beca2cdc61, type: 3}
+  priority: 0
+  tier: 2
+  spellType: 2
+  amountToAdd: 2

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
+using Unity.Collections;
 using UnityEngine;
 
 namespace CosmosDefender
@@ -10,10 +11,12 @@ namespace CosmosDefender
         where T1 : BaseModifier<T2, T3>
         where T2 : IModifier<T3>
     {
+        //[SerializeField] private T notPurchaseableMod;
         [SerializeField, InlineEditor]
         private List<T> modifers;
 
-        [SerializeField]
+        [Space(5)]
+        [SerializeField] [Sirenix.OdinInspector.ReadOnly]
         private SerializableShopModifier shopData;
 
         public SerializableShopModifier ShopData { get => shopData; set => shopData = value; }

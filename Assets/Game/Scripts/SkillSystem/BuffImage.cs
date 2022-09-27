@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,9 +10,23 @@ namespace CosmosDefender
         [SerializeField]
         private Image image;
 
-        public void Show(Sprite sprite)
+        [SerializeField] private List<Image> tierElements;
+
+        public void Show(Sprite sprite, int tierLevel = 0)
         {
             image.sprite = sprite;
+            for (int i = 0; i < tierLevel; i++)
+            {
+                tierElements[i].enabled = true;
+            }
+        }
+
+        private void OnDisable()
+        {
+            foreach (var plus in tierElements)
+            {
+                plus.enabled = false;
+            }
         }
     }
 }

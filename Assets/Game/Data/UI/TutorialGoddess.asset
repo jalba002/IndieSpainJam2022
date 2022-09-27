@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TutorialGoddess
   m_EditorClassIdentifier: 
   title: Modo DIOSA
-  description: El modo DIOSA empodera todos los  <color=yellow>pilares</color> a
-    la vez durante un breve periodo de tiempo.
+  description: "El modo DIOSA empodera todos los  <color=yellow>pilares</color> a
+    la vez durante un breve periodo de tiempo.\n\nAdem\xE1s, refresca todas las habilidades."
   dismiss: <size=30><color=green>ESC</color></size> o <size=30 ><color=green>START</color></size>
     para continuar.

@@ -5,12 +5,9 @@ namespace CosmosDefender
 {
     public class BuffUIController : MonoBehaviour
     {
-        [SerializeField]
-        private BuffImage buffPrefab;
-        [SerializeField]
-        private PlayerAttributes playerAttributes;
-        [SerializeField]
-        private RectTransform gridParent;
+        [SerializeField] private BuffImage buffPrefab;
+        [SerializeField] private PlayerAttributes playerAttributes;
+        [SerializeField] private RectTransform gridParent;
 
         private List<BuffImage> buffsList;
         private List<BuffImage> pool;
@@ -31,8 +28,11 @@ namespace CosmosDefender
         private void OnModifiersUpdated(IReadOnlyList<IBuffProvider> modifiers)
         {
             ResizeBuffs(modifiers.Count);
+            Debug.Log($"Hay {modifiers.Count} mods. Una lista de {buffsList.Count}");
             for (int i = 0; i < modifiers.Count; i++)
-                buffsList[i].Show(modifiers[i].BuffSprite);
+            {
+                buffsList[i].Show(modifiers[i].BuffSprite, modifiers[i].Tier);
+            }
         }
 
         private void ResizeBuffs(int length)
@@ -58,12 +58,13 @@ namespace CosmosDefender
 
         private BuffImage GetFromPool()
         {
-            if (pool.Count == 0)
-                pool.Add(Instantiate(buffPrefab, gridParent));
+            var poolItem = Instantiate(buffPrefab, gridParent);
+                    
+            pool.Add(poolItem);
 
-            var item = pool[0];
-            item.gameObject.SetActive(true);
-            return item;
+            //var item = pool[0];
+            poolItem.gameObject.SetActive(true);
+            return poolItem;
         }
     }
 }

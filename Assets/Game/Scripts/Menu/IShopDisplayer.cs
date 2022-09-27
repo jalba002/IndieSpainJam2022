@@ -4,9 +4,9 @@ namespace CosmosDefender
 {
     public interface IShopDisplayer
     {
-        public string Description { get; }
-        public Sprite Thumbnail { get; }
-        public int Price { get; }
-        public bool CanBePurchased { get; }
+        string Description { get; }
+        Sprite Thumbnail { get; }
+        int Price { get; }
+        bool CanBePurchased { get; }
     }
 }
