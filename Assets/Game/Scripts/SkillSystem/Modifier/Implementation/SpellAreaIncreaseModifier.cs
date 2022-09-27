@@ -2,8 +2,8 @@ using UnityEngine;
 
 namespace CosmosDefender
 {
-    [CreateAssetMenu(fileName = nameof(SpellSizeIncreaserModifier), menuName = "CosmosDefender/Modifiers/" + nameof(SpellSizeIncreaserModifier))]
-    public class SpellSizeIncreaserModifier : BaseSpellModifier
+    [CreateAssetMenu(fileName = nameof(SpellAreaIncreaseModifier), menuName = "CosmosDefender/Modifiers/" + nameof(SpellAreaIncreaseModifier))]
+    public class SpellAreaIncreaseModifier : BaseSpellModifier
     {
         [SerializeField]
         private float timesBigger;

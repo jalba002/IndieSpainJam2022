@@ -45,6 +45,13 @@ namespace CosmosDefender
             OnMoneyUpdated?.Invoke(economy.money);
             PlayerPrefs.SetString(EconomyKey, JsonUtility.ToJson(economy));
         }
+
+        [Button]
+        private void ResetMoney()
+        {
+            PlayerPrefs.DeleteKey(EconomyKey);
+            PlayerPrefs.Save();
+        }
     }
 
     [Serializable]

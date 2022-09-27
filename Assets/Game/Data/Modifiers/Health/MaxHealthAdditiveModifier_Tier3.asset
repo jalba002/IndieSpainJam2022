@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5b05681b3c60364cbc20fdb5e9709b7, type: 3}
-  m_Name: StrongAttackIncrease
+  m_Script: {fileID: 11500000, guid: 50ff63400df9e034597a5682e5308304, type: 3}
+  m_Name: MaxHealthAdditiveModifier_Tier3
   m_EditorClassIdentifier: 
-  buffSprite: {fileID: 21300000, guid: d0c48eb8e1196334796ceee635034b5c, type: 3}
+  buffSprite: {fileID: 21300000, guid: 8e45a58e30ae33745aff3556656915ca, type: 3}
   priority: 0
   tier: 2
-  additiveDamage: 15
+  additiveMaxHealth: 40

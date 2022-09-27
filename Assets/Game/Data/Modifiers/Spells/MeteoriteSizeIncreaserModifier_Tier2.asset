@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50ff63400df9e034597a5682e5308304, type: 3}
-  m_Name: MaxHealthAdditiveModifie_Tier3
+  m_Script: {fileID: 11500000, guid: d176b54a835e0d940b035cf19a0557f2, type: 3}
+  m_Name: MeteoriteSizeIncreaserModifier_Tier2
   m_EditorClassIdentifier: 
-  buffSprite: {fileID: 21300000, guid: 8e45a58e30ae33745aff3556656915ca, type: 3}
+  buffSprite: {fileID: 21300000, guid: c05fa003a3f6de14d8c496beca2cdc61, type: 3}
   priority: 0
-  tier: 2
-  additiveMaxHealth: 40
+  tier: 1
+  spellType: -62
+  timesBigger: 1.5

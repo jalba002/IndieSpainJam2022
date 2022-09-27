@@ -1,3 +1,4 @@
+using Codice.CM.Common.Tree;
 using Sirenix.OdinInspector.Editor;
 using UnityEditor;
 
@@ -13,7 +14,10 @@ namespace CosmosDefender
 
         protected override OdinMenuTree BuildMenuTree()
         {
-            var tree = new OdinMenuTree();
+            var tree = new OdinMenuTree
+            {
+                Config = {DrawSearchToolbar = true}
+            };
             tree.AddAllAssetsAtPath("Data", "Game/Data", true, false);
             return tree;
         }

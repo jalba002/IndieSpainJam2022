@@ -28,9 +28,10 @@ namespace CosmosDefender
         private void OnModifiersUpdated(IReadOnlyList<IBuffProvider> modifiers)
         {
             ResizeBuffs(modifiers.Count);
-            Debug.Log($"Hay {modifiers.Count} mods. Una lista de {buffsList.Count}");
+            //Debug.Log($"Hay {modifiers.Count} mods. Una lista de {buffsList.Count}");
             for (int i = 0; i < modifiers.Count; i++)
             {
+                Debug.Log($"Creating buff with {modifiers[i].Tier}");
                 buffsList[i].Show(modifiers[i].BuffSprite, modifiers[i].Tier);
             }
         }

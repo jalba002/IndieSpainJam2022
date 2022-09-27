@@ -16,7 +16,7 @@ MonoBehaviour:
     spellType: 18
     castType: 1
     damageMultiplier: 2
-    cooldown: 4
+    cooldown: 8
     speed: 30
     uniformSize: 3
     amount: 10

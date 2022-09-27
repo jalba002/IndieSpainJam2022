@@ -15,5 +15,5 @@ MonoBehaviour:
   description: "x2 da\xF1o al rayo"
   thumbnail: {fileID: 21300000, guid: 2e258a537e928204d9cf2e1d1c46ead0, type: 3}
   price: 100
-  canBePurchase: 1
-  modifier: {fileID: 11400000, guid: c92b6b603ff04f54eb329bc7fbb04c85, type: 2}
+  canBePurchased: 1
+  modifier: {fileID: 11400000, guid: 1f81ff7f96c3cd04b8853ea2a7f36aea, type: 2}

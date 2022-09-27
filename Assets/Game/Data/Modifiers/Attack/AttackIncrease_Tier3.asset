@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52c557175144f424793cec74ea13a63b, type: 3}
-  m_Name: AmountOfProjectilesIncreaseModifier_Tier3
+  m_Script: {fileID: 11500000, guid: a5b05681b3c60364cbc20fdb5e9709b7, type: 3}
+  m_Name: AttackIncrease_Tier3
   m_EditorClassIdentifier: 
-  buffSprite: {fileID: 21300000, guid: c05fa003a3f6de14d8c496beca2cdc61, type: 3}
+  buffSprite: {fileID: 21300000, guid: d0c48eb8e1196334796ceee635034b5c, type: 3}
   priority: 0
   tier: 2
-  spellType: 2
-  amountToAdd: 2
+  additiveDamage: 15

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52c557175144f424793cec74ea13a63b, type: 3}
-  m_Name: AmountOfProjectilesIncreaseModifier_Tier2
+  m_Name: MeteoriteAmountModifier_Tier2
   m_EditorClassIdentifier: 
   buffSprite: {fileID: 21300000, guid: c05fa003a3f6de14d8c496beca2cdc61, type: 3}
   priority: 0

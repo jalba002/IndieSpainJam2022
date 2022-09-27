@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d176b54a835e0d940b035cf19a0557f2, type: 3}
-  m_Name: SpellSizeIncreaserModifier_Tier3
+  m_Script: {fileID: 11500000, guid: 9acb173906a6fe046ae659476286bfb2, type: 3}
+  m_Name: PercentageAttack_Tier3
   m_EditorClassIdentifier: 
-  buffSprite: {fileID: 21300000, guid: c05fa003a3f6de14d8c496beca2cdc61, type: 3}
-  priority: 0
-  tier: 2
-  spellType: -62
-  timesBigger: 1.5
+  buffSprite: {fileID: 21300000, guid: d0c48eb8e1196334796ceee635034b5c, type: 3}
+  priority: 1
+  additivePercentage: 80

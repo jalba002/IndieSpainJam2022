@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: EconomyConfig
   m_EditorClassIdentifier: 
   economy:
-    money: 600
+    money: 775
