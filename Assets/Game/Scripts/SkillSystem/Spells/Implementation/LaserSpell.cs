@@ -4,7 +4,7 @@ using UnityEngine.VFX.Utility;
 
 namespace CosmosDefender
 {
-    [CreateAssetMenu(fileName = nameof(LaserSpell), menuName = "CosmosDefender/" + nameof(LaserSpell))]
+    [CreateAssetMenu(fileName = nameof(LaserSpell), menuName = "CosmosDefender/Spells/" + nameof(LaserSpell))]
     public class LaserSpell : BaseSpell
     {
         private Coroutine SpellCoroutine;

@@ -4,7 +4,7 @@ using UnityEngine.VFX.Utility;
 
 namespace CosmosDefender
 {
-    [CreateAssetMenu(fileName = nameof(ArcSpell), menuName = "CosmosDefender/" + nameof(ArcSpell))]
+    [CreateAssetMenu(fileName = nameof(ArcSpell), menuName = "CosmosDefender/Spells/" + nameof(ArcSpell))]
     public class ArcSpell : BaseSpell
     {
         public VisualEffect vfxPrefab;

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace CosmosDefender
 {
-    [CreateAssetMenu(fileName = nameof(MeleeAttackSpell), menuName = "CosmosDefender/" + nameof(MeleeAttackSpell))]
+    [CreateAssetMenu(fileName = nameof(MeleeAttackSpell), menuName = "CosmosDefender/Spells/" + nameof(MeleeAttackSpell))]
     public class MeleeAttackSpell : BaseSpell
     {
         private Coroutine delayedDamage;

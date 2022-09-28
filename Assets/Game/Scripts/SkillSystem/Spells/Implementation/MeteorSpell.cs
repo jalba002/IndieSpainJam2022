@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace CosmosDefender
 {
-    [CreateAssetMenu(fileName = nameof(MeteorSpell), menuName = "CosmosDefender/" + nameof(MeteorSpell))]
+    [CreateAssetMenu(fileName = nameof(MeteorSpell), menuName = "CosmosDefender/Spells/" + nameof(MeteorSpell))]
     public class MeteorSpell : BaseSpell
     {
         private Coroutine SpellCoroutine;

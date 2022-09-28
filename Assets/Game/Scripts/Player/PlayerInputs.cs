@@ -22,7 +22,6 @@ public class PlayerInputs : MonoBehaviour
 	InputActionMap ingameMap;
 	InputActionMap uiMap;
 	InputActionMap tutorialMap;
-	private ResourceManager resourceManager;
 
 	public Action OnDismissAction;
 
@@ -32,7 +31,6 @@ public class PlayerInputs : MonoBehaviour
 		ingameMap = input.actions.FindActionMap("Player");
 		uiMap = input.actions.FindActionMap("UI");
 		tutorialMap = input.actions.FindActionMap("Tutorial");
-		resourceManager = GetComponent<ResourceManager>();
 
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
@@ -65,14 +63,6 @@ public class PlayerInputs : MonoBehaviour
 				break;
 		}
     }
-
-	void OnGoddessMode()
-    {
-		if (resourceManager.SpendResource(ResourceType.Goddess, resourceManager.GetResourceData(ResourceType.Goddess).MaxResource))
-		{
-			GameManager.Instance.ActivateGoddessMode();
-		}
-	}
 
 	void OnPause()
     {

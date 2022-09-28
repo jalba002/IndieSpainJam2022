@@ -2234,6 +2234,8 @@ GameObject:
   - component: {fileID: 7867279661157371021}
   - component: {fileID: 90883210197395625}
   - component: {fileID: 1410399245528792026}
+  - component: {fileID: 1802888697195374082}
+  - component: {fileID: 9217625690264317105}
   m_Layer: 8
   m_Name: MeleeEnemy
   m_TagString: Untagged
@@ -2324,6 +2326,8 @@ MonoBehaviour:
   starResourceData: {fileID: 11400000, guid: 389d1b4f92f3cf744a2e0c61757b5218, type: 2}
   data: {fileID: 11400000, guid: 21f19f244fdc7e9468d42ad7da344395, type: 2}
   prefab: {fileID: 5380497785177111069, guid: c0740723ef8494d4db2cd93b84654e6c, type: 3}
+  dieSound: {fileID: 1802888697195374082}
+  damageSound: {fileID: 9217625690264317105}
 --- !u!114 &1410399245528792026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2342,6 +2346,66 @@ MonoBehaviour:
   _animator: {fileID: 592253352704885686}
   agent: {fileID: 7867279661157371018}
   path: {fileID: 7867279661157371021}
+--- !u!114 &1802888697195374082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7867279661157371019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -340321147
+      Data2: 1148768540
+      Data3: 1523924101
+      Data4: 1385497801
+    Path: event:/SFX/Enemies/Enemy - 01 (Melee)/Die
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 10
+--- !u!114 &9217625690264317105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7867279661157371019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -63008300
+      Data2: 1288786420
+      Data3: 1141314434
+      Data4: -1612129743
+    Path: event:/SFX/Enemies/Enemy - 01 (Melee)/TakeDamage
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 10
 --- !u!1 &7973435780471813240
 GameObject:
   m_ObjectHideFlags: 0

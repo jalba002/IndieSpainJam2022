@@ -1,7 +1,9 @@
 using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
+using CosmosDefender;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class MaterialModifier : MonoBehaviour
 {
@@ -18,9 +20,8 @@ public class MaterialModifier : MonoBehaviour
 
     private Color normalHairColor;
 
-    public GameObject wingL;
-    public GameObject wingR;
-
+    public MeshRenderer wingL;
+    public MeshRenderer wingR;
 
     [SerializeField]
     private float Delay;
@@ -53,8 +54,8 @@ public class MaterialModifier : MonoBehaviour
         {
             item.Stop();
         }
-        wingL.SetActive(false);
-        wingR.SetActive(false);
+        //wingL.SetActive(false);
+        //wingR.SetActive(false);
     }
 
     public void ChangeMaterial(bool goddessState)
@@ -67,8 +68,7 @@ public class MaterialModifier : MonoBehaviour
                 item.Play();
             }
             GoddessActivateSoundRef.Play();
-            wingL.SetActive(true);
-            wingR.SetActive(true);
+            StartCoroutine(WingsCoroutine(1f, -1f, 0.5f, .7f));
         }
         else
         {
@@ -78,10 +78,30 @@ public class MaterialModifier : MonoBehaviour
                 item.Stop();
             }
             GoddessDeactivateSoundRef.Play();
-            wingL.SetActive(false);
-            wingR.SetActive(false);
+            StartCoroutine(WingsCoroutine(-1f, 1f, 0.5f, .7f));
         }
     }
+
+    IEnumerator WingsCoroutine(float start, float end, float fadeDuration, float delay)
+    {
+        float counter = 0;
+        float lerpedValue;
+        float countVal = start;
+        
+        //yield return new WaitForSecondsRealtime(delay);
+
+        while (counter < fadeDuration)
+        {
+            counter += Time.deltaTime;
+            countVal += 2f / fadeDuration;
+            lerpedValue = Mathf.Lerp(start, end, countVal * Time.deltaTime);
+            wingL.material.SetFloat("_Tiempo", lerpedValue);
+            wingR.material.SetFloat("_Tiempo", lerpedValue);
+
+            yield return null;
+        }
+    }
+    
 
     IEnumerator MaterialChangeCoroutine(float start, float end, float duration, float delay, Color startingColor, Color endingColor, Color startingHairColor, Color endingHairColor)
     {

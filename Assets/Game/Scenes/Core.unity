@@ -412,7 +412,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh151200
+  m_Name: pb_Mesh224792
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5731,6 +5731,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7976266722618262307, guid: 450e0daa998aeaf43adbe7613733e13f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8059014549089495865, guid: 450e0daa998aeaf43adbe7613733e13f, type: 3}
       propertyPath: m_Name
       value: bridge (1)
@@ -6582,7 +6586,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh151438
+  m_Name: pb_Mesh225030
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7880,7 +7884,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh151504
+  m_Name: pb_Mesh225096
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9019,7 +9023,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7249827435579928963, guid: 450e0daa998aeaf43adbe7613733e13f, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7249827435579928963, guid: 450e0daa998aeaf43adbe7613733e13f, type: 3}
       propertyPath: m_LocalScale.x
@@ -9262,6 +9266,11 @@ Transform:
   m_Father: {fileID: 1448084120}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -230.331, z: 0}
+--- !u!23 &416141122 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 417489421119700706, guid: f0c5b97177628d841996a1fe0212aca4, type: 3}
+  m_PrefabInstance: {fileID: 4643297278257152558}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &416662587 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8607176487286553581, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
@@ -10037,6 +10046,11 @@ Transform:
   m_Father: {fileID: 1832298912}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -230.331, z: 0}
+--- !u!23 &537700483 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 713209671669006553, guid: f0c5b97177628d841996a1fe0212aca4, type: 3}
+  m_PrefabInstance: {fileID: 4643297278257152558}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &537886749
 GameObject:
   m_ObjectHideFlags: 0
@@ -11324,7 +11338,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 629633814}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 1.47, z: -7.1}
+  m_LocalPosition: {x: 0, y: 1.51, z: -8.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18337,7 +18351,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh151758
+  m_Name: pb_Mesh225350
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -25234,7 +25248,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh151548
+  m_Name: pb_Mesh225140
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -26006,7 +26020,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh151486
+  m_Name: pb_Mesh225078
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -31451,6 +31465,7 @@ GameObject:
   - component: {fileID: 1683499935}
   - component: {fileID: 1683499936}
   - component: {fileID: 1683499937}
+  - component: {fileID: 1683499938}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -31466,7 +31481,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1683499934}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.0820918, y: 0.16918777, z: -27.91844}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -31562,12 +31577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dcd43e66956494479dfe47790475610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveConfigs:
-  - {fileID: 11400000, guid: 6ec0cd71f2b6cdf43ba088dcccaeb262, type: 2}
-  - {fileID: 11400000, guid: 6462f46c04396ad4ab6a3242d4c2a93c, type: 2}
-  - {fileID: 11400000, guid: 4885f24e34b0ed744abe6509739177f3, type: 2}
-  - {fileID: 11400000, guid: d06a7d43aa8d8c643bb9746d2faae721, type: 2}
-  - {fileID: 11400000, guid: 92f04670007f2d84aaa2664c536ba2e3, type: 2}
+  _waveSettings: {fileID: 11400000, guid: dc8ed982f45fca04b8550bcd069111ba, type: 2}
   spawnPoints:
   - {fileID: 1337022337}
   - {fileID: 629633815}
@@ -31581,6 +31591,27 @@ MonoBehaviour:
   FinishWaveMusicRef: {fileID: 1753237381}
   CombatMusicRef: {fileID: 1753237380}
   WinSoundRef: {fileID: 1753237379}
+--- !u!114 &1683499938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683499934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3263c4934b47498488a975bcaa2e5535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allSpells:
+  - {fileID: 11400000, guid: 19301df303291ea429c98ed7010cbbe4, type: 2}
+  - {fileID: 11400000, guid: 3e93f3c09cf4b5f4ca3143d768edbafc, type: 2}
+  - {fileID: 11400000, guid: 0b731d7de814258418604f957ef6aaa9, type: 2}
+  - {fileID: 11400000, guid: 6fdfc8ec4c6c24f489fae51bf3e66ccd, type: 2}
+  playerAttributes: {fileID: 11400000, guid: fed7debed2a62174487ed40798233d77, type: 2}
+  basicAttack: {fileID: 11400000, guid: 0b731d7de814258418604f957ef6aaa9, type: 2}
+  startWithoutModifiers: 0
+  forceInitialize: 1
 --- !u!1 &1685584572
 GameObject:
   m_ObjectHideFlags: 0
@@ -37101,7 +37132,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh151010
+  m_Name: pb_Mesh224598
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -39216,7 +39247,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh151744
+  m_Name: pb_Mesh225336
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -41475,6 +41506,10 @@ PrefabInstance:
       value: 37.58599
       objectReference: {fileID: 0}
     - target: {fileID: 4643297276277702613, guid: f0c5b97177628d841996a1fe0212aca4, type: 3}
+      propertyPath: resourceManager
+      value: 
+      objectReference: {fileID: 8126645059460301757}
+    - target: {fileID: 4643297276277702613, guid: f0c5b97177628d841996a1fe0212aca4, type: 3}
       propertyPath: layerMask.m_Bits
       value: 1
       objectReference: {fileID: 0}
@@ -41485,6 +41520,10 @@ PrefabInstance:
     - target: {fileID: 4643297276277702613, guid: f0c5b97177628d841996a1fe0212aca4, type: 3}
       propertyPath: previewLayerMask.m_Bits
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4643297276277702613, guid: f0c5b97177628d841996a1fe0212aca4, type: 3}
+      propertyPath: damagingCastLayerMask.m_Bits
+      value: 257
       objectReference: {fileID: 0}
     - target: {fileID: 4818635380879320033, guid: f0c5b97177628d841996a1fe0212aca4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -41614,6 +41653,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.0000007308305
       objectReference: {fileID: 0}
+    - target: {fileID: 6089240379870643447, guid: f0c5b97177628d841996a1fe0212aca4, type: 3}
+      propertyPath: wingL
+      value: 
+      objectReference: {fileID: 537700483}
+    - target: {fileID: 6089240379870643447, guid: f0c5b97177628d841996a1fe0212aca4, type: 3}
+      propertyPath: wingR
+      value: 
+      objectReference: {fileID: 416141122}
     - target: {fileID: 6089240379870643447, guid: f0c5b97177628d841996a1fe0212aca4, type: 3}
       propertyPath: GoddessActivateSoundRef
       value: 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace CosmosDefender
 {
-    [CreateAssetMenu(fileName = nameof(FireSpell), menuName = "CosmosDefender/" + nameof(FireSpell))]
+    [CreateAssetMenu(fileName = nameof(FireSpell), menuName = "CosmosDefender/Spells/" + nameof(FireSpell))]
     public class FireSpell : BaseSpell
     {
         private Coroutine SpellCoroutine;

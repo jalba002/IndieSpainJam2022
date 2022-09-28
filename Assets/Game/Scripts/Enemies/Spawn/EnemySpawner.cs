@@ -7,8 +7,9 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField]
-    private WaveConfig[] waveConfigs;
+    [SerializeField] 
+    private WaveSettings _waveSettings;
+    
     private int currentWave;
 
     [SerializeField]
@@ -42,10 +43,10 @@ public class EnemySpawner : MonoBehaviour
         BeforeCombatMusicRef.Stop();
         CombatMusicRef.Play();
         currentWave++;
-        if (currentWave < waveConfigs.Length)
+        if (currentWave < _waveSettings.GetWaves().Length)
         {
-            currentWaveEnemies = waveConfigs[currentWave].EnemyConfig.Length;
-            StartCoroutine(EnemySpawnCoroutine(waveConfigs[currentWave]));
+            currentWaveEnemies = _waveSettings.GetWaves()[currentWave].EnemyConfig.Length;
+            StartCoroutine(EnemySpawnCoroutine(_waveSettings.GetWaves()[currentWave]));
         }
         OnWaveStart?.Invoke();
     }
@@ -71,15 +72,15 @@ public class EnemySpawner : MonoBehaviour
 
     private void FinishWave()
     {
-        economyConfig.AddMoney(waveConfigs[currentWave].ShopCoinReward);
+        economyConfig.AddMoney(_waveSettings.GetWaves()[currentWave].ShopCoinReward);
         
-        float time = waveConfigs[currentWave].timeForNextWave;
+        float time = _waveSettings.GetWaves()[currentWave].timeForNextWave;
         StartCoroutine(NextWaveTimerCoroutine(time));
         OnWaveEnd?.Invoke(time);
         
         FinishWaveMusicRef.Play();
         CombatMusicRef.Stop();
-        if (currentWave >= waveConfigs.Length-1)
+        if (currentWave >= _waveSettings.GetWaves().Length-1)
         {
             CronoScheduler.Instance.ScheduleForTime(2f, () => GameManager.Instance.EndGame(true));
             FinishWaveMusicRef.Stop();
@@ -89,6 +90,7 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator EnemySpawnCoroutine(WaveConfig currentWaveConfig)
     {
+        yield return new WaitForSecondsRealtime(1f);
         foreach (var item in currentWaveConfig.EnemyConfig)
         {
             var enemy = Instantiate(enemyPrefabs[(int)item.enemyType], spawnPoints[(int)item.pathToFollow].position, spawnPoints[(int)item.pathToFollow].rotation);

@@ -1,6 +1,7 @@
 using CosmosDefender;
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -19,6 +20,9 @@ public class EnemyHealthManager : HealthManager
     private EnemyAI enemyAI;
 
     [SerializeField] private VisualEffect prefab;
+
+    [SerializeField] private StudioEventEmitter dieSound;
+    [SerializeField] private StudioEventEmitter damageSound;
 
     private void Awake()
     {
@@ -43,7 +47,10 @@ public class EnemyHealthManager : HealthManager
         GameManager.Instance.ResourceManager.IncreaseResource(ResourceType.Goddess, data.StarResourceOnDeath);
         enemySpawner.DecreaseCurrentEnemyCounter();
         enemyAI.Death();
-        var a =Instantiate(prefab, transform.position, Quaternion.identity);
+        
+        dieSound.Play();
+        
+        var a = Instantiate(prefab, transform.position, Quaternion.identity);
         a.SetVector3("Size", new Vector3(5f, 20f, 5f));
         Destroy(a.gameObject, 2f);
         Destroy(gameObject);
@@ -54,6 +61,7 @@ public class EnemyHealthManager : HealthManager
         //animator.SetTrigger("TakeDamage");
         //sounds.PlayDamageSound();
         //screenShake.CameraShake(0.1f, 0.75f);
+        damageSound.Play();
     }
 
     public void SetEnemySpawner(EnemySpawner enemySpawner)

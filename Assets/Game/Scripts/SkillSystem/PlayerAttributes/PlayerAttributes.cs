@@ -14,6 +14,9 @@ namespace CosmosDefender
         [SerializeField, Space]
         private List<CosmosSpell> spells;
 
+        [SerializeField, Space] 
+        private BaseSpell ultimateSpell;
+
         [ShowInInspector, ReadOnly]
         private AttributesData currentAttributes;
 
@@ -65,6 +68,7 @@ namespace CosmosDefender
             {
                 spell.ApplyModifiers(spellModifiers);
             }
+            ultimateSpell.ApplyModifiers(spellModifiers);
             ProvideModifiersBuffs();
         }
 
@@ -100,6 +104,7 @@ namespace CosmosDefender
         public bool HasSpellKey(SpellKeyType type) => spells.Count > (int)type;
         [Button]
         public BaseSpell GetSpell(SpellKeyType type) => spells[(int)type].GetSpell();
+        public BaseSpell GetUltimate() => ultimateSpell;
         public List<CosmosSpell> GetAllSpells() => spells;
         public void RemoveAllSpells() => spells.Clear();
 

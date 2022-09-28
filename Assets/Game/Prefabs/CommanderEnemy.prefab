@@ -1052,6 +1052,8 @@ GameObject:
   - component: {fileID: 7867279661157371021}
   - component: {fileID: -8830114718872674922}
   - component: {fileID: 8575225185708762517}
+  - component: {fileID: 6656779506339536358}
+  - component: {fileID: 3971349046271865123}
   m_Layer: 8
   m_Name: CommanderEnemy
   m_TagString: Untagged
@@ -1142,6 +1144,8 @@ MonoBehaviour:
   starResourceData: {fileID: 11400000, guid: 389d1b4f92f3cf744a2e0c61757b5218, type: 2}
   data: {fileID: 11400000, guid: cd653ebbdaede9d4f88c7f4f0c45b12b, type: 2}
   prefab: {fileID: 5380497785177111069, guid: c0740723ef8494d4db2cd93b84654e6c, type: 3}
+  dieSound: {fileID: 6656779506339536358}
+  damageSound: {fileID: 3971349046271865123}
 --- !u!114 &8575225185708762517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1160,6 +1164,66 @@ MonoBehaviour:
   _animator: {fileID: 8227896903827154698}
   agent: {fileID: 7867279661157371018}
   path: {fileID: 7867279661157371021}
+--- !u!114 &6656779506339536358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7867279661157371019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 181598143
+      Data2: 1268275351
+      Data3: -239210327
+      Data4: 675417138
+    Path: event:/SFX/Enemies/Enemy - 02 (Tank)/Die
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 5
+--- !u!114 &3971349046271865123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7867279661157371019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2124324586
+      Data2: 1133075388
+      Data3: 1823992767
+      Data4: 951399487
+    Path: event:/SFX/Enemies/Enemy - 02 (Tank)/TakeDamage
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 5
 --- !u!1 &8042929888558826823
 GameObject:
   m_ObjectHideFlags: 0

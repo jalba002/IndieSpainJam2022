@@ -38,8 +38,6 @@ namespace CosmosDefender
                 playerAttributes.RemoveAllAttributeModifiers();
                 playerAttributes.RemoveAllSpellModifiers();
             }
-            
-            
         }
         
         private void Reset()

@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using CosmosDefender;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpellManager : MonoBehaviour, ISpellCaster
@@ -20,6 +19,9 @@ public class SpellManager : MonoBehaviour, ISpellCaster
 
     [SerializeField] private LayerMask previewLayerMask;
     [SerializeField] private LayerMask damagingCastLayerMask;
+
+    [Header("Components")] [SerializeField]
+    private ResourceManager resourceManager;
 
     // After casting a spell, add it to the list and start a crono with that.
     private List<ISpell> _cooldownSpells = new List<ISpell>();
@@ -203,6 +205,44 @@ public class SpellManager : MonoBehaviour, ISpellCaster
     void OnSpell3()
     {
         CastSpell(SpellKeyType.Spell3);
+    }
+
+    void OnGoddessMode()
+    {
+        var selectedSpell = playerAttributes.GetUltimate();
+        
+        if (_cooldownSpells.Contains(selectedSpell)) return;
+
+        if (timeUntilAvailableCast > Time.time) return;
+        
+        if (resourceManager.SpendResource(ResourceType.Goddess, resourceManager.GetResourceData(ResourceType.Goddess).MaxResource))
+        {
+            //GameManager.Instance.ActivateGoddessMode();
+            // Tell the player the Goddess Mode has been activated.
+            //animator.SetTrigger("GoddessMode");
+            CastUltimate(selectedSpell);
+        }
+    }
+
+    private void CastUltimate(BaseSpell selectedSpell)
+    {
+        switch (selectedSpell.castType)
+        {
+            case CastType.Direct:
+                CastSpell(selectedSpell, transform.position);
+                skillPreviewer.Deactivate();
+                previewedSpell = null;
+                //Cast(transform.position, transform.forward, Quaternion.identity, playerAttributes.CombatData, this);
+                break;
+            case CastType.Preview:
+                Debug.LogWarning("Can't cast a previewable Ultimate yet.");
+                break;
+            case CastType.Raycast:
+                Debug.LogWarning("Can't cast a raycastable Ultimate yet.");
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
     }
 
     public GameObject GameObject => this.gameObject;

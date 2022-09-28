@@ -647,7 +647,7 @@ MonoBehaviour:
   abilityCooldown: {fileID: 429421047012771534}
   numberAbilityCooldown: {fileID: 5520614174139599550}
   visualMode: 1
-  keybindComponent: {fileID: 0}
+  keybindComponent: {fileID: 8883004208762359719}
 --- !u!1 &7486326720065441706
 GameObject:
   m_ObjectHideFlags: 0

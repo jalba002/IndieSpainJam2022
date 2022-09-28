@@ -40,7 +40,7 @@ namespace CosmosDefender
             if (value <= 0f)
                 numberAbilityCooldown.text = "";
             else
-                numberAbilityCooldown.text = value > 1f ? ((int) value).ToString(): value.ToString("F1");
+                numberAbilityCooldown.text = ((int) value).ToString();
         }
     }
 }

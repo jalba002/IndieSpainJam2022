@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace CosmosDefender.Projectiles.Implementation
 {
-    [CreateAssetMenu(fileName = nameof(ProjectileSpell), menuName = "CosmosDefender/" + nameof(ProjectileSpell))]
+    [CreateAssetMenu(fileName = nameof(ProjectileSpell), menuName = "CosmosDefender/Spells/" + nameof(ProjectileSpell))]
     public class ProjectileSpell : BaseSpell
     {
         private Coroutine castedSpell;
