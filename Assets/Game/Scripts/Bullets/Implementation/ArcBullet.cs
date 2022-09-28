@@ -20,7 +20,7 @@ namespace CosmosDefender.Bullets.Implementation
 
             var a = AreaAttacksManager.SphereOverlap(origin, spellData.UniformSize, spellData.LayerMask);
             
-            int index = GetClosestIndexFromList(a.ToList());
+            int index = Utils.GetClosestIndexFromList(transform, a.ToList());
             
             if (a.Length > 0 && a[index].GetComponent<IDamageable>() != null)
             {
@@ -69,7 +69,7 @@ namespace CosmosDefender.Bullets.Implementation
 
                 hits.RemoveAll(x => x.GetComponent<IDamageable>() == null);
 
-                int index = GetClosestIndexFromList(hits);
+                int index = Utils.GetClosestIndexFromList(transform, hits);
 
                 if (hits.Count > 0)
                 {
@@ -91,29 +91,6 @@ namespace CosmosDefender.Bullets.Implementation
             }
         }
 
-        private int GetClosestIndexFromList(List<Collider> hits)
-        {
-            int index = 0;
-            float closestDistance = 0f;
-            for (int j = 0; j < hits.Count; j++)
-            {
-                if (j == 0)
-                {
-                    closestDistance = Vector3.Distance(this.transform.position, hits[0].transform.position);
-                    continue;
-                }
-
-                float newDistance = Vector3.Distance(hits[j].transform.position,
-                    this.gameObject.transform.position);
-
-                if (newDistance < closestDistance)
-                {
-                    closestDistance = newDistance;
-                    index = j;
-                }
-            }
-
-            return index;
-        }
+       
     }
 }

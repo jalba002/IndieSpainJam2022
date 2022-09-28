@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using CosmosDefender;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -18,6 +19,7 @@ public class SpellManager : MonoBehaviour, ISpellCaster
     private ISpell previewedSpell;
 
     [SerializeField] private LayerMask previewLayerMask;
+    [SerializeField] private LayerMask damagingCastLayerMask;
 
     // After casting a spell, add it to the list and start a crono with that.
     private List<ISpell> _cooldownSpells = new List<ISpell>();
@@ -81,18 +83,36 @@ public class SpellManager : MonoBehaviour, ISpellCaster
 
                 break;
             case CastType.Raycast:
-                Ray cameraRay = Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f));
-                float cameraCorrectedDistance = selectedSpell.spellData.MaxAttackDistance +
-                                                Vector3.Distance(Camera.main.transform.position, transform.position);
-                bool rayHit = Physics.Raycast(
-                    cameraRay,
+                var camTransform = Camera.main.transform;
+                float cameraCorrectedDistance = selectedSpell.spellData.MaxAttackDistance + Vector3.Distance(camTransform.position, transform.position);
+                var enemyHits = AreaAttacksManager.BoxAttack(camTransform.position, camTransform.forward,
+                    new Vector3(1f, 1f, cameraCorrectedDistance) * 0.5f, Quaternion.identity, damagingCastLayerMask);
+
+                bool rayHit;
+
+                Ray usedRay;
+                if (enemyHits.Length > 0)
+                {
+                    usedRay = new Ray(
+                        CastingPoint.position,  
+                        (enemyHits[Utils.GetClosestIndexFromList(camTransform, enemyHits.ToList())].transform.position - CastingPoint.position).normalized
+                        );
+                }
+                else
+                {
+                    usedRay = Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f));
+                }
+                
+                rayHit = Physics.Raycast(
+                    usedRay,
                     out RaycastHit info,
                     cameraCorrectedDistance,
-                    previewLayerMask
+                    damagingCastLayerMask
                 );
+             
 
                 Vector3 castPos =
-                    rayHit ? info.point : cameraRay.origin + cameraRay.direction * cameraCorrectedDistance;
+                    rayHit ? info.point : usedRay.origin + usedRay.direction * cameraCorrectedDistance;
 
                 CastSpell(selectedSpell, castPos);
                 skillPreviewer.Deactivate();

@@ -94,7 +94,6 @@ GameObject:
   - component: {fileID: 6801820403293714380}
   - component: {fileID: 1753661266624136352}
   - component: {fileID: 918568892904604358}
-  - component: {fileID: 4160343400431786644}
   m_Layer: 0
   m_Name: Portal Sphere
   m_TagString: Untagged
@@ -132,7 +131,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 532409199399732040}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -167,19 +166,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &4160343400431786644
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532409199399732040}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0.000005722046, y: 0, z: 0}
 --- !u!1 &1397068252934195404
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,6 +260,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1665953369517048405}
   - component: {fileID: 1194613603304515008}
+  - component: {fileID: 9082167997364229314}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Untagged
@@ -323,6 +310,22 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &9082167997364229314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041669328077428975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 501f518d4e1795348bd1a35431bf94a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPortalFX: {fileID: 4149370281810025952}
+  enemySpawner: {fileID: 0}
+  quad: {fileID: 4387642601155803819}
+  sphere: {fileID: 918568892904604358}
 --- !u!1 &2276240966928615946
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,8 +452,8 @@ VisualEffect:
   m_GameObject: {fileID: 3597467247947518426}
   m_Enabled: 1
   m_Asset: {fileID: 8926484042661614526, guid: cdc4176c7985f7242b90a765e3768d29, type: 3}
-  m_InitialEventName: OnPlay
-  m_InitialEventNameOverriden: 0
+  m_InitialEventName: Start
+  m_InitialEventNameOverriden: 1
   m_StartSeed: 0
   m_ResetSeedOnPlay: 1
   m_ResourceVersion: 1
@@ -945,7 +948,6 @@ GameObject:
   - component: {fileID: 4400940063786964185}
   - component: {fileID: 561449953741585275}
   - component: {fileID: 4387642601155803819}
-  - component: {fileID: 2415349672198654482}
   m_Layer: 0
   m_Name: Portal Quad
   m_TagString: Untagged
@@ -983,7 +985,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4953679155513586667}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1018,17 +1020,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2415349672198654482
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4953679155513586667}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
