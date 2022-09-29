@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Habilidades Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Habilidades
+  m_TableCollectionNameGuidString: 5068a431e16a4a14abd2e56467e931f0
+  m_Entries:
+  - m_Id: 6446952448
+    m_Key: Meteor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 76990951424
+    m_Key: Dash
+    m_Metadata:
+      m_Items: []
+  - m_Id: 267315884032
+    m_Key: Thunder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 384416657408
+    m_Key: Goddess
+    m_Metadata:
+      m_Items: []
+  - m_Id: 482521427968
+    m_Key: Laser
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 4500173117226483759
+  references:
+    version: 2
+    RefIds:
+    - rid: 4500173117226483759
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1664456955757

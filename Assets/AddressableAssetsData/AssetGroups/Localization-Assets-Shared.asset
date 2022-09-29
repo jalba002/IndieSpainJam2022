@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-Assets-Shared
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-Assets-Shared
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 9f55e3d17a7829944b9c813d3a3b5638
+  m_SerializeEntries:
+  - m_GUID: ae4dbf03b7e39cf4ca4b3039be2ea102
+    m_Address: Assets/Game/Localization/Tabla de Idiomas Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: 0f7e48195c9d5e04c8511c1af3fd20f5
+    m_Address: Assets/Game/Localization/Tables/Menus Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: 5068a431e16a4a14abd2e56467e931f0
+    m_Address: Assets/Game/Localization/Tables/Habilidades/Habilidades Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: 6e5d82954e9021e4b8f13035bafb56b1
+    m_Address: "Assets/Game/Localization/Tables/Mec\xE1nicas/Mec\xE1nicas Shared
+      Data.asset"
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: 22dc6efa6d294364d912a7d9a5ef8ddc
+    m_Address: Assets/Game/Localization/Tables/General/General Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: f619018822dafac4aa2a2c78ee3efac2, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 4a8ef143fd4eb784991b9e1f00f25374, type: 2}
+    - {fileID: 11400000, guid: adb6d23a512e1c742a7961ff861321f0, type: 2}

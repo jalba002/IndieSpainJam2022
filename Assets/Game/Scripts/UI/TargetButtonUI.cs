@@ -1,17 +1,23 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Components;
+using UnityEngine.Localization.SmartFormat.PersistentVariables;
+using UnityEngine.Localization.Tables;
 
 namespace CosmosDefender
 {
-	public class TargetButtonUI : MonoBehaviour
-	{
-        public TextMeshProUGUI ButtonText;
+    public class TargetButtonUI : MonoBehaviour
+    {
         private bool isActive = false;
+        [SerializeField] LocalizeStringEvent textLocalized;
+        [SerializeField] private TableReference localizationTable;
 
         public void SetState(bool newState)
         {
             isActive = newState;
-            ButtonText.gameObject.SetActive(isActive);
+            textLocalized.gameObject.SetActive(isActive);
         }
 
         public void SetButtonText(PillarController pillarController)
@@ -19,18 +25,19 @@ namespace CosmosDefender
             switch (pillarController.pillarCurrentState)
             {
                 case PillarController.PillarStates.Inactive:
-                    ButtonText.text = 
-                        $"<color=green>(E)</color> para activar un\n{pillarController.PillarName}\nCoste: <color=orange>{pillarController.PillarConfig.ActivateCost}</color> estrellas.";
+                    textLocalized.SetEntry("PilarInactivo");
                     break;
                 case PillarController.PillarStates.Active:
-                    ButtonText.text =
-                        $"<color=green>(E)</color> para empoderar un\n{pillarController.PillarName}\nCoste: <color=orange>{pillarController.PillarConfig.EmpowerCost}</color> estrellas."; 
+                    textLocalized.SetEntry("PilarActivo");
                     break;
                 case PillarController.PillarStates.Empowered:
-                    ButtonText.text = "<size=52>PILAR EMPODERADO!</size>";
+                    textLocalized.SetEntry("PilarEmpoderado");
                     break;
             }
             
+            textLocalized.StringReference.Add("key", new StringVariable() {Value = "E"});
+            textLocalized.StringReference.Add("value", new IntVariable() {Value = (int) pillarController.PillarConfig.ActivateCost});
+            textLocalized.StringReference.Add("pillarName", new LocalizedString(localizationTable, pillarController.PillarName));
         }
     }
 }
