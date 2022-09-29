@@ -31465,7 +31465,6 @@ GameObject:
   - component: {fileID: 1683499935}
   - component: {fileID: 1683499936}
   - component: {fileID: 1683499937}
-  - component: {fileID: 1683499938}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -31591,27 +31590,6 @@ MonoBehaviour:
   FinishWaveMusicRef: {fileID: 1753237381}
   CombatMusicRef: {fileID: 1753237380}
   WinSoundRef: {fileID: 1753237379}
---- !u!114 &1683499938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1683499934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3263c4934b47498488a975bcaa2e5535, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allSpells:
-  - {fileID: 11400000, guid: 19301df303291ea429c98ed7010cbbe4, type: 2}
-  - {fileID: 11400000, guid: 3e93f3c09cf4b5f4ca3143d768edbafc, type: 2}
-  - {fileID: 11400000, guid: 0b731d7de814258418604f957ef6aaa9, type: 2}
-  - {fileID: 11400000, guid: 6fdfc8ec4c6c24f489fae51bf3e66ccd, type: 2}
-  playerAttributes: {fileID: 11400000, guid: fed7debed2a62174487ed40798233d77, type: 2}
-  basicAttack: {fileID: 11400000, guid: 0b731d7de814258418604f957ef6aaa9, type: 2}
-  startWithoutModifiers: 0
-  forceInitialize: 1
 --- !u!1 &1685584572
 GameObject:
   m_ObjectHideFlags: 0

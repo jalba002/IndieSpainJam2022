@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84c87db31f7ddea47a0e23f947cd24ee, type: 3}
-  m_Name: NotPurchaseableAttribute
+  m_Script: {fileID: 11500000, guid: f89b4321206945543b0f9f019eea68ee, type: 3}
+  m_Name: GoddessDurationUpgrade_Tier3
   m_EditorClassIdentifier: 
-  description: Todas las mejoras adquiridas
-  thumbnail: {fileID: 21300000, guid: cdf7f31393ed784468cffd04bf07cb55, type: 3}
-  price: 0
-  canBePurchased: 0
+  description: This is the default description for a Tier 3 Mod.
+  thumbnail: {fileID: 0}
+  price: 150
+  canBePurchased: 1
   modifier: {fileID: 0}

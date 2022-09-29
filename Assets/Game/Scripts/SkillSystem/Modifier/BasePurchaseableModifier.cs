@@ -13,10 +13,10 @@ namespace CosmosDefender
     {
         //[SerializeField] private T notPurchaseableMod;
         [SerializeField, InlineEditor]
-        private List<T> modifers;
+        protected List<T> modifers;
 
         [Space(5)]
-        [SerializeField] [Sirenix.OdinInspector.ReadOnly]
+        [SerializeField]
         private SerializableShopModifier shopData;
 
         public SerializableShopModifier ShopData { get => shopData; set => shopData = value; }
@@ -36,7 +36,11 @@ namespace CosmosDefender
 
         public IEnumerable<T1> GetPurchasedSpells()
         {
-            return modifers.Where((x, i) => i < shopData.purchasedModifiersCount).Where(x => x.CanBePurchased).Select(x => x.modifier);
+            // TODO CHECK WITH DESIGN AND ALL.
+            // Instead of sending all purchased spells, send only the last ones.
+            // WAS THE NEXT:
+            // return modifers.Where((x, i) => i < shopData.purchasedModifiersCount).Where(x => x.CanBePurchased).Select(x => x.modifier);
+            return modifers.Where((x, i) => i == shopData.purchasedModifiersCount-1).Where(x => x.CanBePurchased).Select(x => x.modifier);
         }
 
         public void Purchase(T modifiedToPurchase)
