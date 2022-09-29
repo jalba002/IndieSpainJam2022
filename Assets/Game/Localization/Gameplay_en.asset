@@ -20,8 +20,8 @@ MonoBehaviour:
     - rid: 4500173117226483739
   m_TableData:
   - m_Id: 15364536971264
-    m_Localized: '<color=green>{key}</color> per activar aquest\npilar de {pillarName}\nPreu:
-      <color=orange>{value}</color> estrelles.'
+    m_Localized: '<color=green>{key}</color> to empower this\npillar of {pillarName}\nCost:
+      <color=orange>{value}</color> stars.'
     m_Metadata:
       m_Items:
       - rid: 4500173117226483739
