@@ -155,6 +155,7 @@ MonoBehaviour:
   playerAttributes: {fileID: 11400000, guid: fed7debed2a62174487ed40798233d77, type: 2}
   shopAttributes: {fileID: 11400000, guid: 7409dc3df7616734ea108782f98a00e8, type: 2}
   economyConfig: {fileID: 11400000, guid: 0b3dea5db7ce92f4799f7345578e828a, type: 2}
+  playerSettings: {fileID: 11400000, guid: 355846b2cc59ac947917ae8837c1acd2, type: 2}
   menuController: MainMenu
 --- !u!4 &890249081
 Transform:

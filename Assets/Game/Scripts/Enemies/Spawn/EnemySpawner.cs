@@ -74,18 +74,21 @@ public class EnemySpawner : MonoBehaviour
     {
         economyConfig.AddMoney(_waveSettings.GetWaves()[currentWave].ShopCoinReward);
         
+        if (currentWave >= _waveSettings.GetMaxWaves())
+        {
+            CronoScheduler.Instance.ScheduleForTime(2f, () => GameManager.Instance.EndGame(true));
+            FinishWaveMusicRef.Stop();
+            WinSoundRef.Play();
+            OnWaveEnd?.Invoke(-1f);
+            return;
+        }
+        
         float time = _waveSettings.GetWaves()[currentWave].timeForNextWave;
         StartCoroutine(NextWaveTimerCoroutine(time));
         OnWaveEnd?.Invoke(time);
         
         FinishWaveMusicRef.Play();
         CombatMusicRef.Stop();
-        if (currentWave >= _waveSettings.GetWaves().Length-1)
-        {
-            CronoScheduler.Instance.ScheduleForTime(2f, () => GameManager.Instance.EndGame(true));
-            FinishWaveMusicRef.Stop();
-            WinSoundRef.Play();
-        }
     }
 
     IEnumerator EnemySpawnCoroutine(WaveConfig currentWaveConfig)

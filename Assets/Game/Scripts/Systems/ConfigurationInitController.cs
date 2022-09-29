@@ -12,6 +12,9 @@ namespace CosmosDefender
         [SerializeField]
         private EconomyConfig economyConfig;
         [SerializeField]
+        private CosmosDefenderPlayerSettings playerSettings;
+        
+        [SerializeField]
         private string menuController;
 
         private void Awake()
@@ -19,6 +22,7 @@ namespace CosmosDefender
             playerAttributes.Initialize(true);
             shopAttributes.Initialize();
             economyConfig.Initialize();
+            playerSettings.Initialize();
         }
 
         private void Start()

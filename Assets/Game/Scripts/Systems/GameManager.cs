@@ -33,6 +33,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private PlayerInputs playerMenuInputs;
 
+    [Header("Tutorials")]
     public bool hasActivatedBasicTutorial;
     public bool hasActivatedFirstPasivePillar;
     public bool hasActivatedFirstSkillPillar;
