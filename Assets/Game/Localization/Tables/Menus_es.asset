@@ -42,6 +42,86 @@ MonoBehaviour:
     m_Localized: Compartir
     m_Metadata:
       m_Items: []
+  - m_Id: 47935317291008
+    m_Localized: Controles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48948375924736
+    m_Localized: Mejoras Pasivas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48981968105472
+    m_Localized: Mejoras Activas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49354388746240
+    m_Localized: Volver
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49619401650176
+    m_Localized: "M\xFAsica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49680101617664
+    m_Localized: Pantalla Completa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49816663961600
+    m_Localized: "Resoluci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50391187140608
+    m_Localized: Aceptar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50353769754624
+    m_Localized: Cancelar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50318642458624
+    m_Localized: "Ataque B\xE1sico"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50266595340288
+    m_Localized: "Mover C\xE1mara"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50222907469824
+    m_Localized: "Men\xFA de Pausa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50206100893696
+    m_Localized: Movimiento
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50174962380800
+    m_Localized: Habilidad 3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50148852838400
+    m_Localized: Habilidad 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50040472023040
+    m_Localized: Habilidad 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50023262793728
+    m_Localized: Habilidades
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49999304929280
+    m_Localized: Modo Diosa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49977762983936
+    m_Localized: Interactuar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50431318241280
+    m_Localized: Idioma
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

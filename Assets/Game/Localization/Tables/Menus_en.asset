@@ -42,6 +42,86 @@ MonoBehaviour:
     m_Localized: Share
     m_Metadata:
       m_Items: []
+  - m_Id: 47935317291008
+    m_Localized: Controls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48948375924736
+    m_Localized: Passive Upgrades
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48981968105472
+    m_Localized: Active Upgrades
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49354388746240
+    m_Localized: Return
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49619401650176
+    m_Localized: Music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49680101617664
+    m_Localized: FullScreen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49816663961600
+    m_Localized: Resolution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50391187140608
+    m_Localized: Accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50353769754624
+    m_Localized: Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50318642458624
+    m_Localized: Basic Attack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50266595340288
+    m_Localized: Move Camera
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50222907469824
+    m_Localized: Pause Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50206100893696
+    m_Localized: Movement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50174962380800
+    m_Localized: Spell 3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50148852838400
+    m_Localized: Spell 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50040472023040
+    m_Localized: Spell 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50023262793728
+    m_Localized: Spells
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49999304929280
+    m_Localized: Goddess Mode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49977762983936
+    m_Localized: Interact
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50431318241280
+    m_Localized: Idiom
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

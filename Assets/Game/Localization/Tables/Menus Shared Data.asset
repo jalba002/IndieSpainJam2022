@@ -28,7 +28,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 164316360704
-    m_Key: TextoTienda
+    m_Key: TextoMejoras
     m_Metadata:
       m_Items: []
   - m_Id: 228107530240
@@ -37,6 +37,86 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 353819209728
     m_Key: TextoCompartir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47935317291008
+    m_Key: TextoControles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48948375924736
+    m_Key: TextoMejorasPasivas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48981968105472
+    m_Key: TextoMejorasActivas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49354388746240
+    m_Key: TextoVolver
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49619401650176
+    m_Key: "TextoM\xFAsica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49680101617664
+    m_Key: TextoFullScreen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49816663961600
+    m_Key: TextoResolution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49977762983936
+    m_Key: TextoInteractuar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49999304929280
+    m_Key: TextoModoDiosa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50023262793728
+    m_Key: TextoHabilidades
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50040472023040
+    m_Key: TextoHabilidad 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50148852838400
+    m_Key: TextoHabilidad 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50174962380800
+    m_Key: TextoHablidad 3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50206100893696
+    m_Key: TextoMovimiento
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50222907469824
+    m_Key: "TextoMen\xFADePausa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50266595340288
+    m_Key: "TextoMoverC\xE1mara"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50318642458624
+    m_Key: "TextoAtaqueB\xE1sico"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50353769754624
+    m_Key: TextoCancelar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50391187140608
+    m_Key: TextoAceptar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50431318241280
+    m_Key: TextoIdioma
     m_Metadata:
       m_Items: []
   m_Metadata:

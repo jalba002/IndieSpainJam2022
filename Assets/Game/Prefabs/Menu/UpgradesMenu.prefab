@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 421530832648859012}
   - component: {fileID: 107246231324277731}
   m_Layer: 5
-  m_Name: ShopMenu
+  m_Name: UpgradesMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,7 +50,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 107246231324277734}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -1449,7 +1449,7 @@ GameObject:
   - component: {fileID: 969162170617739706}
   - component: {fileID: 7584704823218431016}
   m_Layer: 5
-  m_Name: Tienda
+  m_Name: Mejoras
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1737,7 +1737,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2327948820429196254}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
