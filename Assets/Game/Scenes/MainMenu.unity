@@ -4561,7 +4561,7 @@ PrefabInstance:
       objectReference: {fileID: 2099760704}
     - target: {fileID: 107246231324277733, guid: c247d19cd3e9b59459116f0dd3ef5985, type: 3}
       propertyPath: m_Alpha
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 107246231324277734, guid: c247d19cd3e9b59459116f0dd3ef5985, type: 3}
       propertyPath: m_Name
@@ -9375,8 +9375,9 @@ GameObject:
   - component: {fileID: 1881679175}
   - component: {fileID: 1881679177}
   - component: {fileID: 1881679176}
+  - component: {fileID: 1881679178}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: TextoJugar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9499,6 +9500,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1881679174}
   m_CullTransparentMesh: 1
+--- !u!114 &1881679178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881679174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:ae4dbf03b7e39cf4ca4b3039be2ea102
+    m_TableEntryReference:
+      m_KeyId: 378225864704
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1881679176}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1884081292
 GameObject:
   m_ObjectHideFlags: 0
@@ -10232,7 +10273,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2099760702}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0

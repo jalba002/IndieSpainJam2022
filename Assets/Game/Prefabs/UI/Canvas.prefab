@@ -785,7 +785,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d9a9937e34f11a47b474510764752dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonText: {fileID: 8607176489059447683}
+  textLocalized: {fileID: 788744003855061172}
+  localizationTable:
+    m_TableCollectionName: 
 --- !u!1 &8607176488138434650
 GameObject:
   m_ObjectHideFlags: 0
@@ -1602,6 +1604,7 @@ GameObject:
   - component: {fileID: 8607176489059447682}
   - component: {fileID: 8607176489059447676}
   - component: {fileID: 8607176489059447683}
+  - component: {fileID: 788744003855061172}
   m_Layer: 5
   m_Name: InteractionText
   m_TagString: Untagged
@@ -1659,7 +1662,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'E to activate
 
-    Meteorite Spell'
+    Meteorite Spell
+
+    Coste: 25 estrellas'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dea6229a716ae18459e15a2c7d8f2e3f, type: 2}
   m_sharedMaterial: {fileID: 3246686781641163421, guid: dea6229a716ae18459e15a2c7d8f2e3f, type: 2}
@@ -1728,6 +1733,46 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &788744003855061172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8607176489059447681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:ae4dbf03b7e39cf4ca4b3039be2ea102
+    m_TableEntryReference:
+      m_KeyId: 15364536971264
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 1
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8607176489059447683}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!1001 &5380881540124040242
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1741,7 +1786,7 @@ PrefabInstance:
       objectReference: {fileID: 8607176488208367809}
     - target: {fileID: 1506308199812393379, guid: eef1bf7775e638e4e80f54e9152e6d10, type: 3}
       propertyPath: m_text
-      value: 635
+      value: 775
       objectReference: {fileID: 0}
     - target: {fileID: 2026498885912690582, guid: eef1bf7775e638e4e80f54e9152e6d10, type: 3}
       propertyPath: amountOfZeroes

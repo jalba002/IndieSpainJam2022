@@ -354,7 +354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6110351062061853211, guid: d8caee48be0e84845a5e7493f38dcfbf, type: 3}
       propertyPath: PillarName
-      value: Pilar de embestida
+      value: Dash
       objectReference: {fileID: 0}
     - target: {fileID: 6110351062061853211, guid: d8caee48be0e84845a5e7493f38dcfbf, type: 3}
       propertyPath: enemySpawner
@@ -412,7 +412,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
   m_Name: pb_Mesh151200
+=======
+  m_Name: pb_Mesh34686
+>>>>>>> Stashed changes
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6098,7 +6102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4870729095682322887, guid: a5cf6c7995b284645b34d6f7434fedcd, type: 3}
       propertyPath: PillarName
-      value: Pilar de enfriamiento
+      value: Enfriamiento
       objectReference: {fileID: 0}
     - target: {fileID: 4870729095682322887, guid: a5cf6c7995b284645b34d6f7434fedcd, type: 3}
       propertyPath: enemySpawner
@@ -6582,7 +6586,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
   m_Name: pb_Mesh151438
+=======
+  m_Name: pb_Mesh34924
+>>>>>>> Stashed changes
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7007,7 +7015,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4870729095682322887, guid: a5cf6c7995b284645b34d6f7434fedcd, type: 3}
       propertyPath: PillarName
-      value: Pilar de velocidad
+      value: Velocidad
       objectReference: {fileID: 0}
     - target: {fileID: 4870729095682322887, guid: a5cf6c7995b284645b34d6f7434fedcd, type: 3}
       propertyPath: enemySpawner
@@ -7880,7 +7888,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
   m_Name: pb_Mesh151504
+=======
+  m_Name: pb_Mesh34990
+>>>>>>> Stashed changes
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9690,7 +9702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6110351062061853211, guid: d8caee48be0e84845a5e7493f38dcfbf, type: 3}
       propertyPath: PillarName
-      value: Pilar de meteorito
+      value: Meteor
       objectReference: {fileID: 0}
     - target: {fileID: 6110351062061853211, guid: d8caee48be0e84845a5e7493f38dcfbf, type: 3}
       propertyPath: enemySpawner
@@ -18337,7 +18349,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
   m_Name: pb_Mesh151758
+=======
+  m_Name: pb_Mesh35244
+>>>>>>> Stashed changes
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -24450,7 +24466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4870729095682322887, guid: a5cf6c7995b284645b34d6f7434fedcd, type: 3}
       propertyPath: PillarName
-      value: Pilar de enfriamiento
+      value: Enfriamiento
       objectReference: {fileID: 0}
     - target: {fileID: 4870729095682322887, guid: a5cf6c7995b284645b34d6f7434fedcd, type: 3}
       propertyPath: enemySpawner
@@ -24474,6 +24490,62 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 788744003855061172, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+      propertyPath: managedReferences[4500173117226484166]
+      value: Unity.Localization UnityEngine.Localization.LocalizedString
+      objectReference: {fileID: 0}
+    - target: {fileID: 788744003855061172, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+      propertyPath: m_StringReference.m_LocalVariables.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 788744003855061172, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 15364536971264
+      objectReference: {fileID: 0}
+    - target: {fileID: 788744003855061172, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+      propertyPath: m_StringReference.m_LocalVariables.Array.data[0].name
+      value: pillarName
+      objectReference: {fileID: 0}
+    - target: {fileID: 788744003855061172, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+      propertyPath: managedReferences[4500173117226484166].m_FallbackState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 788744003855061172, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: GUID:ae4dbf03b7e39cf4ca4b3039be2ea102
+      objectReference: {fileID: 0}
+    - target: {fileID: 788744003855061172, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+      propertyPath: m_StringReference.m_LocalVariables.Array.data[0].variable
+      value: 4500173117226484166
+      objectReference: {fileID: 0}
+    - target: {fileID: 788744003855061172, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+      propertyPath: managedReferences[4500173117226484166].m_WaitForCompletion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 788744003855061172, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+      propertyPath: managedReferences[4500173117226484166].m_LocalVariables.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 788744003855061172, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+      propertyPath: managedReferences[4500173117226484166].m_TableEntryReference.m_Key
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 788744003855061172, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+      propertyPath: managedReferences[4500173117226483758].m_TableEntryReference.m_KeyId
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 788744003855061172, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+      propertyPath: managedReferences[4500173117226484166].m_TableEntryReference.m_KeyId
+      value: 63233634304
+      objectReference: {fileID: 0}
+    - target: {fileID: 788744003855061172, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+      propertyPath: managedReferences[4500173117226483758].m_TableReference.m_TableCollectionName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 788744003855061172, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+      propertyPath: managedReferences[4500173117226484166].m_TableReference.m_TableCollectionName
+      value: GUID:6e5d82954e9021e4b8f13035bafb56b1
+      objectReference: {fileID: 0}
     - target: {fileID: 3655970887405656446, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -25234,7 +25306,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
   m_Name: pb_Mesh151548
+=======
+  m_Name: pb_Mesh35034
+>>>>>>> Stashed changes
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -25948,7 +26024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4870729095682322887, guid: a5cf6c7995b284645b34d6f7434fedcd, type: 3}
       propertyPath: PillarName
-      value: "Pilar de regeneraci\xF3n"
+      value: Regeneracion
       objectReference: {fileID: 0}
     - target: {fileID: 4870729095682322887, guid: a5cf6c7995b284645b34d6f7434fedcd, type: 3}
       propertyPath: enemySpawner
@@ -26006,7 +26082,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
   m_Name: pb_Mesh151486
+=======
+  m_Name: pb_Mesh34972
+>>>>>>> Stashed changes
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -31423,7 +31503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4870729095682322887, guid: a5cf6c7995b284645b34d6f7434fedcd, type: 3}
       propertyPath: PillarName
-      value: "Pilar de agresi\xF3n"
+      value: Agresion
       objectReference: {fileID: 0}
     - target: {fileID: 4870729095682322887, guid: a5cf6c7995b284645b34d6f7434fedcd, type: 3}
       propertyPath: enemySpawner
@@ -37101,7 +37181,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
   m_Name: pb_Mesh151010
+=======
+  m_Name: pb_Mesh34492
+>>>>>>> Stashed changes
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -38283,6 +38367,14 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 7724808604174716974, guid: eebfc8ad3c27c72429091a6e62ca4285, type: 3}
+      propertyPath: MaxHealth
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 7724808604174716974, guid: eebfc8ad3c27c72429091a6e62ca4285, type: 3}
+      propertyPath: healthRegeneration
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7757008425378444933, guid: eebfc8ad3c27c72429091a6e62ca4285, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
@@ -39216,7 +39308,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
   m_Name: pb_Mesh151744
+=======
+  m_Name: pb_Mesh35230
+>>>>>>> Stashed changes
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -40380,7 +40476,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 19301df303291ea429c98ed7010cbbe4, type: 2}
     - target: {fileID: 6110351062061853211, guid: d8caee48be0e84845a5e7493f38dcfbf, type: 3}
       propertyPath: PillarName
-      value: Pilar de tormenta
+      value: Thunder
       objectReference: {fileID: 0}
     - target: {fileID: 6110351062061853211, guid: d8caee48be0e84845a5e7493f38dcfbf, type: 3}
       propertyPath: enemySpawner
