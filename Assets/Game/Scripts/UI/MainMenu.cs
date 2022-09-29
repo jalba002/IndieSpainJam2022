@@ -12,6 +12,7 @@ public enum MenuState
     Main,
     Options,
     Controls,
+    Localization,
     Credits,
     Shop
 }
@@ -25,6 +26,7 @@ public class MainMenu : MonoBehaviour
     public CanvasFadeIn LoadingScreen;
     public CanvasFadeIn OptionsCanvas;
     public CanvasFadeIn ControlsCanvas;
+    public CanvasFadeIn LocalizationCanvas;
     public CanvasFadeIn CreditsCanvas;
     public CanvasFadeIn ShopCanvas;
     public float Duration = 0.4f;
@@ -34,6 +36,12 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField]
     private Button optionsButton;
+
+    [SerializeField]
+    private Button controlsButton;
+
+    [SerializeField]
+    private Button localizationButton;
 
     [SerializeField]
     private Button creditsButton;
@@ -83,6 +91,7 @@ public class MainMenu : MonoBehaviour
         gameStateCanvasTable.Add(MenuState.Main, GetComponent<CanvasFadeIn>());
         gameStateCanvasTable.Add(MenuState.Options, OptionsCanvas);
         gameStateCanvasTable.Add(MenuState.Controls, ControlsCanvas);
+        gameStateCanvasTable.Add(MenuState.Localization, LocalizationCanvas);
         gameStateCanvasTable.Add(MenuState.Credits, CreditsCanvas);
         gameStateCanvasTable.Add(MenuState.Shop, ShopCanvas);
 
@@ -139,12 +148,7 @@ public class MainMenu : MonoBehaviour
     public void MainMenuFade()
     {
         SetCanvas(MenuState.Main);
-    }
-
-    public void ControlsMenu()
-    {
-        SetCanvas(MenuState.Controls);
-    }
+    }      
 
     public void SetCanvas(MenuState newMenu)
     {
@@ -160,6 +164,16 @@ public class MainMenu : MonoBehaviour
     public void OptionsMenu()
     {
         SetCanvas(MenuState.Options);
+    }
+
+    public void ControlsMenu()
+    {
+        SetCanvas(MenuState.Controls);
+    }
+
+    public void LocalizationsMenu()
+    {
+        SetCanvas(MenuState.Localization);
     }
 
     public void CreditsMenu()
@@ -182,6 +196,56 @@ public class MainMenu : MonoBehaviour
         Application.OpenURL(twitterAdress + "?text=" + UnityWebRequest.EscapeURL(twitterNameParameter + "\n" + twitterDescriptionParam + "\n" + miniGameJamLink));
         PlayClickSound();
     }
+
+    //Links for Twitter
+    public void JordiTwitter()
+    {
+        Application.OpenURL("https://twitter.com/JordiAlbaDev");
+        PlayClickSound();
+    }
+
+    public void AndrewTwitter()
+    {
+        Application.OpenURL("https://twitter.com/andrew_raaya");
+        PlayClickSound();
+    }
+
+    public void SergiTwitter()
+    {
+        Application.OpenURL("https://twitter.com/Sergisggs");
+        PlayClickSound();
+    }
+
+    public void GuillemTwitter()
+    {
+        Application.OpenURL("https://twitter.com/GuillemLlovDev");
+        PlayClickSound();
+    }
+
+    public void RogerLloveraTwitter()
+    {
+        Application.OpenURL("https://twitter.com/RenderingCode");
+        PlayClickSound();
+    }
+
+    public void MartaTwitter()
+    {
+        Application.OpenURL("https://twitter.com/Belmontes_art");
+        PlayClickSound();
+    }
+
+    public void OscarTwitter()
+    {
+        Application.OpenURL("https://twitter.com/ovillaloboss_");
+        PlayClickSound();
+    }
+
+    public void RogerTwitter()
+    {
+        Application.OpenURL("https://twitter.com/montane");
+        PlayClickSound();
+    }
+
 
     [Serializable]
     public class GameStateCanvasTable : UnitySerializedDictionary<MenuState, CanvasFadeIn> { }
