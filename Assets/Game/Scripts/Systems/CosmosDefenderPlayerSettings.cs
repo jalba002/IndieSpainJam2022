@@ -74,12 +74,6 @@ namespace CosmosDefender
     public struct CosmosDefenderPlayerSettingsData
     {
         public string LanguagePreference;
-        public float MouseSensitivity;
-
-        public CosmosDefenderPlayerSettingsData()
-        {
-            LanguagePreference = "English";
-            MouseSensitivity = 1f;
-        }
+        public float MouseSensitivity;               
     }
 }
