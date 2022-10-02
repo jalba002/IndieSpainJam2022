@@ -32,7 +32,7 @@ namespace CosmosDefender
             image.sprite = displayer.Thumbnail;
             description.text = displayer.Description;
             price.color = moneyAmount >= displayer.Price ? validPurchase : invalidPurchase;
-            price.text = !displayer.CanBePurchased ? "None" : displayer.Price.ToString();
+            price.text = !displayer.CanBePurchased ? "max" : displayer.Price.ToString();
             this.level.text = !displayer.CanBePurchased ? "" : level.ToString();
         }
 

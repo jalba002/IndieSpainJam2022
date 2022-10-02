@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: ArcSpellStrong
   m_EditorClassIdentifier: 
   baseData:
-    spellType: 48
+    spellType: 36
     castType: 2
     damageMultiplier: 1.25
-    cooldown: 4
+    cooldown: 6
     speed: 20
     uniformSize: 20
-    amount: 7
+    amount: 4
     projectileRadius: 20
     projectileDelay: 0
     maxAttackDistance: 30

@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bc60772a204d5245bc306c059be8570, type: 3}
-  m_Name: SpellAttackIncreaseModifier_Laser_Tier1
+  m_Script: {fileID: 11500000, guid: cf1184169c2ff6b4db0bda3228ad82a8, type: 3}
+  m_Name: MeteoriteSpeedAdditiveModifier_Tier3
   m_EditorClassIdentifier: 
-  buffSprite: {fileID: 21300000, guid: ca1f841139f1117438a7026336915812, type: 3}
+  buffSprite: {fileID: 21300000, guid: c05fa003a3f6de14d8c496beca2cdc61, type: 3}
   priority: 0
-  tier: 0
-  spellType: 1
-  attackMultiplier: 0.5
+  tier: 2
+  spellType: 2
+  speedToAdd: 20

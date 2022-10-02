@@ -18,9 +18,17 @@ namespace CosmosDefender
         [Space(5)]
         public T modifier;
 
-        public string Description => description;
+        public string Description
+        {
+            get => description;
+            set => description = value;
+        } 
         public Sprite Thumbnail => thumbnail;
-        public int Price => price;
+        public int Price
+        {
+            get => price;
+            set => price = value;
+        }
         public bool CanBePurchased => canBePurchased;
     }
 }

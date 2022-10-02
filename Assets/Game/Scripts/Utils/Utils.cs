@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public static class Utils
@@ -28,7 +29,7 @@ public static class Utils
 
         return index;
     }
-    
+
     public static int GetClosestIndexFromList(Vector3 origin, List<Collider> hits)
     {
         int index = 0;
@@ -52,5 +53,11 @@ public static class Utils
         }
 
         return index;
+    }
+
+    public static string[] SplitByCamelCasing(string str)
+    {
+        Regex rg = new Regex(@"(?<!^)(?=[A-Z])");
+        return rg.Split(str);
     }
 }

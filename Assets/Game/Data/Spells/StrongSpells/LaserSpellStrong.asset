@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: LaserSpellStrong
   m_EditorClassIdentifier: 
   baseData:
-    spellType: 17
+    spellType: 33
     castType: 0
-    damageMultiplier: 1.1
+    damageMultiplier: 1
     cooldown: 1
     speed: 1
     uniformSize: 0
     amount: 1
-    projectileRadius: 1.25
+    projectileRadius: 1
     projectileDelay: 0.1
     maxAttackDistance: 50
     layerMask:

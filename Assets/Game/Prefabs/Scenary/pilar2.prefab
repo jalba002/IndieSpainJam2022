@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3557297047189971511}
   - component: {fileID: 7033519850360598886}
-  - component: {fileID: 3877790569277388741}
   - component: {fileID: 6110351062061853211}
+  - component: {fileID: 3877790569277388741}
   - component: {fileID: 7222479428951947740}
   - component: {fileID: 6023413161998180823}
   m_Layer: 7
@@ -52,21 +52,6 @@ CapsuleCollider:
   m_Height: 7.835
   m_Direction: 1
   m_Center: {x: 0, y: 3.9175, z: 0}
---- !u!114 &3877790569277388741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3557297047189971510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9ca36ce14272f34d9b1803fe6db3e3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pillarSpell: {fileID: 11400000, guid: 6fdfc8ec4c6c24f489fae51bf3e66ccd, type: 2}
-  firstPillar: {fileID: 11400000, guid: 13a722a6962469c4f946aafbac11ff83, type: 2}
-  empowerPillar: {fileID: 11400000, guid: cc129975c511d0d4a9ed15ada611a408, type: 2}
 --- !u!114 &6110351062061853211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,6 +69,21 @@ MonoBehaviour:
   PillarConfig: {fileID: 11400000, guid: 3ec672cbb95584d41a1ccda4e5ff4320, type: 2}
   starResourceData: {fileID: 11400000, guid: 389d1b4f92f3cf744a2e0c61757b5218, type: 2}
   enemySpawner: {fileID: 0}
+--- !u!114 &3877790569277388741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3557297047189971510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9ca36ce14272f34d9b1803fe6db3e3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pillarSpell: {fileID: 11400000, guid: 6fdfc8ec4c6c24f489fae51bf3e66ccd, type: 2}
+  firstPillar: {fileID: 11400000, guid: 13a722a6962469c4f946aafbac11ff83, type: 2}
+  empowerPillar: {fileID: 11400000, guid: cc129975c511d0d4a9ed15ada611a408, type: 2}
 --- !u!114 &7222479428951947740
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FireSpellWeak
   m_EditorClassIdentifier: 
   baseData:
-    spellType: 1
+    spellType: 0
     castType: 0
     damageMultiplier: 1
     cooldown: 6

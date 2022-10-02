@@ -78,7 +78,7 @@ namespace CosmosDefender.Bullets.Implementation
                 }
             }
 
-            if (enemyHits.Count > 1)
+            if (enemyHits.Count > 0)
             {
                 for (int i = 0; i < enemyHits.Count - 1; i++)
                 {
