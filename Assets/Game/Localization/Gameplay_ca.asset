@@ -20,26 +20,22 @@ MonoBehaviour:
     - rid: 4500173117226483751
   m_TableData:
   - m_Id: 15364536971264
-    m_Localized: '<color=green>{key}</color> per activar aquest\npilar de {pillarName}\nPreu:
-      <color=orange>{value}</color> estrelles.'
+    m_Localized: <color=green>{tecla}</color> per activar aquest\npilar de {pillarName}\n.Preu:<color=orange>{value}</color>
     m_Metadata:
-      m_Items:
-      - rid: 4500173117226483751
+      m_Items: []
   - m_Id: 15103122780160
     m_Localized: <size=52>PILAR EMPODERAT</size>
     m_Metadata:
       m_Items:
       - rid: 4500173117226483751
   - m_Id: 16582051147776
-    m_Localized: '<color=green>{key}</color> per empoderar aquest\npilar de {pillarName}\nPreu:
-      <color=orange>{value}</color> estrelles.'
+    m_Localized: BBB
     m_Metadata:
-      m_Items:
-      - rid: 4500173117226483751
+      m_Items: []
   references:
     version: 2
     RefIds:
     - rid: 4500173117226483751
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 00b0c4ef9307000000b0c455f90d000000b044cf140f000000b04478bc0d0000
+        m_Entries: 00b0c4ef9307000000b04478bc0d0000

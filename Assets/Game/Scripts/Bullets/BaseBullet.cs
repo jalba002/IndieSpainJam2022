@@ -44,6 +44,16 @@ namespace CosmosDefender.Bullets
             }
         }
 
+        public virtual void UpdateBullet()
+        {
+            // A.
+        }
+
+        public virtual void StopBullet()
+        {
+            // B.
+        }
+
         protected virtual void Update()
         {
             // Snap to ground and check if its out of ground too.

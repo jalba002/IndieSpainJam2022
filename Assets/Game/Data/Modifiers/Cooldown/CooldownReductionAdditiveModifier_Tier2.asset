@@ -15,4 +15,4 @@ MonoBehaviour:
   buffSprite: {fileID: 21300000, guid: 45c0f4ada1e1d6948ac692901782377d, type: 3}
   priority: 1
   tier: 1
-  additiveCooldownReduction: 15
+  additiveCooldownReduction: 25

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LaserAttackIncreaseModifier_Tier3
   m_EditorClassIdentifier: 
   buffSprite: {fileID: 21300000, guid: ca1f841139f1117438a7026336915812, type: 3}
-  priority: 0
+  priority: 2
   tier: 2
   spellType: 1
-  attackMultiplier: 0.5
+  attackMultiplier: 2.5

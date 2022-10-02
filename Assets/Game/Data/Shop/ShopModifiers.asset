@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ShopModifiers
   m_EditorClassIdentifier: 
   attributesModifierShop:
-  - {fileID: 11400000, guid: d917ab7b8c345f846a0578f9ae47619b, type: 2}
+  - {fileID: 11400000, guid: 0805b73e7fff2f14eb829467eb589e50, type: 2}
   - {fileID: 11400000, guid: bd98f77341763624fab9c5e8b7d80771, type: 2}
   - {fileID: 11400000, guid: bfac891dc6815c741924e29a050eee9e, type: 2}
   - {fileID: 11400000, guid: acf23d25d1bae6c488247c818152792e, type: 2}
@@ -23,6 +23,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5c25acfa497af3746af21a59d8edb1c0, type: 2}
   - {fileID: 11400000, guid: 21b482a6b961de04485aba69431c847e, type: 2}
   - {fileID: 11400000, guid: 40591ad1fbecc7748b60663388de08a5, type: 2}
+  - {fileID: 11400000, guid: a7ff1ab27913c1743a3f99b7b3b429b9, type: 2}
   - {fileID: 11400000, guid: e542ab57d1174e945b2bf2b0c5809780, type: 2}
   - {fileID: 11400000, guid: 1e039660d35b2d7448963d1dfd514bea, type: 2}
   - {fileID: 11400000, guid: acdef1a623cd0a248a8ee5730fd3cef8, type: 2}

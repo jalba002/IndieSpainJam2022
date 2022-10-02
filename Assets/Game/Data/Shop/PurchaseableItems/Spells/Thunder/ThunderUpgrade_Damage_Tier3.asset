@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f89b4321206945543b0f9f019eea68ee, type: 3}
-  m_Name: ThunderUpgrade_Damage_Tier2
+  m_Name: ThunderUpgrade_Damage_Tier3
   m_EditorClassIdentifier: 
-  description: "x2 da\xF1o al rayo"
+  description: "Multiplica el da\xF1o del rayo en x2.5"
   thumbnail: {fileID: 21300000, guid: 2e258a537e928204d9cf2e1d1c46ead0, type: 3}
-  price: 100
+  price: 150
   canBePurchased: 1
-  modifier: {fileID: 11400000, guid: 1f81ff7f96c3cd04b8853ea2a7f36aea, type: 2}
+  modifier: {fileID: 11400000, guid: 5512752062d41234f9c1153d0f81f320, type: 2}

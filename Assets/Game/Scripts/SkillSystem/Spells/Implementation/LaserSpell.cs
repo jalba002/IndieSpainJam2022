@@ -1,3 +1,5 @@
+using CosmosDefender.Bullets;
+using CosmosDefender.Bullets.Implementation;
 using UnityEngine;
 using UnityEngine.VFX;
 using UnityEngine.VFX.Utility;
@@ -7,38 +9,59 @@ namespace CosmosDefender
     [CreateAssetMenu(fileName = nameof(LaserSpell), menuName = "CosmosDefender/Spells/" + nameof(LaserSpell))]
     public class LaserSpell : BaseSpell
     {
-        private Coroutine SpellCoroutine;
-
-        [SerializeField] private LayerMask _layerMask;
+        private LaserBullet instantiatedBullet;
+        private ISpellCaster caster;
+        private float nextCast = 0f;
+        private bool firstCast = false;
+        private float firstCastTime;
         
         public override void Cast(Vector3 spawnPoint, Vector3 forward, Quaternion rotation, IReadOnlyOffensiveData combatData, ISpellCaster caster)
         {
-            caster.Animator.SetTrigger(spellData.AnimationCode);
-            
-            if(SpellCoroutine != null)
-                CronoScheduler.Instance.StopCoroutine(SpellCoroutine);
-
-            SpellCoroutine = CronoScheduler.Instance.ScheduleForTime(spellData.AnimationDelay, () =>
+            if (firstCast)
             {
-                CronoScheduler.Instance.ScheduleForRepetitions(spellData.Amount, spellData.ProjectileDelay, () =>
-                {
-                    var ray = Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f));
-                    var position = caster.CastingPoint.position;
-                    
-                    bool didRayHit = (Physics.Raycast(ray, out RaycastHit info, spellData.MaxAttackDistance, _layerMask));
+                // Set a delay for the first instantiation.
+                firstCastTime = Time.time + spellData.AnimationDelay;
+                firstCast = false;
+                Debug.Log("Casting laser for first time.");
+                caster.Animator.SetBool(spellData.AnimationCode, true);
+            }
 
-                    Vector3 a = (didRayHit ? info.point - caster.GameObject.transform.right * 0.2f: (ray.origin + ray.direction * (spellData.MaxAttackDistance * 0.2f))) - position;
+            if (Time.time < firstCastTime) return;
+            
+            if (instantiatedBullet == null)
+            {
+                Debug.Log("Instantiating Laser Bullet");
+                this.caster = caster;
+                
+                var ray = Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f));
+                var position = caster.CastingPoint.position;
                     
-                    //a.normalized
-                    var bullet = Instantiate(prefab, position, Quaternion.LookRotation(a.normalized));
-                    bullet.InstantiateBullet(position, a.normalized, Quaternion.identity, combatData, currentData, caster);
-                });
-            });
+                bool didRayHit = (Physics.Raycast(ray, out RaycastHit info, spellData.MaxAttackDistance, spellData.LayerMask));
+
+                Vector3 a = (didRayHit ? info.point - caster.GameObject.transform.right * 0.2f: (ray.origin + ray.direction * (spellData.MaxAttackDistance * 0.2f))) - position;
+                
+                instantiatedBullet = Instantiate(prefab, position, Quaternion.LookRotation(a.normalized)) as LaserBullet;
+                instantiatedBullet.InstantiateBullet(position, a.normalized, Quaternion.identity, combatData, currentData, caster);
+                instantiatedBullet.UpdateBullet();
+                nextCast = Time.time + spellData.ProjectileDelay;
+            }
+            else
+            {
+                // Set a delay to deal damage.
+                if (Time.time >= nextCast)
+                {
+                    instantiatedBullet.UpdateBullet();
+                    nextCast = Time.time + spellData.ProjectileDelay;
+                }
+            }
         }
         
         public override void StopCast()
         {
-            //
+            instantiatedBullet.StopBullet();
+            instantiatedBullet = null;
+            caster.Animator.SetBool(spellData.AnimationCode, false);
+            firstCast = true;
         }
     }
 }

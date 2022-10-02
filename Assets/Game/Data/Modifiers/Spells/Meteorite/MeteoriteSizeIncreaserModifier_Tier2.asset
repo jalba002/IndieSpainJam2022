@@ -16,4 +16,4 @@ MonoBehaviour:
   priority: 0
   tier: 1
   spellType: -62
-  timesBigger: 1.5
+  timesBigger: 3

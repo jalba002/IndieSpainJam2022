@@ -25,12 +25,12 @@
                 },
                 {
                     "name": "Fire",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "af030fc7-d96e-4750-aba1-516308d3d8e1",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Alt Fire",
@@ -69,6 +69,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "GoddessMode",
+                    "type": "Button",
+                    "id": "2b4b1096-b4b0-41bf-ac62-c8d72739caba",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "InteractButton",
                     "type": "Button",
                     "id": "42ce2c1a-15b9-4a4a-a67b-c01fbce29b27",
@@ -81,15 +90,6 @@
                     "name": "Pause",
                     "type": "Button",
                     "id": "0c02519c-8ed8-4c5f-9dcc-9fb43aa6fb28",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "GoddessMode",
-                    "type": "Button",
-                    "id": "2b4b1096-b4b0-41bf-ac62-c8d72739caba",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",

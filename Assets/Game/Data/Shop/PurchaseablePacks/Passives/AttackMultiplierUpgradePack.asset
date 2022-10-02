@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65a33ed1079ed494f9475a82ff881f11, type: 3}
+  m_Name: AttackMultiplierUpgradePack
+  m_EditorClassIdentifier: 
+  modifers:
+  - {fileID: 11400000, guid: 207bdf9157d530242a71b9747eafe506, type: 2}
+  - {fileID: 11400000, guid: 4ef8a4ea88583b6449b5b71c993ac59b, type: 2}
+  - {fileID: 11400000, guid: 5cbd5730b59ee4545b5f921ee1b8272e, type: 2}
+  - {fileID: 11400000, guid: 8d7d766c55b7ca84287938ce800a68ee, type: 2}
+  shopData:
+    purchasedModifiersCount: 0

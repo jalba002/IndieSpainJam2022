@@ -9,7 +9,7 @@ namespace CosmosDefender
 
         public override void Modify(ref SpellData data)
         {
-            data.DamageMultiplier += attackMultiplier;
+            data.DamageMultiplier *= attackMultiplier;
         }
     }
 }

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9805f052b58c3a04fad52a3c8287850e, type: 3}
+  m_Name: ThunderRangePack
+  m_EditorClassIdentifier: 
+  modifers:
+  - {fileID: 11400000, guid: d7ce3105e156a6c46a66dce063ea98e3, type: 2}
+  - {fileID: 11400000, guid: b266719aa3154fd4f803b5ba71610a2b, type: 2}
+  - {fileID: 11400000, guid: 9ea62c66b0472ac4bbb307d2c79fc1b9, type: 2}
+  shopData:
+    purchasedModifiersCount: 0

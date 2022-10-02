@@ -7,5 +7,6 @@ namespace CosmosDefender
         Direct = 0,
         Preview,
         Raycast,
+        Held
     }
 }

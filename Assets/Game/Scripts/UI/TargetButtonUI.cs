@@ -22,6 +22,12 @@ namespace CosmosDefender
 
         public void SetButtonText(PillarController pillarController)
         {
+            textLocalized.StringReference = new LocalizedString();
+            
+            textLocalized.StringReference.Add("tecla", new StringVariable() {Value = "E"});
+            textLocalized.StringReference.Add("value", new IntVariable() {Value = (int) pillarController.PillarConfig.ActivateCost});
+            textLocalized.StringReference.Add("pillarName", new LocalizedString(localizationTable, pillarController.PillarName));
+            
             switch (pillarController.pillarCurrentState)
             {
                 case PillarController.PillarStates.Inactive:
@@ -35,9 +41,6 @@ namespace CosmosDefender
                     break;
             }
             
-            textLocalized.StringReference.Add("key", new StringVariable() {Value = "E"});
-            textLocalized.StringReference.Add("value", new IntVariable() {Value = (int) pillarController.PillarConfig.ActivateCost});
-            textLocalized.StringReference.Add("pillarName", new LocalizedString(localizationTable, pillarController.PillarName));
         }
     }
 }

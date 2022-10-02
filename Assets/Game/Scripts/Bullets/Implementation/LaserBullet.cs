@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -15,16 +16,14 @@ namespace CosmosDefender.Bullets.Implementation
 
         [SerializeField] public VisualEffect feedbackVFX;
 
-
-        [Range(0f, 1f)] [SerializeField] private float sizeScaling = 0.17f;
-
         public override void InstantiateBullet(Vector3 origin, Vector3 forward, Quaternion rotation,
             IReadOnlyOffensiveData combatData, SpellData spellData, ISpellCaster caster)
         {
             base.InstantiateBullet(origin, forward, rotation, combatData, spellData, caster);
 
             // WRONG, USE THE RAYCAST MAX LENGTH
-            vfx.SetFloat("Length", spellData.MaxAttackDistance * sizeScaling);
+            vfx.Play();
+            vfx.SetFloat("Length", spellData.MaxAttackDistance);
             vfx.SetFloat("Width", spellData.ProjectileRadius);
             //vfx.SetVector3("End", endPoint);
 
@@ -32,17 +31,30 @@ namespace CosmosDefender.Bullets.Implementation
 
             vfx.SetFloat("Lifetime", spellData.Lifetime);
 
-            CronoScheduler.Instance.ScheduleForTime(spellData.ProjectileDelay, () => CastRayDamage(
+            // Destroy after maxtime + delay.
+        }
+
+        public override void UpdateBullet()
+        {
+            base.UpdateBullet();
+            
+            // Cast damage every time it is casted.
+            CastRayDamage(
                 transform.position,
                 transform.forward,
                 new Vector3(
                     spellData.ProjectileRadius,
                     spellData.ProjectileRadius,
                     spellData.MaxAttackDistance),
-                transform.rotation));
+                transform.rotation);
+        }
 
-            // Destroy after maxtime + delay.
-            Destroy(this.gameObject, spellData.Lifetime * 1.5f);
+        public override void StopBullet()
+        {
+            base.StopBullet();
+            
+            vfx.Stop();
+            Destroy(this.gameObject, 0.3f);
         }
 
         protected override void Update()
@@ -50,6 +62,8 @@ namespace CosmosDefender.Bullets.Implementation
             base.Update();
 
             this.gameObject.transform.position = caster.CastingPoint.position;
+            
+            // Update this VFX to the raycast Length from this update.
         }
 
         private void FixedUpdate()
@@ -77,32 +91,27 @@ namespace CosmosDefender.Bullets.Implementation
             // Debug.DrawRay(ray.origin, ray.direction * info.distance, Color.green, 2f);
 
             transform.forward = a.normalized;
-            //vfx.SetFloat("Length", didRayHit ? info.distance * 0.2f : spellData.MaxAttackDistance * 0.2f);
-
-            // vfx.SetBool("Rayhit", didRayHit);
-            //
-            // if (didRayHit)
-            // {
-            //     vfx.SetFloat("RayDistance", info.distance * 0.2f);
-            //     //Vector3 endPoint = info.point - caster.gameObject.transform.right * 0.2f;
-            //
-            //     //transform.forward = endPoint.normalized;
-            // }
+            vfx.SetFloat("Length", a.magnitude);
         }
 
         private void CastRayDamage(Vector3 origin, Vector3 forward, Vector3 length, Quaternion rotation)
         {
             // TODO Gather information about the ray size here.
+            // No multihit? Just one enemy hit.
+            
             var hits = AreaAttacksManager.BoxAttack(origin, forward, length * 0.5f, rotation, spellData.LayerMask);
+            if (hits.Length <= 0) return;
+            
+            var enemyIndex = Utils.GetClosestIndexFromList(transform.position, hits.ToList());
+            
+            // foreach (var enemy in hits)
+            // {
+            var a = Instantiate(feedbackVFX, hits[enemyIndex].bounds.center, Quaternion.identity);
+            Destroy(a, spellData.Lifetime);
+            // }
 
-            foreach (var enemy in hits)
-            {
-                var a = Instantiate(feedbackVFX, enemy.bounds.center, Quaternion.identity);
-                Destroy(a, spellData.Lifetime);
-            }
-
-            AreaAttacksManager.DealDamageToCollisions<IDamageable>(hits,
-                combatData.AttackDamage * spellData.DamageMultiplier);
+            AreaAttacksManager.DealDamageToCollisions<IDamageable>(hits[enemyIndex], combatData.AttackDamage * spellData.DamageMultiplier);
+            //AreaAttacksManager.DealDamageToCollisions<IDamageable>(hits, combatData.AttackDamage * spellData.DamageMultiplier);
         }
     }
 }

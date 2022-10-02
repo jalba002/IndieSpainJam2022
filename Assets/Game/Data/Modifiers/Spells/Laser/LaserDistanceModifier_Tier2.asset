@@ -16,4 +16,4 @@ MonoBehaviour:
   priority: 0
   tier: 1
   spellType: 1
-  extraRange: 5
+  extraRange: 10

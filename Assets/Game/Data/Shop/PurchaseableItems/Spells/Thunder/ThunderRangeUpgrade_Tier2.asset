@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f89b4321206945543b0f9f019eea68ee, type: 3}
-  m_Name: ThunderUpgrade_Damage_Tier1
+  m_Name: ThunderRangeUpgrade_Tier2
   m_EditorClassIdentifier: 
-  description: "x1.5 da\xF1o al rayo"
+  description: "Aumenta en <color=green>10</color> el radio del rayo, permitiendo
+    alcanzar enemigos m\xE1s lejanos."
   thumbnail: {fileID: 21300000, guid: 2e258a537e928204d9cf2e1d1c46ead0, type: 3}
-  price: 75
-  canBePurchase: 1
-  modifier: {fileID: 11400000, guid: c92b6b603ff04f54eb329bc7fbb04c85, type: 2}
+  price: 100
+  canBePurchased: 1
+  modifier: {fileID: 11400000, guid: c8634d72c654d0841a0973d137717052, type: 2}
