@@ -21,7 +21,6 @@ public class PurchaseableSpellModifierDataEditor : Editor
     void OnEnable()
     {
         desc = serializedObject.FindProperty("description");
-        
     }
 
     public override void OnInspectorGUI()

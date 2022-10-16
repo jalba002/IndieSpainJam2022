@@ -11,23 +11,14 @@ namespace CosmosDefender
     public class ShopButtonDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
     {
         [SerializeField] private Image image;
-        
-        [SerializeField] private string description;
+        public string description;
         [SerializeField] private TMP_Text price;
         [SerializeField] private TMP_Text level;
-        [SerializeField] private CanvasGroup descriptionPanel;
-        
+        [Header("Colors")]
         [SerializeField] private Color validPurchase;
         [SerializeField] private Color invalidPurchase;
 
-        private SpellDataPackage _spellDataPackage;
         private RectTransform panelTransform;
-
-        private void Start()
-        {
-            descriptionPanel.Hide();
-            panelTransform = descriptionPanel.GetComponent<RectTransform>();
-        }
 
         public void ShowConfig(IShopDisplayer displayer, int level, int moneyAmount)
         {
@@ -46,30 +37,18 @@ namespace CosmosDefender
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            //descriptionPanel.Show();
+            TextDisplayer.Instance.Show();
+            TextDisplayer.Instance.DisplayText(description);
         }
         
         public void OnPointerExit(PointerEventData eventData)
         {
-            //descriptionPanel.Hide();
+            TextDisplayer.Instance.Hide();
         }
 
         public void OnPointerMove(PointerEventData eventData)
         {
-            // if (descriptionPanel.IsShown())
-            // {
-            //     var sizeDelta = panelTransform.rect;
-            //     var realPos = Camera.main.ScreenToWorldPoint(eventData.position);
-            //     //Vector3 offsetVector = new Vector3(sizeDelta.width * 0.5f, -sizeDelta.height * 0.5f, 0f);
-            //     //realPos += offsetVector;
-            //     //Debug.Log(realPos + "\n" + offsetVector);
-            //     
-            //     realPos.z = 150f;
-            //
-            //     panelTransform. = realPos;
-            // }
-            
-            // Instead of moving the descPanel, just call the static class to move. :D
+            TextDisplayer.Instance.Move(eventData);
         }
     }
 }
