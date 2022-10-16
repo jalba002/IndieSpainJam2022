@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseAttributes:
     attackDamage: 30
-    speed: 6
+    speed: 8
     cooldownReduction: 0
     maxHealth: 100
     healthRegeneration: 0

@@ -62,8 +62,8 @@ MonoBehaviour:
     m_Localized: "M\xFAsica"
     m_Metadata:
       m_Items: []
-  - m_Id: 49680101617664
-    m_Localized: Pantalla Completa
+  - m_Id: 5580730977792000
+    m_Localized: Global
     m_Metadata:
       m_Items: []
   - m_Id: 49816663961600
@@ -83,7 +83,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 50266595340288
-    m_Localized: "Mover C\xE1mara"
+    m_Localized: "Mover c\xE1mara"
     m_Metadata:
       m_Items: []
   - m_Id: 50222907469824
@@ -120,6 +120,46 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 50431318241280
     m_Localized: Idioma
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5579836936728576
+    m_Localized: Pausa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5580076800585728
+    m_Localized: Sonido
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5580158992166912
+    m_Localized: "Gr\xE1ficos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5580437569449984
+    m_Localized: Pantalla completa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5580782471262208
+    m_Localized: SFX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5580830651232256
+    m_Localized: Musica
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5884474122612736
+    m_Localized: Juego
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5895518316441600
+    m_Localized: Sensibilidad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6295801102118912
+    m_Localized: Reanudar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6296276098658304
+    m_Localized: "Men\xFA"
     m_Metadata:
       m_Items: []
   references:

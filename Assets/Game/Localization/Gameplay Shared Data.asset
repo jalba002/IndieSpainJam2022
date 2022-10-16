@@ -16,7 +16,7 @@ MonoBehaviour:
   m_TableCollectionNameGuidString: ae4dbf03b7e39cf4ca4b3039be2ea102
   m_Entries:
   - m_Id: 15103122780160
-    m_Key: "PilarEmpoderado\t"
+    m_Key: PilarEmpoderado
     m_Metadata:
       m_Items: []
   - m_Id: 15364536971264

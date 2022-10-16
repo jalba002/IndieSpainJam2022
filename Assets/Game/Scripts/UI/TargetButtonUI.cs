@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -10,25 +11,25 @@ namespace CosmosDefender
 {
     public class TargetButtonUI : MonoBehaviour
     {
-        private bool isActive = false;
-        [SerializeField] LocalizeStringEvent textLocalized;
-        [SerializeField] private TableReference localizationTable;
+        [SerializeField] private LocalizeStringEvent textLocalized;
 
         public void SetState(bool newState)
         {
-            isActive = newState;
-            textLocalized.gameObject.SetActive(isActive);
+            textLocalized.gameObject.SetActive(newState);
         }
 
         public void SetButtonText(PillarController pillarController)
         {
-            textLocalized.StringReference = new LocalizedString();
+            textLocalized.StringReference = new LocalizedString
+            {
+                {"tecla", new StringVariable() {Value = "E"}},
+                {"value", new IntVariable() {Value = (int) pillarController.GetActivationCost()}},
+                {"pillarName", new LocalizedString(pillarController.tableReference, pillarController.PillarName)}
+            };
             
-            textLocalized.StringReference.Add("tecla", new StringVariable() {Value = "E"});
-            textLocalized.StringReference.Add("value", new IntVariable() {Value = (int) pillarController.PillarConfig.ActivateCost});
-            textLocalized.StringReference.Add("pillarName", new LocalizedString(localizationTable, pillarController.PillarName));
-            
-            switch (pillarController.pillarCurrentState)
+            textLocalized.SetTable("Gameplay");
+
+            switch (pillarController.GetCurrentState())
             {
                 case PillarController.PillarStates.Inactive:
                     textLocalized.SetEntry("PilarInactivo");
@@ -40,7 +41,6 @@ namespace CosmosDefender
                     textLocalized.SetEntry("PilarEmpoderado");
                     break;
             }
-            
         }
     }
 }

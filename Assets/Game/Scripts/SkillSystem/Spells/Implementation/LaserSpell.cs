@@ -1,8 +1,5 @@
-using CosmosDefender.Bullets;
 using CosmosDefender.Bullets.Implementation;
 using UnityEngine;
-using UnityEngine.VFX;
-using UnityEngine.VFX.Utility;
 
 namespace CosmosDefender
 {
@@ -58,9 +55,12 @@ namespace CosmosDefender
         
         public override void StopCast()
         {
-            instantiatedBullet.StopBullet();
+            if(instantiatedBullet != null)
+                instantiatedBullet.StopBullet();
+            
             instantiatedBullet = null;
-            caster.Animator.SetBool(spellData.AnimationCode, false);
+            if(caster.Animator != null)
+                caster.Animator.SetBool(spellData.AnimationCode, false);
             firstCast = true;
         }
     }

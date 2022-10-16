@@ -1,3 +1,5 @@
+using Sirenix.OdinInspector;
+using Sirenix.OdinInspector.Editor.GettingStarted;
 using UnityEngine;
 
 namespace CosmosDefender
@@ -13,22 +15,25 @@ namespace CosmosDefender
         private TPurchase config;
         private T currentModifier;
         private EconomyConfig economyConfig;
+        private T3 relevantData;
 
         private void Awake()
         {
             buttonDisplay = GetComponent<ShopButtonDisplay>();
         }
 
-        public void Initialize(TPurchase config, EconomyConfig economyConfig)
+        public void Initialize(TPurchase config, EconomyConfig economyConfig, T3 relevantData)
         {
             this.config = config;
             this.economyConfig = economyConfig;
+            this.relevantData = relevantData;
         }
 
         public void Show()
         {
             currentModifier = config.GetCurrentPurchaseable();
             var currentIndex = config.GetCurrentPurchaseIndex();
+            // buttonDisplay. Showthegoddam desc.
             buttonDisplay.ShowConfig(currentModifier, currentIndex + 1, economyConfig.GetMoney());
         }
 
@@ -41,5 +46,7 @@ namespace CosmosDefender
                 Show();
             }
         }
+
+        protected virtual T3 GetData() => relevantData;
     }
 }

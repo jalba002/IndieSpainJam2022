@@ -100,6 +100,8 @@ public class PlayerMovementController : MonoBehaviour
 	[Space(10)]
 	[Header("Attributes")]
 	[SerializeField] private PlayerAttributes playerAttributes;
+	[SerializeField] private CosmosDefenderPlayerSettings gameSettings;
+	
 
 	private Vector3 spawnPosition;
 
@@ -168,10 +170,12 @@ public class PlayerMovementController : MonoBehaviour
 
 	private void CameraRotation()
 	{
+		Vector2 mouseDelta = input.Look * (gameSettings.GetSensitivity() * 0.1f);
+		Debug.Log($"{input.Look} (default)\nand\n{mouseDelta} (scaled)");
 		if (input.Look.sqrMagnitude >= threshold && !LockCameraPosition)
 		{
-			cinemachineTargetYaw += input.Look.x * Time.deltaTime;
-			cinemachineTargetPitch += input.Look.y * Time.deltaTime;
+			cinemachineTargetYaw += mouseDelta.x * Time.deltaTime;
+			cinemachineTargetPitch += mouseDelta.y * Time.deltaTime;
 		}
 
 		cinemachineTargetYaw = ClampAngle(cinemachineTargetYaw, float.MinValue, float.MaxValue);

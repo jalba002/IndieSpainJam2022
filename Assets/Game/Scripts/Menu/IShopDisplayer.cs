@@ -1,3 +1,4 @@
+using CosmosDefender.Shop;
 using UnityEngine;
 
 namespace CosmosDefender

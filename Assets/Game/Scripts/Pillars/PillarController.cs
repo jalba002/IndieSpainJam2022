@@ -1,3 +1,4 @@
+using System;
 using FMODUnity;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
@@ -14,21 +15,18 @@ namespace CosmosDefender
             Empowered
         }
 
-        public string PillarName;
+        [Header("Config")] public string PillarName;
+        [SerializeField] private PillarStates pillarCurrentState;
+        [Header("Translation")] public string tableReference = "Mecánicas";
 
-        public PillarStates pillarCurrentState;
-        [SerializeField]
-        List<IPillarObserverModifier> pillarObserverModifiers = new List<IPillarObserverModifier>(); 
+        [Header("Configs")] [SerializeField]
+        List<IPillarObserverModifier> pillarObserverModifiers = new List<IPillarObserverModifier>();
 
         private List<PillarObserver> observersInRange = new List<PillarObserver>();
         public PillarsConfig PillarConfig;
 
-        [SerializeField]
-        private ResourceConfig starResourceData;
-
         private ResourceManager resourceManager;
-        [SerializeField]
-        private EnemySpawner enemySpawner;
+        [SerializeField] private EnemySpawner enemySpawner;
         private Animator animator;
         private StudioEventEmitter activatedSoundRef;
 
@@ -45,6 +43,32 @@ namespace CosmosDefender
             GetComponents(pillarObserverModifiers);
             resourceManager = GameManager.Instance.ResourceManager;
             activatedSoundRef = GetComponent<StudioEventEmitter>();
+        }
+
+        private void Start()
+        {
+            StartPillar();
+        }
+
+        void StartPillar()
+        {
+            switch (pillarCurrentState)
+            {
+                case PillarStates.Inactive:
+                    // 
+                    break;
+                case PillarStates.Active:
+                    // 
+                    activatedSoundRef.Play();
+                    GameManager.Instance.ActivePillars.Add(this);
+                    animator.SetTrigger("Active");
+                    break;
+                case PillarStates.Empowered:
+                    // 
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
 
         private void Update()
@@ -107,19 +131,21 @@ namespace CosmosDefender
                         pillar.OnPillarActivate(observer);
                     }
                 }
+
                 pillarCurrentState = PillarStates.Active;
                 animator.SetTrigger("Active");
             }
-            else if(CanBeEmpowered(ResourceType.Stars))
+            else if (CanBeEmpowered(ResourceType.Stars))
             {
                 resourceManager.DecreaseResource(ResourceType.Stars, PillarConfig.EmpowerCost);
                 foreach (var pillar in pillarObserverModifiers)
                 {
                     foreach (var observer in PillarConfig.PillarObservers)
                     {
+                        Debug.Log("Updating Empowers.");
                         pillar.SetPillarEmpowerState(observer, true);
                         activatedSoundRef.Play();
-                        CronoScheduler.Instance.ScheduleForTime(PillarConfig.EmpoweredDuration, () => 
+                        CronoScheduler.Instance.ScheduleForTime(PillarConfig.EmpoweredDuration, () =>
                         {
                             pillar.SetPillarEmpowerState(observer, false);
                             pillarCurrentState = PillarStates.Active;
@@ -127,6 +153,7 @@ namespace CosmosDefender
                         });
                     }
                 }
+
                 pillarCurrentState = PillarStates.Empowered;
                 animator.SetBool("Empowered", true);
             }
@@ -134,7 +161,7 @@ namespace CosmosDefender
 
         public void GoddessActive(float duration)
         {
-            if (pillarCurrentState != PillarStates.Active) 
+            if (pillarCurrentState != PillarStates.Active)
                 return;
 
             foreach (var pillar in pillarObserverModifiers)
@@ -143,19 +170,20 @@ namespace CosmosDefender
                 {
                     pillar.OnGoddessActive(observer);
 
-                    CronoScheduler.Instance.ScheduleForTime(duration, () =>
+                    if (duration > 0)
                     {
-                        pillar.SetPillarEmpowerState(observer, false);
-                    });
+                        CronoScheduler.Instance.ScheduleForTime
+                        (
+                            duration,
+                            () => { pillar.SetPillarEmpowerState(observer, false); }
+                        );
+                    }
                 }
             }
 
             animator.SetBool("GoddessMode", true);
 
-            CronoScheduler.Instance.ScheduleForTime(duration, () =>
-            {
-                GoddessDeactivated();
-            });
+            CronoScheduler.Instance.ScheduleForTime(duration, () => { GoddessDeactivated(); });
         }
 
         public void GoddessDeactivated()
@@ -169,17 +197,43 @@ namespace CosmosDefender
                     pillar.OnGoddessUnactive(observer);
                 }
             }
+
             pillarCurrentState = PillarStates.Active;
         }
 
         private bool CanBeEmpowered(ResourceType resource)
         {
-            return resourceManager.HasEnoughResourceToSpend(resource, PillarConfig.EmpowerCost) && pillarCurrentState == PillarStates.Active;
+            return resourceManager.HasEnoughResourceToSpend(resource, PillarConfig.EmpowerCost) &&
+                   pillarCurrentState == PillarStates.Active;
         }
 
         private bool CanBeActivated(ResourceType resource)
         {
-            return resourceManager.HasEnoughResourceToSpend(resource, PillarConfig.ActivateCost) && pillarCurrentState == PillarStates.Inactive;
+            return resourceManager.HasEnoughResourceToSpend(resource, PillarConfig.ActivateCost) &&
+                   pillarCurrentState == PillarStates.Inactive;
+        }
+
+        public PillarStates GetCurrentState() => pillarCurrentState;
+
+        public float GetActivationCost()
+        {
+            float value = -1f;
+            switch (pillarCurrentState)
+            {
+                case PillarStates.Inactive:
+                    value = PillarConfig.ActivateCost;
+                    break;
+                case PillarStates.Active:
+                    value = PillarConfig.EmpowerCost;
+                    break;
+                case PillarStates.Empowered:
+                    // NO
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            return value;
         }
     }
 }

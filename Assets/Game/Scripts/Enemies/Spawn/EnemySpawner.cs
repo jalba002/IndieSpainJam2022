@@ -7,8 +7,10 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] 
-    private WaveSettings _waveSettings;
+    [SerializeField] private WaveSettings _waveSettings;
+    [SerializeField] private WaveSettings _testSettings;
+
+    private WaveSettings _currentSettings;
     
     private int currentWave;
 
@@ -35,6 +37,11 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
+#if UNITY_EDITOR
+        _currentSettings = Instantiate(_testSettings);
+#else
+        _currentSettings = Instantiate(_waveSettings);
+#endif
         currentWave = -1;
     }
     
@@ -43,10 +50,10 @@ public class EnemySpawner : MonoBehaviour
         BeforeCombatMusicRef.Stop();
         CombatMusicRef.Play();
         currentWave++;
-        if (currentWave < _waveSettings.GetWaves().Length)
+        if (currentWave < _currentSettings.GetWaves().Length)
         {
-            currentWaveEnemies = _waveSettings.GetWaves()[currentWave].EnemyConfig.Length;
-            StartCoroutine(EnemySpawnCoroutine(_waveSettings.GetWaves()[currentWave]));
+            currentWaveEnemies = _currentSettings.GetWaves()[currentWave].EnemyConfig.Length;
+            StartCoroutine(EnemySpawnCoroutine(_currentSettings.GetWaves()[currentWave]));
         }
         OnWaveStart?.Invoke();
     }
@@ -72,9 +79,9 @@ public class EnemySpawner : MonoBehaviour
 
     private void FinishWave()
     {
-        economyConfig.AddMoney(_waveSettings.GetWaves()[currentWave].ShopCoinReward);
+        economyConfig.AddMoney(_currentSettings.GetWaves()[currentWave].ShopCoinReward);
         
-        if (currentWave >= _waveSettings.GetMaxWaves())
+        if (currentWave >= _currentSettings.GetMaxWaves())
         {
             CronoScheduler.Instance.ScheduleForTime(2f, () => GameManager.Instance.EndGame(true));
             FinishWaveMusicRef.Stop();
@@ -83,7 +90,7 @@ public class EnemySpawner : MonoBehaviour
             return;
         }
         
-        float time = _waveSettings.GetWaves()[currentWave].timeForNextWave;
+        float time = _currentSettings.GetWaves()[currentWave].timeForNextWave;
         StartCoroutine(NextWaveTimerCoroutine(time));
         OnWaveEnd?.Invoke(time);
         

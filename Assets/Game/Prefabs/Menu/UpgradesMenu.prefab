@@ -95,6 +95,8 @@ MonoBehaviour:
   attributesGrid: {fileID: 7197003756187361126}
   spellsGrid: {fileID: 1424739326059456128}
   currentMoney: {fileID: 3072811130372768789}
+  playerAtts: {fileID: 11400000, guid: fed7debed2a62174487ed40798233d77, type: 2}
+  baseSpell: {fileID: 11400000, guid: 9472aafd6c50c61488e6d68b2756f19a, type: 2}
 --- !u!1 &177516762390907293
 GameObject:
   m_ObjectHideFlags: 0

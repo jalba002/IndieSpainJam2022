@@ -6,16 +6,13 @@ namespace CosmosDefender
 	{
         private PillarObserver pillarObserver;
         [SerializeField] private LayerMask pillarLayerMask;
-        private PlayerInputs playerInputs;
-        private PillarController selectedPillar;
+        private static PillarController selectedPillar;
         [SerializeField]
         private TargetButtonUI uiButton;
-        private ResourceManager resourceManager;
+
         private void Awake()
         {
             pillarObserver = GetComponent<PillarObserver>();
-            playerInputs = GetComponent<PlayerInputs>();
-            resourceManager = GetComponent<ResourceManager>();
         }
 
         private void FixedUpdate()
@@ -27,8 +24,8 @@ namespace CosmosDefender
                 {
                     var pillarController = raycastHit.collider.GetComponent<PillarController>();
                     selectedPillar = pillarController;
-                    uiButton.SetState(true);
                     uiButton.SetButtonText(pillarController);
+                    uiButton.SetState(true);
                 }
                 else
                 {

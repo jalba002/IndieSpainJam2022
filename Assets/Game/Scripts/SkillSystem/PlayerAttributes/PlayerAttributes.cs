@@ -20,7 +20,7 @@ namespace CosmosDefender
         [ShowInInspector, ReadOnly]
         private AttributesData currentAttributes;
 
-        private ObservableModifierList<BaseAttributeModifier, IModifier<AttributesData>, AttributesData> attributeModifiers;
+        private ObservableModifierList<BaseAttributeModifier, IAttributeModifier, AttributesData> attributeModifiers;
         private ObservableModifierList<BaseSpellModifier, ISpellModifier, SpellData> spellModifiers;
 
         [ShowInInspector]
@@ -45,7 +45,7 @@ namespace CosmosDefender
             if (isInitialized && !forceInitialize)
                 return;
 
-            attributeModifiers = new ObservableModifierList<BaseAttributeModifier, IModifier<AttributesData>, AttributesData>(UpdateAttributes);
+            attributeModifiers = new ObservableModifierList<BaseAttributeModifier, IAttributeModifier, AttributesData>(UpdateAttributes);
             spellModifiers = new ObservableModifierList<BaseSpellModifier, ISpellModifier, SpellData>(UpdateSpells);
 
             attributeModifiers.ForceUpdate();
@@ -92,6 +92,8 @@ namespace CosmosDefender
             OnSpellEmpowered?.Invoke(spell);
             //spell.isSpellEmpowered = state;
         }
+
+        public AttributesData GetAttributes() => currentAttributes;
 
         [Button]
         public void AddSpell(CosmosSpell spell, bool addSpell = true)

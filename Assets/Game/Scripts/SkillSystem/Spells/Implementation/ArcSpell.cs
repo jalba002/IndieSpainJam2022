@@ -36,7 +36,7 @@ namespace CosmosDefender
                 Destroy(vfxItem.gameObject, spellData.Lifetime * 1.1f);
 
                 Vector3 endPos = spawnRay ? raycastHit.point : ray.origin + ray.direction * cameraCompensatedLength;
-                vfxItem.gameObject.GetComponent<VFXPropertyBinder>().AddPropertyBinder<VFXTransformBinder>().Init("Start", caster.CastingPoint);
+                vfxItem.gameObject.GetComponent<VFXPropertyBinder>().AddPropertyBinder<VFXPositionFromTransformBinder>().Init("Start", caster.CastingPoint);
                 vfxItem.SetVector3("End", endPos);
 
                 var instance = Instantiate(prefab, endPos, rotation);

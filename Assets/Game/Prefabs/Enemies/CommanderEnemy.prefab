@@ -1144,6 +1144,8 @@ MonoBehaviour:
   starResourceData: {fileID: 11400000, guid: 389d1b4f92f3cf744a2e0c61757b5218, type: 2}
   data: {fileID: 11400000, guid: cd653ebbdaede9d4f88c7f4f0c45b12b, type: 2}
   prefab: {fileID: 5380497785177111069, guid: c0740723ef8494d4db2cd93b84654e6c, type: 3}
+  attachedMRtoRender: {fileID: 272294701860159009}
+  bonePosition: {fileID: 1860204996401262485}
   dieSound: {fileID: 6656779506339536358}
   damageSound: {fileID: 3971349046271865123}
 --- !u!114 &8575225185708762517

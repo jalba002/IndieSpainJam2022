@@ -1,9 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using CosmosDefender;
+using TMPro;
 using UnityEngine;
 
 public class SettingsMenu : MonoBehaviour
 {
     public TMPro.TMP_Dropdown resolutionDropdown;
+    public TMP_Text sensitivityText;
+    [SerializeField] private CosmosDefenderPlayerSettings _gameplaySettings;
 
     Resolution[] resolutions;
 
@@ -31,6 +37,7 @@ public class SettingsMenu : MonoBehaviour
             {
                 currentResolutionIndex = iter;
             }
+
             iter++;
         }
 
@@ -50,5 +57,16 @@ public class SettingsMenu : MonoBehaviour
         var height = int.Parse(resolutionDropdown.options[resolutionIndex].text.Split('x')[1]);
 
         Screen.SetResolution(width, height, Screen.fullScreen);
+    }
+
+    public void SetSensitivity(Single value)
+    {
+        _gameplaySettings.SetMouseSensitivity(value);
+        sensitivityText.text = value.ToString("F2");
+    }
+
+    private void OnEnable()
+    {
+        SetSensitivity(_gameplaySettings.GetSensitivity());
     }
 }

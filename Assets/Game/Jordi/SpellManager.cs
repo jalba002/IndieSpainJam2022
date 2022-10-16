@@ -130,8 +130,10 @@ public class SpellManager : MonoBehaviour, ISpellCaster
                 skillPreviewer.Deactivate();
                 break;
             case CastType.Held:
+                Debug.Log("Casting held spell!");
                 holdingSpell = true;
                 heldSpell = selectedSpell;
+                CastHeldSpell();
                 //CastSpell(selectedSpell, transform.position);
                 break;
             default:
@@ -168,6 +170,7 @@ public class SpellManager : MonoBehaviour, ISpellCaster
 
     void StopCastingHeldSpell()
     {
+        Debug.Log("stopping spell casted.");
         heldSpell.StopCast();
         heldSpell = null;
     }
@@ -179,9 +182,17 @@ public class SpellManager : MonoBehaviour, ISpellCaster
 
     private void Update()
     {
-        if(holdingSpell)
+        if (holdingSpell)
+        {
             CastHeldSpell();
+            return;
+        }
         
+        UpdateSkillPreviewer();
+    }
+
+    void UpdateSkillPreviewer()
+    {
         if (!skillPreviewer.IsActive) return;
 
         Ray cameraRay = Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f));
@@ -189,23 +200,26 @@ public class SpellManager : MonoBehaviour, ISpellCaster
                                         Vector3.Distance(this.transform.position, Camera.main.transform.position);
 
         bool firstRayhit = Physics.Raycast(cameraRay, out RaycastHit hit, cameraCorrectedDistance, previewLayerMask);
-
+        bool secondRayHit = false;
         Vector3 castPos = firstRayhit ? hit.point : cameraRay.origin + cameraRay.direction * cameraCorrectedDistance;
 
         if (!firstRayhit)
         {
             Ray verticalRay = new Ray(castPos, Vector3.down);
-            if (Physics.Raycast(verticalRay, out RaycastHit info2, cameraCorrectedDistance, previewLayerMask))
+            secondRayHit = Physics.Raycast(verticalRay, out RaycastHit info2, cameraCorrectedDistance, previewLayerMask);
+            if (secondRayHit)
             {
                 castPos = info2.point;
             }
         }
 
-        skillPreviewer.Move(castPos);
+        if (!firstRayhit && !secondRayHit) return;
+            skillPreviewer.Move(castPos);
     }
 
     void OnFire(InputValue value)
     {
+        Debug.Log("Firing?");
         if (skillPreviewer.IsActive)
         {
             CastPreviewedSpell(ref previewedSpell);
@@ -213,7 +227,6 @@ public class SpellManager : MonoBehaviour, ISpellCaster
         else
         {
             float val = value.Get<float>();
-            Debug.Log(val);
             if (val > 0f && !holdingSpell)
             {
                 CastSpell(SpellKeyType.Spell0);

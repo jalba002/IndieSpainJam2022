@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: DragonDamagedMask
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Body_L
+    m_Weight: 0
+  - m_Path: Cuernos_Low
+    m_Weight: 0
+  - m_Path: Dientes_Down_Low
+    m_Weight: 0
+  - m_Path: Dientes_Up_Low
+    m_Weight: 0
+  - m_Path: Eyes_L
+    m_Weight: 0
+  - m_Path: Hands_L
+    m_Weight: 0
+  - m_Path: Head_Low
+    m_Weight: 0
+  - m_Path: Rig
+    m_Weight: 0
+  - m_Path: Rig/Hand.L
+    m_Weight: 1
+  - m_Path: Rig/Hand.L/Finger.002.L
+    m_Weight: 0
+  - m_Path: Rig/Hand.L/Finger.002.L/Finger.002.L_end
+    m_Weight: 0
+  - m_Path: Rig/Hand.L/Finger.003.L
+    m_Weight: 0
+  - m_Path: Rig/Hand.L/Finger.003.L/Finger.003.L_end
+    m_Weight: 0
+  - m_Path: Rig/Hand.L/Finiger.001.L
+    m_Weight: 0
+  - m_Path: Rig/Hand.L/Finiger.001.L/Finiger.001.L_end
+    m_Weight: 0
+  - m_Path: Rig/Hand.R
+    m_Weight: 0
+  - m_Path: Rig/Hand.R/Finger.002.R
+    m_Weight: 0
+  - m_Path: Rig/Hand.R/Finger.002.R/Finger.002.R_end
+    m_Weight: 0
+  - m_Path: Rig/Hand.R/Finger.003.R
+    m_Weight: 0
+  - m_Path: Rig/Hand.R/Finger.003.R/Finger.003.R_end
+    m_Weight: 0
+  - m_Path: Rig/Hand.R/Finiger.001.R
+    m_Weight: 0
+  - m_Path: Rig/Hand.R/Finiger.001.R/Finiger.001.R_end
+    m_Weight: 0
+  - m_Path: Rig/Pelvis
+    m_Weight: 0
+  - m_Path: Rig/Pelvis/Tail.001
+    m_Weight: 0
+  - m_Path: Rig/Pelvis/Tail.001/Tail.002
+    m_Weight: 0
+  - m_Path: Rig/Pelvis/Tail.001/Tail.002/Tail.003
+    m_Weight: 0
+  - m_Path: Rig/Pelvis/Tail.001/Tail.002/Tail.003/Tail.004
+    m_Weight: 0
+  - m_Path: Rig/Pelvis/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005
+    m_Weight: 0
+  - m_Path: Rig/Pelvis/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005/Tail.006
+    m_Weight: 0
+  - m_Path: Rig/Pelvis/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005/Tail.006/Tail.007
+    m_Weight: 0
+  - m_Path: Rig/Pelvis/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005/Tail.006/Tail.007/Tail.007_end
+    m_Weight: 0
+  - m_Path: Rig/Spine.001
+    m_Weight: 1
+  - m_Path: Rig/Spine.001/Spine.002
+    m_Weight: 1
+  - m_Path: Rig/Spine.001/Spine.002/Spine.003
+    m_Weight: 1
+  - m_Path: Rig/Spine.001/Spine.002/Spine.003/Neck.001
+    m_Weight: 1
+  - m_Path: Rig/Spine.001/Spine.002/Spine.003/Neck.001/Neck.002
+    m_Weight: 1
+  - m_Path: Rig/Spine.001/Spine.002/Spine.003/Neck.001/Neck.002/Neck.003
+    m_Weight: 1
+  - m_Path: Rig/Spine.001/Spine.002/Spine.003/Neck.001/Neck.002/Neck.003/Neck.004
+    m_Weight: 1
+  - m_Path: Rig/Spine.001/Spine.002/Spine.003/Neck.001/Neck.002/Neck.003/Neck.004/Head
+    m_Weight: 1
+  - m_Path: Rig/Spine.001/Spine.002/Spine.003/Neck.001/Neck.002/Neck.003/Neck.004/Head/Mouth.Down
+    m_Weight: 1
+  - m_Path: Rig/Spine.001/Spine.002/Spine.003/Neck.001/Neck.002/Neck.003/Neck.004/Head/Mouth.Down/Tongue.001
+    m_Weight: 1
+  - m_Path: Rig/Spine.001/Spine.002/Spine.003/Neck.001/Neck.002/Neck.003/Neck.004/Head/Mouth.Down/Tongue.001/Tongue.002
+    m_Weight: 1
+  - m_Path: Rig/Spine.001/Spine.002/Spine.003/Neck.001/Neck.002/Neck.003/Neck.004/Head/Mouth.Down/Tongue.001/Tongue.002/Tongue.002_end
+    m_Weight: 1
+  - m_Path: Rig/Spine.001/Spine.002/Spine.003/Neck.001/Wing.001.L
+    m_Weight: 1
+  - m_Path: Rig/Spine.001/Spine.002/Spine.003/Neck.001/Wing.001.L/Wing.002.L
+    m_Weight: 1
+  - m_Path: Rig/Spine.001/Spine.002/Spine.003/Neck.001/Wing.001.L/Wing.002.L/Wing.003.L
+    m_Weight: 1
+  - m_Path: Rig/Spine.001/Spine.002/Spine.003/Neck.001/Wing.001.L/Wing.002.L/Wing.003.L/Wing.004.L
+    m_Weight: 1
+  - m_Path: Rig/Spine.001/Spine.002/Spine.003/Neck.001/Wing.001.L/Wing.002.L/Wing.003.L/Wing.004.L/Wing.005.L
+    m_Weight: 1
+  - m_Path: Rig/Spine.001/Spine.002/Spine.003/Neck.001/Wing.001.L/Wing.002.L/Wing.003.L/Wing.004.L/Wing.005.L/Wing.005.L_end
+    m_Weight: 1
+  - m_Path: Rig/Spine.001/Spine.002/Spine.003/Neck.001/Wing.001.R
+    m_Weight: 1
+  - m_Path: Rig/Spine.001/Spine.002/Spine.003/Neck.001/Wing.001.R/Wing.002.R
+    m_Weight: 1
+  - m_Path: Rig/Spine.001/Spine.002/Spine.003/Neck.001/Wing.001.R/Wing.002.R/Wing.003.R
+    m_Weight: 1
+  - m_Path: Rig/Spine.001/Spine.002/Spine.003/Neck.001/Wing.001.R/Wing.002.R/Wing.003.R/Wing.004.R
+    m_Weight: 1
+  - m_Path: Rig/Spine.001/Spine.002/Spine.003/Neck.001/Wing.001.R/Wing.002.R/Wing.003.R/Wing.004.R/Wing.005.R
+    m_Weight: 1
+  - m_Path: Rig/Spine.001/Spine.002/Spine.003/Neck.001/Wing.001.R/Wing.002.R/Wing.003.R/Wing.004.R/Wing.005.R/Wing.005.R_end
+    m_Weight: 1
+  - m_Path: Rock_01_L
+    m_Weight: 0
+  - m_Path: Rock_02_L
+    m_Weight: 0
+  - m_Path: Rock_03_L
+    m_Weight: 0
+  - m_Path: Rock_04_L
+    m_Weight: 0
+  - m_Path: Tongue
+    m_Weight: 0
+  - m_Path: Wings
+    m_Weight: 0

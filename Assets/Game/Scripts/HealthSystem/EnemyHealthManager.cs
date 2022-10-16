@@ -1,32 +1,38 @@
 using CosmosDefender;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security;
 using FMODUnity;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.VFX;
+using UnityEngine.VFX.Utility;
 
 public class EnemyHealthManager : HealthManager
 {
     private Animator animator;
-    //private EnemySoundPlayer sounds;
-    private ScreenShake screenShake;
-    [SerializeField]
-    private ResourceConfig starResourceData;
 
-    [SerializeField]
-    private EnemyData data;
+    private ScreenShake screenShake;
+    
+    [Header("Settings")]
+    [SerializeField] private EnemyData data;
+
+    [SerializeField] private bool destroyOnDie = true;
 
     private EnemySpawner enemySpawner;
     private EnemyAI enemyAI;
 
+    [Header("VFX")] 
+    [SerializeField] private Vector3 sizeOverride = new Vector3(5f, 20f, 5f);
     [SerializeField] private VisualEffect prefab;
+    [SerializeField] private SkinnedMeshRenderer attachedMRtoRender;
 
-    [SerializeField] private StudioEventEmitter dieSound;
+    [Header("Sounds")] [SerializeField] private StudioEventEmitter dieSound;
     [SerializeField] private StudioEventEmitter damageSound;
 
     private void Awake()
     {
-        //animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         //sounds = GetComponent<EnemySoundPlayer>();
         screenShake = FindObjectOfType<ScreenShake>();
         enemyAI = GetComponent<EnemyAI>();
@@ -39,26 +45,45 @@ public class EnemyHealthManager : HealthManager
         base.Start();
     }
 
+    [Button]
     public override void Die()
     {
         //animator.SetTrigger("Death");
         //sounds.PlayDamageSound();
-        GameManager.Instance.ResourceManager.IncreaseResource(ResourceType.Stars, data.StarResourceOnDeath);
-        GameManager.Instance.ResourceManager.IncreaseResource(ResourceType.Goddess, data.StarResourceOnDeath);
-        enemySpawner.DecreaseCurrentEnemyCounter();
+        if (GameManager.Instance.ResourceManager != null)
+        {
+            GameManager.Instance.ResourceManager.IncreaseResource(ResourceType.Stars, data.StarResourceOnDeath);
+            GameManager.Instance.ResourceManager.IncreaseResource(ResourceType.Goddess, data.StarResourceOnDeath);
+            enemySpawner.DecreaseCurrentEnemyCounter();
+        }
+
         enemyAI.Death();
-        
+
         dieSound.Play();
+
+        // Rotation correct as of -90, 0, 90. For melees.
+        // Dragon needs another one.
         
-        var a = Instantiate(prefab, transform.position, Quaternion.identity);
-        a.SetVector3("Size", new Vector3(5f, 20f, 5f));
-        Destroy(a.gameObject, 2f);
-        Destroy(gameObject);
+        var vfxObject = Instantiate(prefab, attachedMRtoRender.transform.position, attachedMRtoRender.transform.rotation);
+        vfxObject.SetVector3("Size", sizeOverride);
+        Mesh m = new Mesh
+        {
+            name = "TemporalSkinnedMesh",
+        };
+        vfxObject.gameObject.GetComponent<VFXPropertyBinder>().AddPropertyBinder<VFXTransformBinder>().Init("VictimTransform", attachedMRtoRender.transform);
+        attachedMRtoRender.BakeMesh(m);
+        vfxObject.SetMesh("VictimMesh", m);
+        
+        Destroy(vfxObject.gameObject, 4f);
+        
+        if(destroyOnDie)
+            Destroy(gameObject);
     }
 
+    [Button]
     public override void DamageFeedback()
     {
-        //animator.SetTrigger("TakeDamage");
+        animator.SetTrigger("Damaged");
         //sounds.PlayDamageSound();
         //screenShake.CameraShake(0.1f, 0.75f);
         damageSound.Play();

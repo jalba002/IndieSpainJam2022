@@ -28,16 +28,18 @@ MonoBehaviour:
     m_Localized: '<color=green>{tecla}</color> para activar este\npilar de {pillarName}\nCoste:
       <color=orange>{value}</color> estrellas.'
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - rid: 4500173117226483738
   - m_Id: 16582051147776
     m_Localized: '<color=green>{tecla}</color> para empoderar este \npilar de {pillarName}\nCoste:
       <color=orange>{value}</color> stars.'
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - rid: 4500173117226483738
   references:
     version: 2
     RefIds:
     - rid: 4500173117226483738
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 00b0c4ef9307000000b04478bc0d0000
+        m_Entries: 00b0c4ef9307000000b04478bc0d000000b0c455f90d000000b044cf140f0000

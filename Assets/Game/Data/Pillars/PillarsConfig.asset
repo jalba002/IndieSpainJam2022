@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcaa1c5f46e2e934cba95ba09cec2181, type: 3}
   m_Name: PillarsConfig
   m_EditorClassIdentifier: 
-  PillarObservers:
-  - {fileID: 0}
+  PillarObservers: []
   Range: 35
   EmpoweredDuration: 30
   ActivateCost: 25

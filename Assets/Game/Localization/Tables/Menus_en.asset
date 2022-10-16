@@ -62,8 +62,8 @@ MonoBehaviour:
     m_Localized: Music
     m_Metadata:
       m_Items: []
-  - m_Id: 49680101617664
-    m_Localized: FullScreen
+  - m_Id: 5580730977792000
+    m_Localized: Global
     m_Metadata:
       m_Items: []
   - m_Id: 49816663961600
@@ -83,7 +83,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 50266595340288
-    m_Localized: Move Camera
+    m_Localized: Move camera
     m_Metadata:
       m_Items: []
   - m_Id: 50222907469824
@@ -119,7 +119,47 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 50431318241280
-    m_Localized: Languages
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5579836936728576
+    m_Localized: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5580076800585728
+    m_Localized: Audio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5580158992166912
+    m_Localized: Video
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5580437569449984
+    m_Localized: Fullscreen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5580782471262208
+    m_Localized: SFX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5580830651232256
+    m_Localized: Music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5884474122612736
+    m_Localized: Gameplay
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5895518316441600
+    m_Localized: Sensitivity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6295801102118912
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6296276098658304
+    m_Localized: Menu
     m_Metadata:
       m_Items: []
   references:

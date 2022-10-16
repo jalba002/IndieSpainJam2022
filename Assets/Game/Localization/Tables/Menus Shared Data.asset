@@ -59,10 +59,6 @@ MonoBehaviour:
     m_Key: "TextoM\xFAsica"
     m_Metadata:
       m_Items: []
-  - m_Id: 49680101617664
-    m_Key: TextoFullScreen
-    m_Metadata:
-      m_Items: []
   - m_Id: 49816663961600
     m_Key: TextoResolution
     m_Metadata:
@@ -117,6 +113,50 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 50431318241280
     m_Key: TextoIdioma
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5579836936728576
+    m_Key: TextoPausa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5580076800585728
+    m_Key: TextoAudio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5580158992166912
+    m_Key: TextoVideo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5580437569449984
+    m_Key: TextoFullscreen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5580730977792000
+    m_Key: TextoAudioGlobal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5580782471262208
+    m_Key: TextoAudioSfx
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5580830651232256
+    m_Key: TextoAudioMusica
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5884474122612736
+    m_Key: TextoGameplay
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5895518316441600
+    m_Key: TextoSensibilidad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6295801102118912
+    m_Key: TextoContinuar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6296276098658304
+    m_Key: Menu
     m_Metadata:
       m_Items: []
   m_Metadata:

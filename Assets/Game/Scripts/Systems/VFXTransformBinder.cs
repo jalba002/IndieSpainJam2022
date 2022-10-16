@@ -1,36 +1,58 @@
-using UnityEngine.VFX;
-
 namespace UnityEngine.VFX.Utility
 {
-    [AddComponentMenu("VFX/Property Binders/Custom Transform Binder")]
-    [VFXBinder("Custom/Transform")]
+    [AddComponentMenu("VFX/Property Binders/Transform Binder")]
+    [VFXBinder("Transform/Transform")]
     public class VFXTransformBinder : VFXBinderBase
     {
-        public string Property { get { return (string)m_Property; } set { m_Property = value; } }
+        public string Property { get { return (string)m_Property; } set { m_Property = value; UpdateSubProperties(); } }
 
-        [VFXPropertyBinding("UnityEditor.VFX.Position", "UnityEngine.Vector3"), SerializeField, UnityEngine.Serialization.FormerlySerializedAs("m_Parameter")]
-        protected ExposedProperty m_Property = "Position";
+        [VFXPropertyBinding("UnityEditor.VFX.Transform"), SerializeField, UnityEngine.Serialization.FormerlySerializedAs("m_Parameter")]
+        protected ExposedProperty m_Property = "Transform";
         public Transform Target = null;
 
-        public void Init(string prop, Transform target)
+        private ExposedProperty Position;
+        private ExposedProperty Angles;
+        private ExposedProperty Scale;
+        
+        public void Init(string propertyName, Transform target)
         {
-            m_Property = prop;
+            m_Property = propertyName;
             Target = target;
+            UpdateSubProperties();
+        }
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            UpdateSubProperties();
+        }
+
+        void OnValidate()
+        {
+            UpdateSubProperties();
+        }
+
+        void UpdateSubProperties()
+        {
+            Position = m_Property + "_position";
+            Angles = m_Property + "_angles";
+            Scale = m_Property + "_scale";
         }
 
         public override bool IsValid(VisualEffect component)
         {
-            return Target != null && component.HasVector3(m_Property);
+            return Target != null && component.HasVector3((int)Position) && component.HasVector3((int)Angles) && component.HasVector3((int)Scale);
         }
 
         public override void UpdateBinding(VisualEffect component)
         {
-            component.SetVector3(m_Property, Target.transform.position);
+            component.SetVector3((int)Position, Target.position);
+            component.SetVector3((int)Angles, Target.localEulerAngles);
+            //component.SetVector3((int)Scale, Target.localScale);
         }
 
         public override string ToString()
         {
-            return string.Format("Position : '{0}' -> {1}", m_Property, Target == null ? "(null)" : Target.name);
+            return string.Format("Transform : '{0}' -> {1}", m_Property, Target == null ? "(null)" : Target.name);
         }
     }
 }

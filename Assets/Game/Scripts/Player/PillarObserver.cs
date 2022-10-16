@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using CosmosDefender;
+using Sirenix.OdinInspector.Editor;
 using UnityEngine;
 
 public class PillarObserver : MonoBehaviour
@@ -11,11 +13,15 @@ public class PillarObserver : MonoBehaviour
     private PlayerAttributes playerAttributes;
 
     [SerializeField]
-    private PillarsConfig pillarConfig;
+    private List<PillarsConfig> pillarConfig;
 
     private void Start()
     {
-        pillarConfig.AddPillarObserver(this);
+        foreach (var pilar in pillarConfig)
+        {
+            pilar.ClearObserverList();
+            pilar.AddPillarObserver(this);
+        }
     }
 
     public bool IsPillarInRange()

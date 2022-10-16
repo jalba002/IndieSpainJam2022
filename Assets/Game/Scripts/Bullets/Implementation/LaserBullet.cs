@@ -52,8 +52,8 @@ namespace CosmosDefender.Bullets.Implementation
         public override void StopBullet()
         {
             base.StopBullet();
-            
-            vfx.Stop();
+            if(vfx != null)
+                vfx.Stop();
             Destroy(this.gameObject, 0.3f);
         }
 
