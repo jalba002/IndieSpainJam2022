@@ -90,7 +90,7 @@
 	<object class="MixerBusPanner" id="{587b2535-487e-4aed-a9a9-e31262bd1721}" />
 	<object class="SingleSound" id="{eb35b983-fcad-4724-90af-1f736783f713}">
 		<property name="length">
-			<value>0.5</value>
+			<value>0.25</value>
 		</property>
 		<property name="timelockedOffset">
 			<value>0.29999999999999999</value>
@@ -117,6 +117,7 @@
 		<relationship name="effects">
 			<destination>{2daa78bb-c691-47ba-ba22-9fe0dfdb965d}</destination>
 			<destination>{6f88ccbd-4d71-4a2b-acd4-a1a12fddd1e2}</destination>
+			<destination>{ecee53f2-60dd-40d7-ae7b-4998dbd79071}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{9957249c-c9a3-4cb1-b22f-922ac1bf817c}" />
@@ -140,6 +141,26 @@
 		</property>
 		<property name="overrideRange">
 			<value>true</value>
+		</property>
+	</object>
+	<object class="SFXReverbEffect" id="{ecee53f2-60dd-40d7-ae7b-4998dbd79071}">
+		<property name="decayTime">
+			<value>950</value>
+		</property>
+		<property name="lateDelay">
+			<value>44</value>
+		</property>
+		<property name="highCut">
+			<value>5500</value>
+		</property>
+		<property name="earlyLateMix">
+			<value>58</value>
+		</property>
+		<property name="wetLevel">
+			<value>-10.5</value>
+		</property>
+		<property name="dryLevel">
+			<value>-10</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{bad16b0e-a0b6-451c-ba56-285a8ee3fcc2}" />

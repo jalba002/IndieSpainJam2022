@@ -56,7 +56,14 @@
 			<destination>{0a48d1b2-4283-452f-8ad8-56576e084095}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{6d53a38b-b320-49a8-8344-faeb55c1643d}" />
+	<object class="EventAutomatableProperties" id="{6d53a38b-b320-49a8-8344-faeb55c1643d}">
+		<property name="maxVoices">
+			<value>1</value>
+		</property>
+		<property name="maximumDistance">
+			<value>10000</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{2b82c27d-39a8-470b-9f64-d07c2ab296f6}" />
 	<object class="GroupTrack" id="{31f0fea5-1063-41e7-8043-6d8f356ccf46}">
 		<relationship name="modules">
@@ -93,7 +100,7 @@
 	<object class="MixerBusPanner" id="{f2949b25-8877-4e9f-913f-546539f866ea}" />
 	<object class="SingleSound" id="{28e69e44-b0b6-4c49-a216-519882d35d8c}">
 		<property name="length">
-			<value>2.8000000000000003</value>
+			<value>2.2000000000000002</value>
 		</property>
 		<relationship name="fadeInCurve">
 			<destination>{d21e2a69-d1f2-4993-be06-2a5904b6e138}</destination>
@@ -127,7 +134,7 @@
 			<value>0</value>
 		</property>
 		<property name="length">
-			<value>2.8000000000000003</value>
+			<value>2.2000000000000002</value>
 		</property>
 		<property name="name">
 			<value>H_Damaged</value>
@@ -218,7 +225,7 @@
 	</object>
 	<object class="AutomationPoint" id="{e0f0da4b-672c-4ed3-9f25-429b34519827}">
 		<property name="position">
-			<value>0.80000000000000004</value>
+			<value>0.40000000000000002</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -226,23 +233,27 @@
 	</object>
 	<object class="AutomationPoint" id="{e3eae05c-6e0c-46e2-b9c3-db44aa28505e}">
 		<property name="position">
-			<value>1.8</value>
+			<value>1.0500000000000003</value>
 		</property>
 		<property name="value">
 			<value>1</value>
 		</property>
 		<property name="curveShape">
-			<value>-0.236348882</value>
+			<value>-0.41300112</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{5c098d8d-5667-4f9f-9426-c410aae68d0d}">
 		<property name="position">
-			<value>2.8000000000000003</value>
+			<value>2.2000000000000002</value>
 		</property>
 		<property name="value">
 			<value>0</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{ab11c78e-8529-4b15-aa81-22c9725bf715}" />
-	<object class="SpatialiserEffect" id="{f4021112-f92e-4949-a92a-5ad82348b623}" />
+	<object class="SpatialiserEffect" id="{f4021112-f92e-4949-a92a-5ad82348b623}">
+		<property name="maximumDistance">
+			<value>10000</value>
+		</property>
+	</object>
 </objects>
