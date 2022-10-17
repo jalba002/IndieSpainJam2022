@@ -22,7 +22,7 @@ public class GameManager : MonoSingleton<GameManager>
     public bool gameOver = false;
 
     [SerializeField]
-    private CanvasFadeIn endScreen;
+    private WinMenu endScreen;
     [SerializeField]
     private TextMeshProUGUI endScreenText;
     [SerializeField]
@@ -106,19 +106,14 @@ public class GameManager : MonoSingleton<GameManager>
         // Tornar a l'escena inicial.
         gameOver = true;
 
-        endScreen.FadeIn();
+        endScreen.GetComponent<CanvasFadeIn>().FadeIn();
         playerMenuInputs.SetInputMap(PlayerInputMaps.UI);
         Time.timeScale = 0f;
-        if (gameWon)
-        {
-            endScreenText.text = "¡Has ganado!";
-        }
-        else
-        {
-            endScreenText.text = "Has perdido";
-        }
 
-        endScreenSubtext.text = $"Tienes <color=green>{economyConfig.GetMoney()}</color> fragmentos cósmicos acumulados.\n\nPuedes gastarlas en <color=orange>mejoras permanentes</color> en la <color=yellow>tienda del men� principal</color>.";
+        if(gameWon)
+            endScreen.Win(economyConfig.GetMoney());
+        else
+            endScreen.Loss(economyConfig.GetMoney());
     }
 
     public void ActivateGoddessMode()

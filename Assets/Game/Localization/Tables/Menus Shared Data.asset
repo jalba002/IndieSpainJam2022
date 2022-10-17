@@ -159,6 +159,18 @@ MonoBehaviour:
     m_Key: Menu
     m_Metadata:
       m_Items: []
+  - m_Id: 6564348365680640
+    m_Key: GameWon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6564593707298816
+    m_Key: GameLost
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6564717468626944
+    m_Key: MoneySuggestion
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

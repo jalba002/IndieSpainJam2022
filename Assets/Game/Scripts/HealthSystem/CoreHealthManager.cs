@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 namespace CosmosDefender
@@ -9,9 +10,11 @@ namespace CosmosDefender
         [SerializeField] private Animator animator;
         [SerializeField] private float healthRegeneration;
 
+        [Header("Sounds")] [SerializeField] private StudioEventEmitter DamagedSound;
+        [SerializeField] private StudioEventEmitter DeathSound;
+
         public override void Start()
         {
-
             base.Start();
 
             StartCoroutine(HealthRegenerationCoroutine());
@@ -19,10 +22,14 @@ namespace CosmosDefender
 
         public override void Die()
         {
-            // base.Die();
-            // Play animation? Or don't.
+            // This stops from bugging or replaying anims.
+            base.Die();
             animator.SetTrigger("Die");
+            
+            // Destroy the core alerter.
+            GetComponent<EnemyAlerter>().enabled = false;
             GameManager.Instance.EndGame(false);
+            DeathSound.Play();
         }
 
         public override void DamageFeedback()
@@ -30,6 +37,8 @@ namespace CosmosDefender
             base.DamageFeedback();
             animator.SetTrigger("Damaged");
             animator.SetFloat("Life", currentHealth / MaxHealth);
+            // SOUND?
+            DamagedSound.PlayInstance();
         }
 
         private IEnumerator HealthRegenerationCoroutine()
