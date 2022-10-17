@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: ca
   m_SharedData: {fileID: 11400000, guid: 0f7e48195c9d5e04c8511c1af3fd20f5, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 2287753142302408710
   m_TableData:
   - m_Id: 24977387520
     m_Localized: Jugar
@@ -162,6 +163,25 @@ MonoBehaviour:
     m_Localized: "Men\xFA"
     m_Metadata:
       m_Items: []
+  - m_Id: 6564348365680640
+    m_Localized: Has guanyat!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6564593707298816
+    m_Localized: Has perdut!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6564717468626944
+    m_Localized: "Tens <color=green>{money}</color> fragments c\xF2smics acumulats.\\n\\nEls
+      pots gastar per obtenir <color=orange>millores permanents</color> dins la <color=yellow>botiga
+      del men\xFA principal</color>."
+    m_Metadata:
+      m_Items:
+      - rid: 2287753142302408710
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 2287753142302408710
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 00b0c46493521700

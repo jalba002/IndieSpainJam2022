@@ -8,6 +8,9 @@ using CosmosDefender;
 using UnityEngine.UI;
 using FMODUnity;
 using TMPro;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Components;
+using UnityEngine.Localization.SmartFormat.PersistentVariables;
 
 //using FMODUnity;
 
@@ -25,7 +28,9 @@ public class WinMenu : MonoBehaviour
     private readonly string twitterAdress = "https://twitter.com/intent/tweet";
     private readonly string miniGameJamLink = "https://andrew-raya.itch.io/cosmic-defender";
 
-    [SerializeField] private TMP_Text moneyText;
+    [SerializeField] private LocalizeStringEvent moneyTextLocalized;
+    [SerializeField] private LocalizeStringEvent winTextLocalized;
+
 
     private void Start()
     {
@@ -39,6 +44,31 @@ public class WinMenu : MonoBehaviour
         //LoadingScreen.FadeIn();
         SceneManager.LoadScene(scene_name);
         //StartCoroutine(LoadAfterFade(scene_name));
+    }
+
+    public void Win(int money)
+    {
+        winTextLocalized.SetTable("Menus");
+        winTextLocalized.SetEntry("GameWon");
+        LoadMoneyText(money);
+    }
+
+    public void Loss(int money)
+    {
+        winTextLocalized.SetTable("Menus");
+        winTextLocalized.SetEntry("GameLost");
+        LoadMoneyText(money);
+    }
+
+    private void LoadMoneyText(int money)
+    {
+        moneyTextLocalized.StringReference = new LocalizedString
+        {
+            {"money", new IntVariable() {Value = money}}
+        };
+        
+        moneyTextLocalized.SetTable("Menus");
+        moneyTextLocalized.SetEntry("MoneySuggestion");
     }
 
     IEnumerator LoadAfterFade(string scene_name)

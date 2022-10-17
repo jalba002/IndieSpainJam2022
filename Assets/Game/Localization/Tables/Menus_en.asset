@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: en
   m_SharedData: {fileID: 11400000, guid: 0f7e48195c9d5e04c8511c1af3fd20f5, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 2287753142302408709
   m_TableData:
   - m_Id: 24977387520
     m_Localized: Play
@@ -162,6 +163,25 @@ MonoBehaviour:
     m_Localized: Menu
     m_Metadata:
       m_Items: []
+  - m_Id: 6564348365680640
+    m_Localized: You win!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6564593707298816
+    m_Localized: You lost!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6564717468626944
+    m_Localized: You have <color=green>{money}</color> cosmic fragments accumulated.\n\nYou
+      can spend them for <color=orange>permanent upgrades</color> in the <color=yellow>upgrades
+      section in the main menu</color>.
+    m_Metadata:
+      m_Items:
+      - rid: 2287753142302408709
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 2287753142302408709
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 00b0c46493521700

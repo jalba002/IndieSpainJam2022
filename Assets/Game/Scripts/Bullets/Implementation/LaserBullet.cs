@@ -107,7 +107,7 @@ namespace CosmosDefender.Bullets.Implementation
             // foreach (var enemy in hits)
             // {
             var a = Instantiate(feedbackVFX, hits[enemyIndex].bounds.center, Quaternion.identity);
-            Destroy(a, spellData.Lifetime);
+            Destroy(a.gameObject, spellData.Lifetime);
             // }
 
             AreaAttacksManager.DealDamageToCollisions<IDamageable>(hits[enemyIndex], combatData.AttackDamage * spellData.DamageMultiplier);
