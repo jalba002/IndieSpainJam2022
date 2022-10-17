@@ -21,9 +21,6 @@ namespace CosmosDefender {
         [SerializeField] private Animator animator;
         [SerializeField] private PlayerAttributes playerAttributes;
 
-        private bool isUpdatingHealthbar = false;
-
-
         private void Awake()
         {
             //inputs = GetComponent<PlayerInputsManager>();
@@ -83,7 +80,7 @@ namespace CosmosDefender {
                 StopCoroutine(healthBarYellowLerpCoroutine);
             }
 
-            isUpdatingHealthbar = true;
+            //isUpdatingHealthbar = true;
             healthBarLerpCoroutine = StartCoroutine(DecreaseLerpCoroutine(healthRemaining, duration, 0, HealthSlider));
             healthBarYellowLerpCoroutine = StartCoroutine(DecreaseLerpCoroutine(healthRemaining, -25f, 1f, HealthSliderYellow));
         }
@@ -114,7 +111,7 @@ namespace CosmosDefender {
             healthSlider.value = currentHealth;
             if (healthSlider == HealthSliderYellow)
             {
-                isUpdatingHealthbar = false;
+                //isUpdatingHealthbar = false;
             }
         }
 
