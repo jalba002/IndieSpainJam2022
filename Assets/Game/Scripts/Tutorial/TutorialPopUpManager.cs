@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class TutorialPopUpManager : MonoBehaviour
 {
-    private bool activated = false;
     Coroutine popUpCoroutine;
     Coroutine backgroundCoroutine;
     private PlayerInputs playerInputs;
@@ -45,7 +44,6 @@ public class TutorialPopUpManager : MonoBehaviour
         //Should use a playerPref
         //currentCanvasActive = tutorialCanvases[index];
         popupInstance.Configure(configSet);
-        activated = true;
         StartCoroutine(ActivateAfterTimeCoroutine(popupInstance, delay));
     }
 

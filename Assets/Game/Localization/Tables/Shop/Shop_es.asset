@@ -26,10 +26,26 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 2287753125113102342
+  - m_Id: 58519164596224
+    m_Localized: "Aumenta el da\xF1o base de <color=green>{initialValue}</color>
+      a <color=green>{finalValue}</color>."
+    m_Metadata:
+      m_Items:
+      - rid: 2287753125113102342
+  - m_Id: 84352012955648
+    m_Localized: Todas las mejoras adquiridas.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 85534940901376
+    m_Localized: "Aumenta la vida m\xE1xima de <color=green>{initialValue}</color>
+      a <color=green>{finalValue}</color>."
+    m_Metadata:
+      m_Items:
+      - rid: 2287753125113102342
   references:
     version: 2
     RefIds:
     - rid: 2287753125113102342
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 00b0443602000000
+        m_Entries: 00b044360200000000b0040e3935000000b0c427cb4d0000

@@ -11,5 +11,15 @@ namespace CosmosDefender
         {
             data.DamageMultiplier *= attackMultiplier;
         }
+
+        public override float GetInitialValue(SpellData data)
+        {
+            return data.DamageMultiplier;
+        }
+
+        public override float GetFinalValue(SpellData data)
+        {
+            return data.DamageMultiplier *= attackMultiplier;
+        }
     }
 }

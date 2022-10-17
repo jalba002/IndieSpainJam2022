@@ -1,4 +1,5 @@
 using System.Linq;
+using CosmosDefender.Shop;
 using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
@@ -11,7 +12,6 @@ namespace CosmosDefender
         ISpellModifier, SpellData>
     {
 #if UNITY_EDITOR
-
         private const string FolderName = "Assets/Game/Data/Shop/PurchaseableItems/Spells";
         [Button]
         private void CreateDefaultSetup()
@@ -23,32 +23,14 @@ namespace CosmosDefender
             var splitAssetName = Utils.SplitByCamelCasing(a[0].name);
             var folderFinalName = splitAssetName[0];
             AssetDatabase.CreateFolder(FolderName, folderFinalName);
-            
-            PurchaseableSpellModifierData firstMod = new PurchaseableSpellModifierData()
-            {
-                Description = "This is the default description for a Tier 1 Mod.",
-                Price = 75
-            };
-            
-            PurchaseableSpellModifierData secondMod = new PurchaseableSpellModifierData()
-            {
-                Description = "This is the default description for a Tier 2 Mod.",
-                Price = 100
-            };
-            
-            PurchaseableSpellModifierData thirdMod = new PurchaseableSpellModifierData()
-            {
-                Description = "This is the default description for a Tier 3 Mod.",
-                Price = 150
-            };
 
-            AssetDatabase.CreateAsset(firstMod, $"{FolderName}/{folderFinalName}/{splitAssetName[0]}{splitAssetName[1]}Upgrade_Tier1.asset");
-            AssetDatabase.CreateAsset(secondMod, $"{FolderName}/{folderFinalName}/{splitAssetName[0]}{splitAssetName[1]}Upgrade_Tier2.asset");
-            AssetDatabase.CreateAsset(thirdMod, $"{FolderName}/{folderFinalName}/{splitAssetName[0]}{splitAssetName[1]}Upgrade_Tier3.asset");
-
-            modifers.Add(firstMod);
-            modifers.Add(secondMod);
-            modifers.Add(thirdMod);
+            for (int i = 0; i < 3; i++)
+            {
+                PurchaseableSpellModifierData mod = ScriptableObject.CreateInstance<PurchaseableSpellModifierData>();
+                mod.Price = (75 + (25 * i));
+                AssetDatabase.CreateAsset(mod, $"{FolderName}/{folderFinalName}/{splitAssetName[0]}{splitAssetName[1]}Upgrade_Tier{i + 1}.asset");
+                modifers.Add(mod);
+            }
         }
 #endif
     }

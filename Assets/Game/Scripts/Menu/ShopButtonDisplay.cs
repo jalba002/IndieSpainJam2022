@@ -1,7 +1,5 @@
-using System;
 using CosmosDefender.Shop;
 using TMPro;
-using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -11,7 +9,6 @@ namespace CosmosDefender
     public class ShopButtonDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
     {
         [SerializeField] private Image image;
-        public string description;
         [SerializeField] private TMP_Text price;
         [SerializeField] private TMP_Text level;
         [Header("Colors")]
@@ -20,15 +17,25 @@ namespace CosmosDefender
 
         private RectTransform panelTransform;
 
-        public void ShowConfig(IShopDisplayer displayer, int level, int moneyAmount)
+        private IShopDisplayer lastDisplayer;
+
+        private string initialValue;
+        private string finalValue;
+
+        public void ShowConfig(IShopDisplayer displayer, string entry, string final, int level, int moneyAmount,bool displayText = false)
         {
+            lastDisplayer = displayer;
             image.sprite = displayer.Thumbnail;
-            description = displayer.Description;
-            // The new description should be as following:
-            // Send the translation text and table to the string translator.
-            // Send the data values to the string variables table.
-            // Being the initial and the final values of them.
-            // displayer.
+
+            initialValue = entry;
+            finalValue = final;
+
+            if (displayText)
+            {
+                // Now, where the fuck do we get the data from.
+                TextDisplayer.Instance.DisplayTranslatedText(displayer.TableReference, displayer.EntryReference, entry, final);
+                //TextDisplayer.Instance.DisplayText(description);
+            }
 
             price.color = moneyAmount >= displayer.Price ? validPurchase : invalidPurchase;
             price.text = !displayer.CanBePurchased ? "max" : displayer.Price.ToString();
@@ -38,7 +45,8 @@ namespace CosmosDefender
         public void OnPointerEnter(PointerEventData eventData)
         {
             TextDisplayer.Instance.Show();
-            TextDisplayer.Instance.DisplayText(description);
+            //TextDisplayer.Instance.DisplayText(description);
+            TextDisplayer.Instance.DisplayTranslatedText(lastDisplayer.TableReference, lastDisplayer.EntryReference, initialValue, finalValue);
         }
         
         public void OnPointerExit(PointerEventData eventData)

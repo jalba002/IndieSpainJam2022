@@ -2,6 +2,6 @@ namespace CosmosDefender
 {
     public interface IShopButton
     {
-        void Show();
+        void Show(bool show);
     }
 }

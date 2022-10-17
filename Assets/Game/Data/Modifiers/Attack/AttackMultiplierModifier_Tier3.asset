@@ -15,4 +15,4 @@ MonoBehaviour:
   buffSprite: {fileID: 21300000, guid: 70b42f512a474aa4096416cc72d5efcf, type: 3}
   priority: 2
   tier: 2
-  additiveDamage: 2.5
+  multiplierValue: 2.5

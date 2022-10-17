@@ -1,34 +1,49 @@
+using System.Globalization;
+using CosmosDefender.Shop;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace CosmosDefender
 {
-    public class PurchaseableModifierData<T, T1, T2> : ScriptableObject, IShopDisplayer where T : BaseModifier<T1, T2> where T1 : IModifier<T2>
+    public class PurchaseableModifierData<T, T1, T2> : ScriptableObject, IShopDisplayer, IShopDescription<T2> where T : BaseModifier<T1, T2> where T1 : IModifier<T2>
     {
-        [SerializeField]
-        [TextArea(10,20)]
-        private string description;
-        [SerializeField]
-        private Sprite thumbnail;
-        [SerializeField]
-        private int price;
-        [SerializeField]
-        private bool canBePurchased = true;
-        [InlineEditor]
-        [Space(5)]
-        public T modifier;
+        [Header("Descriptions & Language Settings")]
+        [SerializeField] private string description;
+        [SerializeField] private string translationTable;
+        [SerializeField] private string translationCode;
 
-        public string Description
-        {
-            get => description;
-            set => description = value;
-        } 
+        [Header("Data")]
+        [SerializeField] private int price;
+        [SerializeField] private bool canBePurchased = true;
+        
+        [Header("Beauty")]
+        [SerializeField] private Sprite thumbnail;
+        
+        [Header("Modifier")]
+        [InlineEditor] [Space(10)] public T modifier;
+
+        public string Description => description;
         public Sprite Thumbnail => thumbnail;
+
         public int Price
         {
             get => price;
             set => price = value;
         }
+
         public bool CanBePurchased => canBePurchased;
+        public string TableReference => translationTable;
+        public string EntryReference => translationCode;
+       
+        public string InitialValue(T2 data)
+        {
+            return modifier.GetInitialValue(data).ToString("F0");
+        }
+
+        public string FinalValue(T2 data)
+        {
+            return modifier.GetFinalValue(data).ToString("F0");
+        }
     }
 }

@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using CosmosDefender;
+using CosmosDefender.Shop;
 using Sirenix.OdinInspector;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ShopController : MonoBehaviour
@@ -22,10 +24,18 @@ public class ShopController : MonoBehaviour
     [SerializeField]
     private TMP_Text currentMoney;
 
+    [Header("Data")] 
+    [SerializeField] private PlayerAttributes playerAtts;
+    [SerializeField] private BaseSpell baseSpell;
+
+    [Header("Text Prefab")] [SerializeField]
+    private TextDisplayer textDisplayerPrefab;
+
     private List<IShopButton> shopButtons = new List<IShopButton>();
 
     private void Awake()
     {
+        Instantiate(textDisplayerPrefab, this.transform);
         InitializeShop();
         UpdateMoney(economyConfig.GetMoney());
         economyConfig.OnMoneyUpdated += UpdateMoney;
@@ -41,14 +51,14 @@ public class ShopController : MonoBehaviour
         foreach (var item in shopModifiers.AttributesModifierShop)
         {
             var button = Instantiate(attributePrefab, attributesGrid);
-            button.Initialize(item, economyConfig);
+            button.Initialize(item, economyConfig, playerAtts.GetAttributes());
             shopButtons.Add(button);
         }
 
         foreach (var item in shopModifiers.SpellModifierShop)
         {
             var button = Instantiate(spellPrefab, spellsGrid);
-            button.Initialize(item, economyConfig);
+            button.Initialize(item, economyConfig, baseSpell.spellData);
             shopButtons.Add(button);
         }
 
@@ -58,7 +68,7 @@ public class ShopController : MonoBehaviour
     public void RefreshShop()
     {
         foreach (var item in shopButtons)
-            item.Show();
+            item.Show(false);
     }
 
     private void UpdateMoney(int money)

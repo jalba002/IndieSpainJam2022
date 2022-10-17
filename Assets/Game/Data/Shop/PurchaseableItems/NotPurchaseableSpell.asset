@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: NotPurchaseableSpell
   m_EditorClassIdentifier: 
   description: Todas las mejoras adquiridas
-  thumbnail: {fileID: 21300000, guid: cdf7f31393ed784468cffd04bf07cb55, type: 3}
+  translationTable: Shop
+  translationCode: MejoraFinal
   price: 0
   canBePurchased: 0
+  thumbnail: {fileID: 21300000, guid: cdf7f31393ed784468cffd04bf07cb55, type: 3}
   modifier: {fileID: 0}

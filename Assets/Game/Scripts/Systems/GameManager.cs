@@ -8,7 +8,6 @@ using Unity.VisualScripting;
 
 public class GameManager : MonoSingleton<GameManager>
 {
-    [SerializeField] private PillarsConfig pillarsConfig;
     public List<Transform> WaypointsPaths1 = new List<Transform>();
     public List<Transform> WaypointsPaths2 = new List<Transform>();
     public List<Transform> WaypointsPaths3 = new List<Transform>();
@@ -17,8 +16,6 @@ public class GameManager : MonoSingleton<GameManager>
 
     protected override bool dontDestroyOnLoad => false;
 
-    public StarResourceBehavior StarResourceBehavior;
-    public GoddessResourceBehavior GoddessResourceBehavior;
     public ResourceManager ResourceManager;
 
     public List<PillarController> ActivePillars;
@@ -34,6 +31,7 @@ public class GameManager : MonoSingleton<GameManager>
     private PlayerInputs playerMenuInputs;
 
     [Header("Tutorials")]
+    // Please.... stop it...
     public bool hasActivatedBasicTutorial;
     public bool hasActivatedFirstPasivePillar;
     public bool hasActivatedFirstSkillPillar;
@@ -49,7 +47,6 @@ public class GameManager : MonoSingleton<GameManager>
 
     void Awake()
     {
-        pillarsConfig.ClearObserverList();
         playerMenuInputs = FindObjectOfType<PlayerInputs>();
         // Get PlayerPrefs data.
     }
@@ -136,6 +133,9 @@ public class GameManager : MonoSingleton<GameManager>
         {
             pillar.GoddessActive(ResourceManager.GetResourceData(ResourceType.Goddess).EffectDuration);
         }
+        
+        // And then, switch all spells to cosmos mode.
+        
 
         OnGoddessMode?.Invoke();
     }

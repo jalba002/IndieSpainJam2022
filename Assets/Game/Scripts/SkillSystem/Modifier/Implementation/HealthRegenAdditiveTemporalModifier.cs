@@ -12,5 +12,15 @@ namespace CosmosDefender
         {
             data.HealthRegeneration += healthRegenerationSpeed;
         }
+
+        public override float GetInitialValue(AttributesData data)
+        {
+            return data.HealthRegeneration;
+        }
+
+        public override float GetFinalValue(AttributesData data)
+        {
+            return data.HealthRegeneration += healthRegenerationSpeed;
+        }
     }
 }

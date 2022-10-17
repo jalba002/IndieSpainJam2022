@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: AttackMultiplierPurchase_Tier2
   m_EditorClassIdentifier: 
   description: "Aumenta a 200% el da\xF1o base"
-  thumbnail: {fileID: 21300000, guid: e72f28ac57fa84147af62ba9cb6fbcb0, type: 3}
+  translationTable: Shop
+  translationCode: MejoraDolor
   price: 100
   canBePurchased: 1
+  thumbnail: {fileID: 21300000, guid: e72f28ac57fa84147af62ba9cb6fbcb0, type: 3}
   modifier: {fileID: 11400000, guid: f97edfee9a783ca448f6f5e2d3dfcb55, type: 2}

@@ -1,5 +1,3 @@
-using Sirenix.OdinInspector;
-using Sirenix.OdinInspector.Editor.GettingStarted;
 using UnityEngine;
 
 namespace CosmosDefender
@@ -29,12 +27,25 @@ namespace CosmosDefender
             this.relevantData = relevantData;
         }
 
-        public void Show()
+        public void Show(bool showText = false)
         {
             currentModifier = config.GetCurrentPurchaseable();
+
+            // If the previous modifier is the -1, then just get the current one and it will gather the correct value.
+            string previousValue = "0";
+            bool initial = config.GetCurrentPurchaseIndex() > 0;
+            var previousModifier = initial ? config.GetCurrentPurchasedItem() : config.GetCurrentPurchaseable();
+
+            if (previousModifier.CanBePurchased)
+            {
+                previousValue = initial ? previousModifier.FinalValue(relevantData) : previousModifier.InitialValue(relevantData);
+            }
+            
+            var finalValue = currentModifier.CanBePurchased ? currentModifier.FinalValue(relevantData) : "0";
+
             var currentIndex = config.GetCurrentPurchaseIndex();
-            // buttonDisplay. Showthegoddam desc.
-            buttonDisplay.ShowConfig(currentModifier, currentIndex + 1, economyConfig.GetMoney());
+            buttonDisplay.ShowConfig(currentModifier, previousValue, finalValue, currentIndex + 1,
+                economyConfig.GetMoney(), showText);
         }
 
         public void OnClick()
@@ -43,7 +54,7 @@ namespace CosmosDefender
             {
                 config.Purchase(currentModifier);
                 economyConfig.SubstractMoney(currentModifier.Price);
-                Show();
+                Show(true);
             }
         }
 

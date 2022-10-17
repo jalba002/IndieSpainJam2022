@@ -2325,7 +2325,7 @@ MonoBehaviour:
   currentHealth: 0
   data: {fileID: 11400000, guid: 21f19f244fdc7e9468d42ad7da344395, type: 2}
   destroyOnDie: 1
-  sizeOverride: {x: 5, y: 20, z: 5}
+  sizeOverride: {x: 4, y: 20, z: 4}
   prefab: {fileID: 5380497785177111069, guid: c0740723ef8494d4db2cd93b84654e6c, type: 3}
   attachedMRtoRender: {fileID: 6678044178576440540}
   dieSound: {fileID: 1802888697195374082}

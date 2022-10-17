@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace CosmosDefender
 {
-    public interface IShopDisplayer
+    public interface IShopDisplayer : ILocalized
     {
         string Description { get; }
         Sprite Thumbnail { get; }

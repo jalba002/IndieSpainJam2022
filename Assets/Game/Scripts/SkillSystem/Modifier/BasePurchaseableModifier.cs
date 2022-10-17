@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using CosmosDefender.Shop;
 using Sirenix.OdinInspector;
 using Unity.Collections;
 using UnityEngine;
@@ -18,10 +19,11 @@ namespace CosmosDefender
         [Space(5)]
         [SerializeField]
         private SerializableShopModifier shopData;
-
+        
         public SerializableShopModifier ShopData { get => shopData; set => shopData = value; }
 
         public T GetCurrentPurchaseable() => IsModifierCompletelyPurchased() ? modifers[modifers.Count - 1] : modifers[shopData.purchasedModifiersCount];
+        public T GetCurrentPurchasedItem() => modifers[shopData.purchasedModifiersCount-1];
 
         public bool IsModifierCompletelyPurchased() => shopData.purchasedModifiersCount == modifers.Count;
         public int GetCurrentPurchaseIndex() => shopData.purchasedModifiersCount;
@@ -37,12 +39,12 @@ namespace CosmosDefender
         public IEnumerable<T1> GetPurchasedSpells()
         {
             // TODO CHECK WITH DESIGN AND ALL.
-            // Instead of sending all purchased spells, send only the last ones.
+            // Instead of sending all purchased spells, send only the last one.
             // WAS THE NEXT:
             // return modifers.Where((x, i) => i < shopData.purchasedModifiersCount).Where(x => x.CanBePurchased).Select(x => x.modifier);
+            // Now this returns the highest tier modifier that has been bought.
             return modifers.Where((x, i) => i == shopData.purchasedModifiersCount-1).Where(x => x.CanBePurchased).Select(x => x.modifier);
         }
-
         public void Purchase(T modifiedToPurchase)
         {
             if (!modifiedToPurchase.CanBePurchased)

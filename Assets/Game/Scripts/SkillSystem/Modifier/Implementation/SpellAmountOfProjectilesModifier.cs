@@ -11,5 +11,15 @@ namespace CosmosDefender
         {
             data.Amount += amountToAdd;
         }
+
+        public override float GetInitialValue(SpellData data)
+        {
+            return data.Amount;
+        }
+
+        public override float GetFinalValue(SpellData data)
+        {
+            return data.Amount += amountToAdd;
+        }
     }
 }

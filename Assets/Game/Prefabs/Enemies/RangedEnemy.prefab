@@ -2851,11 +2851,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 100
   currentHealth: 0
-  starResourceData: {fileID: 11400000, guid: 389d1b4f92f3cf744a2e0c61757b5218, type: 2}
   data: {fileID: 11400000, guid: 02be1a9cdab5bdf49bcffc85b462b953, type: 2}
+  destroyOnDie: 1
+  sizeOverride: {x: 6, y: 20, z: 6}
   prefab: {fileID: 5380497785177111069, guid: c0740723ef8494d4db2cd93b84654e6c, type: 3}
   attachedMRtoRender: {fileID: 694529019484784771}
-  bonePosition: {fileID: 4233841528747286244}
   dieSound: {fileID: 6186857885958047565}
   damageSound: {fileID: 3886716984895022611}
 --- !u!114 &8865683714585661008

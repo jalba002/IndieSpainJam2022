@@ -18,4 +18,9 @@ namespace CosmosDefender
     {
         SpellType SpellType { get; }
     }
+
+    public interface IAttributeModifier : IModifier<AttributesData>
+    {
+        
+    }
 }

@@ -26,10 +26,26 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 2287753125113102345
+  - m_Id: 58519164596224
+    m_Localized: Increases base damage from <color=green>{initialValue}</color> to
+      <color=green>{finalValue}</color>.
+    m_Metadata:
+      m_Items:
+      - rid: 2287753125113102345
+  - m_Id: 84352012955648
+    m_Localized: All upgrades have been bought.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 85534940901376
+    m_Localized: Increases maximum life from <color=green>{initialValue}</color>
+      to <color=green>{finalValue}</color>.
+    m_Metadata:
+      m_Items:
+      - rid: 2287753125113102345
   references:
     version: 2
     RefIds:
     - rid: 2287753125113102345
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 00b0443602000000
+        m_Entries: 00b044360200000000b0040e3935000000b0c427cb4d0000

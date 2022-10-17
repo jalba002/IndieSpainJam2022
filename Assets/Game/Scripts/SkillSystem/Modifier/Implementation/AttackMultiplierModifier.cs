@@ -6,11 +6,21 @@ namespace CosmosDefender
     public class AttackMultiplierModifier : BaseAttributeModifier
     {
         [SerializeField]
-        private float additiveDamage;
+        private float multiplierValue;
 
         public override void Modify(ref AttributesData data)
         {
-            data.AttackDamage *= additiveDamage;
+            data.AttackDamage *= multiplierValue;
+        }
+
+        public override float GetInitialValue(AttributesData data)
+        {
+            return data.AttackDamage;
+        }
+
+        public override float GetFinalValue(AttributesData data)
+        {
+            return data.AttackDamage *= multiplierValue;
         }
     }
 }

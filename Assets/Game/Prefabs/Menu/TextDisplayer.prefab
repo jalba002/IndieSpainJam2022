@@ -466,3 +466,4 @@ MonoBehaviour:
   textString: {fileID: 3369838558189970394}
   selfGroup: {fileID: 3958563600795648115}
   offsetVector: {x: -0.25, y: 0.25}
+  textLocalized: {fileID: 8088352864344312482}

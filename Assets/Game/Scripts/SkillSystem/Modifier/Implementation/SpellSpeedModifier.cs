@@ -11,5 +11,15 @@ namespace CosmosDefender
         {
             data.Speed += speed;
         }
+
+        public override float GetInitialValue(SpellData data)
+        {
+            return data.Speed;
+        }
+
+        public override float GetFinalValue(SpellData data)
+        {
+            return data.Speed *= speed;
+        }
     }
 }

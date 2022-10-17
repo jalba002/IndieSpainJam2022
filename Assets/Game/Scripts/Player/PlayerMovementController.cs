@@ -171,7 +171,6 @@ public class PlayerMovementController : MonoBehaviour
 	private void CameraRotation()
 	{
 		Vector2 mouseDelta = input.Look * (gameSettings.GetSensitivity() * 0.1f);
-		Debug.Log($"{input.Look} (default)\nand\n{mouseDelta} (scaled)");
 		if (input.Look.sqrMagnitude >= threshold && !LockCameraPosition)
 		{
 			cinemachineTargetYaw += mouseDelta.x * Time.deltaTime;

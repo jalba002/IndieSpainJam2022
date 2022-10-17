@@ -2,15 +2,25 @@ using UnityEngine;
 
 namespace CosmosDefender
 {
-    [CreateAssetMenu(fileName = nameof(MaxHealthAdditiveModifier), menuName = "CosmosDefender/Modifiers/" + nameof(MaxHealthAdditiveModifier))]
+    [CreateAssetMenu(fileName = nameof(MaxHealthAdditiveModifier),
+        menuName = "CosmosDefender/Modifiers/" + nameof(MaxHealthAdditiveModifier))]
     public class MaxHealthAdditiveModifier : BaseAttributeModifier
     {
-        [SerializeField]
-        private float additiveMaxHealth;
+        [SerializeField] private float additiveMaxHealth;
 
         public override void Modify(ref AttributesData data)
         {
             data.MaxHealth += additiveMaxHealth;
+        }
+
+        public override float GetInitialValue(AttributesData data)
+        {
+            return data.MaxHealth;
+        }
+
+        public override float GetFinalValue(AttributesData data)
+        {
+            return data.MaxHealth += additiveMaxHealth;
         }
     }
 }

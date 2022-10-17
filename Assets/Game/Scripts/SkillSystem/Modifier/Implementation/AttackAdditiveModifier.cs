@@ -1,3 +1,4 @@
+using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
 
 namespace CosmosDefender
@@ -12,5 +13,16 @@ namespace CosmosDefender
         {
             data.AttackDamage += additiveDamage;
         }
+
+        public override float GetInitialValue(AttributesData data)
+        {
+            return data.AttackDamage;
+        }
+
+        public override float GetFinalValue(AttributesData data)
+        {
+            return data.AttackDamage += additiveDamage;
+        }
+        
     }
 }

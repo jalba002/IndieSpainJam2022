@@ -12,5 +12,15 @@ namespace CosmosDefender
         {
             data.UniformSize *= timesBigger;
         }
+
+        public override float GetInitialValue(SpellData data)
+        {
+            return data.UniformSize;
+        }
+
+        public override float GetFinalValue(SpellData data)
+        {
+            return data.UniformSize *= timesBigger;
+        }
     }
 }

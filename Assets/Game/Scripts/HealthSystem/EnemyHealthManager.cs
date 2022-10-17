@@ -33,7 +33,6 @@ public class EnemyHealthManager : HealthManager
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
-        //sounds = GetComponent<EnemySoundPlayer>();
         screenShake = FindObjectOfType<ScreenShake>();
         enemyAI = GetComponent<EnemyAI>();
     }
@@ -41,7 +40,6 @@ public class EnemyHealthManager : HealthManager
     public override void Start()
     {
         MaxHealth = data.MaxHealth;
-
         base.Start();
     }
 
@@ -60,9 +58,6 @@ public class EnemyHealthManager : HealthManager
         enemyAI.Death();
 
         dieSound.Play();
-
-        // Rotation correct as of -90, 0, 90. For melees.
-        // Dragon needs another one.
         
         var vfxObject = Instantiate(prefab, attachedMRtoRender.transform.position, attachedMRtoRender.transform.rotation);
         vfxObject.SetVector3("Size", sizeOverride);
@@ -87,6 +82,7 @@ public class EnemyHealthManager : HealthManager
         //sounds.PlayDamageSound();
         //screenShake.CameraShake(0.1f, 0.75f);
         damageSound.Play();
+        //Debug.Log($"{gameObject.name} has <color=green>{currentHealth}</color> HP");
     }
 
     public void SetEnemySpawner(EnemySpawner enemySpawner)

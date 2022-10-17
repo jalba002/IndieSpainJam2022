@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: MaxHealthPurchase_Tier1
   m_EditorClassIdentifier: 
   description: "Aumenta a 130 la vida m\xE1xima"
-  thumbnail: {fileID: 21300000, guid: 8e45a58e30ae33745aff3556656915ca, type: 3}
+  translationTable: Shop
+  translationCode: MejoraVida
   price: 75
-  canBePurchase: 1
+  canBePurchased: 1
+  thumbnail: {fileID: 21300000, guid: 8e45a58e30ae33745aff3556656915ca, type: 3}
   modifier: {fileID: 11400000, guid: da92aaf2792f3b24aa01d017fa4ee5fb, type: 2}
