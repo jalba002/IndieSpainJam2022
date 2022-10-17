@@ -61,7 +61,12 @@ public class ShopController : MonoBehaviour
         foreach (var item in shopModifiers.SpellModifierShop)
         {
             var button = Instantiate(spellPrefab, spellsGrid);
-            button.Initialize(item, economyConfig, baseSpells.Find(x => x.spellType == item.GetCurrentPurchaseable().modifier.SpellType).spellData);
+            button.Initialize(item, economyConfig,
+                baseSpells.Find(
+                    x 
+                        => 
+                        Utils.IsSet(item.GetFirstPurchase().modifier.SpellType, x.spellType)).
+                    BaseData);
             shopButtons.Add(button);
         }
 

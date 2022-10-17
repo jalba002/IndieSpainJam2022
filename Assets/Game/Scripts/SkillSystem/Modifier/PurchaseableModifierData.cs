@@ -1,3 +1,4 @@
+using System;
 using System.Globalization;
 using CosmosDefender.Shop;
 using Sirenix.OdinInspector;
@@ -36,14 +37,24 @@ namespace CosmosDefender
         public string TableReference => translationTable;
         public string EntryReference => translationCode;
        
-        public string InitialValue(T2 data)
+        public string InitialValue(T2 data) 
         {
-            return modifier.GetInitialValue(data).ToString("F0");
+            return ConvertToStringFormatted(modifier.GetInitialValue(data));
+        }
+
+        private string ConvertToStringFormatted(float value)
+        {
+            var returnString = "A";
+            
+            returnString = value.ToString(Math.Abs(value % 1) <= 0.001f ? "F0" : "F2");
+
+            return returnString;
         }
 
         public string FinalValue(T2 data)
         {
-            return modifier.GetFinalValue(data).ToString("F0");
+            // If decimal, then F2, if not. Int.
+            return ConvertToStringFormatted(modifier.GetFinalValue(data));
         }
     }
 }

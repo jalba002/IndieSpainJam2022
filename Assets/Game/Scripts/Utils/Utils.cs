@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
@@ -53,6 +54,15 @@ public static class Utils
         }
 
         return index;
+    }
+    
+    public static bool IsSet<T>(T value, T flags) where T : struct
+    {
+        // You can add enum type checking to be perfectly sure that T is enum, this have some cost however
+        // if (!typeof(T).IsEnum)
+        //     throw new ArgumentException();
+        long longFlags = Convert.ToInt64(flags);
+        return (Convert.ToInt64(value) & longFlags) == longFlags;
     }
 
     public static string[] SplitByCamelCasing(string str)

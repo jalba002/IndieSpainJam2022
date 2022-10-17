@@ -73,13 +73,13 @@ MonoBehaviour:
       m_Items:
       - rid: 2287753125113102342
   - m_Id: 284006483439616
-    m_Localized: Aumenta la cantidad de impactos del rayo de <color=green>{initialValue}</color>
-      a <color=green>{finalValue}</color> enemigos.
+    m_Localized: "Aumenta la cantidad m\xE1xima de enemigos impactados por el rayo
+      de <color=green>{initialValue}</color> a <color=green>{finalValue}</color>."
     m_Metadata:
       m_Items:
       - rid: 2287753125113102342
   - m_Id: 284211433910272
-    m_Localized: "Aumenta el da\xF1o del rayo de <color=green>{initialValue}</color>
+    m_Localized: "Aumenta el multiplicador de da\xF1o del rayo de <color=green>{initialValue}</color>
       a <color=green>{finalValue}</color>."
     m_Metadata:
       m_Items:
@@ -97,25 +97,25 @@ MonoBehaviour:
       m_Items:
       - rid: 2287753125113102342
   - m_Id: 287383464390656
-    m_Localized: "Aumenta el tama\xF1o del meteorito de <color=green>{initial Value}</color>
+    m_Localized: "Aumenta el tama\xF1o del meteorito de <color=green>{initialValue}</color>
       a <color=green>{finalValue}</color>."
     m_Metadata:
       m_Items:
       - rid: 2287753125113102342
   - m_Id: 287750348550144
-    m_Localized: Aumenta la cantidad de meteoritos que caen de <color=green>{initial
-      Value}</color> a <color=green>{finalValue}</color>.
+    m_Localized: Aumenta la cantidad de meteoritos que caen de <color=green>{initialValue}</color>
+      a <color=green>{finalValue}</color>.
     m_Metadata:
       m_Items:
       - rid: 2287753125113102342
   - m_Id: 288333390360576
-    m_Localized: Aumenta el rango del laser de <color=green>{initial Value}</color>
+    m_Localized: Aumenta el rango del laser de <color=green>{initialValue}</color>
       a <color=green>{finalValue}</color>.
     m_Metadata:
       m_Items:
       - rid: 2287753125113102342
   - m_Id: 288512269037568
-    m_Localized: "Aumenta el da\xF1o del laser de <color=green>{initial Value}</color>
+    m_Localized: "Aumenta el multiplicador de da\xF1o del laser de <color=green>{initialValue}</color>
       a <color=green>{finalValue}</color>."
     m_Metadata:
       m_Items:

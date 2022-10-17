@@ -55,7 +55,8 @@ MonoBehaviour:
       m_Items:
       - rid: 2287753125113102345
   - m_Id: 281103895048192
-    m_Localized: Increases speed from <color=green>{initialValue}</color> to <color=green>{finalValue}</color>.
+    m_Localized: Increases movement speed from <color=green>{initialValue}</color>
+      to <color=green>{finalValue}</color>.
     m_Metadata:
       m_Items:
       - rid: 2287753125113102345
@@ -72,13 +73,13 @@ MonoBehaviour:
       m_Items:
       - rid: 2287753125113102345
   - m_Id: 284006483439616
-    m_Localized: Increases the number of lightning strikes from <color=green>{initialValue}</color>
-      to <color=green>{finalValue}</color> enemies.
+    m_Localized: Increases the maximum enemies hit by the lightning from <color=green>{initialValue}</color>
+      to <color=green>{finalValue}</color>.
     m_Metadata:
       m_Items:
       - rid: 2287753125113102345
   - m_Id: 284211433910272
-    m_Localized: Increases thunder damage from <color=green>{initialValue}</color>
+    m_Localized: Increases lightning damage multiplier from <color=green>{initialValue}</color>
       to <color=green>{finalValue}</color>.
     m_Metadata:
       m_Items:
@@ -90,31 +91,31 @@ MonoBehaviour:
       m_Items:
       - rid: 2287753125113102345
   - m_Id: 286971285942272
-    m_Localized: Increases the rate at which the meteor falls from <color=green>{initialValue}</color>
+    m_Localized: Increases the speed at which the meteor falls from <color=green>{initialValue}</color>
       to <color=green>{finalValue}</color>.
     m_Metadata:
       m_Items:
       - rid: 2287753125113102345
   - m_Id: 287383464390656
-    m_Localized: Increase the size of the meteor from <color=green>{initial Value}</color>
+    m_Localized: Increases the size of the meteor from <color=green>{initialValue}</color>
       to <color=green>{finalValue}</color>.
     m_Metadata:
       m_Items:
       - rid: 2287753125113102345
   - m_Id: 287750348550144
-    m_Localized: Increases the number of meteors that fall from <color=green>{initial
-      Value}</color> to <color=green>{finalValue}</color>.
+    m_Localized: Increases the number of meteors that fall from <color=green>{initialValue}</color>
+      to <color=green>{finalValue}</color>.
     m_Metadata:
       m_Items:
       - rid: 2287753125113102345
   - m_Id: 288333390360576
-    m_Localized: Increases the range of the laser from <color=green>{initial Value}</color>
+    m_Localized: Increases the range of the laser from <color=green>{initialValue}</color>
       to <color=green>{finalValue}</color>.
     m_Metadata:
       m_Items:
       - rid: 2287753125113102345
   - m_Id: 288512269037568
-    m_Localized: Increases laser damage from <color=green>{initial Value}</color>
+    m_Localized: Increases laser damage multiplier from <color=green>{initialValue}</color>
       to <color=green>{finalValue}</color>.
     m_Metadata:
       m_Items:

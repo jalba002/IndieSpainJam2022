@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bc60772a204d5245bc306c059be8570, type: 3}
   m_Name: ThunderDamageMultiplierModifier_Tier2
   m_EditorClassIdentifier: 
-  buffSprite: {fileID: 21300000, guid: 2e258a537e928204d9cf2e1d1c46ead0, type: 3}
-  priority: 0
   tier: 1
-  spellType: 32
+  priority: 0
+  buffSprite: {fileID: 21300000, guid: 2e258a537e928204d9cf2e1d1c46ead0, type: 3}
+  spellType: 4
   attackMultiplier: 2

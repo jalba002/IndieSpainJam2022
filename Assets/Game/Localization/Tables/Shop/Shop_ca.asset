@@ -72,13 +72,13 @@ MonoBehaviour:
       m_Items:
       - rid: 2287753125113102343
   - m_Id: 284006483439616
-    m_Localized: Augmenta la cantitat d'impactes del llamp de <color=green>{initialValue}</color>
-      a <color=green>{finalValue}</color> enemics.
+    m_Localized: "Augmenta la quantitat d'enemics m\xE0xims que el llamp pot impactar
+      de <color=green>{initialValue}</color> a <color=green>{finalValue}</color>."
     m_Metadata:
       m_Items:
       - rid: 2287753125113102343
   - m_Id: 284211433910272
-    m_Localized: Augmenta el dany del llamp de <color=green>{initialValue}</color>
+    m_Localized: Augmenta el multiplicador de dany del llamp de <color=green>{initialValue}</color>
       a <color=green>{finalValue}</color>.
     m_Metadata:
       m_Items:
@@ -96,25 +96,25 @@ MonoBehaviour:
       m_Items:
       - rid: 2287753125113102343
   - m_Id: 287383464390656
-    m_Localized: Augmenta la mida del meteorit de <color=green>{initial Value}</color>
+    m_Localized: Augmenta la mida del meteorit de <color=green>{initialValue}</color>
       a <color=green>{finalValue}</color>.
     m_Metadata:
       m_Items:
       - rid: 2287753125113102343
   - m_Id: 287750348550144
-    m_Localized: Augmenta la quantitat de meteorits que cauen de <color=green>{initial
-      Value}</color> a <color=green>{finalValue}</color>.
+    m_Localized: Augmenta la quantitat de meteorits que cauen de <color=green>{initialValue}</color>
+      a <color=green>{finalValue}</color>.
     m_Metadata:
       m_Items:
       - rid: 2287753125113102343
   - m_Id: 288333390360576
-    m_Localized: "Augmenta el rang del l\xE0ser de <color=green>{initial Value}</color>
+    m_Localized: "Augmenta el rang del l\xE0ser de <color=green>{initialValue}</color>
       a <color=green>{finalValue}</color>."
     m_Metadata:
       m_Items:
       - rid: 2287753125113102343
   - m_Id: 288512269037568
-    m_Localized: "Aumenta el dany del l\xE0ser de <color=green>{initial Value}</color>
+    m_Localized: "Aumenta el multiplicador de dany del l\xE0ser de <color=green>{initialValue}</color>
       a <color=green>{finalValue}</color>."
     m_Metadata:
       m_Items:

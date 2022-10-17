@@ -19,7 +19,7 @@ namespace CosmosDefender
 
         public override float GetFinalValue(SpellData data)
         {
-            return data.Speed *= speed;
+            return data.Speed += speed;
         }
     }
 }
