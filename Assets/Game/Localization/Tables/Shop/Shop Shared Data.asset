@@ -31,6 +31,10 @@ MonoBehaviour:
     m_Key: MejoraVida
     m_Metadata:
       m_Items: []
+  - m_Id: 274567939796992
+    m_Key: MejoraCooldown
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -26,7 +26,7 @@ public class ShopController : MonoBehaviour
 
     [Header("Data")] 
     [SerializeField] private PlayerAttributes playerAtts;
-    [SerializeField] private BaseSpell baseSpell;
+    [SerializeField] private List<BaseSpell> baseSpells;
 
     [Header("Text Prefab")] [SerializeField]
     private TextDisplayer textDisplayerPrefab;
@@ -36,6 +36,9 @@ public class ShopController : MonoBehaviour
     private void Awake()
     {
         Instantiate(textDisplayerPrefab, this.transform);
+        
+        
+        
         InitializeShop();
         UpdateMoney(economyConfig.GetMoney());
         economyConfig.OnMoneyUpdated += UpdateMoney;
@@ -58,7 +61,7 @@ public class ShopController : MonoBehaviour
         foreach (var item in shopModifiers.SpellModifierShop)
         {
             var button = Instantiate(spellPrefab, spellsGrid);
-            button.Initialize(item, economyConfig, baseSpell.spellData);
+            button.Initialize(item, economyConfig, baseSpells.Find(x => x.spellType == item.GetCurrentPurchaseable().modifier.SpellType).spellData);
             shopButtons.Add(button);
         }
 
