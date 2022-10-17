@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -70,6 +71,7 @@ namespace CosmosDefender {
             InvulnerableOverTime(InvulnerableTime);
             mainCameraShake.CameraShake(CameraShakeDuration, CameraShakeIntensity);
             //DecreaseHealthSmoothUpdateUI(currentHealth, -50f);
+            RuntimeManager.PlayOneShotAttached("event:/SFX/Player/Player_Hitted", this.gameObject);
         }
 
         private void DecreaseHealthSmoothUpdateUI(float healthRemaining, float duration)

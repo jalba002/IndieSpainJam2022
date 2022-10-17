@@ -1,6 +1,7 @@
 using System;
 using JetBrains.Annotations;
 using Sirenix.OdinInspector;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 
@@ -18,7 +19,12 @@ namespace CosmosDefender
 
         public void Initialize()
         {
-            Load();
+            data = new CosmosDefenderPlayerSettingsData()
+            {
+                MouseSensitivity = 10f,
+                LanguagePreference = "English"
+            };
+            Load(data);
         }
 
         public void SetLanguage(string language)
@@ -41,32 +47,37 @@ namespace CosmosDefender
         public string GetLanguage() => LocalizationSettings.SelectedLocale.LocaleName;
         public float GetSensitivity() => data.MouseSensitivity;
 
-        private void Load()
+        private void Load(CosmosDefenderPlayerSettingsData settings)
         {
             try
             {
-                data = JsonUtility.FromJson<CosmosDefenderPlayerSettingsData>(
-                    PlayerPrefs.GetString(CosmosSettingsKey, "{}"));
+                var loadedData = JsonUtility.FromJson<CosmosDefenderPlayerSettingsData>(PlayerPrefs.GetString(CosmosSettingsKey));
 
-                var languagePack =
-                    LocalizationSettings.AvailableLocales.Locales.Find(x =>
-                        x.LocaleName.Contains(data.LanguagePreference));
+                var languagePack = LocalizationSettings.AvailableLocales.Locales.Find(x => x.LocaleName.Contains(data.LanguagePreference));
 
+                Debug.Log(loadedData.MouseSensitivity);
+                data = loadedData;
+                
                 if (languagePack == null) return;
                 LocalizationSettings.SelectedLocale = languagePack;
             }
-            catch (ArgumentNullException)
+            catch (NullReferenceException)
             {
                 // Generate without ref in regedit.
-                Save();
+                var languagePack =
+                    LocalizationSettings.AvailableLocales.Locales.Find(x =>
+                        x.LocaleName.Contains(settings.LanguagePreference));
+
+                if (languagePack == null) return;
+                LocalizationSettings.SelectedLocale = languagePack;
             }
         }
 
         [Button]
         private void Save()
         {
-            OnSettingsUpdated?.Invoke();
             PlayerPrefs.SetString(CosmosSettingsKey, JsonUtility.ToJson(data));
+            OnSettingsUpdated?.Invoke();
         }
     }
 
@@ -74,6 +85,6 @@ namespace CosmosDefender
     public struct CosmosDefenderPlayerSettingsData
     {
         public string LanguagePreference;
-        public float MouseSensitivity;               
+        public float MouseSensitivity;
     }
 }

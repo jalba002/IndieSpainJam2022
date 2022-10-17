@@ -2340,7 +2340,6 @@ MonoBehaviour:
   currentHealth: 0
   data: {fileID: 11400000, guid: 21f19f244fdc7e9468d42ad7da344395, type: 2}
   destroyOnDie: 1
-  sizeOverride: {x: 4, y: 20, z: 4}
   prefab: {fileID: 5380497785177111069, guid: c0740723ef8494d4db2cd93b84654e6c, type: 3}
   attachedMeshRenderers:
   - {fileID: 6678044178576440540}
@@ -2395,7 +2394,7 @@ MonoBehaviour:
   Params: []
   OverrideAttenuation: 1
   OverrideMinDistance: 0
-  OverrideMaxDistance: 20
+  OverrideMaxDistance: 25
 --- !u!114 &9217625690264317105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2425,7 +2424,7 @@ MonoBehaviour:
   Params: []
   OverrideAttenuation: 1
   OverrideMinDistance: 0
-  OverrideMaxDistance: 20
+  OverrideMaxDistance: 25
 --- !u!114 &8995474294355635236
 MonoBehaviour:
   m_ObjectHideFlags: 0

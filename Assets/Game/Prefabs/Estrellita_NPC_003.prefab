@@ -257,11 +257,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1174032600
-      Data2: 1255313799
-      Data3: 816397961
-      Data4: -155056766
-    Path: event:/SFX/Enemies/Enemy To Sky
+      Data1: 94598064
+      Data2: 1074537968
+      Data3: -591018609
+      Data4: 1780405374
+    Path: event:/SFX/Stars
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -269,9 +269,9 @@ MonoBehaviour:
   TriggerOnce: 0
   Preload: 0
   Params: []
-  OverrideAttenuation: 1
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 60
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!135 &6498550961035089688
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -228,12 +228,11 @@ MonoBehaviour:
   currentHealth: 0
   data: {fileID: 0}
   destroyOnDie: 1
-  sizeOverride: {x: 5, y: 20, z: 5}
   prefab: {fileID: 0}
-  attachedMRtoRender: {fileID: 0}
-  bonePosition: {fileID: 0}
-  dieSound: {fileID: 0}
+  attachedMeshRenderers: []
+  particleAmountOverride: 400
   damageSound: {fileID: 0}
+  dieSound: {fileID: 0}
 --- !u!136 &99919103
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1022,12 +1021,11 @@ MonoBehaviour:
   currentHealth: 0
   data: {fileID: 0}
   destroyOnDie: 1
-  sizeOverride: {x: 5, y: 20, z: 5}
   prefab: {fileID: 0}
-  attachedMRtoRender: {fileID: 0}
-  bonePosition: {fileID: 0}
-  dieSound: {fileID: 0}
+  attachedMeshRenderers: []
+  particleAmountOverride: 400
   damageSound: {fileID: 0}
+  dieSound: {fileID: 0}
 --- !u!1 &859431470
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,12 +1287,11 @@ MonoBehaviour:
   currentHealth: 0
   data: {fileID: 0}
   destroyOnDie: 1
-  sizeOverride: {x: 5, y: 20, z: 5}
   prefab: {fileID: 0}
-  attachedMRtoRender: {fileID: 0}
-  bonePosition: {fileID: 0}
-  dieSound: {fileID: 0}
+  attachedMeshRenderers: []
+  particleAmountOverride: 400
   damageSound: {fileID: 0}
+  dieSound: {fileID: 0}
 --- !u!136 &1611518082
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1749,12 +1746,11 @@ MonoBehaviour:
   currentHealth: 0
   data: {fileID: 0}
   destroyOnDie: 1
-  sizeOverride: {x: 5, y: 20, z: 5}
   prefab: {fileID: 0}
-  attachedMRtoRender: {fileID: 0}
-  bonePosition: {fileID: 0}
-  dieSound: {fileID: 0}
+  attachedMeshRenderers: []
+  particleAmountOverride: 400
   damageSound: {fileID: 0}
+  dieSound: {fileID: 0}
 --- !u!136 &1684359520
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2403,11 +2399,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5380497785177111059, guid: c0740723ef8494d4db2cd93b84654e6c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5380497785177111068, guid: c0740723ef8494d4db2cd93b84654e6c, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5380497785177111069, guid: c0740723ef8494d4db2cd93b84654e6c, type: 3}
       propertyPath: m_PropertySheet.m_Float.m_Array.Array.size
@@ -2459,39 +2455,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5380497785177111069, guid: c0740723ef8494d4db2cd93b84654e6c, type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[0].m_Value.x
-      value: 2.2783282
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5380497785177111069, guid: c0740723ef8494d4db2cd93b84654e6c, type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[0].m_Value.y
-      value: -0.00015978198
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5380497785177111069, guid: c0740723ef8494d4db2cd93b84654e6c, type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[0].m_Value.z
-      value: 270
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5380497785177111069, guid: c0740723ef8494d4db2cd93b84654e6c, type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[1].m_Value.x
-      value: -1.1220002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5380497785177111069, guid: c0740723ef8494d4db2cd93b84654e6c, type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[1].m_Value.y
-      value: 1.9033765
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5380497785177111069, guid: c0740723ef8494d4db2cd93b84654e6c, type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[1].m_Value.z
-      value: -2.2865443
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5380497785177111069, guid: c0740723ef8494d4db2cd93b84654e6c, type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[2].m_Value.x
-      value: 0.99999994
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5380497785177111069, guid: c0740723ef8494d4db2cd93b84654e6c, type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[2].m_Value.y
-      value: 0.99999994
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5380497785177111069, guid: c0740723ef8494d4db2cd93b84654e6c, type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[2].m_Value.z
-      value: 0.99999994
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5380497785177111069, guid: c0740723ef8494d4db2cd93b84654e6c, type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[3].m_Value.x
@@ -2520,7 +2516,7 @@ PrefabInstance:
     - target: {fileID: 5380497785177111069, guid: c0740723ef8494d4db2cd93b84654e6c, type: 3}
       propertyPath: m_PropertySheet.m_NamedObject.m_Array.Array.data[0].m_Value
       value: 
-      objectReference: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 5380497785177111069, guid: c0740723ef8494d4db2cd93b84654e6c, type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[0].m_Overridden
       value: 1
@@ -2543,7 +2539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5380497785177111069, guid: c0740723ef8494d4db2cd93b84654e6c, type: 3}
       propertyPath: m_PropertySheet.m_NamedObject.m_Array.Array.data[0].m_Overridden
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5380497785177111070, guid: c0740723ef8494d4db2cd93b84654e6c, type: 3}
       propertyPath: m_RootOrder

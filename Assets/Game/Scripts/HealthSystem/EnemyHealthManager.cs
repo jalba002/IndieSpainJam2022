@@ -1,13 +1,10 @@
+using System;
 using CosmosDefender;
-using System.Collections;
 using System.Collections.Generic;
-using System.Security;
 using FMODUnity;
 using Sirenix.OdinInspector;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.VFX;
-using UnityEngine.VFX.Utility;
 
 public class EnemyHealthManager : HealthManager
 {
@@ -47,6 +44,11 @@ public class EnemyHealthManager : HealthManager
         base.Start();
     }
 
+    public void Initialize(EnemySpawner spawnPoint)
+    {
+        this.enemySpawner = spawnPoint;
+    }
+
     [Button]
     public override void Die()
     {
@@ -55,7 +57,7 @@ public class EnemyHealthManager : HealthManager
         if (GameManager.Instance.ResourceManager != null)
         {
             GameManager.Instance.ResourceManager.IncreaseResource(ResourceType.Stars, data.StarResourceOnDeath);
-            GameManager.Instance.ResourceManager.IncreaseResource(ResourceType.Goddess, data.StarResourceOnDeath);
+            GameManager.Instance.ResourceManager.IncreaseResource(ResourceType.Goddess, data.GoddessResourceOnDeath);
             enemySpawner.DecreaseCurrentEnemyCounter();
         }
 
@@ -74,8 +76,8 @@ public class EnemyHealthManager : HealthManager
             };
 
             vfxObject.SetInt("ParticleAmount", particleAmountOverride);
-            vfxObject.gameObject.GetComponent<VFXPropertyBinder>().AddPropertyBinder<VFXTransformBinder>()
-                .Init("VictimTransform", meshRenderer.transform);
+            // TODO REmoved Property Binder
+            //vfxObject.gameObject.GetComponent<VFXPropertyBinder>().AddPropertyBinder<VFXTransformBinder>().Init("VictimTransform", meshRenderer.transform);
             meshRenderer.BakeMesh(m);
             vfxObject.SetMesh("VictimMesh", m);
 
@@ -103,8 +105,5 @@ public class EnemyHealthManager : HealthManager
         }
     }
 
-    public void SetEnemySpawner(EnemySpawner enemySpawner)
-    {
-        this.enemySpawner = enemySpawner;
-    }
+
 }

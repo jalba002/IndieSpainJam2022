@@ -1143,7 +1143,6 @@ MonoBehaviour:
   currentHealth: 0
   data: {fileID: 11400000, guid: cd653ebbdaede9d4f88c7f4f0c45b12b, type: 2}
   destroyOnDie: 1
-  sizeOverride: {x: 8, y: 20, z: 8}
   prefab: {fileID: 5380497785177111069, guid: c0740723ef8494d4db2cd93b84654e6c, type: 3}
   attachedMeshRenderers:
   - {fileID: 272294701860159009}
@@ -1197,7 +1196,7 @@ MonoBehaviour:
   Params: []
   OverrideAttenuation: 1
   OverrideMinDistance: 0
-  OverrideMaxDistance: 25
+  OverrideMaxDistance: 50
 --- !u!114 &3971349046271865123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1227,7 +1226,7 @@ MonoBehaviour:
   Params: []
   OverrideAttenuation: 1
   OverrideMinDistance: 0
-  OverrideMaxDistance: 25
+  OverrideMaxDistance: 50
 --- !u!1 &8042929888558826823
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using CosmosDefender;
-using Sirenix.OdinInspector.Editor;
 using UnityEngine;
 
 public class PillarObserver : MonoBehaviour
