@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: MeteoriteUpgrade_Size_Tier1
   m_EditorClassIdentifier: 
   description: 'Aumenta en <color=green>1</color> el radio del impacto del meteorito. '
-  thumbnail: {fileID: 21300000, guid: c05fa003a3f6de14d8c496beca2cdc61, type: 3}
+  translationTable: Shop
+  translationCode: "MejoraMeteoritoTama\xF1o"
   price: 75
   canBePurchased: 1
+  thumbnail: {fileID: 21300000, guid: c05fa003a3f6de14d8c496beca2cdc61, type: 3}
   modifier: {fileID: 11400000, guid: 2d877a8a1498e8645a5468a36ecc0b8b, type: 2}

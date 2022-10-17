@@ -47,10 +47,82 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 2287753125113102343
+  - m_Id: 280038730575872
+    m_Localized: "Augmenta la regeneraci\xF3 de vida de <color=green>{initialValue}</color>
+      a <color=green>{finalValue}</color>."
+    m_Metadata:
+      m_Items:
+      - rid: 2287753125113102343
+  - m_Id: 281103895048192
+    m_Localized: Augmenta la velocitat de moviment de <color=green>{initialValue}</color>
+      a <color=green>{finalValue}</color>.
+    m_Metadata:
+      m_Items:
+      - rid: 2287753125113102343
+  - m_Id: 281867124158464
+    m_Localized: Augmenta la velocidad de l'envestida de <color=green>{initialValue}</color>
+      a <color=green>{finalValue}</color>.
+    m_Metadata:
+      m_Items:
+      - rid: 2287753125113102343
+  - m_Id: 283509844291584
+    m_Localized: Augmenta el dany de l'envestida de <color=green>{initialValue}</color>
+      a <color=green>{finalValue}</color>.
+    m_Metadata:
+      m_Items:
+      - rid: 2287753125113102343
+  - m_Id: 284006483439616
+    m_Localized: Augmenta la cantitat d'impactes del llamp de <color=green>{initialValue}</color>
+      a <color=green>{finalValue}</color> enemics.
+    m_Metadata:
+      m_Items:
+      - rid: 2287753125113102343
+  - m_Id: 284211433910272
+    m_Localized: Augmenta el dany del llamp de <color=green>{initialValue}</color>
+      a <color=green>{finalValue}</color>.
+    m_Metadata:
+      m_Items:
+      - rid: 2287753125113102343
+  - m_Id: 284331361644544
+    m_Localized: "Augmenta el radi del raig de <color=green>{initialValue}</color>
+      a <color=green>{finalValue}</color>, permetent assolir enemics m\xE9s llunyans."
+    m_Metadata:
+      m_Items:
+      - rid: 2287753125113102343
+  - m_Id: 286971285942272
+    m_Localized: "Augmenta la velocitat a qu\xE8 cau el meteorit de <color=green>{initialValue}</color>
+      a <color=green>{finalValue}</color>."
+    m_Metadata:
+      m_Items:
+      - rid: 2287753125113102343
+  - m_Id: 287383464390656
+    m_Localized: Augmenta la mida del meteorit de <color=green>{initial Value}</color>
+      a <color=green>{finalValue}</color>.
+    m_Metadata:
+      m_Items:
+      - rid: 2287753125113102343
+  - m_Id: 287750348550144
+    m_Localized: Augmenta la quantitat de meteorits que cauen de <color=green>{initial
+      Value}</color> a <color=green>{finalValue}</color>.
+    m_Metadata:
+      m_Items:
+      - rid: 2287753125113102343
+  - m_Id: 288333390360576
+    m_Localized: "Augmenta el rang del l\xE0ser de <color=green>{initial Value}</color>
+      a <color=green>{finalValue}</color>."
+    m_Metadata:
+      m_Items:
+      - rid: 2287753125113102343
+  - m_Id: 288512269037568
+    m_Localized: "Aumenta el dany del l\xE0ser de <color=green>{initial Value}</color>
+      a <color=green>{finalValue}</color>."
+    m_Metadata:
+      m_Items:
+      - rid: 2287753125113102343
   references:
     version: 2
     RefIds:
     - rid: 2287753125113102343
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 00b044360200000000b0040e3935000000b0c427cb4d000000b084d4b7f90000
+        m_Entries: 00b044360200000000b0040e3935000000b0c427cb4d000000b084d4b7f9000000300f99b1fe00000030cf99a9ff00000030cf4d5b00010000308fc7d901010000308f694d02010000308f217d0201000030cf0d9902010000308fb5ff04010000304fad5f05010000304f19b505010000304fd93c06010000304f7f66060100

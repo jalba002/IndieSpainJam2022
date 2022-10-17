@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: Mejora enormemente la <color=yellow>velocidad</color> a la que cae
     el meteorito.
-  thumbnail: {fileID: 21300000, guid: c05fa003a3f6de14d8c496beca2cdc61, type: 3}
+  translationTable: Shop
+  translationCode: MejoraMeteoritoVelocidad
   price: 150
   canBePurchased: 1
+  thumbnail: {fileID: 21300000, guid: c05fa003a3f6de14d8c496beca2cdc61, type: 3}
   modifier: {fileID: 11400000, guid: 1d0e3c56b27d1ed47b37fbaef2f302e2, type: 2}

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: SpeedPurchase_Tier1
   m_EditorClassIdentifier: 
   description: Aumenta a 10 la velocidad de movimiento
-  translationTable: 
-  translationCode: 
-  thumbnail: {fileID: 21300000, guid: 4501a68a3385b6f458efca1cf36e0ca5, type: 3}
+  translationTable: Shop
+  translationCode: MejoraVelocidad
   price: 75
   canBePurchased: 1
+  thumbnail: {fileID: 21300000, guid: 4501a68a3385b6f458efca1cf36e0ca5, type: 3}
   modifier: {fileID: 11400000, guid: 3f429746dc83c2c44a49f053ee0bfd56, type: 2}

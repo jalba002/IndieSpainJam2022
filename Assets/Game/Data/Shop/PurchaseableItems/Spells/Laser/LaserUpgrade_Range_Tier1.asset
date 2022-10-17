@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: LaserUpgrade_Range_Tier1
   m_EditorClassIdentifier: 
   description: "Incremento peque\xF1o de la distancia del laser"
-  thumbnail: {fileID: 21300000, guid: ca1f841139f1117438a7026336915812, type: 3}
+  translationTable: Shop
+  translationCode: MejoraLaserRango
   price: 75
   canBePurchased: 1
+  thumbnail: {fileID: 21300000, guid: ca1f841139f1117438a7026336915812, type: 3}
   modifier: {fileID: 11400000, guid: 9ddaa991c4df9a441a12fe1af761d528, type: 2}

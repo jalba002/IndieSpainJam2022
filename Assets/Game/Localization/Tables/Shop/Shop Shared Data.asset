@@ -35,6 +35,54 @@ MonoBehaviour:
     m_Key: MejoraCooldown
     m_Metadata:
       m_Items: []
+  - m_Id: 280038730575872
+    m_Key: "Regeneraci\xF3nVida"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 281103895048192
+    m_Key: MejoraVelocidad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 281867124158464
+    m_Key: MejoraVelocidadDash
+    m_Metadata:
+      m_Items: []
+  - m_Id: 283509844291584
+    m_Key: "MejoraDa\xF1oDash"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 284006483439616
+    m_Key: MejoraRayoCantidad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 284211433910272
+    m_Key: "MejoraRayoDa\xF1o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 284331361644544
+    m_Key: MejoraRayoRango
+    m_Metadata:
+      m_Items: []
+  - m_Id: 286971285942272
+    m_Key: MejoraMeteoritoVelocidad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287383464390656
+    m_Key: "MejoraMeteoritoTama\xF1o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 287750348550144
+    m_Key: MejoraMeteoritoCantidad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 288333390360576
+    m_Key: MejoraLaserRango
+    m_Metadata:
+      m_Items: []
+  - m_Id: 288512269037568
+    m_Key: "MejoraLaserDa\xF1o"
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

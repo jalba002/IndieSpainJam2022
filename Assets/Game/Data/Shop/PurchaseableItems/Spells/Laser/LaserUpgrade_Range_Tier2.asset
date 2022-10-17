@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: LaserUpgrade_Range_Tier2
   m_EditorClassIdentifier: 
   description: Incremento mediano de la distancia del laser
-  thumbnail: {fileID: 21300000, guid: ca1f841139f1117438a7026336915812, type: 3}
+  translationTable: Shop
+  translationCode: MejoraLaserRango
   price: 100
   canBePurchased: 1
+  thumbnail: {fileID: 21300000, guid: ca1f841139f1117438a7026336915812, type: 3}
   modifier: {fileID: 11400000, guid: 8521dded93aeda74ca8a6c6699fa8ec0, type: 2}

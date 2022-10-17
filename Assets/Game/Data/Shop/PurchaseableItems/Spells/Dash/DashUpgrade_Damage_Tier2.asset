@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: DashUpgrade_Damage_Tier2
   m_EditorClassIdentifier: 
   description: "x2 da\xF1o de embestida"
-  thumbnail: {fileID: 21300000, guid: 3f119e8f2c0934342aa127589ed32cc4, type: 3}
+  translationTable: Shop
+  translationCode: "MejoraDa\xF1oDash"
   price: 100
   canBePurchased: 1
+  thumbnail: {fileID: 21300000, guid: 3f119e8f2c0934342aa127589ed32cc4, type: 3}
   modifier: {fileID: 11400000, guid: 4dab64a2818c484449bc50784c0535fa, type: 2}

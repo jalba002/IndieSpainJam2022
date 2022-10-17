@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f89b4321206945543b0f9f019eea68ee, type: 3}
   m_Name: MeteoriteUpgrade_Amount_Tier3
   m_EditorClassIdentifier: 
-  description: 'Aumenta en <color=green>2</color> la cantidad de meteoritos que caen
-    del suelo. Total: <color=green>9</color>'
-  thumbnail: {fileID: 21300000, guid: c05fa003a3f6de14d8c496beca2cdc61, type: 3}
+  description: 'Aumenta en <color=green>2</color> la cantidad de meteoritos que caen.
+    Total: <color=green>9</color>'
+  translationTable: Shop
+  translationCode: MejoraMeteoritoCantidad
   price: 150
   canBePurchased: 1
+  thumbnail: {fileID: 21300000, guid: c05fa003a3f6de14d8c496beca2cdc61, type: 3}
   modifier: {fileID: 11400000, guid: b1b1f6e68a78e1242b6e575f01769ef2, type: 2}

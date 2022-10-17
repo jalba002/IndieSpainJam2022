@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: "Aumenta en <color=green>5</color> el radio del rayo, permitiendo
     alcanzar enemigos m\xE1s lejanos."
-  thumbnail: {fileID: 21300000, guid: 2e258a537e928204d9cf2e1d1c46ead0, type: 3}
+  translationTable: Shop
+  translationCode: MejoraRayoRango
   price: 75
   canBePurchased: 1
+  thumbnail: {fileID: 21300000, guid: 2e258a537e928204d9cf2e1d1c46ead0, type: 3}
   modifier: {fileID: 11400000, guid: 725debeb3adda534b8ba8f8a5abd4403, type: 2}

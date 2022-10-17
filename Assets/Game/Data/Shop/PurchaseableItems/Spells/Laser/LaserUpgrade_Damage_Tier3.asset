@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: LaserUpgrade_Damage_Tier3
   m_EditorClassIdentifier: 
   description: "x2.5 da\xF1o al laser"
-  thumbnail: {fileID: 21300000, guid: ca1f841139f1117438a7026336915812, type: 3}
+  translationTable: Shop
+  translationCode: "MejoraLaserDa\xF1o"
   price: 150
   canBePurchased: 1
+  thumbnail: {fileID: 21300000, guid: ca1f841139f1117438a7026336915812, type: 3}
   modifier: {fileID: 11400000, guid: 812fad64a5f95444f81f0756e7bdf83a, type: 2}

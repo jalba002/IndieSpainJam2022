@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: DashUpgrade_Speed_Tier1
   m_EditorClassIdentifier: 
   description: "Incremento peque\xF1o de velodidad de la embestida"
-  thumbnail: {fileID: 21300000, guid: 3f119e8f2c0934342aa127589ed32cc4, type: 3}
+  translationTable: Shop
+  translationCode: MejoraVelocidadDash
   price: 75
   canBePurchased: 1
+  thumbnail: {fileID: 21300000, guid: 3f119e8f2c0934342aa127589ed32cc4, type: 3}
   modifier: {fileID: 11400000, guid: 57ae628c325630b46b7bcdac92675c7b, type: 2}

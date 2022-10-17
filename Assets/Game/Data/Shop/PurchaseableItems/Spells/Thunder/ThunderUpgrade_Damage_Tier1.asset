@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: ThunderUpgrade_Damage_Tier1
   m_EditorClassIdentifier: 
   description: "Multiplica el da\xF1o del rayo en x1.5."
-  thumbnail: {fileID: 21300000, guid: 2e258a537e928204d9cf2e1d1c46ead0, type: 3}
+  translationTable: Shop
+  translationCode: "MejoraRayoDa\xF1o"
   price: 75
   canBePurchased: 1
+  thumbnail: {fileID: 21300000, guid: 2e258a537e928204d9cf2e1d1c46ead0, type: 3}
   modifier: {fileID: 11400000, guid: c92b6b603ff04f54eb329bc7fbb04c85, type: 2}
