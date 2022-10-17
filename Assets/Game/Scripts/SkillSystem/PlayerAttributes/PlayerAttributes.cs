@@ -93,7 +93,7 @@ namespace CosmosDefender
             //spell.isSpellEmpowered = state;
         }
 
-        public AttributesData GetAttributes() => currentAttributes;
+        public AttributesData GetBaseAttributes() => baseAttributes;
 
         [Button]
         public void AddSpell(CosmosSpell spell, bool addSpell = true)

@@ -51,7 +51,7 @@ public class ShopController : MonoBehaviour
         foreach (var item in shopModifiers.AttributesModifierShop)
         {
             var button = Instantiate(attributePrefab, attributesGrid);
-            button.Initialize(item, economyConfig, playerAtts.GetAttributes());
+            button.Initialize(item, economyConfig, playerAtts.GetBaseAttributes());
             shopButtons.Add(button);
         }
 
