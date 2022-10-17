@@ -2855,9 +2855,13 @@ MonoBehaviour:
   destroyOnDie: 1
   sizeOverride: {x: 6, y: 20, z: 6}
   prefab: {fileID: 5380497785177111069, guid: c0740723ef8494d4db2cd93b84654e6c, type: 3}
-  attachedMRtoRender: {fileID: 694529019484784771}
-  dieSound: {fileID: 6186857885958047565}
+  attachedMeshRenderers:
+  - {fileID: 694529019484784771}
+  - {fileID: 741930321409844933}
+  - {fileID: 8257542398091793031}
+  particleAmountOverride: 100
   damageSound: {fileID: 3886716984895022611}
+  dieSound: {fileID: 6186857885958047565}
 --- !u!114 &8865683714585661008
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ public class MenuController : MonoBehaviour
 
     public void LoadGame()
     {
+        playerAttributes.EmpowerSpells(false);
         playerAttributes.RemoveAllSpells();
         playerAttributes.RemoveAllAttributeModifiers();
         playerAttributes.RemoveAllSpellModifiers();

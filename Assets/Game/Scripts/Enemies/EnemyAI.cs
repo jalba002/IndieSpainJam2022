@@ -124,7 +124,7 @@ namespace CosmosDefender
         }
 
         [Button]
-        void Attack()
+        protected virtual void Attack()
         {
             transform.LookAt(alerterTarget);
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);

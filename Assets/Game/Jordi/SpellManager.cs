@@ -57,6 +57,8 @@ public class SpellManager : MonoBehaviour, ISpellCaster
 
     void CastSpell(SpellKeyType spellKey)
     {
+        if (!enabled) return;
+        
         if (holdingSpell) return;
         
         if (!playerAttributes.HasSpellKey(spellKey))
@@ -300,6 +302,11 @@ public class SpellManager : MonoBehaviour, ISpellCaster
             default:
                 throw new ArgumentOutOfRangeException();
         }
+    }
+
+    private void OnDisable()
+    {
+        StopCastingHeldSpell();
     }
 
     public GameObject GameObject => this.gameObject;

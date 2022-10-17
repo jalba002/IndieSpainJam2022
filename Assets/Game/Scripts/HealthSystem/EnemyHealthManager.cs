@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Security;
 using FMODUnity;
 using Sirenix.OdinInspector;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.VFX;
 using UnityEngine.VFX.Utility;
@@ -14,24 +15,24 @@ public class EnemyHealthManager : HealthManager
 
     private ScreenShake screenShake;
 
-    [Header("Settings")] [SerializeField] private EnemyData data;
+    [Header("Settings")] [SerializeField] protected EnemyData data;
 
-    [SerializeField] private bool destroyOnDie = true;
+    [SerializeField] protected bool destroyOnDie = true;
 
     private EnemySpawner enemySpawner;
     private EnemyAI enemyAI;
 
-    [Header("VFX")] [SerializeField] private Vector3 sizeOverride = new Vector3(5f, 20f, 5f);
-    [SerializeField] private VisualEffect prefab;
-    [SerializeField] private SkinnedMeshRenderer attachedMRtoRender;
+    [Header("VFX")] [SerializeField] protected VisualEffect prefab;
+    [SerializeField] protected List<SkinnedMeshRenderer> attachedMeshRenderers;
+    [SerializeField] protected int particleAmountOverride = 400;
 
-    [Header("Sounds")]
-    [Tooltip("Damaged")]
-    [SerializeField] private StudioEventEmitter damageSound;
-    [Tooltip("Die")]
-    [SerializeField] private StudioEventEmitter dieSound;
+    [Header("Sounds")] [Tooltip("Damaged")] [SerializeField]
+    protected StudioEventEmitter damageSound;
 
-    private float timeForNextDamageFeedback = 0f;
+    [Tooltip("Die")] [SerializeField] protected StudioEventEmitter dieSound;
+
+    private float timeForSoundFeedback = 0f;
+    private float timeForAnimationFeedback = 0f;
 
     private void Awake()
     {
@@ -62,21 +63,25 @@ public class EnemyHealthManager : HealthManager
 
         dieSound.Play();
 
-        var vfxObject = Instantiate(prefab, attachedMRtoRender.transform.position,
-            attachedMRtoRender.transform.rotation);
-        
-        vfxObject.SetVector3("Size", sizeOverride);
-        Mesh m = new Mesh
+        foreach (var meshRenderer in attachedMeshRenderers)
         {
-            name = "TemporalSkinnedMesh",
-        };
-        
-        vfxObject.gameObject.GetComponent<VFXPropertyBinder>().AddPropertyBinder<VFXTransformBinder>()
-            .Init("VictimTransform", attachedMRtoRender.transform);
-        attachedMRtoRender.BakeMesh(m);
-        vfxObject.SetMesh("VictimMesh", m);
+            var vfxObject = Instantiate(prefab, meshRenderer.transform.position,
+                meshRenderer.transform.rotation);
 
-        Destroy(vfxObject.gameObject, 4f);
+            Mesh m = new Mesh
+            {
+                name = "TemporalSkinnedMesh",
+            };
+
+            vfxObject.SetInt("ParticleAmount", particleAmountOverride);
+            vfxObject.gameObject.GetComponent<VFXPropertyBinder>().AddPropertyBinder<VFXTransformBinder>()
+                .Init("VictimTransform", meshRenderer.transform);
+            meshRenderer.BakeMesh(m);
+            vfxObject.SetMesh("VictimMesh", m);
+
+            Destroy(vfxObject.gameObject, 4f);
+        }
+
 
         if (destroyOnDie)
             Destroy(gameObject);
@@ -85,11 +90,16 @@ public class EnemyHealthManager : HealthManager
     [Button]
     public override void DamageFeedback()
     {
-        if (Time.time > timeForNextDamageFeedback)
+        if (Time.time > timeForSoundFeedback)
+        {
+            damageSound.Play();
+            timeForSoundFeedback = Time.time + .7f;
+        }
+
+        if (Time.time > timeForAnimationFeedback)
         {
             animator.SetTrigger("Damaged");
-            damageSound.Play();
-            timeForNextDamageFeedback = Time.time + 0.15f;
+            timeForAnimationFeedback = Time.time + .15f;
         }
     }
 

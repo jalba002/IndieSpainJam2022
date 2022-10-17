@@ -41,7 +41,7 @@ namespace CosmosDefender
             var a = AreaAttacksManager.SphereOverlap(transform.position, radius, enemyLayer);
             foreach (var enemy in a)
             {
-                enemy.GetComponent<EnemyAI>().Alert(this);
+                enemy.GetComponent<EnemyAI>()?.Alert(this);
             }
         }
     }

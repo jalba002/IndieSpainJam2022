@@ -93,6 +93,14 @@ namespace CosmosDefender
             //spell.isSpellEmpowered = state;
         }
 
+        public void EmpowerSpells(bool state)
+        {
+            foreach (var spell in spells)
+            {
+                spell.isSpellEmpowered = state;
+            }
+        }
+
         public AttributesData GetBaseAttributes() => baseAttributes;
 
         [Button]
