@@ -71,6 +71,7 @@ namespace CosmosDefender {
             InvulnerableOverTime(InvulnerableTime);
             mainCameraShake.CameraShake(CameraShakeDuration, CameraShakeIntensity);
             //DecreaseHealthSmoothUpdateUI(currentHealth, -50f);
+            animator.SetTrigger("Damaged");
             RuntimeManager.PlayOneShotAttached("event:/SFX/Player/Player_Hitted", this.gameObject);
         }
 
