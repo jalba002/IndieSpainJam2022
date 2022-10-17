@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Tutorial_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: 9051b186d47be1942b4693f630813ecb, type: 2}
+  m_Metadata:
+    m_Items:
+    - rid: 6655671937300168714
+  m_TableData:
+  - m_Id: 25426866176
+    m_Localized: "Activar un <color=yellow>pilar</color> de habilidad otorgar\xE1
+      a Shyofra una habilidad permanentemente.\n\nActivarlo por segunda vez mejorar\xE1
+      dicha habilidad temporalmente."
+    m_Metadata:
+      m_Items:
+      - rid: 6655671937300168714
+  - m_Id: 103986180096
+    m_Localized: "<color=green>WASD</color></b> o <color=green>Stick Izquierdo</color>
+      para moverse.\n<color=green>Rat\xF3n/Stick Derecho </color>para mover la c\xE1mara.\n\n<color=green>E</color>
+      o <color=green>X</color> (de mando) para <color=yellow>interactuar</color>
+      con los <color=yellow>pilares</color>.\n\nPara empezar las oledas, <color=orange>interact\xFAa</color>
+      con un pilar."
+    m_Metadata:
+      m_Items:
+      - rid: 6655671937300168714
+  - m_Id: 120994082816
+    m_Localized: "Activar un <color=yellow>pilar</color> de modificador mejorar\xE1
+      una caracteristica del personaje mientras est\xE9 cerca.\n\nLos modificadores
+      se muestran debajo de la barra de vida."
+    m_Metadata:
+      m_Items:
+      - rid: 6655671937300168714
+  - m_Id: 149993500672
+    m_Localized: "El modo DIOSA empodera todos los  <color=yellow>pilares</color>
+      a la vez durante un breve periodo de tiempo.\n\nAdem\xE1s, refresca todas las
+      habilidades."
+    m_Metadata:
+      m_Items:
+      - rid: 6655671937300168714
+  - m_Id: 169111138304
+    m_Localized: "Cuando un <color=yellow>pilar</color> est\xE1 empoderado otorga
+      una bonificaci\xF3n m\xE1s grande al efecto del  <color=yellow>pilar</color>
+      temporalmente."
+    m_Metadata:
+      m_Items:
+      - rid: 6655671937300168714
+  - m_Id: 1575238971392
+    m_Localized: Pilar de habilidad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1891799871488
+    m_Localized: "Controles b\xE1sicos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2029234630656
+    m_Localized: Pilar modificador
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2132875882496
+    m_Localized: Modo DIOSA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2258944077824
+    m_Localized: "Empoderaci\xF3n de pilar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2411788709888
+    m_Localized: <size=30><color=green>ESC</color></size> o <size=30 ><color=green>START</color></size>
+      para continuar.
+    m_Metadata:
+      m_Items:
+      - rid: 6655671937300168714
+  references:
+    version: 2
+    RefIds:
+    - rid: 6655671937300168714
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 00308feb0500000000300f36180000000030cf2b1c00000000304fec220000000030cf5f270000000030cf8931020000

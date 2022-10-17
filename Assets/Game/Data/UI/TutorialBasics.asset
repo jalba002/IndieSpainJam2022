@@ -12,11 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e604cb4ef2dd5347912829dc835332d, type: 3}
   m_Name: TutorialBasics
   m_EditorClassIdentifier: 
-  title: "Controles b\xE1sicos"
-  description: "<color=green>WASD</color></b> o <color=green>Stick Izquierdo</color>
-    para moverse.\n<color=green>Rat\xF3n/Stick Derecho </color>para mover la c\xE1mara.\n\n<color=green>E</color>
-    o <color=green>X</color> (de mando) para <color=yellow>interactuar</color> con
-    los <color=yellow>pilares</color>.\n\nPara empezar las oledas, <color=orange>interact\xFAa</color>
-    con un pilar."
+  tableCode: Tutorial
+  title: "ControlesB\xE1sicos"
+  description: TutroailBasics
   dismiss: <size=30><color=green>ESC</color></size> o <size=30 ><color=green>START</color></size>
     para continuar.
