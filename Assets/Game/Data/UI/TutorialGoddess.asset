@@ -15,5 +15,4 @@ MonoBehaviour:
   tableCode: Tutorial
   title: ModoDIOSA
   description: TutorialGoddess
-  dismiss: <size=30><color=green>ESC</color></size> o <size=30 ><color=green>START</color></size>
-    para continuar.
+  dismiss: Dismiss

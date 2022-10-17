@@ -24642,6 +24642,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3520615213281272104, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3520615213281272104, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3520615213281272104, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3520615213281272104, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3655970887405656446, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -24656,6 +24672,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3839495697125804619, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904026616449143481, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904026616449143481, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904026616449143481, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904026616449143481, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4190073013072368729, guid: 3606bde5aeacf534f80e44d919aaf2e7, type: 3}

@@ -51,7 +51,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   rayToGroundDistance: 10
-  soundsFMOD: {fileID: 3200541543036935055}
+  soundsFMOD: {fileID: 0}
   vfx: {fileID: 0}
 --- !u!114 &3200541543036935055
 MonoBehaviour:
@@ -60,7 +60,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3200541543036935054}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
@@ -74,8 +74,8 @@ MonoBehaviour:
       Data4: -1599168984
     Path: event:/SFX/Enemies/Enemy - 01 (Melee)/Attack
   Event: 
-  PlayEvent: 1
-  StopEvent: 2
+  PlayEvent: 0
+  StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0

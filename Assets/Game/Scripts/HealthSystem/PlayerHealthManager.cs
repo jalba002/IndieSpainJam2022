@@ -59,13 +59,16 @@ namespace CosmosDefender {
             StartCoroutine(DeathCoroutine());
             animator.SetTrigger("Death");
             SetInvulnerableState(true);
+            // AVOID MOVEMENT
+            GetComponent<PlayerMovementController>().enabled = false;
+            GetComponent<SpellManager>().enabled = false;
         }
 
         public override void DamageFeedback()
         {
             base.DamageFeedback();
             InvulnerableOverTime(InvulnerableTime);
-            //mainCameraShake.CameraShake(CameraShakeDuration, CameraShakeIntensity);
+            mainCameraShake.CameraShake(CameraShakeDuration, CameraShakeIntensity);
             //DecreaseHealthSmoothUpdateUI(currentHealth, -50f);
         }
 

@@ -15,5 +15,4 @@ MonoBehaviour:
   tableCode: Tutorial
   title: "ControlesB\xE1sicos"
   description: TutroailBasics
-  dismiss: <size=30><color=green>ESC</color></size> o <size=30 ><color=green>START</color></size>
-    para continuar.
+  dismiss: Dismiss

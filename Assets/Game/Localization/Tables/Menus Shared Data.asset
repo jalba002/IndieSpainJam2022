@@ -24,7 +24,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 116933308416
-    m_Key: TextoCreditos
+    m_Key: Texto
     m_Metadata:
       m_Items: []
   - m_Id: 164316360704
@@ -156,7 +156,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6296276098658304
-    m_Key: Menu
+    m_Key: ReturnToMenu
     m_Metadata:
       m_Items: []
   - m_Id: 6564348365680640

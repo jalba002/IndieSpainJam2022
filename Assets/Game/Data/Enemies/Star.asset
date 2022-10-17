@@ -9,10 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e604cb4ef2dd5347912829dc835332d, type: 3}
-  m_Name: TutorialModifierPillar
+  m_Script: {fileID: 11500000, guid: df710f69fa1529144b93679af9196105, type: 3}
+  m_Name: Star
   m_EditorClassIdentifier: 
-  tableCode: Tutorial
-  title: PilarModificador
-  description: TutorialModifierPillar
-  dismiss: Dismiss
+  MaxHealth: 1
+  Speed: 0
+  attackDamage: 0
+  attackRange: 0
+  AggroRange: 0
+  Defence: 0
+  StarResourceOnDeath: 1
+  GoddessResourceOnDeath: 1
