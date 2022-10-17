@@ -42,8 +42,8 @@ namespace CosmosDefender
         [Header("Animation")]
         [SerializeField] 
         private string animationCode;
-        [SerializeField] 
-        private float animationDelay;
+        [SerializeField] private float animationDelay;
+        [SerializeField] private float animationRecovery;
 
         [Header("HUD")] 
         [SerializeField] private Sprite abilityIcon;
@@ -63,6 +63,7 @@ namespace CosmosDefender
         public LayerMask LayerMask { get => layerMask; set => layerMask = value; }
         public string AnimationCode { get => animationCode; set => animationCode = value; }
         public float AnimationDelay { get => animationDelay; set => animationDelay = value; }
+        public float AnimationRecovery { get => animationRecovery; set => animationRecovery = value; }
         public Sprite AbilityIcon { get => abilityIcon; set => abilityIcon = value; }
     }
 }

@@ -13,22 +13,25 @@ public class EnemyHealthManager : HealthManager
     private Animator animator;
 
     private ScreenShake screenShake;
-    
-    [Header("Settings")]
-    [SerializeField] private EnemyData data;
+
+    [Header("Settings")] [SerializeField] private EnemyData data;
 
     [SerializeField] private bool destroyOnDie = true;
 
     private EnemySpawner enemySpawner;
     private EnemyAI enemyAI;
 
-    [Header("VFX")] 
-    [SerializeField] private Vector3 sizeOverride = new Vector3(5f, 20f, 5f);
+    [Header("VFX")] [SerializeField] private Vector3 sizeOverride = new Vector3(5f, 20f, 5f);
     [SerializeField] private VisualEffect prefab;
     [SerializeField] private SkinnedMeshRenderer attachedMRtoRender;
 
-    [Header("Sounds")] [SerializeField] private StudioEventEmitter dieSound;
+    [Header("Sounds")]
+    [Tooltip("Damaged")]
     [SerializeField] private StudioEventEmitter damageSound;
+    [Tooltip("Die")]
+    [SerializeField] private StudioEventEmitter dieSound;
+
+    private float timeForNextDamageFeedback = 0f;
 
     private void Awake()
     {
@@ -58,31 +61,36 @@ public class EnemyHealthManager : HealthManager
         enemyAI.Death();
 
         dieSound.Play();
+
+        var vfxObject = Instantiate(prefab, attachedMRtoRender.transform.position,
+            attachedMRtoRender.transform.rotation);
         
-        var vfxObject = Instantiate(prefab, attachedMRtoRender.transform.position, attachedMRtoRender.transform.rotation);
         vfxObject.SetVector3("Size", sizeOverride);
         Mesh m = new Mesh
         {
             name = "TemporalSkinnedMesh",
         };
-        vfxObject.gameObject.GetComponent<VFXPropertyBinder>().AddPropertyBinder<VFXTransformBinder>().Init("VictimTransform", attachedMRtoRender.transform);
+        
+        vfxObject.gameObject.GetComponent<VFXPropertyBinder>().AddPropertyBinder<VFXTransformBinder>()
+            .Init("VictimTransform", attachedMRtoRender.transform);
         attachedMRtoRender.BakeMesh(m);
         vfxObject.SetMesh("VictimMesh", m);
-        
+
         Destroy(vfxObject.gameObject, 4f);
-        
-        if(destroyOnDie)
+
+        if (destroyOnDie)
             Destroy(gameObject);
     }
 
     [Button]
     public override void DamageFeedback()
     {
-        animator.SetTrigger("Damaged");
-        //sounds.PlayDamageSound();
-        //screenShake.CameraShake(0.1f, 0.75f);
-        damageSound.Play();
-        //Debug.Log($"{gameObject.name} has <color=green>{currentHealth}</color> HP");
+        if (Time.time > timeForNextDamageFeedback)
+        {
+            animator.SetTrigger("Damaged");
+            damageSound.Play();
+            timeForNextDamageFeedback = Time.time + 0.15f;
+        }
     }
 
     public void SetEnemySpawner(EnemySpawner enemySpawner)

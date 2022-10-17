@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveConfigs:
   - {fileID: 11400000, guid: 4087e830d42ec6746a082c5aeefa068a, type: 2}
-  MaxWaves: 1
+  MaxWaves: 0

@@ -130,7 +130,6 @@ public class SpellManager : MonoBehaviour, ISpellCaster
                 skillPreviewer.Deactivate();
                 break;
             case CastType.Held:
-                Debug.Log("Casting held spell!");
                 holdingSpell = true;
                 heldSpell = selectedSpell;
                 CastHeldSpell();
@@ -170,8 +169,10 @@ public class SpellManager : MonoBehaviour, ISpellCaster
 
     void StopCastingHeldSpell()
     {
-        Debug.Log("stopping spell casted.");
+        if (heldSpell == null) return;
+        
         heldSpell.StopCast();
+        timeUntilAvailableCast = Time.time + (heldSpell.spellData.AnimationRecovery);
         heldSpell = null;
     }
 
@@ -219,7 +220,6 @@ public class SpellManager : MonoBehaviour, ISpellCaster
 
     void OnFire(InputValue value)
     {
-        Debug.Log("Firing?");
         if (skillPreviewer.IsActive)
         {
             CastPreviewedSpell(ref previewedSpell);
